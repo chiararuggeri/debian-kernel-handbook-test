@@ -56,6 +56,14 @@
 	  released version is always available from 
 	  <url id="http://kernel-handbook.alioth.debian.org" name="http://kernel-handbook.alioth.debian.org">.
 	</p>
+	<p>
+	  Some of the commands mentioned in the text must be executed
+	  with superuser priviliges, either by becoming the <tt>root</tt> user
+	  or by using <tt>sudo</tt>. To distinguish between commands which
+	  may be executed by an unprivileged user and those requiring
+	  superuser privileges, commands are prepended by <tt>$</tt>
+	  or <tt>#</tt> respectively. This symbol is not a part of
+	  the command.
       </sect>
       <sect id="authors">
         <heading>Authors and Contributors</heading>
@@ -461,10 +469,10 @@ apt-get install linux-headers-$(uname -r)
 	  To get the Debian kernel source at the current maximum patchlevel,
 	  it is sufficient to install the latest <tt>linux-source-<em>version</em></tt>
 	  package and unpack the source, for example:
-	  <list compact="compact">
-	    <item><tt>apt-get install linux-source-2.6.12</tt></item>
-	    <item><tt>tar jxf /usr/src/linux-source-2.6.12.tar.bz2</tt></item>
-	  </list>
+	  <example>
+# apt-get install linux-source-2.6.12
+$ tar jxf /usr/src/linux-source-2.6.12.tar.bz2
+          </example>
 	  The unpacked source tree then will be available in <tt>linux-source-2.6.12</tt> directory.
 	</p>
 	
@@ -481,11 +489,11 @@ apt-get install linux-headers-$(uname -r)
 	  available in the <tt>linux-source-2.6.12</tt> directory. It
 	  can then be rolled back to the desired patchlevel (1 in the
 	  example below) by running
-	  <list compact="compact">
-	    <item><tt>apt-get install linux-patch-debian-2.6.12</tt></item>
-	    <item><tt>cd linux-source-2.6.12</tt></item>
-	    <item><tt>/usr/src/kernel-patches/all/2.6.12/apply/debian 2.6.12-1</tt></item>
-	  </list>
+	  <example>
+# apt-get install linux-patch-debian-2.6.12
+$ cd linux-source-2.6.12
+$ /usr/src/kernel-patches/all/2.6.12/apply/debian 2.6.12-1
+          </example>
 	  The last command will <em>unapply</em> the set of patches,
 	  which lead from patchlevel 1 to patchlevel 3 and the
 	  resulting tree will appear as if it came from the version
@@ -516,7 +524,7 @@ apt-get install linux-headers-$(uname -r)
 	  distributed in the Debian archive use the following
 	  procedure:
 	  <taglist>
-	    <tag><tt>apt-get source linux-<em>major</em></tt></tag>	      
+	    <tag><tt>$ apt-get source linux-<em>major</em></tt></tag>	      
 	    <item>
 	      This will download and unpack the
 	      <tt>linux-<em>major</em></tt> source package, making the
@@ -527,14 +535,14 @@ apt-get install linux-headers-$(uname -r)
 	      determine its patchlevel with respect to the original
 	      upstream kernel source.
 	    </item>
-	    <tag><tt>apt-get install build-essential fakeroot</tt></tag>
-	    <tag><tt>apt-get build-dep linux-<em>major</em></tt></tag>
+	    <tag><tt># apt-get install build-essential fakeroot</tt></tag>
+	    <tag><tt># apt-get build-dep linux-<em>major</em></tt></tag>
 	    <item>
 	      The last two commands will install the build dependencies required by the kernel
 	      build process.
 	    </item>
-	    <tag><tt>cd linux-<em>major</em>-<em>version</em></tt></tag>
-	    <tag><tt>fakeroot debian/rules binary</tt></tag>
+	    <tag><tt>$ cd linux-<em>major</em>-<em>version</em></tt></tag>
+	    <tag><tt>$ fakeroot debian/rules binary</tt></tag>
 	    <item>
 	      The last command will start the kernel build and should
 	      result in creation of the kernel packages, identical to
@@ -546,14 +554,16 @@ apt-get install linux-headers-$(uname -r)
 	      the <tt>linux-image</tt>) or architecture-independent
 	      packages are required. It is possible to further
 	      restrict the build to only the desired flavours of the
-	      kernel images by supplying the <tt>flavours</tt>
-	      variable on the command line. For example, the command
+	      kernel images by invoking the individual targets directly.
+	      For example, to build only the binary packages for 686 
+	      flavour on i386 architecture, use the following commands:
 	      <example>
-	      fakeroot debian/rules flavours=686 binary-arch
+$ fakeroot debian/rules debian/build debian/stamps
+$ fakeroot make -f debian/rules.gen binary-arch-i386-none-686
 	      </example>
-	      will only build the official kernel image
-	      (<tt>linux-image-2.6.12-1-686</tt> binary package) for the 686
-	      flavour on i386 architecture.
+	      The target in the last command has general form of
+	      <tt><em>target</em>-<em>arch</em>-<em>subarch</em>-<em>flavour</em></tt>.
+	      Replace the <tt><em>subarch</em></tt> with <tt>none</tt> if it is empty.
 	    </item>
 	  </taglist>
 	</p>
@@ -576,13 +586,14 @@ apt-get install linux-headers-$(uname -r)
 	  It is possible to apply extra patches to the tree before
 	  starting the build. To do that, before invoking the
 	  <tt>binary</tt> or <tt>binary-arch</tt> target, use the
-	  <tt>unpack</tt> target to unpack the tree and prepare it for
+	  <tt>setup</tt> target to unpack the tree and prepare it for
 	  a build:
 	  <example>
-	  fakeroot debian/rules flavours=686 unpack
+$ fakeroot debian/rules debian/build debian/stamps
+$ fakeroot make -f debian/rules.gen setup-i386-none-686
 	  </example>
 	  This will unpack the kernel tree in the
-	  <tt>debian/build-none-686</tt> directory, where the extra
+	  <tt>debian/build/build-i386-none-686</tt> directory, where the extra
 	  patches may be applied. After that the <tt>binary</tt> or
 	  <tt>binary-arch</tt> target may be invoked to complete the
 	  build, as described above.
