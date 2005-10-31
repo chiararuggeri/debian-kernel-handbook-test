@@ -723,7 +723,7 @@ $ fakeroot make -f debian/rules.gen setup-i386-none-686
 	initrd generation script from considering <tt>yaird</tt> as
 	a candidate:
 	<example>
-ramdisk = /sbin/mkinitramfs /sbin/mkinitrd
+ramdisk = /usr/sbin/mkinitramfs /usr/sbin/mkinitrd
         </example>
       </p>
       </sect>
@@ -746,7 +746,7 @@ ramdisk = /sbin/mkinitramfs /sbin/mkinitrd
 	<p>
 	Occasionally it is useful to examine the contents of initrd
 	to diagnose a problem or for educational purposes. The old-style
-	initrds created by <tt>/sbin/mkinitrd</tt> from <tt>initrd-tools</tt>
+	initrds created by <tt>/usr/sbin/mkinitrd</tt> from <tt>initrd-tools</tt>
 	package are either <tt>cramfs</tt> or <tt>ext2</tt> filesystem, so
 	they need to be mounted to access their contents. This may be achieved
 	with the commands like
