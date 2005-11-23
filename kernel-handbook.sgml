@@ -770,6 +770,74 @@ $ cpio -i < initrd
     </chapt>
     <chapt id="bugs">
       <heading>Filing a bug against a kernel package</heading>
+      <p>
+        <em>This section is a WORK IN PROGRESS!</em>
+      </p>
+      <p>
+      <list>
+	<item>
+
+	  <em>Do the research.</em> Before filing the bug search the
+	  web for the particular error message or symptom you are
+	  getting. As it is highly unlikely that you are the only
+	  person, experiencing a particular problem, there is always a
+	  chance that it has been discussed elsewhere, and a possible
+	  solution, patch, or workaround has been proposed. If such
+	  information exists, always include the references to it in
+	  your report.
+
+	</item>
+	<item>
+	  <em>Try to reproduce the problem with "vanilla" kernel.</em>
+	  If you have a chance, try to reproduce the problem by
+	  building the binary kernel image from the "vanilla" kernel
+	  source, available from <url id="http://www.kernel.org"
+	  name="http://www.kernel.org"> or its mirrors, using the same
+	  configuration as the Debian stock kernels. For more
+	  information on how to do this, look at FIXME. If there is
+	  convincing evidence that the buggy behavior is caused by the
+	  Debian-specific changes to the kernel, the bug will usually be
+	  assigned higher priority by the d-k team.
+	</item>
+        <item>
+          <em>Use the correct package to report the bug against.</em>
+	  All the binary kernel packages are produced from a single
+	  <tt>linux-2.6</tt> source package. Because of that, the usual
+	  way for d-k team members to scan for bugs is to look at the
+	  list of bugs for the <tt>linux-2.6</tt> source package, available
+	  at <url id="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6"
+	  name="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6">.
+	  It is therefore crucial that you report the bug against one of the
+	  binary packages listed on that page (check that it shows up on that
+	  page after you do!). If in doubt, file the bug against the binary 
+	  package <tt>linux-2.6</tt>, which is also built from the <tt>linux-2.6</tt> 
+	  source. Failure to follow that rule will drastically reduce the 
+	  chances that your bug will be noticed by the d-k team and acted upon.
+        </item>
+	<item>
+	  <em>Bugs involving <tt>PREEMPT</tt>.</em> Even in the latest kernels
+	  making the kernel preemptible (by enabling the <tt>CONFIG_PREEMPT</tt>
+	  configuration option) will occasionally lead to problems in form of kernel
+	  oops. For this reason this option is disabled in Debian kernel packages,
+	  so problem can only be triggered with a custom kernel. It is known
+	  to the upstream kernel developers and it is most likely that d-k team
+	  will not be able to do anything about it.
+	</item>
+	<item>
+	  <em>Bugs involving ACPI.</em> While ACPI (Advanced Control and
+	  Power Interface) support in Linux kernel has matured greatly in the 2.6
+	  series, it occasionally causes problems (misrouted interrupts, failure
+	  to go into or return from the sleep/hybernation/suspend mode) on newer
+	  laptop models. They may be caused both by bugs in the kernel code or (more
+	  likely) in the ACPI interface of a particular machine. As resolution of
+	  such bugs requires access to the machine in question, it is pretty
+	  unlikely that d-k team will be able to do something about it. Consider
+	  reporting the problem to upstream ACPI developers (where?). As a workaround,
+	  try booting the kernel with some combination of boot options <tt>acpi=off</tt>,
+	  <tt>pci=norouteirq</tt>, <tt>noacpi</tt> to see if that improves the situation.
+	</item>
+      </list>
+      </p>
     </chapt>
     <chapt id="developer">
       <heading>Information for developers of the kernel packages</heading>
