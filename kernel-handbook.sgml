@@ -602,7 +602,105 @@ $ fakeroot make -f debian/rules.gen setup-i386-none-686
       <sect id="common-building">
         <heading>Building a custom kernel from Debian kernel source</heading>
 	<p>
-	  To be contributed.
+	  Building a custom kernel may present significant challenge
+	  to an inexperienced user. You need to understand what you
+	  are doing, make sure that all the right tools are installed,
+	  select the correct kernel options to support your hardware
+	  and make sure that the bootloader has been configured
+	  correctly. Even though there is a number of safeguards, they
+	  definitely cannot catch all user errors (like failing to
+	  compile in the support for the IDE controller), so an
+	  unbootable system is always a possibility. Also note, that
+	  this chapter is not intended as a comprehensive guide
+	  to kernel building and configuration, it describes the simplest
+	  possible way to build a kernel the "Debian way".
+        </p>
+	<p>
+	  The easiest way to build a custom kernel (the kernel with
+	  the configuration different from the one used in the
+	  official packages) from the Debian kernel source is to use
+	  the <tt>linux-source</tt> package and the <tt>make-kpkg</tt>
+	  command, available as a part of the <tt>kernel-package</tt>.
+	  First, prepare the kernel tree:
+	  <example>
+# apt-get install linux-source-2.6.15
+$ tar xjf /usr/src/linux-source-2.6.15.tar.bz2
+$ cd linux-source-2.6.15
+          </example>
+	  The kernel now needs to be configured, that is you have to
+	  set the kernel options and select the drivers which are
+	  going to be included, either as built-in, or as
+	  external modules. The <tt>Makefile</tt> shipped with the
+	  kernel offers a number of targets, which invoke different
+	  configuration frontends. For example, one can use
+	  console-based menu configuration by invoking the command
+	  <example>
+$ make menuconfig
+          </example>
+	  Instead of <tt>menuconfig</tt> one can use <tt>config</tt>
+	  (text-based line-by-line configuration frontend) or
+	  <tt>xconfig</tt> (graphical configuration frontend). It is
+	  also possible to reuse your old configuration file by
+	  placing it as a <tt>.config</tt> file in the top-level
+	  directory and running one of the configuration targets (if
+	  you want to adjust something) or <tt>make oldconfig</tt>.
+	  Note that different frontend may require different
+	  additional libraries and utilities to be installed to
+	  function properly. For example, the <tt>menuconfig</tt>
+	  frontend requires the <tt>ncurses</tt> library, which at
+	  time of writing is provided by the <tt>libncurses5-dev</tt>
+	  package.
+	</p>
+	<p>
+	  After the configuration process is finished, the kernel
+	  configuration will be stored in <tt>.config</tt> file in the
+	  top-level directory. Once it's in place, you need to decide
+	  whether you want a kernel with or without initrd support.
+	  See <ref id="initrd"> for details on what initrd is. If you
+	  decide to go for a initrd-enabled kernel, it should include
+	  the initrd support in its configuration. The build for a
+	  non-initrd kernel is started using the commands
+	  <example>
+$ make-kpkg clean
+$ fakeroot make-kpkg --revision=custom.1.0 kernel_image
+          </example>
+	  The <tt>custom.1.0</tt> part in this command is the version
+	  identifier, which will get appended to the kernel package
+	  name. Feel free to adjust it to your liking. For an
+	  initrd-enabled kernel add an extra <tt>--initrd</tt> argument
+	  to the second command:
+	  <example>
+$ make-kpkg clean
+$ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
+          </example>
+
+	  As a result of the build a custom kernel package
+	  <tt>linux-image-2.6.15_custom.1.0_i386.deb</tt> (name will
+	  reflect the revision chosen in the command line above) will
+	  be created in the directory one level above the top of the
+	  tree. It may be installed using <tt>dpkg</tt> as any
+	  other package: 
+	  <example> 
+# dpkg -i ../linux-image-2.6.15_custom.1.0_i386.deb
+	  </example>
+	  This command will unpack the kernel, generate the initrd
+	  if necessary (see <ref id="initrd"> for details), and
+	  configure the bootloader to make the newly installed
+	  kernel the default one. After that you can reboot using the
+	  <example>
+# shutdown -r now
+          </example>
+	  to boot the new kernel.
+	</p>
+	<p>
+	For much more information about <tt>make-kpkg</tt>, bootloaders
+	and their configuration please check their documentation, which
+	can be accessed using the commands <tt>man make-kpkg</tt>, 
+	<tt>man lilo</tt>, <tt>man lilo.conf</tt>, <tt>man grub</tt>,
+	and so on. You can also look for
+	documentation in the <tt>/usr/share/doc/<em>package</em></tt>
+	directories, with <tt><em>package</em></tt> being the name
+	of the package involved.
 	</p>  
       </sect>
       <sect id="common-out-of-tree">
