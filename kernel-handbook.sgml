@@ -13,10 +13,10 @@
 
       <copyright>
 	<copyrightsummary>
-	  Copyright &copy; 2005 Debian Kernel Handbook Project
+	  Copyright &copy; 2005, 2006 Debian Kernel Handbook Project
 	</copyrightsummary>
 	<p>
-	  This manual is free software; you may redistribute it and/or
+	  This handbook is free software; you may redistribute it and/or
 	  modify it under the terms of the GNU General Public License
 	  as published by the Free Software Foundation; either version
 	  2, or (at your option) any later version.
@@ -602,18 +602,12 @@ $ fakeroot make -f debian/rules.gen setup-i386-none-686
       <sect id="common-building">
         <heading>Building a custom kernel from Debian kernel source</heading>
 	<p>
-	  Building a custom kernel may present significant challenge
-	  to an inexperienced user. You need to understand what you
-	  are doing, make sure that all the right tools are installed,
-	  select the correct kernel options to support your hardware
-	  and make sure that the bootloader has been configured
-	  correctly. Even though there is a number of safeguards, they
-	  definitely cannot catch all user errors (like failing to
-	  compile in the support for the IDE controller), so an
-	  unbootable system is always a possibility. Also note, that
-	  this chapter is not intended as a comprehensive guide
-	  to kernel building and configuration, it describes the simplest
-	  possible way to build a kernel the "Debian way".
+	  This chapter describes the simplest possible procedure to
+	  build a custom kernel the "Debian way". It is assumed that
+	  user is somewhat familiar with kernel configuration and
+	  build process. If that's not the case, it is recommended to
+	  consult the kernel documentation and many excellent online
+	  resources dedicated to it.
         </p>
 	<p>
 	  The easiest way to build a custom kernel (the kernel with
@@ -629,11 +623,11 @@ $ cd linux-source-2.6.15
           </example>
 	  The kernel now needs to be configured, that is you have to
 	  set the kernel options and select the drivers which are
-	  going to be included, either as built-in, or as
-	  external modules. The <tt>Makefile</tt> shipped with the
-	  kernel offers a number of targets, which invoke different
-	  configuration frontends. For example, one can use
-	  console-based menu configuration by invoking the command
+	  going to be included, either as built-in, or as external
+	  modules. The kernel build infrastructure offers a number of
+	  targets, which invoke different configuration frontends. For
+	  example, one can use console-based menu configuration by
+	  invoking the command
 	  <example>
 $ make menuconfig
           </example>
@@ -644,7 +638,7 @@ $ make menuconfig
 	  placing it as a <tt>.config</tt> file in the top-level
 	  directory and running one of the configuration targets (if
 	  you want to adjust something) or <tt>make oldconfig</tt>.
-	  Note that different frontend may require different
+	  Note that different frontends may require different
 	  additional libraries and utilities to be installed to
 	  function properly. For example, the <tt>menuconfig</tt>
 	  frontend requires the <tt>ncurses</tt> library, which at
@@ -652,14 +646,15 @@ $ make menuconfig
 	  package.
 	</p>
 	<p>
-	  After the configuration process is finished, the kernel
-	  configuration will be stored in <tt>.config</tt> file in the
-	  top-level directory. Once it's in place, you need to decide
-	  whether you want a kernel with or without initrd support.
-	  See <ref id="initrd"> for details on what initrd is. If you
-	  decide to go for a initrd-enabled kernel, it should include
-	  the initrd support in its configuration. The build for a
-	  non-initrd kernel is started using the commands
+	  After the configuration process is finished, the new or
+	  updated kernel configuration will be stored in
+	  <tt>.config</tt> file in the top-level directory. Once it's
+	  in place, you need to decide whether you want a kernel with
+	  or without initrd support.  See <ref id="initrd"> for
+	  details on what initrd is. If you decide to go for a
+	  initrd-enabled kernel, it should include the initrd support
+	  in its configuration. The build for a non-initrd kernel is
+	  started using the commands
 	  <example>
 $ make-kpkg clean
 $ fakeroot make-kpkg --revision=custom.1.0 kernel_image
@@ -673,34 +668,34 @@ $ fakeroot make-kpkg --revision=custom.1.0 kernel_image
 $ make-kpkg clean
 $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
           </example>
-
 	  As a result of the build a custom kernel package
 	  <tt>linux-image-2.6.15_custom.1.0_i386.deb</tt> (name will
-	  reflect the revision chosen in the command line above) will
-	  be created in the directory one level above the top of the
-	  tree. It may be installed using <tt>dpkg</tt> as any
-	  other package: 
+	  reflect the version of the kernel and the revision chosen in
+	  the command line above) will be created in the directory one
+	  level above the top of the tree. It may be installed using
+	  <tt>dpkg</tt> as any other package:
 	  <example> 
 # dpkg -i ../linux-image-2.6.15_custom.1.0_i386.deb
 	  </example>
-	  This command will unpack the kernel, generate the initrd
-	  if necessary (see <ref id="initrd"> for details), and
-	  configure the bootloader to make the newly installed
-	  kernel the default one. After that you can reboot using the
+	  This command will unpack the kernel, generate the initrd if
+	  necessary (see <ref id="initrd"> for details), and configure
+	  the bootloader to make the newly installed kernel the
+	  default one. After that you can reboot using the
 	  <example>
 # shutdown -r now
           </example>
-	  to boot the new kernel.
+	  command to boot the new kernel.
 	</p>
 	<p>
-	For much more information about <tt>make-kpkg</tt>, bootloaders
-	and their configuration please check their documentation, which
-	can be accessed using the commands <tt>man make-kpkg</tt>, 
-	<tt>man lilo</tt>, <tt>man lilo.conf</tt>, <tt>man grub</tt>,
-	and so on. You can also look for
-	documentation in the <tt>/usr/share/doc/<em>package</em></tt>
-	directories, with <tt><em>package</em></tt> being the name
-	of the package involved.
+  	  For much more information about <tt>make-kpkg</tt>,
+	  bootloaders and their configuration please check their
+	  documentation, which can be accessed using the commands
+	  <tt>man make-kpkg</tt>, <tt>man lilo</tt>, <tt>man
+	  lilo.conf</tt>, <tt>man grub</tt>, and so on. You can also
+	  look for documentation in the
+	  <tt>/usr/share/doc/<em>package</em></tt> directories, with
+	  <tt><em>package</em></tt> being the name of the package
+	  involved.
 	</p>  
       </sect>
       <sect id="common-out-of-tree">
@@ -869,21 +864,39 @@ $ cpio -i < initrd
     <chapt id="bugs">
       <heading>Filing a bug against a kernel package</heading>
       <p>
-        <em>This section is a WORK IN PROGRESS!</em>
+        <em>This chapter is a WORK IN PROGRESS! The information here
+	    has not been endorsed by all members of the kernel team
+	    yet.
+	</em>
       </p>
       <p>
+        Debian kernel team keeps track of the kernel package bugs in
+	the Debian Bug Tracking System (BTS). For information on how
+	to use the system see
+	<url id="http://bugs.debian.org" name="http://bugs.debian.org">.
+	You can also submit the bugs by using the <tt>reportbug</tt>
+	command from the package with the same name.
+      </p>
+      <p>
+        Nothing in this chapter is intended to keep you from filing a
+	bug against one of the kernel packages.  However, you should
+	recognize that the resources of the Debian kernel team are
+	limited, and efficient reaction to a bug is largely determined
+	by the amount and quality of the information included in the
+	bug report. Please help us to do a better job by using the
+	following guidelines when preparing to file the bug against
+	kernel packages:
       <list>
 	<item>
-
 	  <em>Do the research.</em> Before filing the bug search the
 	  web for the particular error message or symptom you are
 	  getting. As it is highly unlikely that you are the only
-	  person, experiencing a particular problem, there is always a
+	  person experiencing a particular problem, there is always a
 	  chance that it has been discussed elsewhere, and a possible
 	  solution, patch, or workaround has been proposed. If such
 	  information exists, always include the references to it in
-	  your report.
-
+	  your report. Check the <url id="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6" name="current bug list">
+	  to see whether something similar has been reported already.
 	</item>
 	<item>
 	  <em>Try to reproduce the problem with "vanilla" kernel.</em>
@@ -892,47 +905,80 @@ $ cpio -i < initrd
 	  source, available from <url id="http://www.kernel.org"
 	  name="http://www.kernel.org"> or its mirrors, using the same
 	  configuration as the Debian stock kernels. For more
-	  information on how to do this, look at FIXME. If there is
-	  convincing evidence that the buggy behavior is caused by the
-	  Debian-specific changes to the kernel, the bug will usually be
-	  assigned higher priority by the d-k team.
+	  information on how to do this, look at <ref
+	  id="common-building">. If there is convincing evidence that
+	  the buggy behavior is caused by the Debian-specific changes
+	  to the kernel, the bug will usually be assigned higher
+	  priority by the d-k team. If the bug is not specific for
+	  Debian, check out the upstream <url
+	  id="http://bugzilla.kernel.org" name="kernel bug database">
+	  to see if it has been reported there. If you are sure that
+	  it is an upstream problem, you can also report your bug
+	  there (but submit it to Debian BTS anyway, so that we can
+	  track it properly).
 	</item>
         <item>
           <em>Use the correct package to report the bug against.</em>
 	  All the binary kernel packages are produced from a single
-	  <tt>linux-2.6</tt> source package. Because of that, the usual
-	  way for d-k team members to scan for bugs is to look at the
-	  list of bugs for the <tt>linux-2.6</tt> source package, available
-	  at <url id="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6"
+	  <tt>linux-2.6</tt> source package. Because of that, the
+	  usual way for d-k team members to scan for bugs is to look
+	  at the list of bugs for the <tt>linux-2.6</tt> source
+	  package, available at <url
+	  id="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6"
 	  name="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6">.
-	  It is therefore crucial that you report the bug against one of the
-	  binary packages listed on that page (check that it shows up on that
-	  page after you do!). If in doubt, file the bug against the binary 
-	  package <tt>linux-2.6</tt>, which is also built from the <tt>linux-2.6</tt> 
-	  source. Failure to follow that rule will drastically reduce the 
-	  chances that your bug will be noticed by the d-k team and acted upon.
+	  It is therefore crucial that you report the bug against one
+	  of the binary packages listed on that page (check that it
+	  shows up on that page after you do!). If in doubt, file the
+	  bug against the binary package <tt>linux-2.6</tt>, which is
+	  also built from the <tt>linux-2.6</tt> source. Failure to
+	  follow that rule will drastically reduce the chances that
+	  your bug will be noticed by the d-k team and acted upon.
         </item>
 	<item>
-	  <em>Bugs involving <tt>PREEMPT</tt>.</em> Even in the latest kernels
-	  making the kernel preemptible (by enabling the <tt>CONFIG_PREEMPT</tt>
-	  configuration option) will occasionally lead to problems in form of kernel
-	  oops. For this reason this option is disabled in Debian kernel packages,
-	  so problem can only be triggered with a custom kernel. It is known
-	  to the upstream kernel developers and it is most likely that d-k team
-	  will not be able to do anything about it.
+	  <em>Bugs involving <tt>PREEMPT</tt>.</em> Even in the latest
+	  kernels making the kernel preemptible (by enabling the
+	  <tt>CONFIG_PREEMPT</tt> configuration option) will
+	  occasionally lead to problems in form of occasional kernel
+	  oops. For this reason this option is disabled in Debian
+	  kernel packages, so problem can only be triggered with a
+	  custom kernel. It is known to the upstream kernel developers
+	  and it is most likely that d-k team will not be able to do
+	  anything about it.
 	</item>
 	<item>
-	  <em>Bugs involving ACPI.</em> While ACPI (Advanced Control and
-	  Power Interface) support in Linux kernel has matured greatly in the 2.6
-	  series, it occasionally causes problems (misrouted interrupts, failure
-	  to go into or return from the sleep/hybernation/suspend mode) on newer
-	  laptop models. They may be caused both by bugs in the kernel code or (more
-	  likely) in the ACPI interface of a particular machine. As resolution of
-	  such bugs requires access to the machine in question, it is pretty
-	  unlikely that d-k team will be able to do something about it. Consider
-	  reporting the problem to upstream ACPI developers (where?). As a workaround,
-	  try booting the kernel with some combination of boot options <tt>acpi=off</tt>,
-	  <tt>pci=norouteirq</tt>, <tt>noacpi</tt> to see if that improves the situation.
+	  <em>Bugs involving ACPI.</em> While ACPI (Advanced Control
+	  and Power Interface) support in Linux kernel has matured
+	  greatly in the 2.6 series, it occasionally causes problems
+	  (misrouted interrupts, failure to go into or return from the
+	  sleep/hybernation/suspend mode) on newer laptop models. They
+	  may be caused both by bugs in the kernel code or (more
+	  likely) in the ACPI interface of a particular machine. As
+	  resolution of such bugs requires access to the machine in
+	  question, it is pretty unlikely that d-k team will be able
+	  to do something about it. Consider reporting the problem to
+	  the <url
+	  id="http://vger.kernel.org/vger-lists.html#linux-acpi"
+	  name="Linux ACPI mailing list"> along with the submission to
+	  the Debian BTS. As a workaround, try booting the kernel with
+	  some combination of boot options <tt>acpi=off</tt>,
+	  <tt>pci=norouteirq</tt>, <tt>noacpi</tt> to see if that
+	  improves the situation.
+	</item>
+	<item>
+	  <em>Bugs involving tainted kernels.</em> If a kernel
+	  crashes, it would normally print out some debugging
+	  information, indicating, among other things, whether the
+	  running kernel has been tainted. The kernel is referred to
+	  as tainted if at the time of the crash it had some binary
+	  third-party modules loaded. As kernel developers do not
+	  have access to the source code for such modules, problems
+	  involving them are notoriously difficult to debug. It is
+	  therefore strongly recommended to try and reproduce the
+	  problem with an untainted kernel (by preventing the loading
+	  of binary modules, for example). If the problem is due to
+	  the presence of such modules, there is not much the kernel
+	  community can do about it and it should be reported directly
+	  to their authors.
 	</item>
       </list>
       </p>
