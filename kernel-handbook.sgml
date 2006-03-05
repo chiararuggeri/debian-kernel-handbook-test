@@ -218,10 +218,20 @@
 	    instructions on obtaining Debian kernel source with arbitrary
 	    patchlevel, see <ref id="common-getting">.
 	  </item>
+	  <tag><tt>linux-manual-<em>version</em></tt></tag>
+	  <item>
+	    This package contains the manual pages for the functions,
+	    constituting the kernel API. These pages are installed
+	    into <tt>/usr/share/man/man9/</tt>, and are accessible
+	    with the standard <tt>man</tt> command. Only one
+	    <tt>linux-manual</tt> package for a particular kernel
+	    version may be installed in the system at any given time.
+	  </item>
 	  <tag><tt>linux-doc-<em>version</em></tt></tag>
 	  <item>
-	    This package contains the kernel documentation in various
-	    formats. It is installed in <tt>/usr/share/doc/linux-doc-<em>version</em></tt>.
+	    This package contains the rest of the kernel documentation
+	    in various formats. It is installed in
+	    <tt>/usr/share/doc/linux-doc-<em>version</em></tt>.
 	  </item>
 	  <tag><tt>linux-patch-debian-<em>version</em></tt></tag>
 	  <item>
@@ -681,7 +691,8 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
 	  This command will unpack the kernel, generate the initrd if
 	  necessary (see <ref id="initrd"> for details), and configure
 	  the bootloader to make the newly installed kernel the
-	  default one. After that you can reboot using the
+	  default one. If this command completed without any problems,
+	  you can reboot using the
 	  <example>
 # shutdown -r now
           </example>
@@ -900,6 +911,21 @@ $ cpio -i < initrd
 	  to see whether something similar has been reported already.
 	</item>
 	<item>
+	  <em>Collect the information.</em> Please provide enough
+	  information with your report. At a minimum, it should
+	  contain the exact version of the official Debian kernel
+	  package, where the bug is encountered, and steps to
+	  reproduce it. Depending on the nature of the bug you
+	  reporting, you might also want to include the output of
+	  <tt>dmesg</tt> (or portions thereof), output of the
+	  <tt>lspci -v</tt> and <tt>lspci -n</tt>. If applicable,
+	  include the information about the latest known kernel
+	  version where the bug is not present, and output of the
+	  above commands for the working kernel as well. Use
+	  common sense and include other relevant information,
+	  if you think that it might help in solving the problem.
+	</item>
+	<item>
 	  <em>Try to reproduce the problem with "vanilla" kernel.</em>
 	  If you have a chance, try to reproduce the problem by
 	  building the binary kernel image from the "vanilla" kernel
@@ -962,8 +988,8 @@ $ cpio -i < initrd
 	  name="Linux ACPI mailing list"> along with the submission to
 	  the Debian BTS. As a workaround, try booting the kernel with
 	  some combination of boot options <tt>acpi=off</tt>,
-	  <tt>pci=norouteirq</tt>, <tt>noacpi</tt> to see if that
-	  improves the situation.
+	  <tt>pci=norouteirq</tt>, <tt>pci=noacpi</tt>, and
+	  <tt>nolapic</tt> to see if that improves the situation.
 	</item>
 	<item>
 	  <em>Bugs involving tainted kernels.</em> If a kernel
