@@ -733,23 +733,24 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
       <heading>Managing the kernel modules</heading>
     </chapt>
     <chapt id="initramfs">
-      <heading>Managing the initial RAM disk (initrd) image</heading>
+      <heading>Managing the initial ramfs (initramfs) archive</heading>
       <p>
         <strong>Note:</strong> the information in this section mostly applies
-	to the kernel packages starting with version 2.6.13.
+	to the kernel packages starting with version 2.6.12.
       </p>
       <p>
         The boot process in Debian is a two-stage process, involving 
-	the initial RAM disk (initrd for short). First, the bootloader 
-	loads the kernel and initrd into memory, and passes the execution
+	the initial ramfs (initramfs for short). First, the bootloader 
+	loads the kernel and initramfs into memory, and passes the execution
 	control to the kernel. After basic initialization the kernel
-	mounts initrd as a temporary root filesystem. The initrd normally
+	extracts the cpio initramfs archive as root filesystem. The kernel
+        executes the contained file "init" as PID 1. The initramfs
 	contains the kernel modules and userspace programs, required to
 	initialize the physical or logical device(s) containing the real
-	root filesystem. After such modules are loaded and neccessary
-	initialization steps performed, initrd mounts the real root
-	filesystem and passes control to the <tt>/sbin/init</tt> program
-	on it. 
+        root filesystem. init takes care to load modules and to perform
+        neccessary initialization steps. At the end of init run-init deletes
+        the initramfs, remounts the real root filesystem and passes control
+        to the <tt>/sbin/init</tt> program on it. 
       </p>
       <p>
         Two major goals are achieved with such setup: the kernel size
@@ -760,7 +761,7 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
 	initialization which cannot be done in-kernel, but is performed
 	by userspace utilities.
       </p>
-      <sect id="initrd-gen-tools">
+      <sect id="initramfs-gen-tools">
         <heading>Initrd generation tools</heading>
       <p>
         Since initrds usually need to be customized for the particular
@@ -794,7 +795,7 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
 	<tt>man mkinitrd.yaird</tt> and <tt>man update-initramfs</tt>.
       </p>
       </sect>
-      <sect id="initrd-gen-process">
+      <sect id="initramfs-gen-process">
         <heading>Choosing the tool</heading>
       <p>
 	At the end of the kernel package installation a script is
@@ -832,13 +833,13 @@ ramdisk = /usr/sbin/mkinitramfs-kpkg /usr/sbin/mkinitrd
         </example>
       </p>
       </sect>
-      <sect id="initrd-regen">
-        <heading>Regenerating the initrd</heading>
+      <sect id="initramfs-regen">
+        <heading>Regenerating the initramfs</heading>
       <p>
-        The <tt>ramdisk</tt> setting mentioned above will only take
+        The <tt>ramfs</tt> setting mentioned above will only take
 	effect when implemented <em>before</em> the kernel image
 	installation. If the changes are desired after the corresponding
-	<tt>linux-image</tt> has been installed, the initrd needs to
+	<tt>linux-image</tt> has been installed, the initramfs needs to
 	be regenerated. This is achieved by the command
 	<example>
 # dpkg-reconfigure linux-image-2.6.15-1-686
@@ -846,10 +847,10 @@ ramdisk = /usr/sbin/mkinitramfs-kpkg /usr/sbin/mkinitrd
         where <tt>linux-image-2.6.15-1-686</tt> is the name of the
 	kernel package for which the initrd regeneration is requested.
       </sect>
-      <sect id="initrd-exam">
-        <heading>Examining the initrd contents</heading>
+      <sect id="initramfs-exam">
+        <heading>Examining the initramfs contents</heading>
 	<p>
-	Occasionally it is useful to examine the contents of initrd
+	Occasionally it is useful to examine the contents of initramfs
 	to diagnose a problem or for educational purposes. The old-style
 	initrds created by <tt>/usr/sbin/mkinitrd</tt> from <tt>initrd-tools</tt>
 	package are either <tt>cramfs</tt> or <tt>ext2</tt> filesystem, so
@@ -859,7 +860,7 @@ ramdisk = /usr/sbin/mkinitramfs-kpkg /usr/sbin/mkinitrd
 # mkdir -p /mnt/initrd
 # mount -t cramfs /boot/initrd.img-2.6.12-1-686 /mnt/initrd -o loop
         </example>
-	New style initrds, created by <tt>yaird</tt> or <tt>initramfs-tools</tt>
+	New style initramfs, created by <tt>yaird</tt> or <tt>initramfs-tools</tt>
 	are compressed <tt>cpio</tt> archives, which may be extracted using the
 	command sequence similar to this one:
 	<example>
@@ -869,7 +870,7 @@ $ cp /boot/initrd.img-2.6.14-1-686 ./initrd.gz
 $ gzip -d initrd.gz
 $ cpio -i < initrd
         </example>
-	After that the contents of the initrd are going to be unpacked into
+	After that the contents of the initramfs are going to be unpacked into
 	the <tt>/tmp/initrd</tt> directory.	
       </sect>
     </chapt>
