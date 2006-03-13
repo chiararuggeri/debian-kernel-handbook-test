@@ -885,14 +885,22 @@ $ cpio -i < initrd
       <p>
         Debian kernel team keeps track of the kernel package bugs in
 	the Debian Bug Tracking System (BTS). For information on how
-	to use the system see
-	<url id="http://bugs.debian.org" name="http://bugs.debian.org">.
-	You can also submit the bugs by using the <tt>reportbug</tt>
-	command from the package with the same name.
+	to use the system see <url id="http://bugs.debian.org"
+	name="http://bugs.debian.org">.  You can also submit the bugs
+	by using the <tt>reportbug</tt> command from the package with
+	the same name. Please note that kernel bugs found in
+	distributions derived from Debian (such as Knoppix, Mepis,
+	Progeny, Ubuntu, Xandros, etc.) should <em>not</em> be
+	reported to the Debian BTS (unless they can be also reproduced
+	on a Debian system using official Debian kernel
+	packages). Derived distributions have their own policies and
+	procedures regarding kernel packaging, so the bugs found in
+	them should be reported directly to their bug tracking systems
+	or mailing lists.
       </p>
       <p>
         Nothing in this chapter is intended to keep you from filing a
-	bug against one of the kernel packages.  However, you should
+	bug against one of the Debian kernel packages.  However, you should
 	recognize that the resources of the Debian kernel team are
 	limited, and efficient reaction to a bug is largely determined
 	by the amount and quality of the information included in the
@@ -919,7 +927,7 @@ $ cpio -i < initrd
 	  reproduce it. Depending on the nature of the bug you
 	  reporting, you might also want to include the output of
 	  <tt>dmesg</tt> (or portions thereof), output of the
-	  <tt>lspci -v</tt> and <tt>lspci -n</tt>. If applicable,
+	  <tt>lspci -vn</tt>. If applicable,
 	  include the information about the latest known kernel
 	  version where the bug is not present, and output of the
 	  above commands for the working kernel as well. Use
