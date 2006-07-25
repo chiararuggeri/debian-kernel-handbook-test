@@ -195,9 +195,8 @@
 	  release the common source package <tt>linux-2.6</tt>
 	  supports (with varying degree of success) the building of
 	  kernel images and headers for all currently supported
-	  architectures, except <tt>mips/mipsel</tt>. Subsequent
-	  sections of this chapter document the naming and contents of
-	  the binary packages built from the
+	  architectures. Subsequent sections of this chapter document
+          the naming and contents of the binary packages built from the
 	  <tt>linux-<em>major</em></tt> source package.
 	</p>
 	  
