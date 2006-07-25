@@ -480,8 +480,8 @@ apt-get install linux-headers-$(uname -r)
 	  it is sufficient to install the latest <tt>linux-source-<em>version</em></tt>
 	  package and unpack the source, for example:
 	  <example>
-# apt-get install linux-source-2.6.12
-$ tar jxf /usr/src/linux-source-2.6.12.tar.bz2
+# apt-get install linux-source-2.6.17
+$ tar jxf /usr/src/linux-source-2.6.17.tar.bz2
           </example>
 	  The unpacked source tree then will be available in <tt>linux-source-2.6.12</tt> directory.
 	</p>
@@ -627,9 +627,9 @@ $ fakeroot make -f debian/rules.gen setup-i386-none-686
 	  command, available as a part of the <tt>kernel-package</tt>.
 	  First, prepare the kernel tree:
 	  <example>
-# apt-get install linux-source-2.6.15
-$ tar xjf /usr/src/linux-source-2.6.15.tar.bz2
-$ cd linux-source-2.6.15
+# apt-get install linux-source-2.6.17
+$ tar xjf /usr/src/linux-source-2.6.17.tar.bz2
+$ cd linux-source-2.6.17
           </example>
 	  The kernel now needs to be configured, that is you have to
 	  set the kernel options and select the drivers which are
@@ -679,13 +679,13 @@ $ make-kpkg clean
 $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
           </example>
 	  As a result of the build a custom kernel package
-	  <tt>linux-image-2.6.15_custom.1.0_i386.deb</tt> (name will
+	  <tt>linux-image-2.6.17_custom.1.0_i386.deb</tt> (name will
 	  reflect the version of the kernel and the revision chosen in
 	  the command line above) will be created in the directory one
 	  level above the top of the tree. It may be installed using
 	  <tt>dpkg</tt> as any other package:
 	  <example> 
-# dpkg -i ../linux-image-2.6.15_custom.1.0_i386.deb
+# dpkg -i ../linux-image-2.6.17_custom.1.0_i386.deb
 	  </example>
 	  This command will unpack the kernel, generate the initrd if
 	  necessary (see <ref id="initramfs"> for details), and configure
@@ -844,9 +844,9 @@ ramdisk = /usr/sbin/mkinitramfs-kpkg /usr/sbin/mkinitrd
 	<tt>linux-image</tt> has been installed, the initramfs needs to
 	be regenerated. This is achieved by the command
 	<example>
-# dpkg-reconfigure linux-image-2.6.15-1-686
+# dpkg-reconfigure linux-image-2.6.17-1-686
         </example>
-        where <tt>linux-image-2.6.15-1-686</tt> is the name of the
+        where <tt>linux-image-2.6.17-1-686</tt> is the name of the
 	kernel package for which the initrd regeneration is requested.
       </sect>
       <sect id="initramfs-exam">
@@ -866,7 +866,7 @@ ramdisk = /usr/sbin/mkinitramfs-kpkg /usr/sbin/mkinitrd
 	are compressed <tt>cpio</tt> archives, which may be extracted using the
 	command 
 	<example>
-$ zcat /boot/initrd.img-2.6.15-1-686 | cpio -i
+$ zcat /boot/initrd.img-2.6.17-1-686 | cpio -i
         </example>
 	It will unpack the contents of the initramfs into the current directory.
       </sect>
