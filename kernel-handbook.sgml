@@ -709,6 +709,42 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
 	  involved.
 	</p>  
       </sect>
+      <sect id="kernel-org-package">
+        <heading>Building a custom kernel from kernel.org</heading> 
+	<p>There may be situtations where latest Debian snapshot in
+           unstable or experimental is not young enough. Together
+           with the instructions of the previous chapter this will
+           enable you to build kernels from kernel.org the debian way.
+	</p>
+        <p>Start by downloading the latest release from kernel.org with your
+           favourite browser or wget.</p>
+	  <example> 
+wget http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.tar.bz2{.sign,}
+wget http://kernel.org/pub/linux/kernel/v2.6/testing/patch-2.6.18-rc2.bz2{.sign,}
+	  </example> 
+          <p>Verify it's integrity:</p>
+	  <example> 
+gpg --verify linux-2.6.17.tar.bz2{.sign,}
+gpg --verify patch-2.6.18-rc2.bz2{.sign,}
+	  </example> 
+          <p>Unpack it and apply the patch:</p>
+	  <example> 
+tar -xjf linux-2.6.17.tar.bz2
+cd linux-2.6.17
+bzcat ../patch-2.6.18-rc2.bz2 | patch -p1
+	  </example> 
+          <p>Base yourself on a working config:</p>
+	  <example> 
+cp /boot/config-2.6.17-1-686 .config
+yes "" | make oldconfig
+	  </example> 
+          <p>Now everything is prepared to compile and create the
+          linux-image package, which will be found one dir higher if the
+          compilation works out:</p>
+	  <example> 
+make-kpkg --initrd --revision 01 linux-image
+	  </example> 
+      </sect>
       <sect id="common-out-of-tree">
         <heading>Building out-of-tree kernel modules</heading> 
 	<p>
