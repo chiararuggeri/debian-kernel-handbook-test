@@ -608,6 +608,13 @@ $ fakeroot make -f debian/rules.gen setup-i386-none-686
 	  <tt>binary-arch</tt> target may be invoked to complete the
 	  build, as described above.
 	</p> 
+        <p>After adding a patch you need to run belows command to
+        make sure that you don't break other architectures patches.
+        If they break you need to rediff:
+        </p>
+        <example>
+$  make -f debian/rules source-all
+        </example>
       </sect>
       <sect id="common-building">
         <heading>Building a custom kernel from Debian kernel source</heading>
