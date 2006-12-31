@@ -340,16 +340,6 @@ $ zcat /boot/initrd.img-2.6.17-1-686 | cpio -i
 	</item>
       </list>
       </p>
-    </chapt>
-    <chapt id="developer">
-      <heading>Information for developers of the kernel packages</heading>
-      <sect id="dev-patches">
-        <heading>Packaging the kernel patches</heading>
-      </sect>
-      <sect id="dev-modules">
-        <heading>Packaging third-party kernel modules</heading>
-      </sect>
-    </chapt>
   </book>
 </debiandoc>
 <!-- vim:set ai et sts=2 sw=2 tw=76: -->
