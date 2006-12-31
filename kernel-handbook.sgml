@@ -2,6 +2,8 @@
 <!-- include version information so we don't have to hard code it
      within the document -->
 <!entity % versiondata SYSTEM "version.ent"> %versiondata;
+<!entity chapter-scope  SYSTEM "chapter-scope.sgml">
+<!entity chapter-source SYSTEM "chapter-source.sgml">
 ]>
 <debiandoc>
 
@@ -44,142 +46,8 @@
 
     <toc detail="sect1">
 
-    <chapt id="scope">
-      <heading>About this handbook</heading>
-      <sect>
-	<heading>Scope</heading>
-	<p>
-	  The main goal of this handbook is to serve as a single
-	  access point to all kernel-related documentation. It
-	  currently only contains the information about the Debian
-	  packaging of Linux kernel 2.6.12 and higher. The latest
-	  released version is always available from 
-	  <url id="http://kernel-handbook.alioth.debian.org" name="http://kernel-handbook.alioth.debian.org">.
-	</p>
-	<p>
-	  Some of the commands mentioned in the text must be executed
-	  with superuser priviliges, either by becoming the <tt>root</tt> user
-	  or by using <tt>sudo</tt>. To distinguish between commands which
-	  may be executed by an unprivileged user and those requiring
-	  superuser privileges, commands are prepended by <tt>$</tt>
-	  or <tt>#</tt> respectively. This symbol is not a part of
-	  the command.
-      </sect>
-      <sect id="authors">
-        <heading>Authors and Contributors</heading>
-	<p>
-
-	  This handbook is maintained within the <url
-	  id="http://alioth.debian.org/projects/kernel-handbook"
-	  name="kernel-handbook"> project on <url
-	  id="http://alioth.debian.org" name="Alioth">. The SGML
-	  source of the book may be checked out from the Debian 
-	  subversion (svn) repository at <url
-	  id="http://svn.debian.org/wsvn/kernel-handbook/trunk/"
-	  name="svn://svn.debian.org/svn/kernel-handbook/trunk/">. It is
-	  intended as a community project, thus all the proposals for
-	  improvements and contributions are welcome. The preferred
-	  way to submit a contribution is to send it to the
-	  <tt>kernel-handbook-general@lists.alioth.debian.org</tt>
-	  mailing list. When submitting a contribution please clearly
-	  identify its copyright holder and include the licensing
-	  statement. Note that to be accepted the contribution must be
-	  licensed under the same license as the rest of the document,
-	  namely GPL version 2 or later. Below is the list of current
-	  contributors:
-
-	  <list>
-	    <item>Jurij Smakov</item>
-	    <item>Sven Luther</item>
-	    <item>Andres Salomon</item>
-	    <item>Maximilian Attems</item>
-	  </list>
-	</p>
-      </sect>
-    </chapt>
-
-
-    <chapt id="source">
-      <heading>Debian kernel source</heading>
-      <sect id="changes">
-        <heading>Changes to the pristine kernel source</heading>
-        <p>
-	  The kernels in Debian are distributed in binary form, built
-	  from the Debian kernel source. It is important to recognize
-	  that Debian kernel source may (and in most cases is)
-	  different from the upstream (or "pristine") kernel source,
-	  distributed from <url id="http://www.kernel.org"
-	  name="www.kernel.org"> and its mirrors. Due to licensing
-	  restrictions, unclear license information, or failure to
-	  comply with the Debian Free Software Guidelines (DFSG) parts
-	  of the kernel must be removed in order to distribute the
-	  source in the <tt>main</tt> section of the Debian
-	  archive. The removal procedure is typically performed by a
-	  <tt>prune-non-free</tt> script, available in the Debian
-	  kernel SVN repository <footnote>
-	  <tt>svn://svn.debian.org/kernel/trunk/scripts/prune-non-free</tt>
-	  </footnote> and producing the
-	  <tt>linux-<em>major</em>_<em>version</em>.orig.tar.gz</tt>
-	  tarball, which serves as the original upstream
-	  source. <em>major</em> is the kernel major version (like
-	  2.6) and <em>version</em> is the actual upstream version.
-	  The removed parts are packaged as
-	  <tt>linux-nonfree-<em>major</em>_<em>version</em>.orig.tar.gz</tt>,
-	  which serves as the original tarball for the
-	  <tt>linux-nonfree</tt> package.
-
-	  The drivers which are currently removed from the pristine
-	  kernel source and those under consideration are listed on
-	  the <url id="http://wiki.debian.org" name="Debian Wiki">
-	  page <url
-	  id="http://wiki.debian.org/KernelFirmwareLicensing"
-	  name="KernelFirmwareLicensing">.
-	  
-	</p>
-      <sect id="patches">
-        <heading>Debian kernel patches</heading>
-        <p>
-	  The source from which the Debian binary kernels are built is
-	  obtained by taking the source from
-	  <tt>linux-<em>major</em>_<em>version</em>.orig.tar.gz</tt>
-	  (that is, pristine kernel source, processed by the
-	  <tt>prune-non-free</tt> script) and applying a set of Debian
-	  patches. These patches typically implement essential fixes
-	  for serious bugs and security holes. The Debian version of
-	  the kernel packages has the form
-	  <tt><em>version-revision</em></tt> where
-	  <tt><em>version</em></tt> is the upstream version of the
-	  kernel (like 2.6.12) and <tt><em>revision</em></tt>
-	  determines the patchlevel. For example, the packages with
-	  version 2.6.12-3 are built from the
-	  <tt>linux-2.6_2.6.12.orig.tar.gz</tt> source, patched up to
-	  patchlevel 3. Additionally, some architectures (such as
-	  <tt>hppa</tt>) require architecture-specific patches for the kernel
-	  to build and operate.
-	</p>
-	<p>
-	  All the patches used in the process of building of the
-	  Debian official kernel packages are shipped as a part of
-	  <tt>linux-patch-debian-<em>version</em></tt> package.  See
-	  its description in <ref id="arch-indep"> for more
-	  information about the patch system.
-        </p>
-      </sect>
-      <sect id="acceptance">
-        <heading>Policy for patch acceptance</heading>
-      <p>
-        The goal of the Debian kernel team is to keep the difference
-	between the Debian kernel source and the "pristine" kernel
-	source to a minimum.  That typically means that only the
-	patches fixing security holes and serious kernel bugs are
-	going to be considered for the inclusion in the Debian kernel
-	source. The recommended procedure for inclusion of patches
-	introducing optional features is to package them as separate
-	patch packages, or to convince the upstream maintainer to
-	include them in the next kernel release.
-      </p>
-      </sect>
-    </chapt>
+    &chapter-scope;
+    &chapter-source;
 
     <chapt id="packaging">
       <heading>Debian kernel packages</heading>
@@ -611,10 +479,10 @@ $ fakeroot make -f debian/rules.gen setup-i386-none-686
         <p>After adding a patch you need to run belows command to
         make sure that you don't break other architectures patches.
         If they break you need to rediff:
-        </p>
         <example>
 $  make -f debian/rules source-all
         </example>
+        </p>
       </sect>
       <sect id="common-building">
         <heading>Building a custom kernel from Debian kernel source</heading>
@@ -724,33 +592,34 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
            enable you to build kernels from kernel.org the debian way.
 	</p>
         <p>Start by downloading the latest release from kernel.org with your
-           favourite browser or wget.</p>
+           favourite browser or wget.
 	  <example> 
 wget http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.17.tar.bz2{.sign,}
 wget http://kernel.org/pub/linux/kernel/v2.6/testing/patch-2.6.18-rc2.bz2{.sign,}
 	  </example> 
-          <p>Verify it's integrity:</p>
+          Verify it's integrity:
 	  <example> 
 gpg --verify linux-2.6.17.tar.bz2{.sign,}
 gpg --verify patch-2.6.18-rc2.bz2{.sign,}
 	  </example> 
-          <p>Unpack it and apply the patch:</p>
+          Unpack it and apply the patch:
 	  <example> 
 tar -xjf linux-2.6.17.tar.bz2
 cd linux-2.6.17
 bzcat ../patch-2.6.18-rc2.bz2 | patch -p1
 	  </example> 
-          <p>Base yourself on a working config:</p>
+          Base yourself on a working config:
 	  <example> 
 cp /boot/config-2.6.17-1-686 .config
 yes "" | make oldconfig
 	  </example> 
-          <p>Now everything is prepared to compile and create the
+          Now everything is prepared to compile and create the
           linux-image package, which will be found one dir higher if the
-          compilation works out:</p>
+          compilation works out:
 	  <example> 
 make-kpkg --initrd --revision 01 linux-image
 	  </example> 
+          </p>
       </sect>
       <sect id="common-out-of-tree">
         <heading>Building out-of-tree kernel modules</heading> 

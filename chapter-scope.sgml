@@ -1,0 +1,58 @@
+<chapt id="scope">
+  <heading>About this handbook</heading>
+  <sect>
+    <heading>Scope</heading>
+    <p>
+
+      The main goal of this handbook is to serve as a single access
+      point to all kernel-related documentation. It contains the
+      information about the Debian packaging of Linux kernel for the
+      Etch release of Debian (version 4.0). The latest released
+      version is always available from <url
+      id="http://kernel-handbook.alioth.debian.org"
+      name="http://kernel-handbook.alioth.debian.org">.
+
+    </p>
+    <p>
+
+      Some of the commands mentioned in the text must be executed with
+      superuser priviliges, either by becoming the <tt>root</tt> user
+      or by using <tt>sudo</tt>. To distinguish between commands which
+      may be executed by an unprivileged user and those requiring
+      superuser privileges, commands are prepended by <tt>$</tt> or
+      <tt>#</tt> respectively. This symbol is not a part of the
+      command.
+
+    </p>
+  </sect>
+  <sect id="authors">
+    <heading>Authors and Contributors</heading>
+    <p>
+
+      This handbook is maintained within the <url
+      id="http://alioth.debian.org/projects/kernel-handbook"
+      name="kernel-handbook"> project on <url
+      id="http://alioth.debian.org" name="Alioth">. The SGML source of
+      the book may be checked out from the Debian subversion (svn)
+      repository at <url
+      id="http://svn.debian.org/wsvn/kernel-handbook/trunk/"
+      name="svn://svn.debian.org/svn/kernel-handbook/trunk/">. It is
+      intended as a community project, thus all proposals for
+      improvements and contributions are welcome. The preferred way to
+      submit a contribution is to send it to the
+      <tt>kernel-handbook-general@lists.alioth.debian.org</tt> mailing
+      list. When submitting a contribution please clearly identify its
+      copyright holder and include the licensing statement. Note that
+      to be accepted the contribution must be licensed under the same
+      license as the rest of the document, namely GPL version 2 or
+      later. Below is the list of current contributors:
+
+      <list>
+        <item>Jurij Smakov</item>
+	<item>Sven Luther</item>
+	<item>Andres Salomon</item>
+	<item>Maximilian Attems</item>
+      </list>
+    </p>
+  </sect>
+</chapt>
