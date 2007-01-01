@@ -1,0 +1,139 @@
+    <chapt id="bugs">
+      <heading>Filing a bug against a kernel package</heading>
+      <p>
+        Debian kernel team keeps track of the kernel package bugs in
+	the Debian Bug Tracking System (BTS). For information on how
+	to use the system see <url id="http://bugs.debian.org"
+	name="http://bugs.debian.org">.  You can also submit the bugs
+	by using the <tt>reportbug</tt> command from the package with
+	the same name. Please note that kernel bugs found in
+	distributions derived from Debian (such as Knoppix, Mepis,
+	Progeny, Ubuntu, Xandros, etc.) should <em>not</em> be
+	reported to the Debian BTS (unless they can be also reproduced
+	on a Debian system using official Debian kernel
+	packages). Derived distributions have their own policies and
+	procedures regarding kernel packaging, so the bugs found in
+	them should be reported directly to their bug tracking systems
+	or mailing lists.
+      </p>
+      <p>
+        Nothing in this chapter is intended to keep you from filing a
+	bug against one of the Debian kernel packages.  However, you should
+	recognize that the resources of the Debian kernel team are
+	limited, and efficient reaction to a bug is largely determined
+	by the amount and quality of the information included in the
+	bug report. Please help us to do a better job by using the
+	following guidelines when preparing to file the bug against
+	kernel packages:
+      <list>
+	<item>
+	  <em>Do the research.</em> Before filing the bug search the
+	  web for the particular error message or symptom you are
+	  getting. As it is highly unlikely that you are the only
+	  person experiencing a particular problem, there is always a
+	  chance that it has been discussed elsewhere, and a possible
+	  solution, patch, or workaround has been proposed. If such
+	  information exists, always include the references to it in
+	  your report. Check the <url id="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6" name="current bug list">
+	  to see whether something similar has been reported already.
+	</item>
+	<item>
+	  <em>Collect the information.</em> Please provide enough
+	  information with your report. At a minimum, it should
+	  contain the exact version of the official Debian kernel
+	  package, where the bug is encountered, and steps to
+	  reproduce it. Depending on the nature of the bug you are
+	  reporting, you might also want to include the output of
+	  <tt>dmesg</tt> (or portions thereof), output of the
+	  <tt>lspci -vn</tt>. If applicable,
+	  include the information about the latest known kernel
+	  version where the bug is not present, and output of the
+	  above commands for the working kernel as well. Use
+	  common sense and include other relevant information,
+	  if you think that it might help in solving the problem.
+	</item>
+	<item>
+	  <em>Try to reproduce the problem with "vanilla" kernel.</em>
+	  If you have a chance, try to reproduce the problem by
+	  building the binary kernel image from the "vanilla" kernel
+	  source, available from <url id="http://www.kernel.org"
+	  name="http://www.kernel.org"> or its mirrors, using the same
+	  configuration as the Debian stock kernels. For more
+	  information on how to do this, look at <ref
+	  id="common-building">. If there is convincing evidence that
+	  the buggy behavior is caused by the Debian-specific changes
+	  to the kernel, the bug will usually be assigned higher
+	  priority by the kernel team. If the bug is not specific for
+	  Debian, check out the upstream <url
+	  id="http://bugzilla.kernel.org" name="kernel bug database">
+	  to see if it has been reported there. If you are sure that
+	  it is an upstream problem, you can also report your bug
+	  there (but submit it to Debian BTS anyway, so that we can
+	  track it properly).
+	</item>
+        <item>
+          <em>Use the correct package to report the bug against.</em>
+	  All the binary kernel packages are produced from a single
+	  <tt>linux-2.6</tt> source package. Because of that, the
+	  usual way for d-k team members to scan for bugs is to look
+	  at the list of bugs for the <tt>linux-2.6</tt> source
+	  package, available at <url
+	  id="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6"
+	  name="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6">.
+	  It is therefore crucial that you report the bug against one
+	  of the binary packages listed on that page (check that it
+	  shows up on that page after you do!). If in doubt, file the
+	  bug against the <tt>linux-2.6</tt> package. Failure to
+	  follow that rule will drastically reduce the chances that
+	  your bug will be noticed by the kernel team and acted upon.
+        </item>
+	<item>
+	  <em>Bugs involving <tt>PREEMPT</tt>.</em> Even in the latest
+	  kernels making the kernel preemptible (by enabling the
+	  <tt>CONFIG_PREEMPT</tt> configuration option) will
+	  occasionally lead to problems in form of occasional kernel
+	  oops. For this reason this option is disabled in Debian
+	  kernel packages, so problem can only be triggered with a
+	  custom kernel. It is known to the upstream kernel developers
+	  and it is most likely that kernel team will not be able to do
+	  anything about it.
+	</item>
+	<item>
+	  <em>Bugs involving ACPI.</em> While ACPI (Advanced Control
+	  and Power Interface) support in Linux kernel has matured
+	  greatly in the 2.6 series, it occasionally causes problems
+	  (misrouted interrupts, failure to go into or return from the
+	  sleep/hybernation/suspend mode, thermal problems) on newer laptop models. They
+	  may be caused both by bugs in the kernel code or (more
+	  likely) in the ACPI interface of a particular machine. As
+	  resolution of such bugs requires access to the machine in
+	  question, it is pretty unlikely that kernel team will be able
+	  to do something about it. Consider reporting the problem to
+	  the <url
+	  id="http://vger.kernel.org/vger-lists.html#linux-acpi"
+	  name="Linux ACPI mailing list"> along with the submission to
+	  the Debian BTS. As a workaround, try booting the kernel with
+	  some combination of boot options <tt>acpi=off</tt>,
+	  <tt>pci=norouteirq</tt>, <tt>pci=noacpi</tt>, and
+	  <tt>nolapic</tt> to see if that improves the situation.
+	</item>
+	<item>
+	  <em>Bugs involving tainted kernels.</em> If a kernel
+	  crashes, it normally prints out some debugging
+	  information, indicating, among other things, whether the
+	  running kernel has been tainted. The kernel is referred to
+	  as tainted if at the time of the crash it had some binary
+	  third-party modules loaded. As kernel developers do not
+	  have access to the source code for such modules, problems
+	  involving them are notoriously difficult to debug. It is
+	  therefore strongly recommended to try and reproduce the
+	  problem with an untainted kernel (by preventing the loading
+	  of binary modules, for example). If the problem is due to
+	  the presence of such modules, there is not much the kernel
+	  community can do about it and it should be reported directly
+	  to their authors.
+	</item>
+      </list>
+      </p>
+</chapt>
+

@@ -1,4 +1,4 @@
-version := 0.0.8
+version := 1.0.0
 date    := $(shell date)
 
 all: version.ent
