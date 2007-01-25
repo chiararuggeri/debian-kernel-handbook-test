@@ -25,7 +25,7 @@
    </p>
    <p>
      
-     If some modules are not loaded automatically by <tt>udeb</tt>, but
+     If some modules are not loaded automatically by <tt>udev</tt>, but
      you would like them to be loaded during boot, it is possible to force
      it by listing the names of the modules in one of the
      files
