@@ -122,6 +122,20 @@ $ fakeroot make -f debian/rules.gen setup-i386-none-686
 	</p> 
       </sect>
 
+      <sect id="gen-orig">
+        <heading>Generating orig tarball from newer upstream</heading>
+	<p>First you need to fetch from kernel.org the latest upstream
+	   source and patch. This will allow the genorig script to
+	   generate a newer orig.tar.gz:
+	  <example>
+$python debian/bin/genorig.py ../linux-2.6.20.tar.bz2 ../patch-2.6.21-rc6.bz2
+	  </example>
+	  That will generate the following file 
+	  <tt>../orig/linux-2.6_2.6.21~rc6.orig.tar.gz</tt>. Unpack it and
+	  apply the cmds of the previous chapter.
+	</p> 
+      </sect>
+
       <sect id="common-building">
         <heading>Building a custom kernel from Debian kernel source</heading>
 	<p>
