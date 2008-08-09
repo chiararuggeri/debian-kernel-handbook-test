@@ -1,4 +1,4 @@
-version := 1.0.2
+version := 0.0.1
 date    := $(shell date)
 
 all: version.ent
@@ -10,6 +10,6 @@ version.ent:
 	echo "<!entity date    \"$(date)\">"    >> $@
 
 sync:
-	rsync -v -e ssh kernel-handbook.html/* jurij-guest@alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
+	rsync -v -e ssh kernel-handbook.html/* jurij-guest@alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/lenny/
 
 .PHONY: all sync

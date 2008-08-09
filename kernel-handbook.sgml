@@ -14,7 +14,7 @@
 
   <book>
     <titlepag>
-      <title>Debian Linux Kernel Handbook</title>
+      <title>Debian Linux Kernel Handbook (Lenny version - WORK IN PROGRESS)</title>
       <author><qref id="authors">The Debian Kernel Handbook Project</qref></author>
       <version>version &version;, &date;</version>
 
