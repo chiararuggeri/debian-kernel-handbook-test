@@ -95,7 +95,7 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	      flavour on i386 architecture, use the following commands:
 	      <example>
 $ fakeroot debian/rules debian/build debian/stamps
-$ fakeroot make -f debian/rules.gen binary-arch-i386-none-686
+$ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	      </example>
 	      The target in the last command has general form of
 	      <tt><em>target</em>-<em>arch</em>-<em>subarch</em>-<em>flavour</em></tt>.
@@ -112,7 +112,7 @@ $ fakeroot make -f debian/rules.gen binary-arch-i386-none-686
 	  a build:
 	  <example>
 $ fakeroot debian/rules debian/build debian/stamps
-$ fakeroot make -f debian/rules.gen setup-i386-none-686
+$ fakeroot make -f debian/rules.gen setup_i386_none_686
 	  </example>
 	  This will unpack the kernel tree in the
 	  <tt>debian/build/build-i386-none-686</tt> directory, where the extra
@@ -213,7 +213,7 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
 	  level above the top of the tree. It may be installed using
 	  <tt>dpkg</tt> as any other package:
 	  <example> 
-# dpkg -i ../linux-image-2.6.17_custom.1.0_i386.deb
+# dpkg -i ../linux-image-2.6.18_custom.1.0_i386.deb
 	  </example>
 	  This command will unpack the kernel, generate the initrd if
 	  necessary (see <ref id="initramfs"> for details), and configure

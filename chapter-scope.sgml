@@ -10,7 +10,9 @@
       Etch release of Debian (version 4.0). The latest released
       version is always available from <url
       id="http://kernel-handbook.alioth.debian.org"
-      name="http://kernel-handbook.alioth.debian.org">.
+      name="http://kernel-handbook.alioth.debian.org">. The work on a
+      handbook version for Lenny (next Debian release) is currently
+      <url id="lenny" name="in progress">.
 
     </p>
     <p>
