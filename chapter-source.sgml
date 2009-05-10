@@ -16,7 +16,7 @@
       archive. The removal procedure is typically performed by a
       <tt>prune-non-free</tt> script, available in the Debian kernel
       SVN repository <footnote>
-      <tt>svn://svn.debian.org/kernel/trunk/scripts/prune-non-free</tt>
+      <tt>svn://svn.debian.org/kernel/dists/trunk/scripts/prune-non-free</tt>
       </footnote> and producing the
       <tt>linux-<em>major</em>_<em>version</em>.orig.tar.gz</tt>
       tarball, which serves as the original upstream
