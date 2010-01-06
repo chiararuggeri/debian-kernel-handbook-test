@@ -358,17 +358,6 @@
 	  a metapackage (e.g. <package>linux-image-2.6-686</package>).
         </item>
 	<item>
-	  <em>Bugs involving <tt>PREEMPT</tt>.</em> Even in the latest
-	  kernels making the kernel preemptible (by enabling the
-	  <tt>CONFIG_PREEMPT</tt> configuration option) will
-	  occasionally lead to problems in form of occasional kernel
-	  oops. For this reason this option is disabled in Debian
-	  kernel packages, so problem can only be triggered with a
-	  custom kernel. It is known to the upstream kernel developers
-	  and it is most likely that kernel team will not be able to do
-	  anything about it.
-	</item>
-	<item>
 	  <em>Bugs involving ACPI.</em> While ACPI (Advanced Control
 	  and Power Interface) support in Linux kernel has matured
 	  greatly in the 2.6 series, it occasionally causes problems
