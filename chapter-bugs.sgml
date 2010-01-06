@@ -1,5 +1,284 @@
     <chapt id="bugs">
-      <heading>Filing a bug against a kernel package</heading>
+      <heading>Reporting and handling bugs</heading>
+
+      <sect>
+	Bug handling policy for the kernel team
+
+	<sect1>
+	  Required information
+	  <p>
+	    Submitters are expected to run <prgn>reportbug</prgn> or
+	    other tool that runs our <package>bug</package> script
+	    under the kernel version in question.  The response to
+	    reports without this information should be a request to
+	    follow-up using <prgn>reportbug</prgn>.  If we do not
+	    receive this information within a month of the request,
+	    the bug may be closed.
+	  </p>
+	  <p>
+	    Exceptions:
+	    <list>
+	      <item>
+		If the kernel does not boot or is very unstable, instead
+		of the usual system information we need the console
+		messages via netconsole, serial console, or a
+		photograph.
+	      </item>
+	      <item>
+		If the report is relaying information about a bug
+		acknowledged upstream, we do not need system
+		information but we do need specific references
+		(<httpsite>bugzilla.kernel.org</httpsite>
+		or <prgn>git</prgn> commit id).
+	      </item>
+	      <item>
+		If the bug is clearly not hardware-specific
+		(e.g. packaging error), we do not need system
+		information.
+	      </item>
+	      <item>
+		If the bug is reported against a well-defined model, we
+		may not need device listings.
+	      </item>
+	    </list>
+	  </p>
+	</sect1>
+
+	<sect1>
+	  Severities
+	  <p>
+	    Many submitters report bugs with the wrong severity.  We
+	    interpret the criteria as follows and will adjust severity
+	    as appropriate:
+	    <taglist>
+	      <tag>
+		critical: makes unrelated software on the system (or the
+		whole system) break...
+	      </tag>
+	      <item>
+		The bug must make the kernel unbootable or unstable on
+		common hardware or all systems that a specific flavour
+		is supposed to support.  There is no 'unrelated
+		software' since everything depends on the kernel.
+	      </item>
+	      <tag>
+		grave: makes the package in question unusable or mostly
+		so...
+	      </tag>
+	      <item>
+		If the kernel is unusable, this already qualifies as
+		critical.
+	      </item>
+	      <tag>
+		grave: ...or causes data loss...
+	      </tag>
+	      <item>
+		We exclude loss of data in memory due to a crash.  Only
+		corruption of data in storage or communication, or
+		silent failure to write data, qualifies.
+	      </item>
+	      <tag>
+		important
+	      </tag>
+	      <item>
+		We include lack of support for new hardware that is
+		generally available.
+	      </item>
+	    </taglist>
+	  </p>
+	</sect1>
+
+	<sect1>
+	  Tagging
+	  <p>
+	    We do not use user-tags.  In order to aid bug triage we
+	    should make use of the standard tags
+	    and <tt>forwarded</tt> field defined by the BTS.  In
+	    particular:
+	    <list>
+	      <item>
+		Add <tt>moreinfo</tt> whenever we are waiting for a
+		response from the submitter and remove it when we are
+		not
+	      </item>
+	      <item>
+		Do not add <tt>unreproducible</tt> to bugs that may be
+		hardware-dependent
+	      </item>
+	    </list>
+	  </p>
+	</sect1>
+
+	<sect1>
+	  Analysis by maintainers
+	  <p>
+	    Generally we should not expect to be able to reproduce
+	    bugs without having similar hardware.  We should consider:
+	    <list>
+	      <item>
+		Searching <url id="http://bugzilla.kernel.org" name="bugzilla.kernel.org">
+		(including closed bugs) or other relevant bug tracker
+	      </item>
+	      <item>
+		Searching kernel mailing lists
+		<list>
+		  <item>
+		    Of the many
+		    archives, <url id="http://news.gmane.org" name="news.gmane.org"> seems
+		    to suck least
+		  </item>
+		  <item>
+		    Patches submitted to some lists are archived at
+		    <url id="http://patchwork.kernel.org" name="patchwork.kernel.org">
+		  </item>
+		</list>
+	      </item>
+	      <item>
+		Viewing git commit logs for relevant source files
+		<list>
+		  <item>
+		    In case of a regression, from the known good to the
+		    bad version
+		  </item>
+		  <item>
+		    In other cases, from the bad version forwards, in
+		    case the bug has been fixed since
+		  </item>
+		</list>
+	      </item>
+	      <item>
+		Searching kerneloops.org for similar oopses
+	      </item>
+	      <item>
+		Matching the machine code and registers in an 'oops'
+		against the source and deducing how the impossible
+		happened (this doesn't work that often but when it does
+		you look like a genius ;-)
+	      </item>
+	    </list>
+	  </p>
+	</sect1>
+
+	<sect1>
+	  Testing by submitter
+	  <p>
+	    Depending on the technical sophistication of the submitter
+	    and the service requirements of the system in question
+	    (e.g. whether it's a production server) we can request one
+	    or more of the following:
+	    <list>
+	      <item>
+		Gathering more information passively (e.g. further
+		logging, reporting contents of files in procfs or sysfs)
+	      </item>
+	      <item>
+		Upgrading to the current
+		stable/stable-proposed-updates/stable-security version,
+		if it includes a fix for a similar bug
+	      </item>
+	      <item>
+		Adding debug or fallback options to the kernel command
+		line or module parameters
+	      </item>
+	      <item>
+		Installing the unstable or backports version temporarily
+	      </item>
+	      <item>
+		Rebuilding and installing the kernel with a specific
+		patch added (the
+		script <prgn>debian/bin/test-patches</prgn> should make
+		this easy)
+	      </item>
+	      <item>
+		Using <prgn>git bisect</prgn> to find a specific
+		upstream change that introduced the bug
+	      </item>
+	    </list>
+	  </p>
+	  <p>
+	    When a bug occurs in what upstream considers the current
+	    or previous stable release, and we cannot fix it, we ask
+	    the submitter to report it upstream
+	    at <httpsite>bugzilla.kernel.org</httpsite> under a
+	    specific Product and Component, and to tell us the
+	    upstream bug number.  We do not report bugs directly
+	    because follow-up questions from upstream need to go to
+	    the submitter, not to us.  Given the upstream bug number,
+	    we mark the bug as forwarded.
+	    <prgn>bts-link</prgn> then updates its status.
+	  </p>
+	</sect1>
+
+	<sect1>
+	  Keeping bugs separate
+	  <p>
+	    Many submitters search for a characteristic error message
+	    and treat this as indicating a specific bug.  This can
+	    lead to many 'me too' follow-ups where, for example, the
+	    message indicates a driver bug and the second submitter is
+	    using a different driver from the original submitter.
+	  </p>
+	  <p>
+	    In order to avoid the report turning into a mess of
+	    conflicting information about two or more different bugs:
+	    <list>
+	      <item>
+		We should try to respond to such a follow-up quickly,
+		requesting a separate bug report
+	      </item>
+	      <item>
+		We can use the BTS <tt>summary</tt> command to improve
+		the description of the bug
+	      </item>
+	      <item>
+		As a last resort, it may be necessary to open new bugs
+		with the relevant information, set their submitters
+		accordingly, and close the original report
+	      </item>
+	    </list>
+	  </p>
+	  <p>
+	    Where the original report describes more than one bug
+	    ('...and other thing...'), we should clone it and deal
+	    with each separately.
+	  </p>
+	</sect1>
+
+	<sect1>
+	  Applying patches
+	  <p>
+	    Patches should normally be reviewed and accepted by the
+	    relevant upstream maintainer (aside from necessary
+	    adjustments for an older kernel version) before being
+	    applied.
+	  </p>
+	</sect1>
+
+	<sect1>
+	  Talking to submitters
+	  <p>
+	    We should always be polite to submitters.  Not only is
+	    this implied by the
+	    <url id="http://www.debian.org/social_contract"
+	    name="Social Contract">, but it is likely to lead to a
+	    faster resolution of the bug.  If a submitter overrated
+	    the severity, quietly downgrade it.  If a submitter has
+	    done something stupid, request that they undo that and
+	    report back.  'Sorry' and 'please' make a big difference
+	    in tone.
+	  </p>
+	  <p>
+	    We will maintain general advice to submitters at
+	    <url id="http://wiki.debian.org/DebianKernelReportingBugs"
+		 name="http://wiki.debian.org/DebianKernelReportingBugs">.
+	  </p>
+	</sect1>
+
+      </sect>
+
+      <sect>
+	Filing a bug against a kernel package
+
       <p>
         Debian kernel team keeps track of the kernel package bugs in
 	the Debian Bug Tracking System (BTS). For information on how
@@ -135,5 +414,6 @@
 	</item>
       </list>
       </p>
+      </sect>
 </chapt>
 
