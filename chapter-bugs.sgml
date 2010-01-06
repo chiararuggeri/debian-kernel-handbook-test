@@ -352,19 +352,10 @@
 	</item>
         <item>
           <em>Use the correct package to report the bug against.</em>
-	  All the binary kernel packages are produced from a single
-	  <tt>linux-2.6</tt> source package. Because of that, the
-	  usual way for d-k team members to scan for bugs is to look
-	  at the list of bugs for the <tt>linux-2.6</tt> source
-	  package, available at <url
-	  id="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6"
-	  name="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux-2.6">.
-	  It is therefore crucial that you report the bug against one
-	  of the binary packages listed on that page (check that it
-	  shows up on that page after you do!). If in doubt, file the
-	  bug against the <tt>linux-2.6</tt> package. Failure to
-	  follow that rule will drastically reduce the chances that
-	  your bug will be noticed by the kernel team and acted upon.
+	  Please file bugs against the package containing the kernel
+	  version where the problem occurs
+	  (e.g. <package>linux-image-2.6.26-2-686</package>), not
+	  a metapackage (e.g. <package>linux-image-2.6-686</package>).
         </item>
 	<item>
 	  <em>Bugs involving <tt>PREEMPT</tt>.</em> Even in the latest
