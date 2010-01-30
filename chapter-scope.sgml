@@ -7,13 +7,11 @@
       The main goal of this handbook is to serve as a single access
       point to all kernel-related documentation. It contains the
       information about the Debian packaging of Linux kernel for the
-      Etch release of Debian (version 4.0). The latest released
+      Lenny release of Debian (version 5.0). The latest released
       version is always available from <url
       id="http://kernel-handbook.alioth.debian.org"
-      name="http://kernel-handbook.alioth.debian.org">. The work on a
-      handbook version for Lenny (next Debian release) is currently
-      <url id="lenny" name="in progress">.
-
+      name="http://kernel-handbook.alioth.debian.org">. Note that this
+      is a work in progress, and some information is inaccurate.
     </p>
     <p>
 
