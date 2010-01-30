@@ -58,13 +58,13 @@
       kernel packages has the form <tt><em>version-revision</em></tt>
       where <tt><em>version</em></tt> is the upstream version of the
       kernel (like 2.6.26) and <tt><em>revision</em></tt> determines
-      the patchlevel. For example, the packages with version 2.6.26-3
+      the patchlevel. For example, the packages with version 2.6.26-2
       are built from the <tt>linux-2.6_2.6.26.orig.tar.gz</tt> source,
-      patched up to patchlevel 3. Additionally, some architectures
+      patched up to patchlevel 2. Additionally, some architectures
       require architecture-specific patches for the kernel to build
       and operate. Certain flavors of the kernel include patches to
       implement the desired functionality, such as <tt>xen</tt> and
-      <tt>vserver</tt>.
+      <tt>openvz</tt>.
 
     </p>
     <p>
