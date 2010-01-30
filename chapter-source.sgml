@@ -13,26 +13,32 @@
       information, or failure to comply with the Debian Free Software
       Guidelines (DFSG), parts of the kernel are removed in order to
       distribute the source in the <tt>main</tt> section of the Debian
-      archive. The removal procedure is typically performed by a
-      <tt>prune-non-free</tt> script, available in the Debian kernel
-      SVN repository <footnote>
-      <tt>svn://svn.debian.org/kernel/dists/trunk/scripts/prune-non-free</tt>
-      </footnote> and producing the
-      <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt>
+      archive. Such removal produces
+      <tt>linux-<em>major</em>_<em>version</em>.orig.tar.gz</tt>
       tarball, which serves as the original upstream
-      source. <em>major</em> is the kernel major version (like 2.6)
-      and <em>version</em> is the actual upstream version.
+      source. <em>major</em>
+      is the kernel major version (like 2.6) and <em>version</em>
+      is the actual upstream version. For the details on how the removal
+      is implemented, see the description of <tt>linux-patch-debian</tt>
+      package in <ref id="arch-indep">.
 
-      The guidelines for the driver removals for Etch release have
-      been set by the <url
+    </p>
+
+    <p>
+
+      The guidelines for the driver removals have been set 
+      by the <url
       id="http://www.debian.org/vote/2006/vote_007" name="Handling
       source-less firmware in the Linux kernel"> General Resolution
       and the <url
       id="http://lists.debian.org/debian-kernel/2006/10/msg00541.html"
-      name="position statement"> by the Etch release
-      managers. Additional information about removed and questionable
-      drivers may be found at the <url id="http://wiki.debian.org"
-      name="Debian Wiki"> page <url
+      name="position statement"> by the release
+      managers. Even though these documents originally applied to
+      the Etch release, there were no significant changes in the
+      removal policy, so they are essentially in effect for the Lenny
+      release as well. Additional information about removed and
+      questionable drivers may be found at the
+      <url id="http://wiki.debian.org" name="Debian Wiki"> page <url
       id="http://wiki.debian.org/KernelFirmwareLicensing"
       name="KernelFirmwareLicensing">.
 
@@ -45,15 +51,15 @@
       The source from which the Debian binary kernels are built is
       obtained by taking the source from
       <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt> (that
-      is, pristine kernel source, processed by the
-      <tt>prune-non-free</tt> script) and applying a set of Debian
+      is, pristine kernel source with problematic parts removed)
+      and applying a set of Debian
       patches. These patches typically implement essential fixes for
       serious bugs and security holes. The Debian version of the
       kernel packages has the form <tt><em>version-revision</em></tt>
       where <tt><em>version</em></tt> is the upstream version of the
-      kernel (like 2.6.18) and <tt><em>revision</em></tt> determines
-      the patchlevel. For example, the packages with version 2.6.18-3
-      are built from the <tt>linux-2.6_2.6.18.orig.tar.gz</tt> source,
+      kernel (like 2.6.26) and <tt><em>revision</em></tt> determines
+      the patchlevel. For example, the packages with version 2.6.26-3
+      are built from the <tt>linux-2.6_2.6.26.orig.tar.gz</tt> source,
       patched up to patchlevel 3. Additionally, some architectures
       require architecture-specific patches for the kernel to build
       and operate. Certain flavors of the kernel include patches to

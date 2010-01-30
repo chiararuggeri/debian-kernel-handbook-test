@@ -9,8 +9,8 @@
       architectures as possible, starting with 2.6.12 the kernel team
       introduced a new packaging scheme. In it most of the
       kernel-related binary packages are built from a single source
-      package <tt>linux-2.6</tt>. At the moment common
-      source package <tt>linux-2.6</tt> supports building of kernel
+      package <tt>linux-2.6</tt>. The 
+      <tt>linux-2.6</tt> source package supports building of kernel
       images and headers for all currently supported
       architectures. Subsequent sections of this chapter document the
       naming and contents of the binary packages built from the
@@ -26,10 +26,10 @@
 
  	    This package contains the Debian kernel source
 	    tarball. The patchlevel of the source is determined by the
-	    version of the package, for example the version 2.6.18-8
-	    of the package <tt>linux-source-2.6.18</tt> contains the
-	    version 2.6.18 of the Debian kernel source patched to
-	    patchlevel 8.  Once the package is installed, the source
+	    Debian revision of the package, for example the version 2.6.26-2
+	    of the package <tt>linux-source-2.6.26</tt> contains the
+	    version 2.6.26 of the Debian kernel source patched to
+	    patchlevel 2. Once the package is installed, the source
 	    tarball is available at
 	    <tt>/usr/src/linux-source-<em>version</em>.tar.bz2</tt>. For
 	    the instructions on obtaining Debian kernel source with
@@ -69,8 +69,12 @@
 	    <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/debian/</tt></tag>
 	    <item>
 
-	      This directory contains the individual compressed patch
-	      files for a given version.
+	      This directory contains the hierarchy of subdirectories with individual
+	      compressed patch files for a given version. Subdirectories indicate
+	      source or purpose of the patches contained within it, like <tt>bugfix</tt>
+	      (essential bugfixes), <tt>debian</tt> (Debian-specific patches) or
+	      <tt>features</tt> (kernel features not yet merged upstream). Within
+	      these directories patches are further subdivided by architecture.
 
 	    </item>
 	  <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/debian/series/</tt></tag>
@@ -79,21 +83,26 @@
 	      This directory contains the control files, which
 	      determine which patches need to be applied (or
 	      unapplied) to move from one patchlevel to another. These
-	      are text files named
-	      <tt><em>version</em>-<em>N</em></tt>, containing the
+	      are text files named <tt><em>N</em></tt> 
+	      (or <tt><em>N</em>-extra</tt>), where <tt><em>N</em></tt>
+	      is the number specifiying the patchlevel. The file 
+	      <tt><em>N</em></tt> contains a
 	      list of patches which need to be applied (in case when
 	      the name of the patch prepended with plus) or unapplied
 	      (if it is prepended with a minus) to move from
 	      patchlevel <tt><em>N</em>-1</tt> to patchlevel
 	      <tt><em>N</em></tt>.  For example, the file
-	      <tt><em>version</em>-1</tt> lists the patches which need
-	      to be applied to go from the original upstream source to
-	      the patchlevel 1. Similarly, the file
-	      <tt><em>version</em>-4</tt> describes the patchset which
-	      makes a tree at patchlevel 4 from the one at patchlevel
-	      3. Files with names like <tt><em>N</em>-extra</tt> list
+	      <tt>1</tt> lists the patches which need
+	      to be applied to go from the original Debian kernel source to
+	      the patchlevel 1. Files
+	      named <tt><em>N</em>-extra</tt> list
 	      the architecture-specific patches, along with the
-	      architectures they apply to.
+	      architectures they apply to. There is also a special file
+	      <tt>orig-0</tt>, which lists the patches (scripts) which
+	      were applied (run) in order to obtain the Debian kernel
+	      source from upstream kernel source (by removing the parts
+	      incompatible with DFSG). Invocation of a script is identified
+	      by <tt>X</tt> in the first column in this file.
 
 	    </item>
 	  <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/apply/debian</tt></tag>
@@ -102,7 +111,32 @@
               This script may be used to change the patchlevel of the
 	      currently available source tree, when run from its
 	      top-level directory. For usage example see <ref
-	      id="common-getting">.
+	      id="common-getting">. Current patchlevel of the source tree
+	      is stored in the <tt>version.Debian</tt> file in the top-level
+	      directory, and script modifies it appropriately when switching
+	      from one patchlevel to another. You can specify patchlevel <tt>orig</tt>
+	      to remove all Debian-specific patches, rolling back to the original
+	      Debian kernel source (differing from upstream by removal of
+	      firmware and other problematic files, as well as changes required
+	      for the resulting kernel to be buildable). Note that there is currently
+	      a bug in the script, preventing rollbacks of more than one patchlevel.
+	      For example, if your tree is currently at patchlevel 2, a command
+	      <example>
+$ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
+              </example>
+	      is likely to fail, so use commands
+	      <example>
+$ /usr/src/kernel-patches/all/2.6.26/apply/debian 1
+$ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
+	      </example>
+	      i.e. switch the levels one by one instead.
+
+	  <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/unpatch/debian</tt></tag>
+	    <item>
+	
+              This script brings the tree to the <tt>orig</tt> patchlevel (equivalent
+	      to running <tt>/usr/src/kernel-patches/all/<em>version</em>/apply/debian orig</tt>).
+	      See previous sections for discussion.
 
 	    </item>  
 	  </taglist>
@@ -156,16 +190,16 @@
 	  to the Debian kernel source may be required. In that case,
 	  the patch set applied to produce a modified tree determines
 	  the subarchitecture.  Again, multiple flavours of binary
-	  images may be build from the subarchitecture tree. For
+	  images may be built from the subarchitecture tree. For
 	  example, the <tt>i386</tt> architecture has a number of
 	  different flavours, such as <tt>486</tt>, <tt>686</tt> and
-	  <tt>k7</tt>, built from the common Debian kernel source. It
-	  also contains <tt>xen</tt>, <tt>vserver</tt> and
-	  <tt>xen-vserver</tt> subarchitectures. The source tree for
+	  <tt>686-bigmem</tt>, built from the common Debian kernel source. It
+	  also contains <tt>xen</tt> and <tt>openvz</tt>
+	  subarchitectures. The source tree for
 	  building the kernels for each of these subarchitectures is
 	  obtained by applying additional patches to the Debian kernel
-	  source.It may be used to build the <tt>xen-686</tt> and
-	  <tt>xen-k7</tt> binary image flavours. The names of the
+	  source. It may be used to build the <tt>xen-686</tt> and
+	  <tt>openvz-686</tt> binary image flavours. The names of the
 	  Debian binary packages incorporate the name of the flavour
 	  and, if necessary, the name of the subarchitecture (there is
 	  no need to worry about the name of the architecture, since
@@ -189,7 +223,7 @@
         </p>
 	<p>
 	  <taglist>
-	  <tag><tt>linux-headers[-<em>subarch</em>]-<em>version</em>-<em>abiname</em></tt></tag>
+	  <tag><tt>linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>subarch</em>]</tt></tag>
 	  <item>
 
 	    This package contains a common set of kernel headers for a
@@ -201,21 +235,21 @@
 	    directly, but only as a dependency of the flavour-specific
 	    headers package (see next description). It unpacks into
 	    the
-	    <tt>/usr/src/linux-headers[-<em>subarch</em>]-<em>version</em>-<em>abiname</em></tt>
+	    <tt>/usr/src/linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>subarch</em>]</tt>
 	    directory.
 
 	  </item>
 	  </taglist>
 	  <taglist>
-	  <tag><tt>linux-headers[-<em>subarch</em>]-<em>version</em>-<em>abiname</em>-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-headers-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
 	  <item>
 
 	    This package provides flavour-specific header files. It
 	    depends on the corresponding
-	    <tt>linux-headers[-<em>subarch</em>]-<em>version</em>-<em>abiname</em></tt>
+	    <tt>linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>subarch</em>]</tt>
 	    package, and sets up symbolic links into its directory
 	    tree in such a way that the directory
-	    <tt>/usr/src/linux-headers[-<em>subarch</em>]-<em>version</em>-<em>abiname</em>-<em>flavour</em></tt>
+	    <tt>/usr/src/linux-headers-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt>
 	    appears to contain a full set of headers, required for
 	    building of out-of-tree kernel modules.  For more
 	    information on this check out <ref
@@ -232,17 +266,17 @@ apt-get install linux-headers-$(uname -r)
 	  <item>
 	    <p>
 	      This is a virtual package, providing (via dependencies) the latest
-	      binary image for a particular flavour. Example: <tt>linux-image-alpha-smp</tt>.
+	      binary image for a particular flavour. Example: <tt>linux-image-openvz-686</tt>.
 	  </item>
-	  <tag><tt>linux-image[-<em>subarch</em>]-2.6-<em>flavour</em></tt></tag>
-	  <tag><tt>linux-headers[-<em>subarch</em>]-2.6-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-image-2.6[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-headers-2.6[-<em>subarch</em>]-<em>flavour</em></tt></tag>
 	  <item>
 	    <p>
 	      These virtual packages provide (via dependencies) the latest 
 	      2.6 series binary image and matching set of header files (respectively) 
-	      for a particular flavour. Example: <tt>linux-image-2.6-alpha-smp</tt>
+	      for a particular flavour. Example: <tt>linux-image-2.6-openvz-686</tt>
 	  </item>
-	  <tag><tt>linux-image[-<em>subarch</em>]-<em>version</em>-<em>abiname</em>-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-image-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
 	  <item>
 	    <p>
 	      This package contains the binary kernel image and
@@ -252,40 +286,33 @@ apt-get install linux-headers-$(uname -r)
 	      architecture-dependent. Typical locations of essential
 	      files for the <tt>i386</tt> architecture are:
 	      <taglist>
-	        <tag><tt>/boot/vmlinuz-<em>version</em>-<em>abiname</em>-<em>flavour</em></tt></tag>
+	        <tag><tt>/boot/vmlinuz-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
 		<item>
 		  The binary (compressed) kernel image.
 		</item>
-	        <tag><tt>/boot/initrd.img-<em>version</em>-<em>abiname</em>-<em>flavour</em></tt></tag>
+	        <tag><tt>/boot/initrd.img-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
 		<item>
-		  Initial RAM disk/filesystem (initrd/initramfs) image. Note, that this file is automatically generated
+		  Initial RAM filesystem (initramfs) image. Note, that this file is automatically generated
 		  in the installation process and is <strong>not</strong> shipped as a part of the package.
 		  See <ref id="initramfs"> for more details.
 		</item>
-		<tag><tt>/boot/config-<em>version</em>-<em>abiname</em>-<em>flavour</em></tt></tag>
+		<tag><tt>/boot/config-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
 		<item>
 		  The kernel configuration file used to build this particular kernel. May be used
 		  to rebuild the kernel from source, if necessary.
 		</item>
-		<tag><tt>/lib/modules/<em>version</em>-<em>abiname</em>-<em>flavour</em>/</tt></tag>
+		<tag><tt>/lib/modules/<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em>/</tt></tag>
 		<item>
 		  Directory containing the pre-built binary kernel modules.
 		</item>
 	      </taglist>
-	    <p>	      
-	      There are usually a <tt>/boot/vmlinuz</tt> and
-	      <tt>/boot/initrd.img</tt> symbolic links, pointing to
-	      the current default kernel file and initrd image
-	      respectively. Upon the installation of a new kernel, the
-	      post-installation script included in the package will
-	      point this links to newly installed kernel and initrd,
-	      which may be named <tt>/boot/vmlinuz-2.6.18-3-686</tt>
-	      and <tt>/boot/initrd.img-2.6.18-3-686</tt>, for example.
-	      It will also create the links <tt>/boot/vmlinuz.old</tt>
-	      and <tt>/boot/initrd.img.old</tt> pointing to the
-	      previously used kernel and initrd, and configure the
-	      bootloader so that the old kernel may be booted in case
-	      something goes wrong.
+	  </item>
+	  <tag><tt>linux-libc-dev</tt></tag>
+	  <item>
+	    <p>
+	      This package provides Linux kernel headers for use by userspace programs,
+	      such as GNU glibc and other system libraries.
+	    </p>
 	  </item>
 	  </taglist>
 	</p>
