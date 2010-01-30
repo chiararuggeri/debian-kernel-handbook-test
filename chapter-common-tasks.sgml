@@ -60,24 +60,24 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	  distributed in the Debian archive use the following
 	  procedure:
 	  <taglist>
-	    <tag><tt>$ apt-get source linux-<em>major</em></tt></tag>	      
+	    <tag><tt>$ apt-get source linux-2.6</tt></tag>	      
 	    <item>
 	      This will download and unpack the
-	      <tt>linux-<em>major</em></tt> source package, making the
+	      <tt>linux-2.6</tt> source package, making the
 	      tree available in the
-	      <tt>linux-<em>major</em>-<em>version</em></tt>
+	      <tt>linux-2.6-<em>version</em></tt>
 	      directory. As always, the revision part of the version
 	      of this package (for example, 8 in 2.6.18-8) will
 	      determine its patchlevel with respect to the original
 	      upstream kernel source.
 	    </item>
 	    <tag><tt># apt-get install build-essential fakeroot</tt></tag>
-	    <tag><tt># apt-get build-dep linux-<em>major</em></tt></tag>
+	    <tag><tt># apt-get build-dep linux-2.6</tt></tag>
 	    <item>
 	      The last two commands will install the build dependencies required by the kernel
 	      build process.
 	    </item>
-	    <tag><tt>$ cd linux-<em>major</em>-<em>version</em></tt></tag>
+	    <tag><tt>$ cd linux-2.6-<em>version</em></tt></tag>
 	    <tag><tt>$ fakeroot debian/rules binary</tt></tag>
 	    <item>
 	      The last command will start the kernel build and should

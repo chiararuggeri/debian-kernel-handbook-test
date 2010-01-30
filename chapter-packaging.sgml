@@ -9,12 +9,12 @@
       architectures as possible, starting with 2.6.12 the kernel team
       introduced a new packaging scheme. In it most of the
       kernel-related binary packages are built from a single source
-      package <tt>linux-<em>major</em></tt>. At the moment common
+      package <tt>linux-2.6</tt>. At the moment common
       source package <tt>linux-2.6</tt> supports building of kernel
       images and headers for all currently supported
       architectures. Subsequent sections of this chapter document the
       naming and contents of the binary packages built from the
-      <tt>linux-<em>major</em></tt> source package.
+      <tt>linux-2.6</tt> source package.
 
     </p>
     <sect id="arch-indep">
@@ -234,12 +234,12 @@ apt-get install linux-headers-$(uname -r)
 	      This is a virtual package, providing (via dependencies) the latest
 	      binary image for a particular flavour. Example: <tt>linux-image-alpha-smp</tt>.
 	  </item>
-	  <tag><tt>linux-image[-<em>subarch</em>]-<em>major</em>-<em>flavour</em></tt></tag>
-	  <tag><tt>linux-headers[-<em>subarch</em>]-<em>major</em>-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-image[-<em>subarch</em>]-2.6-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-headers[-<em>subarch</em>]-2.6-<em>flavour</em></tt></tag>
 	  <item>
 	    <p>
 	      These virtual packages provide (via dependencies) the latest 
-	      <tt><em>major</em></tt> series binary image and matching set of header files (respectively) 
+	      2.6 series binary image and matching set of header files (respectively) 
 	      for a particular flavour. Example: <tt>linux-image-2.6-alpha-smp</tt>
 	  </item>
 	  <tag><tt>linux-image[-<em>subarch</em>]-<em>version</em>-<em>abiname</em>-<em>flavour</em></tt></tag>

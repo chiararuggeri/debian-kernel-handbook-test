@@ -18,7 +18,7 @@
       SVN repository <footnote>
       <tt>svn://svn.debian.org/kernel/dists/trunk/scripts/prune-non-free</tt>
       </footnote> and producing the
-      <tt>linux-<em>major</em>_<em>version</em>.orig.tar.gz</tt>
+      <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt>
       tarball, which serves as the original upstream
       source. <em>major</em> is the kernel major version (like 2.6)
       and <em>version</em> is the actual upstream version.
@@ -44,7 +44,7 @@
 
       The source from which the Debian binary kernels are built is
       obtained by taking the source from
-      <tt>linux-<em>major</em>_<em>version</em>.orig.tar.gz</tt> (that
+      <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt> (that
       is, pristine kernel source, processed by the
       <tt>prune-non-free</tt> script) and applying a set of Debian
       patches. These patches typically implement essential fixes for
