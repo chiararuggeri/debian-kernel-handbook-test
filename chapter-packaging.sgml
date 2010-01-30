@@ -287,15 +287,6 @@ apt-get install linux-headers-$(uname -r)
 	      bootloader so that the old kernel may be booted in case
 	      something goes wrong.
 	  </item>
-	  <tag><tt>kernel-image[-<em>subarch</em>]-<em>major</em>-<em>flavour</em></tt></tag>
-	  <item>
-	    <p>
-	      These are transitional packages, introduced to provide a smooth
-	      upgrade path from the earlier kernel versions. Their
-	      sole purpose is to depend on the corresponding 
-	      <tt>linux-image[-<em>subarch</em>]-<em>major</em>-<em>flavour</em></tt>
-	      package.
-	  </item>	  
 	  </taglist>
 	</p>
       </sect>
