@@ -66,11 +66,8 @@
 	At the end of the kernel package installation a script is
 	automatically invoked to determine the availability of the
 	initramfs-generating tools and run one of them. This script
-	contains the list of all such tools available in Debian
-	(currently there are three, two mentioned above and
-	<tt>mkinitrd</tt> from the <tt>initrd-tools</tt> package,
-	which is required to generate old-style initrds for older
-	kernels). If the tool is installed (and the dependencies of
+	contains the list of all such tools available in Debian.
+	If the tool is installed (and the dependencies of
 	the <tt>linux-image</tt> package ensure that at least one of
 	them is installed), it will be queried (by running it with
 	<tt>--supported-host-version</tt> and
@@ -86,16 +83,7 @@
         The list of tools to be considered and the order in which they
 	are tested may be controlled by placing a space-separated list
 	of the executables into the <tt>ramdisk</tt> variable in
-	<tt>/etc/kernel-img.conf</tt>. For example, the current
-	default order is <tt>initramfs-tools</tt>, <tt>yaird</tt>, 
-	<tt>initrd-tools</tt>.  If one prefers to use exclusively
-	<tt>initramfs-tools</tt> with newer kernels, the following
-	setting in <tt>/etc/kernel-img.conf</tt> will prevent the
-	initrd generation script from considering <tt>yaird</tt> as
-	a candidate:
-	<example>
-ramdisk = /usr/sbin/update-initramfs /usr/sbin/mkinitrd
-        </example>
+	<tt>/etc/kernel-img.conf</tt>.
       </p>
       </sect>
       <sect id="initramfs-regen">
@@ -116,18 +104,9 @@ ramdisk = /usr/sbin/update-initramfs /usr/sbin/mkinitrd
         <heading>Examining the initramfs contents</heading>
 	<p>
 	Occasionally it is useful to examine the contents of initramfs
-	to diagnose a problem or for educational purposes. The old-style
-	initrds created by <tt>/usr/sbin/mkinitrd</tt> from <tt>initrd-tools</tt>
-	package are either <tt>cramfs</tt> or <tt>ext2</tt> filesystem, so
-	they need to be mounted to access their contents. This may be achieved
-	with the commands like
-	<example>
-# mkdir -p /mnt/initrd
-# mount -t cramfs /boot/initrd.img-2.4.27-3-686 /mnt/initrd -o loop
-        </example>
-	New style initramfs, created by <tt>yaird</tt> or <tt>initramfs-tools</tt>
-	are compressed <tt>cpio</tt> archives, which may be extracted using the
-	command 
+	to diagnose a problem or for educational purposes. They are
+	compressed <tt>cpio</tt> archives, which may be extracted
+	using the command
 	<example>
 $ zcat /boot/initrd.img-2.6.18-3-686 | cpio -i
         </example>
