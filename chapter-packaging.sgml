@@ -173,7 +173,7 @@ $ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
 	  The kind of hardware the particular kernel package is
 	  designed for is uniquely identified by the
 	  <em>architecture</em>, <em>featureset</em>, and
-	  <em>flavour</em>. Kernels for most architectures are built
+	  <em>flavour</em>. Kernels for all architectures are built
 	  from the same Debian kernel source tree, which is obtained
 	  using the procedure described in <ref id="source">. Each
 	  architecture usually has multiple flavours of the binary
