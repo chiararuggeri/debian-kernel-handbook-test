@@ -105,8 +105,28 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	</p>
 
 	<p>
+	  It is possible to apply extra patches to the tree before
+	  starting the build. To do that, before invoking the
+	  <tt>binary</tt> or <tt>binary-arch</tt> target, use the
+	  <tt>setup</tt> target to unpack the tree and prepare it for
+	  a build:
+	  <example>
+$ fakeroot debian/rules debian/build debian/stamps
+$ fakeroot make -f debian/rules.gen setup_i386_none_686
+	  </example>
+	  This will unpack the kernel tree in the
+	  <tt>debian/build/build-i386-none-686</tt> directory, where the extra
+	  patches may be applied. After that the <tt>binary</tt> or
+	  <tt>binary-arch</tt> target may be invoked to complete the
+	  build, as described above.
+	</p>
+      </sect>
+
+      <sect id="common-official-vcs">
+        <heading>Building a development version of the Debian kernel package</heading>
+	<p>
 	  To build a kernel image based on the kernel team's
-	  unreleased version:
+	  unreleased development version:
 	  <taglist>
 	    <tag><tt># apt-get install build-essential fakeroot rsync svn</tt></tag>
 	    <tag><tt># apt-get build-dep linux-2.6</tt></tag>
@@ -146,28 +166,11 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	    </item>
 	    <tag><tt>$ fakeroot debian/rules <em>target</em></tt></tag>
 	    <item>
-	      Finally, build binary packages in the same way as for
-	      a released source package.
+	      Finally, build binary packages as explained in
+	      <ref id="common-official">.
 	    </item>
 	  </taglist>
 	</p>
-	
-	<p>
-	  It is possible to apply extra patches to the tree before
-	  starting the build. To do that, before invoking the
-	  <tt>binary</tt> or <tt>binary-arch</tt> target, use the
-	  <tt>setup</tt> target to unpack the tree and prepare it for
-	  a build:
-	  <example>
-$ fakeroot debian/rules debian/build debian/stamps
-$ fakeroot make -f debian/rules.gen setup_i386_none_686
-	  </example>
-	  This will unpack the kernel tree in the
-	  <tt>debian/build/build-i386-none-686</tt> directory, where the extra
-	  patches may be applied. After that the <tt>binary</tt> or
-	  <tt>binary-arch</tt> target may be invoked to complete the
-	  build, as described above.
-	</p> 
       </sect>
 
       <sect id="gen-orig">
