@@ -172,7 +172,7 @@ $ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
 
 	  The kind of hardware the particular kernel package is
 	  designed for is uniquely identified by the
-	  <em>architecture</em>, <em>subarchitecture</em>, and
+	  <em>architecture</em>, <em>featureset</em>, and
 	  <em>flavour</em>. Kernels for most architectures are built
 	  from the same Debian kernel source tree, which is obtained
 	  using the procedure described in <ref id="source">. Each
@@ -185,27 +185,25 @@ $ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
 
 	<p>
 
-	  In order to build a working kernel for certain classes of
-	  hardware or with a desired feature set, additional changes
-	  to the Debian kernel source may be required. In that case,
-	  the patch set applied to produce a modified tree determines
-	  the subarchitecture.  Again, multiple flavours of binary
-	  images may be built from the subarchitecture tree. For
-	  example, the <tt>i386</tt> architecture has a number of
+	  In order to build a working kernel with an extra featureset
+	  not provided by the upstream source, additional changes to
+	  the Debian kernel source are required. Again, multiple
+	  flavours of binary images may be built from the featureset
+	  tree. For example, the <tt>i386</tt> architecture has a number of
 	  different flavours, such as <tt>486</tt>, <tt>686</tt> and
 	  <tt>686-bigmem</tt>, built from the common Debian kernel source. It
 	  also contains <tt>xen</tt> and <tt>openvz</tt>
-	  subarchitectures. The source tree for
-	  building the kernels for each of these subarchitectures is
+	  featuresets. The source tree for
+	  building the kernels for each of these featuresets is
 	  obtained by applying additional patches to the Debian kernel
 	  source. It may be used to build the <tt>xen-686</tt> and
 	  <tt>openvz-686</tt> binary image flavours. The names of the
 	  Debian binary packages incorporate the name of the flavour
-	  and, if necessary, the name of the subarchitecture (there is
+	  and, if necessary, the name of the featureset (there is
 	  no need to worry about the name of the architecture, since
 	  Debian tools will only allow installation of the packages
 	  with "correct" architecture). If the arch does not have any
-	  subarches, the subarch part is omitted from the name, as
+	  featuresets, the featureset part is omitted from the name, as
 	  indicated by the square brackets below.
 
 	</p>
@@ -223,11 +221,11 @@ $ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
         </p>
 	<p>
 	  <taglist>
-	  <tag><tt>linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>subarch</em>]</tt></tag>
+	  <tag><tt>linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>featureset</em>]</tt></tag>
 	  <item>
 
 	    This package contains a common set of kernel headers for a
-	    particular subarch (or arch, if subarch is
+	    particular featureset (or arch, if featureset is
 	    empty). Together with the flavour-specific
 	    <tt>linux-headers</tt> package it provides a full set of
 	    kernel headers, suitable for building of out-of-tree
@@ -235,21 +233,21 @@ $ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
 	    directly, but only as a dependency of the flavour-specific
 	    headers package (see next description). It unpacks into
 	    the
-	    <tt>/usr/src/linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>subarch</em>]</tt>
+	    <tt>/usr/src/linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>featureset</em>]</tt>
 	    directory.
 
 	  </item>
 	  </taglist>
 	  <taglist>
-	  <tag><tt>linux-headers-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-headers-<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 	  <item>
 
 	    This package provides flavour-specific header files. It
 	    depends on the corresponding
-	    <tt>linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>subarch</em>]</tt>
+	    <tt>linux-headers-<em>version</em>-<em>abiname</em>-common[-<em>featureset</em>]</tt>
 	    package, and sets up symbolic links into its directory
 	    tree in such a way that the directory
-	    <tt>/usr/src/linux-headers-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt>
+	    <tt>/usr/src/linux-headers-<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em></tt>
 	    appears to contain a full set of headers, required for
 	    building of out-of-tree kernel modules.  For more
 	    information on this check out <ref
@@ -262,46 +260,46 @@ apt-get install linux-headers-$(uname -r)
             </example>
 
 	  </item>
-	  <tag><tt>linux-image[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-image[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 	  <item>
 	    <p>
 	      This is a virtual package, providing (via dependencies) the latest
 	      binary image for a particular flavour. Example: <tt>linux-image-openvz-686</tt>.
 	  </item>
-	  <tag><tt>linux-image-2.6[-<em>subarch</em>]-<em>flavour</em></tt></tag>
-	  <tag><tt>linux-headers-2.6[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-image-2.6[-<em>featureset</em>]-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-headers-2.6[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 	  <item>
 	    <p>
 	      These virtual packages provide (via dependencies) the latest 
 	      2.6 series binary image and matching set of header files (respectively) 
 	      for a particular flavour. Example: <tt>linux-image-2.6-openvz-686</tt>
 	  </item>
-	  <tag><tt>linux-image-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-image-<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 	  <item>
 	    <p>
 	      This package contains the binary kernel image and
 	      pre-built binary modules for a particular
-	      arch/subarch/flavour combination. Names of the files
+	      arch/featureset/flavour combination. Names of the files
 	      installed by this package are
 	      architecture-dependent. Typical locations of essential
 	      files for the <tt>i386</tt> architecture are:
 	      <taglist>
-	        <tag><tt>/boot/vmlinuz-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+	        <tag><tt>/boot/vmlinuz-<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 		<item>
 		  The binary (compressed) kernel image.
 		</item>
-	        <tag><tt>/boot/initrd.img-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+	        <tag><tt>/boot/initrd.img-<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 		<item>
 		  Initial RAM filesystem (initramfs) image. Note, that this file is automatically generated
 		  in the installation process and is <strong>not</strong> shipped as a part of the package.
 		  See <ref id="initramfs"> for more details.
 		</item>
-		<tag><tt>/boot/config-<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em></tt></tag>
+		<tag><tt>/boot/config-<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 		<item>
 		  The kernel configuration file used to build this particular kernel. May be used
 		  to rebuild the kernel from source, if necessary.
 		</item>
-		<tag><tt>/lib/modules/<em>version</em>-<em>abiname</em>[-<em>subarch</em>]-<em>flavour</em>/</tt></tag>
+		<tag><tt>/lib/modules/<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em>/</tt></tag>
 		<item>
 		  Directory containing the pre-built binary kernel modules.
 		</item>

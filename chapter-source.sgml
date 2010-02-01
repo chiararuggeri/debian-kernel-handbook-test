@@ -62,8 +62,8 @@
       are built from the <tt>linux-2.6_2.6.26.orig.tar.gz</tt> source,
       patched up to patchlevel 2. Additionally, some architectures
       require architecture-specific patches for the kernel to build
-      and operate. Certain flavors of the kernel include patches to
-      implement the desired functionality, such as <tt>xen</tt> and
+      and operate. Certain packages include extra 'featuresets' not
+      included in the upstream source, such as <tt>xen</tt> and
       <tt>openvz</tt>.
 
     </p>

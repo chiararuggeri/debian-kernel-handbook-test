@@ -98,8 +98,10 @@ $ fakeroot debian/rules debian/build debian/stamps
 $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	      </example>
 	      The target in the last command has general form of
-	      <tt><em>target</em>-<em>arch</em>-<em>subarch</em>-<em>flavour</em></tt>.
-	      Replace the <tt><em>subarch</em></tt> with <tt>none</tt> if it is empty.
+	      <tt><em>target</em>-<em>arch</em>-<em>featureset</em>-<em>flavour</em></tt>.
+	      Replace the <tt><em>featureset</em></tt> with
+	      <tt>none</tt> if you do not want any of the extra
+	      featuresets.
 	    </item>
 	  </taglist>
 	</p>
