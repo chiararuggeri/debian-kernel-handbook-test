@@ -23,9 +23,7 @@
     </p>
 
     <p>
-
-      The guidelines for the driver removals have been set 
-      by the <url
+      The guidelines for firmware removal were set by the <url
       id="http://www.debian.org/vote/2006/vote_007" name="Handling
       source-less firmware in the Linux kernel"> General Resolution
       and the <url
@@ -33,9 +31,11 @@
       name="position statement"> by the release
       managers. Even though these documents originally applied to
       the Etch release, there were no significant changes in the
-      removal policy, so they are essentially in effect for the Lenny
-      release as well. Additional information about removed and
-      questionable drivers may be found at the
+      removal policy, so they were in effect for the Lenny
+      release as well. As of version 2.6.31-1, all known sourceless
+      firmware has been removed from the Debian package.
+      Additional information about firmware licensing and removals
+      may be found at the
       <url id="http://wiki.debian.org" name="Debian Wiki"> page <url
       id="http://wiki.debian.org/KernelFirmwareLicensing"
       name="KernelFirmwareLicensing">.
