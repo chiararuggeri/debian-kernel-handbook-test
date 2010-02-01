@@ -201,9 +201,8 @@ $python debian/bin/genorig.py ../linux-2.6.20.tar.bz2 ../patch-2.6.21-rc6.bz2
 	  The easiest way to build a custom kernel (the kernel with
 	  the configuration different from the one used in the
 	  official packages) from the Debian kernel source is to use
-	  the <tt>linux-source</tt> package and the <tt>make-kpkg</tt>
-	  command, provided by the <tt>kernel-package</tt> package.
-	  First, prepare the kernel tree:
+	  the <tt>linux-source</tt> package and the <tt>make deb-pkg</tt>
+	  target. First, prepare the kernel tree:
 	  <example>
 # apt-get install linux-source-2.6.18
 $ tar xjf /usr/src/linux-source-2.6.18.tar.bz2
@@ -237,26 +236,15 @@ $ make menuconfig
 	<p>
 	  After the configuration process is finished, the new or
 	  updated kernel configuration will be stored in
-	  <tt>.config</tt> file in the top-level directory. Once it's
-	  in place, you need to decide whether you want a kernel with
-	  or without initrd/initramfs support.  See <ref id="initramfs"> for
-	  details on what initrd is. If you decide to go for a
-	  initrd-enabled kernel, it should include the initrd support
-	  in its configuration. The build for a non-initrd kernel is
-	  started using the commands
+	  <tt>.config</tt> file in the top-level directory. The build
+	  is started using the commands
 	  <example>
-$ make-kpkg clean
-$ fakeroot make-kpkg --revision=custom.1.0 kernel_image
+$ make clean
+$ make KDEB_PKGVERSION=custom.1.0 deb-pkg
           </example>
 	  The <tt>custom.1.0</tt> part in this command is the version
 	  identifier, which will get appended to the kernel package
-	  name. Feel free to adjust it to your liking. For an
-	  initrd-enabled kernel add an extra <tt>--initrd</tt> argument
-	  to the second command:
-	  <example>
-$ make-kpkg clean
-$ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
-          </example>
+	  name. Feel free to adjust it to your liking.
 	  As a result of the build a custom kernel package
 	  <tt>linux-image-2.6.18_custom.1.0_i386.deb</tt> (name will
 	  reflect the version of the kernel and the revision chosen in
@@ -277,10 +265,10 @@ $ fakeroot make-kpkg --initrd --revision=custom.1.0 kernel_image
 	  command to boot the new kernel.
 	</p>
 	<p>
-  	  For much more information about <tt>make-kpkg</tt>,
+	  For much more information about
 	  bootloaders and their configuration please check their
 	  documentation, which can be accessed using the commands
-	  <tt>man make-kpkg</tt>, <tt>man lilo</tt>, <tt>man
+	  <tt>man lilo</tt>, <tt>man
 	  lilo.conf</tt>, <tt>man grub</tt>, and so on. You can also
 	  look for documentation in the
 	  <tt>/usr/share/doc/<em>package</em></tt> directories, with
@@ -330,7 +318,7 @@ $ cp /boot/config-2.6.18-3-686 ./.config
           </example>
           After the configuration with one of the configuration frontends (invoked by <tt>make oldconfig</tt>,
           <tt>make config</tt>, <tt>make menuconfig</tt>, etc) is completed, the build 
-          may be started using <tt>make-kpkg</tt> command as described above.
+          may be started using <tt>make deb-pkg</tt> target as described above.
       </sect>
 
       <sect id="common-out-of-tree">
