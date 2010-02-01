@@ -76,17 +76,15 @@
   <sect id="acceptance">
     <heading>Policy for patch acceptance</heading>
     <p>
-
-      The goal of the Debian kernel team is to keep the difference
-      between the Debian kernel source and the "pristine" kernel
-      source to a minimum.  That typically means that only the patches
-      fixing security holes and serious kernel bugs are considered for
-      the inclusion in the Debian kernel source. The recommended
-      procedure for inclusion of patches introducing optional features
-      is to package them as separate patch packages, or to convince
-      the upstream maintainer to include them in the next kernel
-      release.
-
+      The general policy of the Debian kernel team is that a patch
+      must either fix a bug or add hardware support, and must be based
+      on a change already accepted by the upstream kernel maintainers.
+      The change does not need to have been included in an upstream
+      release yet.  This policy allows the team to drop most patches
+      when moving to a new upstream version, rather than having to
+      maintain an increasing series of Debian-specific patches.  The
+      recommended procedure for inclusion of patches introducing
+      optional features is to submit to the upstream maintainer.
     </p>
   </sect>
 </chapt>
