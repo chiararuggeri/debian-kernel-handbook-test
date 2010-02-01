@@ -14,10 +14,8 @@
       Guidelines (DFSG), parts of the kernel are removed in order to
       distribute the source in the <tt>main</tt> section of the Debian
       archive. Such removal produces
-      <tt>linux-<em>major</em>_<em>version</em>.orig.tar.gz</tt>
-      tarball, which serves as the original upstream
-      source. <em>major</em>
-      is the kernel major version (like 2.6) and <em>version</em>
+      <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt> tarball, which
+      serves as the original upstream source. <em>version</em>
       is the actual upstream version. For the details on how the removal
       is implemented, see the description of <tt>linux-patch-debian</tt>
       package in <ref id="arch-indep">.
