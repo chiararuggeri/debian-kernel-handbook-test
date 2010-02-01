@@ -21,8 +21,10 @@
 	      <item>
 		If the kernel does not boot or is very unstable, instead
 		of the usual system information we need the console
-		messages via netconsole, serial console, or a
-		photograph.
+		messages via
+		<url id="http://www.kernel.org/doc/Documentation/networking/netconsole.txt" name="netconsole">,
+		<url id="http://www.kernel.org/doc/Documentation/serial-console.txt" name="serial console">,
+		or a photograph.
 	      </item>
 	      <item>
 		If the report is relaying information about a bug
