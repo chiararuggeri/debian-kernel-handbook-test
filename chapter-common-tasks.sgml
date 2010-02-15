@@ -94,7 +94,7 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	      For example, to build only the binary packages for 686 
 	      flavour on i386 architecture, use the following commands:
 	      <example>
-$ fakeroot debian/rules debian/build debian/stamps
+$ fakeroot debian/rules source
 $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	      </example>
 	      The target in the last command has general form of
@@ -113,11 +113,11 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	  <tt>setup</tt> target to unpack the tree and prepare it for
 	  a build:
 	  <example>
-$ fakeroot debian/rules debian/build debian/stamps
+$ fakeroot debian/rules source
 $ fakeroot make -f debian/rules.gen setup_i386_none_686
 	  </example>
 	  This will unpack the kernel tree in the
-	  <tt>debian/build/build-i386-none-686</tt> directory, where the extra
+	  <tt>debian/build/build_i386_none_686</tt> directory, where the extra
 	  patches may be applied. After that the <tt>binary</tt> or
 	  <tt>binary-arch</tt> target may be invoked to complete the
 	  build, as described above.
