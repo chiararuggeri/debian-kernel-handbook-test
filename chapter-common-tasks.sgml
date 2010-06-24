@@ -126,8 +126,9 @@ $ fakeroot make -f debian/rules.gen setup_i386_none_686
 	<p>
 	  Starting from version 2.6.32-6, the source package includes
 	  a script to simplify the process of building with extra
-	  patches.  You can use this by running a command such as:
+	  patches.  You can use this by running commands such as:
 	  <example>
+# apt-get install devscripts
 $ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch
           </example>
 	  This script has options to control the flavour, featureset,
