@@ -1,0 +1,147 @@
+<chapt id="update-hooks">
+  <heading>Package maintainer scripts and hooks</heading>
+  <p>
+    Kernel packages for Debian have historically had complex
+    maintainer scripts which can invoke the initramfs builder and/or a
+    boot loader, based on a mixture of file tests, explicit
+    configuration through the file <tt>/etc/initramfs.conf</tt> and
+    debconf questions.  Starting with Debian 6.0, this will be greatly
+    simplified.
+  </p>
+  <p>
+    The following policy applies to Debian GNU/Linux 6.0 'squeeze' and
+    later releases.  Some parts may be applicable to kernels other
+    than Linux, but this policy does not set any requirements for
+    them.
+  </p>
+  <sect id="kernel-hooks">
+    <heading>Kernel hooks</heading>
+    <p>
+      The maintainer scripts in Linux kernel packages must use
+      <tt>run-parts</tt> to invoke hook scripts in the corresponding
+      subdirectory of <tt>/etc/kernel</tt>, e.g. the <tt>postinst</tt>
+      script must invoke scripts in <tt>/etc/kernel/postinst.d</tt>.
+    </p>
+    <p>
+      The arguments given to all kernel hook scripts are the kernel
+      ABI version (the string that <tt>uname -r</tt> reports) and,
+      optionally, the absolute path to the kernel image.  If the
+      second argument is missing then the path is
+      either <tt>/boot/vmlinuz-<em>version</em></tt> or
+      <tt>/boot/vmlinux-<em>version</em></tt>, according to
+      architecture convention.  The environment variable
+      <tt>DEB_MAINT_PARAMS</tt> will contain the arguments given to
+      the kernel maintainer script, possibly single-quoted.  In a
+      shell script, this variable can be parsed using:
+      <example>
+set -- $DEB_MAINT_PARAMS
+      </example>
+    </p>
+    <p>
+      Kernel hook scripts may be run under debconf.  In this case
+      they must not use stdin and stdout, and should send all output
+      to stderr (fd 2).  A shell script can ensure that it does this
+      using:
+      <example>
+exec &lt;/dev/null >&2
+      </example>
+    </p>
+  </sect>
+  <sect id="kernel-hooks-loader">
+    <heading>Kernel hooks required for boot loaders</heading>
+    <p>
+      Packages for boot loaders that need to be updated whenever the
+      files they load are modified (i.e. those that store a block
+      list) must install hook scripts in
+      <tt>/etc/kernel/postinst.d</tt> and
+      <tt>/etc/kernel/postrm.d</tt>.
+    </p>
+    <p>
+      Since these boot loaders should be updated as the last step
+      during installation/upgrade and removal, hook scripts for boot
+      loaders must be named using the prefix <tt>zz-</tt> and no other
+      packages may use this prefix or one that sorts later by the
+      rules used by <tt>run-parts</tt>.  A postrm hook script should
+      warn but exit with code 0 if the boot loader configuration file
+      still refers to the kernel image that has been removed.
+    </p>
+    <p>
+      Packages for boot loaders that can provide a menu of kernel
+      versions should install kernel hook scripts in order to update
+      that menu.
+    </p>
+  </sect>
+  <sect id="initramfs-hooks">
+    <heading>Initramfs hooks</heading>
+    <p>
+      Packages for boot loaders that need to be updated whenever the
+      files they load are modified must also install hook scripts in
+      <tt>/etc/initramfs/post-update.d</tt>.  Initramfs builders
+      must call these scripts using <tt>run-parts</tt> after they
+      create, update or delete an initramfs.  The arguments given to
+      these hook scripts are the kernel ABI version and the absolute
+      path to the initramfs image.
+    </p>
+  </sect>
+  <sect id="kernel-hooks-initramfs">
+    <heading>Kernel hooks required for initramfs builders</heading>
+    <p>
+      Initramfs builders must install hook scripts in
+      <tt>/etc/kernel/postinst.d</tt> and
+      <tt>/etc/kernel/postrm.d</tt>, to create/update and delete the
+      corresponding initramfs images.  The postinst hook script must
+      complete its work before returning.  [<tt>initramfs-tools</tt>
+      currently uses a trigger to defer this because it may be
+      invoked twice, but this means it also has to know how to
+      update specific boot loaders.  This new requirement will allow
+      boot loader packages to avoid unnecessary updates, as
+      described in the following section.]
+    </p>
+  </sect>
+  <sect id="loader-optimisation">
+    <heading>Optimising boot loader updates</heading>
+    <p>
+      During a kernel package installation, upgrade or removal, various
+      boot loader hooks may be invoked (in this order):
+      <enumlist>
+	<item>
+	  A <tt>postinst_hook</tt> or <tt>postrm_hook</tt> command
+	  set by the user or the installer in
+	  <tt>/etc/kernel-img.conf</tt>
+	</item>
+	<item>
+	  A hook script in <tt>/etc/initramfs/post-update.d</tt>
+	</item>
+	<item>
+	  A hook script in <tt>/etc/kernel/postinst.d</tt> or
+	  ...<tt>/postrm.d</tt>
+	</item>
+      </enumlist>
+    </p>
+    <p>
+      To avoid unnecessary updates, the hooks invoked at steps 1 and
+      2 may check whether <tt>$DPKG_MAINTSCRIPT_PACKAGE</tt> begins
+      with <tt>linux-image-</tt> and do nothing in this case.
+    </p>
+  </sect>
+  <sect id="deprecation">
+    <heading>Deprecated features</heading>
+    <p>
+      Kernel packages must not invoke boot loaders except via hooks.
+      If <tt>/etc/kernel-img.conf</tt> contains <tt>do_bootloader =
+	yes</tt> or equivalent, maintainer scripts that previously
+      acted on this must warn that they are ignoring
+      it.  <tt>linux-base</tt> must also warn on upgrade that the
+      default has changed.  In squeeze+1, this prohibition extends
+      to initramfs builder packages.
+    </p>
+  </sect>
+  <sect id="init-config">
+    <heading>Initial configuration by the installer</heading>
+    <p>
+      The installer must not define <tt>do_bootloader</tt>,
+      <tt>postinst_hook</tt> or <tt>postrm_hook</tt> in
+      <tt>/etc/kernel-img.conf</tt>.
+    </p>
+  </sect>
+</chapt>

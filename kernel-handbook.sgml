@@ -8,6 +8,7 @@
 <!entity chapter-common-tasks SYSTEM "chapter-common-tasks.sgml">
 <!entity chapter-modules SYSTEM "chapter-modules.sgml">
 <!entity chapter-initramfs SYSTEM "chapter-initramfs.sgml">
+<!entity chapter-update-hooks SYSTEM "chapter-update-hooks.sgml">
 <!entity chapter-bugs SYSTEM "chapter-bugs.sgml">
 ]>
 <debiandoc>
@@ -57,6 +58,7 @@
     &chapter-common-tasks;
     &chapter-modules;
     &chapter-initramfs;
+    &chapter-update-hooks;
     &chapter-bugs;
 
   </book>
