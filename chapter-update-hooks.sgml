@@ -4,7 +4,7 @@
     Kernel packages for Debian have historically had complex
     maintainer scripts which can invoke the initramfs builder and/or a
     boot loader, based on a mixture of file tests, explicit
-    configuration through the file <tt>/etc/initramfs.conf</tt> and
+    configuration through the file <tt>/etc/kernel-img.conf</tt> and
     debconf questions.  Starting with Debian 6.0, this will be greatly
     simplified.
   </p>
