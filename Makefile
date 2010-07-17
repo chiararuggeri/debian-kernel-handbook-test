@@ -13,6 +13,6 @@ version.ent: FORCE
 	fi
 
 sync:
-	rsync -v -e ssh kernel-handbook.html/* alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
+	rsync -v -e ssh --chmod=a+rX --times kernel-handbook.html/* alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
 
 .PHONY: all sync FORCE
