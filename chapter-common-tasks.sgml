@@ -54,89 +54,108 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 
       </sect>
       <sect id="common-official">
-        <heading>Rebuilding an official Debian kernel package</heading>
+        <heading>Rebuilding official Debian kernel packages</heading>
 	<p>
-	  To locally build a kernel image identical to the one
-	  distributed in the Debian archive use the following
-	  procedure:
-	  <taglist>
-	    <tag><tt>$ apt-get source linux-2.6</tt></tag>	      
-	    <item>
-	      This will download and unpack the
-	      <tt>linux-2.6</tt> source package, making the
-	      tree available in the
-	      <tt>linux-2.6-<em>version</em></tt>
-	      directory. As always, the revision part of the version
-	      of this package (for example, 8 in 2.6.18-8) will
-	      determine its patchlevel with respect to the original
-	      upstream kernel source.
-	    </item>
-	    <tag><tt># apt-get install build-essential fakeroot</tt></tag>
-	    <tag><tt># apt-get build-dep linux-2.6</tt></tag>
-	    <item>
-	      The last two commands will install the build dependencies required by the kernel
-	      build process.
-	    </item>
-	    <tag><tt>$ cd linux-2.6-<em>version</em></tt></tag>
-	    <tag><tt>$ fakeroot debian/rules binary</tt></tag>
-	    <item>
-	      The last command will start the kernel build and should
-	      result in creation of the kernel packages, identical to
-	      the official ones in the original directory (in which
-	      the source package was unpacked). It is possible to
-	      specify the targets <tt>binary-arch</tt> or
-	      <tt>binary-indep</tt> targets instead of the
-	      <tt>binary</tt>, if only architecture-dependent (such as
-	      the <tt>linux-image</tt>) or architecture-independent
-	      packages are required. It is possible to further
-	      restrict the build to only the desired flavours of the
-	      kernel images by invoking the individual targets directly.
-	      For example, to build only the binary packages for 686 
-	      flavour on i386 architecture, use the following commands:
-	      <example>
+	  You can build all or selected kernel packages by following
+	  these instructions.  You may be asked to do this in order to
+	  test a potential bug fix.
+	</p>
+	<sect1>
+	  <heading>Preparation</heading>
+	  <p>
+	    Run the following commands:
+	    <taglist>
+	      <tag><tt>$ apt-get source linux-2.6</tt></tag>	      
+	      <item>
+		This will download and unpack the
+		<tt>linux-2.6</tt> source package, making the
+		tree available in the
+		<tt>linux-2.6-<em>version</em></tt>
+		directory. As always, the revision part of the version
+		of this package (for example, 8 in 2.6.18-8) will
+		determine its patchlevel with respect to the original
+		upstream kernel source.
+	      </item>
+	      <tag><tt># apt-get install build-essential fakeroot</tt></tag>
+	      <tag><tt># apt-get build-dep linux-2.6</tt></tag>
+	      <item>
+		The last two commands will install the build dependencies required by the kernel
+		build process.
+	      </item>
+	      <tag><tt>$ cd linux-2.6-<em>version</em></tt></tag>
+	      <item>
+		Enter the source directory.
+	      </item>
+	    </taglist>
+	  </p>
+	</sect1>
+	<sect1>
+	  <heading>Applying patches</heading>
+	  <p>
+	    It is possible to apply extra patches to the source before
+	    starting the build. First, you should apply the existing
+	    patches by running:
+	    <example>
+$ fakeroot debian/rules source
+$ fakeroot make -f debian/rules.gen setup
+	    </example>
+	    You will then find the patched source in the directory
+	    <tt>debian/build/source_<em>arch</em>_none</tt> directory,
+	    where you should apply the extra patches.  The patched
+	    source for each featureset is in the directory
+	    <tt>debian/build/source_<em>arch</em>_<em>featureset</em></tt>
+	  </p>
+	</sect1>
+	<sect1>
+	  <heading>Building many packages</heading>
+	  <p>
+	    To build all possible packages for this architecture, run:
+	    <example>
+$ fakeroot debian/rules binary
+	    </example>
+	    To build all architecture-dependent packages, run:
+	    <example>
+$ fakeroot debian/rules binary-arch
+	    </example>
+	    To build all architecture-independent packages, run:
+	    <example>
+$ fakeroot debian/rules binary-indep
+	    </example>
+	  </p>
+	</sect1>
+	<sect1>
+	  <heading>Building packages for one flavour</heading>
+	  <p>
+	    For example, to build only the binary packages for 686
+	    flavour on i386 architecture, use the following commands:
+	    <example>
 $ fakeroot debian/rules source
 $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
-	      </example>
-	      The target in the last command has general form of
-	      <tt><em>target</em>-<em>arch</em>-<em>featureset</em>-<em>flavour</em></tt>.
-	      Replace the <tt><em>featureset</em></tt> with
-	      <tt>none</tt> if you do not want any of the extra
-	      featuresets.
-	    </item>
-	  </taglist>
-	</p>
-
-	<p>
-	  It is possible to apply extra patches to the tree before
-	  starting the build. To do that, before invoking the
-	  <tt>binary</tt> or <tt>binary-arch</tt> target, use the
-	  <tt>setup</tt> target to unpack the tree and prepare it for
-	  a build:
-	  <example>
-$ fakeroot debian/rules source
-$ fakeroot make -f debian/rules.gen setup_i386_none_686
-	  </example>
-	  This will unpack the kernel tree in the
-	  <tt>debian/build/build_i386_none_686</tt> directory, where the extra
-	  patches may be applied. After that the <tt>binary</tt> or
-	  <tt>binary-arch</tt> target may be invoked to complete the
-	  build, as described above.
-	</p>
-
-	<p>
-	  Starting from version 2.6.32-6, the source package includes
-	  a script to simplify the process of building with extra
-	  patches.  You can use this by running commands such as:
-	  <example>
+	    </example>
+	    The target in this command has the general form of
+	    <tt><em>target</em>_<em>arch</em>_<em>featureset</em>_<em>flavour</em></tt>.
+	    Replace the <tt><em>featureset</em></tt> with
+	    <tt>none</tt> if you do not want any of the extra
+	    featuresets.
+	  </p>
+	</sect1>
+	<sect1>
+	  <heading>Simplified patching and building</heading>
+	  <p>
+	    Starting from version 2.6.32-6, the source package includes
+	    a script to simplify the process of building with extra
+	    patches.  You can use this by running commands such as:
+	    <example>
 # apt-get install devscripts
 $ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch
-          </example>
-	  This script has options to control the flavour, featureset,
-	  etc.  For a summary of the options, run:
-	  <example>
+            </example>
+	    This script has options to control the flavour, featureset,
+	    etc.  For a summary of the options, run:
+	    <example>
 $ bash debian/bin/test-patches
-          </example>
-	</p>
+            </example>
+	  </p>
+	</sect1>
       </sect>
 
       <sect id="common-official-vcs">
