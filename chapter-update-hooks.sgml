@@ -34,7 +34,7 @@
       the kernel maintainer script, possibly single-quoted.  In a
       shell script, this variable can be parsed using:
       <example>
-set -- $DEB_MAINT_PARAMS
+eval set -- "$DEB_MAINT_PARAMS"
       </example>
     </p>
     <p>
