@@ -97,7 +97,7 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	    patches by running:
 	    <example>
 $ fakeroot debian/rules source
-$ fakeroot make -f debian/rules.gen setup
+$ fakeroot debian/rules setup
 	    </example>
 	    You will then find the patched source in the directory
 	    <tt>debian/build/source_<em>arch</em>_none</tt> directory,
