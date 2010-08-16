@@ -155,6 +155,11 @@ $ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch
 $ bash debian/bin/test-patches
             </example>
 	  </p>
+	  <p>
+	    You may then need to build the linux-base package as well:
+	    <example>
+$ fakeroot make -f debian/rules.real install-linux-base
+	    </example>
 	</sect1>
       </sect>
 
