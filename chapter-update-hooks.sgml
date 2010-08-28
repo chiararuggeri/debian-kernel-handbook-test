@@ -66,6 +66,14 @@ exec &lt;/dev/null >&2
       still refers to the kernel image that has been removed.
     </p>
     <p>
+      These boot loader packages must be installable on the filesystem
+      in a disabled state where they will not write to the boot sector
+      or other special storage.  While a boot loader is disabled, any
+      kernel hooks it includes must do nothing except (optionally)
+      printing a warning that the boot loader is disabled, and must
+      exit successfully.
+    </p>
+    <p>
       Packages for boot loaders that can provide a menu of kernel
       versions should install kernel hook scripts in order to update
       that menu.
@@ -81,6 +89,11 @@ exec &lt;/dev/null >&2
       create, update or delete an initramfs.  The arguments given to
       these hook scripts are the kernel ABI version and the absolute
       path to the initramfs image.
+    </p>
+    <p>
+      While a boot loader is disabled, any initramfs hook it includes
+      must do nothing except (optionally) printing a warning that the
+      boot loader is disabled, and must exit successfully.
     </p>
   </sect>
   <sect id="kernel-hooks-initramfs">
