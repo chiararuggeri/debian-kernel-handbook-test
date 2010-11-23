@@ -4,6 +4,9 @@ date    := $(shell date)
 all: version.ent
 	debiandoc2html kernel-handbook.sgml
 
+clean:
+	rm -rf kernel-handbook.html
+
 version.ent: FORCE
 	if [ "$(version)" !=						   \
 	     "$$(sed 's/<!entity version "\(.*\)">/\1/; t; d' $@)" ]; then \
