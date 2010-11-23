@@ -97,13 +97,12 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	    patches by running:
 	    <example>
 $ fakeroot debian/rules source
-$ fakeroot debian/rules setup
 	    </example>
-	    You will then find the patched source in the directory
-	    <tt>debian/build/source_<em>arch</em>_none</tt> directory,
-	    where you should apply the extra patches.  The patched
-	    source for each featureset is in the directory
+	    You will then find the patched source in the subdirectories
+	    <tt>debian/build/source_<em>arch</em>_none</tt> (default) and
 	    <tt>debian/build/source_<em>arch</em>_<em>featureset</em></tt>
+	    (featuresets added).  You should apply the extra patches in
+	    the appropriate subdirectory.
 	  </p>
 	</sect1>
 	<sect1>
