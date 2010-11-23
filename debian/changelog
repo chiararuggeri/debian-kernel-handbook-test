@@ -1,0 +1,5 @@
+kernel-handbook (1.0.9) unstable; urgency=low
+
+  * Initial upload to Debian archive - closes: #604713
+
+ -- Ben Hutchings <ben@decadent.org.uk>  Tue, 23 Nov 2010 18:08:23 +0000

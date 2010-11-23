@@ -1,0 +1,9 @@
+Document: debian-kernel-handbook
+Title: Debian Linux Kernel Handbook
+Author: Debian Kernel Handbook Project
+Abstract: reference to Debian kernel packages and development
+Section: Debian
+
+Format: HTML
+Index: /usr/share/doc/debian-kernel-handbook/kernel-handbook.html/index.html
+Files: /usr/share/doc/debian-kernel-handbook/kernel-handbook.html/*.html

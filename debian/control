@@ -1,0 +1,21 @@
+Source: kernel-handbook
+Section: doc
+Priority: extra
+Maintainer: Debian kernel team <debian-kernel@lists.debian.org>
+Uploaders: Ben Hutchings <ben@decadent.org.uk>, maximilian attems <maks@debian.org>
+Build-Depends: debhelper (>= 7.0.50~), debiandoc-sgml
+Standards-Version: 3.9.1
+Vcs-Svn: svn://svn.debian.org/svn/kernel-handbook/trunk
+Vcs-Browser: http://svn.debian.org/wsvn/kernel-handbook/trunk/
+
+Package: debian-kernel-handbook
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: www-browser
+Description: reference to Debian Linux kernel packages and development
+ A reference manual for:
+ .
+  * Working on the linux-2.6 package
+  * Building custom kernels and modules
+  * Working with initramfs images
+  * Kernel team policies
