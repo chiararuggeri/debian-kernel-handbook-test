@@ -1,6 +1,41 @@
     <chapt id="versions">
       <heading>Version numbers and ABIs</heading>
 
+      <sect id="version-types">
+	The different types of version
+
+	<p>
+	  <taglist>
+	    <tag>Upstream version</tag>
+	    <item>
+	      The version that Linus or a stable series maintainer uses
+	      for a release.  Currently Linus will use the version
+	      format: 2.6.<var>x</var>[-rc<var>y</var>].  Stable series
+	      maintainers use the version format:
+	      2.6.<var>x</var>.<var>y</var>.
+	    </item>
+	    <tag>Package version</tag>
+	    <item>
+	      The version used in a Debian package.  Following Debian
+	      policy, it should follow the format
+	      <var>upstreamversion</var>-<var>debianrevision</var>.
+	      However, for an upstream release candidate, the string
+	      '-rc' must be replaced with '~rc' so that it will be
+	      recognised as an earlier version than the following release.
+	    </item>
+	    <tag>Kernel version</tag>
+	    <item>
+	      This is the version that appears in kernel messages,
+	      filenames, package names and the output of 'uname -r'.
+	      In official kernel packages it follows the format
+	      <var>upstreamversion</var>[-<var>abiname</var>][-<var>featureset</var>]-<var>flavour</var>.
+	      It is not changed for every new package version.
+	      The <var>abiname</var> is changed as explained below.
+	    </item>
+	  </taglist>
+	</p>
+      </sect>
+
       <sect id="abi">
 	The kernel ABI
 
