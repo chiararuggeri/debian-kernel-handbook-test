@@ -90,6 +90,34 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	  </p>
 	</sect1>
 	<sect1>
+	  <heading>Simple patching and building</heading>
+	  <p>
+	    Starting from version 2.6.32-6, the source package includes
+	    a script to simplify the process of building with extra
+	    patches.  You can use this by running commands such as:
+	    <example>
+# apt-get install devscripts
+$ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch
+            </example>
+	    This script has options to control the flavour, featureset,
+	    etc.  For a summary of the options, run:
+	    <example>
+$ bash debian/bin/test-patches
+            </example>
+	  </p>
+	  <p>
+	    You may then need to build the linux-base package as well:
+	    <example>
+$ fakeroot make -f debian/rules.real install-linux-base
+	    </example>
+	  </p>
+	  <p>
+	    However, if you need to change the configuration or make
+	    other changes, you should not use this script and should
+	    follow the instructions below.
+	  </p>
+	</sect1>
+	<sect1>
 	  <heading>Applying patches or configuration changes</heading>
 	  <p>
 	    It is possible to apply extra patches to the source before
@@ -150,28 +178,6 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	    <tt>none</tt> if you do not want any of the extra
 	    featuresets.
 	  </p>
-	</sect1>
-	<sect1>
-	  <heading>Simplified patching and building</heading>
-	  <p>
-	    Starting from version 2.6.32-6, the source package includes
-	    a script to simplify the process of building with extra
-	    patches.  You can use this by running commands such as:
-	    <example>
-# apt-get install devscripts
-$ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch
-            </example>
-	    This script has options to control the flavour, featureset,
-	    etc.  For a summary of the options, run:
-	    <example>
-$ bash debian/bin/test-patches
-            </example>
-	  </p>
-	  <p>
-	    You may then need to build the linux-base package as well:
-	    <example>
-$ fakeroot make -f debian/rules.real install-linux-base
-	    </example>
 	</sect1>
       </sect>
 

@@ -4,6 +4,8 @@ kernel-handbook (1.0.10) UNRELEASED; urgency=low
     the ABI name, based in part on text by Faheem Mitha
   * Explain the differences between upstream versions, package versions
     and kernel versions
+  * Move 'simplified patching and building' instructions up, since most
+    users should be able to follow these
 
  -- Ben Hutchings <ben@decadent.org.uk>  Tue, 26 Apr 2011 06:23:03 +0100
 
