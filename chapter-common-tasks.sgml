@@ -90,7 +90,7 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	  </p>
 	</sect1>
 	<sect1>
-	  <heading>Applying patches</heading>
+	  <heading>Applying patches or configuration changes</heading>
 	  <p>
 	    It is possible to apply extra patches to the source before
 	    starting the build. First, you should apply the existing
@@ -103,6 +103,19 @@ $ fakeroot debian/rules source
 	    <tt>debian/build/source_<em>arch</em>_<em>featureset</em></tt>
 	    (featuresets added).  You should apply the extra patches in
 	    the appropriate subdirectory.
+	  </p>
+	  <p>
+	    To change the configuration before building, for example
+	    for the 686-bigmem flavour on i386, run the commands:
+	    <example>
+$ fakeroot make -f debian/rules.gen setup_i386_none_686-bigmem
+$ make -C debian/build/build_i386_none_686-bigmem menuconfig
+	    </example>
+	  </p>
+	  <p>
+	    If the patches or configuration changes alter type
+	    definitions for the kernel, you may need to change the ABI
+	    name; see <ref id="abi-name">.
 	  </p>
 	</sect1>
 	<sect1>

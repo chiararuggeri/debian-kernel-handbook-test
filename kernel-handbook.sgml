@@ -6,6 +6,7 @@
 <!entity chapter-source SYSTEM "chapter-source.sgml">
 <!entity chapter-packaging SYSTEM "chapter-packaging.sgml">
 <!entity chapter-common-tasks SYSTEM "chapter-common-tasks.sgml">
+<!entity chapter-versions SYSTEM "chapter-versions.sgml">
 <!entity chapter-modules SYSTEM "chapter-modules.sgml">
 <!entity chapter-initramfs SYSTEM "chapter-initramfs.sgml">
 <!entity chapter-update-hooks SYSTEM "chapter-update-hooks.sgml">
@@ -56,6 +57,7 @@
     &chapter-source;
     &chapter-packaging;
     &chapter-common-tasks;
+    &chapter-versions;
     &chapter-modules;
     &chapter-initramfs;
     &chapter-update-hooks;

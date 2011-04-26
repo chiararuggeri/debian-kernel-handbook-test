@@ -1,0 +1,81 @@
+    <chapt id="versions">
+      <heading>Version numbers and ABIs</heading>
+
+      <sect id="abi">
+	The kernel ABI
+
+	<p>
+	  An ABI (Application Binary Interface) is an interface
+	  between two software components, considered at the level of
+	  register allocation and memory layout.  The ABI between the
+	  kernel and user-space is generally maintained carefully, and
+	  is not a concern here.  However, the ABI between the kernel
+	  and its modules is not.  In order to support out-of-tree
+	  modules, the kernel version should be changed when the ABI
+	  between the kernel and modules changes.
+	</p>
+
+	<sect1 id="abi-name">
+	  The ABI name
+	  <p>
+	    In official kernel packages, we change the
+	    <var>abiname</var> part of the kernel version to mark ABI
+	    changes that aren't due to a new upstream version.  This
+	    part comes from the <tt>abiname</tt> setting in
+	    <tt>debian/config/defines</tt>.  We use either a number or
+	    'trunk' (for experimental), but for a custom package it
+	    should be some other string.
+	  </p>
+	</sect1>
+
+	<sect1 id="abi-maintenance">
+	  Maintaining and updating the ABI
+	  <p>
+	    In order to avoid the need for users to rebuild
+	    out-of-tree modules frequently, we try to avoid changing
+	    the kernel ABI during updates to a Debian stable or
+	    oldstable release.  Most importantly, we avoid making such
+	    changes without changing the ABI name, except where it
+	    appears that out-of-tree modules do not depend on that
+	    part of the ABI.
+	  </p>
+	  <p>
+	    Bug fixes or configuration changes to the kernel may alter
+	    the ABI.  If an exported function is conditional on
+	    <tt>CONFIG_</tt><var>FOO</var>, or it uses a type whose
+	    definition depends on <tt>CONFIG_</tt><var>FOO</var>, then
+	    turning <tt>CONFIG_</tt><var>FOO</var> on or off changes
+	    the ABI of that function, and thus of the kernel as a
+	    whole.  Enabling or changing the configuration of a single
+	    driver usually doesn't change the ABI, because most
+	    drivers don't export anything.
+	  </p>
+	  <p>
+	    The kernel build process generates a 'symbol version' for
+	    each exported function or variable.  This is a hash of the
+	    definitions that it depends on, and should change whenever
+	    the function's ABI changes.  The kernel module loader
+	    detects incompatible modules by comparing symbol versions.
+	    The whole set of symbol versions represents the kernel
+	    ABI.
+	  </p>
+	  <p>
+	    We collect the symbol versions for previously uploaded
+	    packages under the directory <tt>debian/abi</tt> and then
+	    compare the new kernel with those.  If the ABI name is
+	    unchanged but the ABI itself is changed - except for
+	    additions, or changes that we have marked as acceptable -
+	    then the build is aborted.
+	  </p>
+	  <p>
+	    If the kernel ABI has changed you must then change the ABI
+	    name in <tt>debian/config/defines</tt>.  Then run the
+	    command
+	    <example>
+$ fakeroot debian/rules debian/control-real
+	    </example>
+	    to regenerate the package definitions for this ABI name.
+	  </p>
+	</sect1>
+      </sect>
+    </chapt>
