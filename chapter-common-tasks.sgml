@@ -176,7 +176,16 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
 	    <tt><em>target</em>_<em>arch</em>_<em>featureset</em>_<em>flavour</em></tt>.
 	    Replace the <tt><em>featureset</em></tt> with
 	    <tt>none</tt> if you do not want any of the extra
-	    featuresets.
+	    featuresets. This command will build the linux image and
+	    kernel headers packages. You may also need
+	    the <tt>linux-headers-<em>version</em>-common</tt> binary
+	    package, which can be built using the commands:
+	    <example>
+$ fakeroot debian/rules source
+$ fakeroot make -f debian/rules.gen binary-arch_i386_none_real
+            </example>
+            The target in this command has the general form of
+	    <tt><em>target</em>_<em>arch</em>_<em>featureset</em>_<em>real</em></tt>
 	  </p>
 	</sect1>
       </sect>

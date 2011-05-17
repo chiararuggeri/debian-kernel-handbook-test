@@ -2,6 +2,8 @@ kernel-handbook (1.0.11) UNRELEASED; urgency=low
 
   * Remove description of yaird and comparison with initramfs-tools
   * Mention dracut as an experimental initramfs generator
+  * Explain how to build a linux-headers-common package, thanks to
+    Faheem Mitha
 
  -- Ben Hutchings <ben@decadent.org.uk>  Tue, 17 May 2011 03:58:04 +0100
 
