@@ -1,3 +1,10 @@
+kernel-handbook (1.0.11) UNRELEASED; urgency=low
+
+  * Remove description of yaird and comparison with initramfs-tools
+  * Mention dracut as an experimental initramfs generator
+
+ -- Ben Hutchings <ben@decadent.org.uk>  Tue, 17 May 2011 03:58:04 +0100
+
 kernel-handbook (1.0.10) unstable; urgency=low
 
   * Explain how to override official kernel configuration and change
