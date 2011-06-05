@@ -14,13 +14,13 @@ $ tar jxf /usr/src/linux-source-2.6.18.tar.bz2
 	</p>
 	
 	<p>
-	  In order to get the Debian kernel source at the patchlevel
+          In order to get the Debian kernel source at a patchlevel
 	  <em>different</em> from the one provided by the current
 	  <tt>linux-source-<em>version</em></tt> package, one should
 	  first install and unpack it, then roll back the unneeded
 	  patch sets using a script from the <tt>linux-patch-debian-<em>version</em></tt> 
-	  package. We assume that in the steps mentioned in the
-	  previous example the version 2.6.18-8 of the
+          package. In the steps mentioned in the previous example we
+          assume that version 2.6.18-8 of the
 	  <tt>linux-source-2.6.18</tt> package was installed and
 	  unpacked, so that the Debian kernel source at patchlevel 8 is
 	  available in the <tt>linux-source-2.6.18</tt> directory. It
@@ -43,11 +43,11 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 
 	<p>
 
-	  The version <tt><em>version</em>-<em>N</em></tt> (like
-	  2.6.18-8) of the <tt>linux-patch-debian-<em>version</em></tt> 
+          The <tt>linux-patch-debian-<em>version</em></tt>
 	  package contains all the individual patches applied to the
-	  source to achieve any patchlevel up to <tt><em>N</em></tt>.
-	  They are stored in the directory
+          source to achieve any patchlevel up to <tt><em>N</em></tt>
+          (e.g. patch level 8 for 2.6.18-8). They are stored in the
+          directory
 	  <tt>/usr/src/kernel-patches/all/<em>version</em>/debian/</tt>.
 
 	</p>
@@ -65,7 +65,7 @@ $ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
 	  <p>
 	    Run the following commands:
 	    <taglist>
-	      <tag><tt>$ apt-get source linux-2.6</tt></tag>	      
+              <tag><tt>$ apt-get source linux-2.6</tt></tag>
 	      <item>
 		This will download and unpack the
 		<tt>linux-2.6</tt> source package, making the
@@ -206,7 +206,7 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_real
 	    <item>
 	      This will check out the Debian packaging.  <em>dist</em>
 	      is normally the distribution codename such as
-	      <tt>lenny</tt> or <tt>sid</tt> (unstable).  For the very
+              <tt>wheezy</tt> or <tt>sid</tt> (unstable).  For the very
 	      latest version, usually based on an upstream release
 	      candidate, use <tt>trunk</tt>.
 	    </item>
@@ -335,12 +335,12 @@ $ make KDEB_PKGVERSION=custom.1.0 deb-pkg
 	  The <tt>custom.1.0</tt> part in this command is the version
 	  identifier, which will get appended to the kernel package
 	  name. Feel free to adjust it to your liking.
-	  As a result of the build a custom kernel package
+          As a result of the build, a custom kernel package
 	  <tt>linux-image-2.6.18_custom.1.0_i386.deb</tt> (name will
 	  reflect the version of the kernel and the revision chosen in
 	  the command line above) will be created in the directory one
 	  level above the top of the tree. It may be installed using
-	  <tt>dpkg</tt> as any other package:
+          <tt>dpkg</tt> just as any other package:
 	  <example> 
 # dpkg -i ../linux-image-2.6.18_custom.1.0_i386.deb
 	  </example>
@@ -384,7 +384,7 @@ $ wget http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.19.tar.bz2
 	  <example> 
 $ wget http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.19.tar.bz2.sign
 	  </example> 
-          and running the command (<tt>gnupg</tt> package must be installed):
+          and running this command (<tt>gnupg</tt> package must be installed):
           <example>
 $ gpg --verify linux-2.6.19.tar.bz2.sign 
           </example>
