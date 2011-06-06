@@ -4,6 +4,10 @@ kernel-handbook (1.0.11) UNRELEASED; urgency=low
   * Mention dracut as an experimental initramfs generator
   * Explain how to build a linux-headers-common package, thanks to
     Faheem Mitha
+  * Reword a few paragraphs in common-tasks, thanks to Karl Goetz
+  * Bump copyright year for 2011, thanks to Jonathan Nieder
+  * Refer to git repository, replacing the old svn repository
+    (Closes: #627835)
 
  -- Ben Hutchings <ben@decadent.org.uk>  Tue, 17 May 2011 03:58:04 +0100
 
