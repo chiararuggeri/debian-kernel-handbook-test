@@ -33,10 +33,9 @@
       id="http://alioth.debian.org/projects/kernel-handbook"
       name="kernel-handbook"> project on <url
       id="http://alioth.debian.org" name="Alioth">. The SGML source of
-      the book may be checked out from the Debian subversion (svn)
-      repository at <url
-      id="http://svn.debian.org/wsvn/kernel-handbook/trunk/"
-      name="svn://svn.debian.org/svn/kernel-handbook/trunk/">. It is
+      the book may be checked out from the Debian
+      <url id="http://anonscm.debian.org/gitweb/?p=kernel-handbook/kernel-handbook.git"
+      name="git repository">. It is
       intended as a community project, thus all proposals for
       improvements and contributions are welcome. The preferred way to
       submit a contribution is to send it to the
