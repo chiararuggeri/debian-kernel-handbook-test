@@ -202,7 +202,7 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_real
 	      The last two commands will install the build
 	      dependencies required by the kernel build process.
 	    </item>
-	    <tag><tt>$ svn co svn://svn.debian.org/svn/kernel/dists/<em>dist</em>/linux-2.6</tt></tag>
+	    <tag><tt>$ svn co svn://anonscm.debian.org/svn/kernel/dists/<em>dist</em>/linux-2.6</tt></tag>
 	    <item>
 	      This will check out the Debian packaging.  <em>dist</em>
 	      is normally the distribution codename such as

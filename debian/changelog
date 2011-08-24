@@ -1,3 +1,10 @@
+kernel-handbook (1.0.12) UNRELEASED; urgency=low
+
+  * Update reference to svn://svn.debian.org; the hostname for
+    anonymous access is now anonscm.debian.org
+
+ -- Ben Hutchings <ben@decadent.org.uk>  Wed, 24 Aug 2011 15:38:01 +0100
+
 kernel-handbook (1.0.11) unstable; urgency=low
 
   * Remove description of yaird and comparison with initramfs-tools
