@@ -10,9 +10,9 @@
 	    <item>
 	      The version that Linus or a stable series maintainer uses
 	      for a release.  Currently Linus will use the version
-	      format: 2.6.<var>x</var>[-rc<var>y</var>].  Stable series
+	      format: 3.<var>x</var>[-rc<var>y</var>].  Stable series
 	      maintainers use the version format:
-	      2.6.<var>x</var>.<var>y</var>.
+	      3.<var>x</var>.<var>y</var>.
 	    </item>
 	    <tag>Package version</tag>
 	    <item>
@@ -33,6 +33,14 @@
 	      The <var>abiname</var> is changed as explained below.
 	    </item>
 	  </taglist>
+	</p>
+
+	<p>
+	  Many programs parse the kernel version string reported by
+	  the <tt>uname</tt> system call or command and expect to find
+	  at least 3 version components separated by dots.  For
+	  compatibility, the official kernel packages currently add
+	  '.0' to the upstream version.
 	</p>
       </sect>
 
