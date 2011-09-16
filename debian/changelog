@@ -2,6 +2,7 @@ kernel-handbook (1.0.12) UNRELEASED; urgency=low
 
   * Update reference to svn://svn.debian.org; the hostname for
     anonymous access is now anonscm.debian.org
+  * Update the description of version formats for 3.x
 
  -- Ben Hutchings <ben@decadent.org.uk>  Wed, 24 Aug 2011 15:38:01 +0100
 
