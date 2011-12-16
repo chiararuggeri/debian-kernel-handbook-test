@@ -33,7 +33,9 @@
       the Etch release, there were no significant changes in the
       removal policy, so they were in effect for the Lenny
       release as well. As of version 2.6.31-1, all known sourceless
-      firmware has been removed from the Debian package.
+      firmware has been removed from the Debian package, but much
+      of it is included in the
+      <url id="http://packages.debian.org/source/firmware-nonfree" name="firmware-nonfree"> package.
       Additional information about firmware licensing and removals
       may be found at the
       <url id="http://wiki.debian.org" name="Debian Wiki"> page <url

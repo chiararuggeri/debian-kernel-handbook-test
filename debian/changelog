@@ -1,3 +1,9 @@
+kernel-handbook (1.0.13) UNRELEASED; urgency=low
+
+  * Note that removed firmware is still packaged; suggested by Karl Goetz
+
+ -- Ben Hutchings <ben@decadent.org.uk>  Fri, 16 Dec 2011 05:26:30 +0000
+
 kernel-handbook (1.0.12) unstable; urgency=low
 
   * Update reference to svn://svn.debian.org; the hostname for
