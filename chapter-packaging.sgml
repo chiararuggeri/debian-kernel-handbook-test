@@ -157,18 +157,18 @@ apt-get install linux-headers-$(uname -r)
 
 	  </item>
 	  <tag><tt>linux-image[-<em>featureset</em>]-<em>flavour</em></tt></tag>
-	  <item>
-	    <p>
-	      This is a virtual package, providing (via dependencies) the latest
-	      binary image for a particular flavour. Example: <tt>linux-image-openvz-686</tt>.
-	  </item>
-	  <tag><tt>linux-image-2.6[-<em>featureset</em>]-<em>flavour</em></tt></tag>
-	  <tag><tt>linux-headers-2.6[-<em>featureset</em>]-<em>flavour</em></tt></tag>
+	  <tag><tt>linux-headers[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 	  <item>
 	    <p>
 	      These virtual packages provide (via dependencies) the latest 
-	      2.6 series binary image and matching set of header files (respectively) 
-	      for a particular flavour. Example: <tt>linux-image-2.6-openvz-686</tt>
+	      binary image and matching set of header files (respectively)
+	      for a particular flavour. Example: <tt>linux-image-openvz-686</tt>
+	    </p>
+	    <p>
+	      In Debian 6.0 (squeeze) and earlier, the headers
+	      metapackages were
+	      named <tt>linux-headers-2.6[-<em>featureset</em>]-<em>flavour</em></tt>.
+	    </p>
 	  </item>
 	  <tag><tt>linux-image-<em>version</em>-<em>abiname</em>[-<em>featureset</em>]-<em>flavour</em></tt></tag>
 	  <item>
