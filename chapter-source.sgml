@@ -14,7 +14,7 @@
       Guidelines (DFSG), parts of the kernel are removed in order to
       distribute the source in the <tt>main</tt> section of the Debian
       archive. Such removal produces
-      <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt> tarball, which
+      <tt>linux_<em>version</em>.orig.tar.gz</tt> tarball, which
       serves as the original upstream source. <em>version</em>
       is the actual upstream version.
 
@@ -48,16 +48,16 @@
 
       The source from which the Debian binary kernels are built is
       obtained by taking the source from
-      <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt> (that
+      <tt>linux_<em>version</em>.orig.tar.gz</tt> (that
       is, pristine kernel source with problematic parts removed)
       and applying a set of Debian
       patches. These patches typically implement essential fixes for
       serious bugs and security holes. The Debian version of the
       kernel packages has the form <tt><em>version-revision</em></tt>
       where <tt><em>version</em></tt> is the upstream version of the
-      kernel (like 3.2.19) and <tt><em>revision</em></tt> determines
-      the patchlevel. For example, the packages with version 3.2.19-1
-      are built from the <tt>linux-2.6_3.2.19.orig.tar.gz</tt> source,
+      kernel (like 3.2.20) and <tt><em>revision</em></tt> determines
+      the patchlevel. For example, the packages with version 3.2.20-1
+      are built from the <tt>linux_3.2.20.orig.tar.gz</tt> source,
       patched up to patchlevel 1. Certain packages include extra
       'featuresets' not included in the upstream source, such as
       <tt>rt</tt>.
