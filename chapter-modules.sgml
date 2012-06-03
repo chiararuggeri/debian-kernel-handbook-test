@@ -27,19 +27,8 @@
      
      If some modules are not loaded automatically by <tt>udev</tt>, but
      you would like them to be loaded during boot, it is possible to force
-     it by listing the names of the modules in one of the
-     files
-     <example>
-/etc/modules-version
-/etc/modules-major
-/etc/modules
-     </example>
-     where <em>version</em> and <em>major</em> are the kernel version
-     as returned by <tt>uname -r</tt> (like <tt>2.6.18-3-686</tt>) and the
-     major part of the kernel version (like <tt>2.6</tt>), respectively. The
-     initialization script will look for these files, matching the
-     version and major part for the running kernel, in the order
-     listed. The first file found will be scanned for the names of
+     it by listing the names of the modules in <tt>/etc/modules</tt>.
+     This will be scanned for the names of
      the modules (one name per line), which will then be loaded using
      <tt>modprobe</tt>. You can also specify the arguments for the modules.
      For example, a typical <tt>/etc/modules</tt> might look like that
