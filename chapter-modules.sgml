@@ -40,12 +40,16 @@ sbp2
      use the <tt>modinfo</tt> command, for example:
      <example>
 # modinfo loop
-filename:       /lib/modules/2.6.18-3-686/kernel/drivers/block/loop.ko
-license:        GPL
+filename:       /lib/modules/3.2.0-2-686-pae/kernel/drivers/block/loop.ko
+alias:          devname:loop-control
+alias:          char-major-10-237
 alias:          block-major-7-*
-vermagic:       2.6.18-3-686 SMP mod_unload 686 REGPARM gcc-4.1
+license:        GPL
 depends:        
-parm:           max_loop:Maximum number of loop devices (1-256) (int)
+intree:         Y
+vermagic:       3.2.0-2-686-pae SMP mod_unload modversions 686
+parm:           max_loop:Maximum number of loop devices (int)
+parm:           max_part:Maximum number of partitions per loop device (int)
      </example>
 
    </p>

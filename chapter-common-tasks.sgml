@@ -7,10 +7,10 @@
 	  it is sufficient to install the latest <tt>linux-source-<em>version</em></tt>
 	  package and unpack the source, for example:
 	  <example>
-# apt-get install linux-source-2.6.18
-$ tar jxf /usr/src/linux-source-2.6.18.tar.bz2
+# apt-get install linux-source-3.2
+$ tar jxf /usr/src/linux-source-3.2.tar.bz2
           </example>
-	  The unpacked source tree then will be available in <tt>linux-source-2.6.18</tt> directory.
+	  The unpacked source tree then will be available in <tt>linux-source-3.2</tt> directory.
 	</p>
       </sect>
       <sect id="common-official">
@@ -32,7 +32,7 @@ $ tar jxf /usr/src/linux-source-2.6.18.tar.bz2
 		tree available in the
 		<tt>linux-2.6-<em>version</em></tt>
 		directory. As always, the revision part of the version
-		of this package (for example, 8 in 2.6.18-8) will
+		of this package (for example, 1 in 3.2.19-1) will
 		determine its patchlevel with respect to the original
 		upstream kernel source.
 	      </item>
@@ -94,10 +94,10 @@ $ fakeroot debian/rules source
 	  </p>
 	  <p>
 	    To change the configuration before building, for example
-	    for the 686-bigmem flavour on i386, run the commands:
+	    for the 686-pae flavour on i386, run the commands:
 	    <example>
-$ fakeroot make -f debian/rules.gen setup_i386_none_686-bigmem
-$ make -C debian/build/build_i386_none_686-bigmem menuconfig
+$ fakeroot make -f debian/rules.gen setup_i386_none_686-pae
+$ make -C debian/build/build_i386_none_686-pae menuconfig
 	    </example>
 	  </p>
 	  <p>
@@ -126,11 +126,11 @@ $ fakeroot debian/rules binary-indep
 	<sect1>
 	  <heading>Building packages for one flavour</heading>
 	  <p>
-	    For example, to build only the binary packages for 686
+	    For example, to build only the binary packages for 686-pae
 	    flavour on i386 architecture, use the following commands:
 	    <example>
 $ fakeroot debian/rules source
-$ fakeroot make -f debian/rules.gen binary-arch_i386_none_686
+$ fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae
 	    </example>
 	    The target in this command has the general form of
 	    <tt><em>target</em>_<em>arch</em>_<em>featureset</em>_<em>flavour</em></tt>.
@@ -216,19 +216,19 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_real
 	  kernel.org, or a git repository.  If you have a tarball, run
 	  a command such as:
 	  <example>
-$ python debian/bin/genorig.py ../linux-2.6.20.tar.bz2 ../patch-2.6.21-rc6.bz2
+$ python debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2
 	  </example>
 	</p>
 	<p>
 	  If you have a git repository, pass the name of its
 	  directory:
 	  <example>
-$ python debian/bin/genorig.py ~/src/linux-2.6
+$ python debian/bin/genorig.py ~/src/linux
           </example>
 	</p>
 	<p>
 	  Either of these will generate a file such as
-	  <tt>../orig/linux-2.6_2.6.21~rc6.orig.tar.gz</tt>.
+	  <tt>../orig/linux-2.6_3.5~rc1.orig.tar.gz</tt>.
 	  You can then combine this tarball with the Debian packaging
 	  by running:
 	  <example>
@@ -254,9 +254,9 @@ $ debian/rules orig
 	  the <tt>linux-source</tt> package and the <tt>make deb-pkg</tt>
 	  target. First, prepare the kernel tree:
 	  <example>
-# apt-get install linux-source-2.6.18
-$ tar xjf /usr/src/linux-source-2.6.18.tar.bz2
-$ cd linux-source-2.6.18
+# apt-get install linux-source-3.2
+$ tar xjf /usr/src/linux-source-3.2.tar.bz2
+$ cd linux-source-3.2
           </example>
 	  The kernel now needs to be configured, that is you have to
 	  set the kernel options and select the drivers which are
@@ -296,13 +296,13 @@ $ make KDEB_PKGVERSION=custom.1.0 deb-pkg
 	  identifier, which will get appended to the kernel package
 	  name. Feel free to adjust it to your liking.
           As a result of the build, a custom kernel package
-	  <tt>linux-image-2.6.18_custom.1.0_i386.deb</tt> (name will
+	  <tt>linux-image-3.2.19_custom.1.0_i386.deb</tt> (name will
 	  reflect the version of the kernel and the revision chosen in
 	  the command line above) will be created in the directory one
 	  level above the top of the tree. It may be installed using
           <tt>dpkg</tt> just as any other package:
 	  <example> 
-# dpkg -i ../linux-image-2.6.18_custom.1.0_i386.deb
+# dpkg -i ../linux-image-3.2.19_custom.1.0_i386.deb
 	  </example>
 	  This command will unpack the kernel, generate the initrd if
 	  necessary (see <ref id="initramfs"> for details), and configure
@@ -337,16 +337,16 @@ $ make KDEB_PKGVERSION=custom.1.0 deb-pkg
            the kernel source from Debian packages, the "pristine" source is
            downloaded using your favourite browser or using wget, as follows: 
 	  <example> 
-$ wget http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.19.tar.bz2
+$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.bz2
 	  </example> 
           The integrity of the downloaded archive may be verified by fetching
           the corresponding cryptographic signature
 	  <example> 
-$ wget http://kernel.org/pub/linux/kernel/v2.6/linux-2.6.19.tar.bz2.sign
+$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.bz2.sign
 	  </example> 
           and running this command (<tt>gnupg</tt> package must be installed):
           <example>
-$ gpg --verify linux-2.6.19.tar.bz2.sign 
+$ gpg --verify linux-3.4.tar.bz2.sign 
           </example>
           Successful verification results in output similar to the one below:
           <example>
@@ -358,13 +358,13 @@ Primary key fingerprint: C75D C40A 11D7 AF88 9981  ED5B C86B A06A 517D 0F0E
           </example>
           After that the archive may be unpacked using
           <example>
-$ tar xjf linux-2.6.19.tar.bz2
-$ cd linux-2.6.19
+$ tar xjf linux-3.4.tar.bz2
+$ cd linux-3.4
           </example>
-          The unpacked kernel tree (in <tt>linux-2.6.19</tt> now has to be configured.
+          The unpacked kernel tree (in <tt>linux-3.4</tt> now has to be configured.
           The existing configuration file may be used as a starting point
           <example>
-$ cp /boot/config-2.6.18-3-686 ./.config
+$ cp /boot/config-3.2.0-2-686-pae ./.config
           </example>
           After the configuration with one of the configuration frontends (invoked by <tt>make oldconfig</tt>,
           <tt>make config</tt>, <tt>make menuconfig</tt>, etc) is completed, the build 
@@ -379,11 +379,11 @@ $ cp /boot/config-2.6.18-3-686 ./.config
           packages. For some of the most popular out-of-tree modules,
           the binary Debian packages with modules built against the
           stock Debian kernels are provided. For example, if you are
-          running stock Debian kernel <tt>2.6.18-3-686</tt> (use the
+          running stock Debian kernel <tt>3.2.0-2-686-pae</tt> (use the
           <tt>uname -r</tt> command to verify the version) from the
-          <tt>linux-image-2.6.18-3-686</tt> package, and would like to
+          <tt>linux-image-3.2.0-2-686-pae</tt> package, and would like to
           use the squash filesystem, all you need to do is install
-          <tt>squashfs-modules-2.6.18-3-686</tt> binary package, which
+          <tt>squashfs-modules-3.2.0-2-686-pae</tt> binary package, which
           provides the neccessary binary kernel modules.
 	</p>
 
@@ -399,14 +399,14 @@ $ cp /boot/config-2.6.18-3-686 ./.config
           <tt>module-assistant</tt> (or <tt>m-a</tt>) script from the
           <tt>module-assistant</tt> package.  Typical sequence to
           build a custom binary module package, matching a kernel
-          <tt>2.6.18-3-686</tt> (as returned by <tt>uname -r</tt>)
+          <tt>3.2.0-2-686-pae</tt> (as returned by <tt>uname -r</tt>)
           from the debianized source consists of the following steps:
          </p>
          <p>
           Install a set of kernel headers, matching the kernel for
           which the modules are going to be built:
           <example>
-# apt-get install linux-headers-2.6.18-3-686
+# apt-get install linux-headers-3.2.0-2-686-pae
           </example>
           Install the package containing the source:
           <example>

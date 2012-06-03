@@ -46,9 +46,9 @@
 	<tt>linux-image</tt> has been installed, the initramfs needs to
 	be regenerated. This is achieved by the command
 	<example>
-# dpkg-reconfigure linux-image-2.6.18-3-686
+# dpkg-reconfigure linux-image-3.2.0-2-686-pae
         </example>
-        where <tt>linux-image-2.6.18-3-686</tt> is the name of the
+        where <tt>linux-image-3.2.0-2-686-pae</tt> is the name of the
 	kernel package for which the initramfs regeneration is requested.
       </sect>
       <sect id="initramfs-exam">
@@ -59,7 +59,7 @@
 	compressed <tt>cpio</tt> archives, which may be extracted
 	using the command
 	<example>
-$ zcat /boot/initrd.img-2.6.18-3-686 | cpio -i
+$ zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i
         </example>
 	It will unpack the contents of the initramfs into the current directory.
       </sect>

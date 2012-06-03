@@ -357,8 +357,8 @@
           <em>Use the correct package to report the bug against.</em>
 	  Please file bugs against the package containing the kernel
 	  version where the problem occurs
-	  (e.g. <package>linux-image-2.6.26-2-686</package>), not
-	  a metapackage (e.g. <package>linux-image-2.6-686</package>).
+	  (e.g. <package>linux-image-3.2.0-2-686-pae</package>), not
+	  a metapackage (e.g. <package>linux-image-686-pae</package>).
         </item>
 	<item>
 	  <em>Bugs involving ACPI.</em> While ACPI (Advanced Control

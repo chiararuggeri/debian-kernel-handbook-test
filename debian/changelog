@@ -6,6 +6,8 @@ kernel-handbook (1.0.13) UNRELEASED; urgency=low
     packaging changes and redundant with snapshot.debian.org
   * Remove documentation of version-specific /etc/modules files, which are
     no longer supported
+  * Use 3.x version numbers and current flavour and featureset names in
+    examples
 
  -- Ben Hutchings <ben@decadent.org.uk>  Fri, 16 Dec 2011 05:26:30 +0000
 
