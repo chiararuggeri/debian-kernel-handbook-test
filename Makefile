@@ -1,4 +1,4 @@
-version := 1.0.12
+version := $(shell dpkg-parsechangelog | sed -ne 's,^Version: *\(.*\)$$,\1,p')
 date    := $(shell date)
 
 all: version.ent
