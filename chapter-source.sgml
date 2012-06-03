@@ -16,9 +16,7 @@
       archive. Such removal produces
       <tt>linux-2.6_<em>version</em>.orig.tar.gz</tt> tarball, which
       serves as the original upstream source. <em>version</em>
-      is the actual upstream version. For the details on how the removal
-      is implemented, see the description of <tt>linux-patch-debian</tt>
-      package in <ref id="arch-indep">.
+      is the actual upstream version.
 
     </p>
 
@@ -63,15 +61,6 @@
       patched up to patchlevel 2. Certain packages include extra
       'featuresets' not included in the upstream source, such as
       <tt>xen</tt> and <tt>openvz</tt>.
-
-    </p>
-    <p>
-
-      All the patches used in the process of building of the Debian
-      official kernel packages are shipped as a part of
-      <tt>linux-patch-debian-<em>version</em></tt> package.  See its
-      description in <ref id="arch-indep"> for more information about
-      the patch system.
 
     </p>
   </sect>

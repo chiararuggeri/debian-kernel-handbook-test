@@ -12,46 +12,6 @@ $ tar jxf /usr/src/linux-source-2.6.18.tar.bz2
           </example>
 	  The unpacked source tree then will be available in <tt>linux-source-2.6.18</tt> directory.
 	</p>
-	
-	<p>
-          In order to get the Debian kernel source at a patchlevel
-	  <em>different</em> from the one provided by the current
-	  <tt>linux-source-<em>version</em></tt> package, one should
-	  first install and unpack it, then roll back the unneeded
-	  patch sets using a script from the <tt>linux-patch-debian-<em>version</em></tt> 
-          package. In the steps mentioned in the previous example we
-          assume that version 2.6.18-8 of the
-	  <tt>linux-source-2.6.18</tt> package was installed and
-	  unpacked, so that the Debian kernel source at patchlevel 8 is
-	  available in the <tt>linux-source-2.6.18</tt> directory. It
-	  can then be rolled back to the desired patchlevel (1 in the
-	  example below) by running
-	  <example>
-# apt-get install linux-patch-debian-2.6.18
-$ cd linux-source-2.6.18
-$ /usr/src/kernel-patches/all/2.6.18/apply/debian 2.6.18-1
-          </example>
-	  The last command will <em>unapply</em> the set of patches,
-	  which lead from patchlevel 1 to patchlevel 8 and the
-	  resulting tree will appear as if it came from the version
-	  2.6.18-1 of the <tt>linux-source-2.6.18</tt> package. This
-	  system ensures that the source code for any revision of the
-	  Debian kernel source may be recovered from the latest one,
-	  without keeping multiple copies of the source in the
-	  archive.
-	</p>
-
-	<p>
-
-          The <tt>linux-patch-debian-<em>version</em></tt>
-	  package contains all the individual patches applied to the
-          source to achieve any patchlevel up to <tt><em>N</em></tt>
-          (e.g. patch level 8 for 2.6.18-8). They are stored in the
-          directory
-	  <tt>/usr/src/kernel-patches/all/<em>version</em>/debian/</tt>.
-
-	</p>
-
       </sect>
       <sect id="common-official">
         <heading>Rebuilding official Debian kernel packages</heading>

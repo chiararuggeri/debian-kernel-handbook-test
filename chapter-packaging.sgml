@@ -31,10 +31,7 @@
 	    version 2.6.26 of the Debian kernel source patched to
 	    patchlevel 2. Once the package is installed, the source
 	    tarball is available at
-	    <tt>/usr/src/linux-source-<em>version</em>.tar.bz2</tt>. For
-	    the instructions on obtaining Debian kernel source with
-	    arbitrary patchlevel, see <ref id="common-getting">.
-
+	    <tt>/usr/src/linux-source-<em>version</em>.tar.bz2</tt>.
 	  </item>
 	<tag><tt>linux-manual-<em>version</em></tt></tag>
 	  <item>
@@ -55,92 +52,6 @@
 	    <tt>/usr/share/doc/linux-doc-<em>version</em></tt>.
 
 	  </item>
-	<tag><tt>linux-patch-debian-<em>version</em></tt></tag>
-	  <item>
-
-	    This package contains all patches used to produce the
-	    Debian kernel source. It also contains the scripts which
-	    allow application or un-application of patchsets, bringing
-	    the source to the desired patchlevel. After the
-	    installation the patches are installed in
-	    <tt>/usr/src</tt> as follows:
-
-	    <taglist>
-	    <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/debian/</tt></tag>
-	    <item>
-
-	      This directory contains the hierarchy of subdirectories with individual
-	      compressed patch files for a given version. Subdirectories indicate
-	      source or purpose of the patches contained within it, like <tt>bugfix</tt>
-	      (essential bugfixes), <tt>debian</tt> (Debian-specific patches) or
-	      <tt>features</tt> (kernel features not yet merged upstream). Within
-	      these directories patches are further subdivided by architecture.
-
-	    </item>
-	  <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/debian/series/</tt></tag>
-	    <item>
-
-	      This directory contains the control files, which
-	      determine which patches need to be applied (or
-	      unapplied) to move from one patchlevel to another. These
-	      are text files named <tt><em>N</em></tt> 
-	      (or <tt><em>N</em>-extra</tt>), where <tt><em>N</em></tt>
-	      is the number specifiying the patchlevel. The file 
-	      <tt><em>N</em></tt> contains a
-	      list of patches which need to be applied (in case when
-	      the name of the patch prepended with plus) or unapplied
-	      (if it is prepended with a minus) to move from
-	      patchlevel <tt><em>N</em>-1</tt> to patchlevel
-	      <tt><em>N</em></tt>.  For example, the file
-	      <tt>1</tt> lists the patches which need
-	      to be applied to go from the original Debian kernel source to
-	      the patchlevel 1. Files
-	      named <tt><em>N</em>-extra</tt> list
-	      the architecture-specific patches, along with the
-	      architectures they apply to. There is also a special file
-	      <tt>orig-0</tt>, which lists the patches (scripts) which
-	      were applied (run) in order to obtain the Debian kernel
-	      source from upstream kernel source (by removing the parts
-	      incompatible with DFSG). Invocation of a script is identified
-	      by <tt>X</tt> in the first column in this file.
-
-	    </item>
-	  <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/apply/debian</tt></tag>
-	    <item>
-	
-              This script may be used to change the patchlevel of the
-	      currently available source tree, when run from its
-	      top-level directory. For usage example see <ref
-	      id="common-getting">. Current patchlevel of the source tree
-	      is stored in the <tt>version.Debian</tt> file in the top-level
-	      directory, and script modifies it appropriately when switching
-	      from one patchlevel to another. You can specify patchlevel <tt>orig</tt>
-	      to remove all Debian-specific patches, rolling back to the original
-	      Debian kernel source (differing from upstream by removal of
-	      firmware and other problematic files, as well as changes required
-	      for the resulting kernel to be buildable). Note that there is currently
-	      a bug in the script, preventing rollbacks of more than one patchlevel.
-	      For example, if your tree is currently at patchlevel 2, a command
-	      <example>
-$ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
-              </example>
-	      is likely to fail, so use commands
-	      <example>
-$ /usr/src/kernel-patches/all/2.6.26/apply/debian 1
-$ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
-	      </example>
-	      i.e. switch the levels one by one instead.
-
-	  <tag><tt>/usr/src/kernel-patches/all/<em>version</em>/unpatch/debian</tt></tag>
-	    <item>
-	
-              This script brings the tree to the <tt>orig</tt> patchlevel (equivalent
-	      to running <tt>/usr/src/kernel-patches/all/<em>version</em>/apply/debian orig</tt>).
-	      See previous sections for discussion.
-
-	    </item>  
-	  </taglist>
-	</item> 
         <tag><tt>linux-support-<em>version</em>-<em>abiname</em></tt></tag> 
 	<item>
 
