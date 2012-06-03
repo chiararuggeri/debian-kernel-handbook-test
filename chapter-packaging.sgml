@@ -141,21 +141,6 @@ $ /usr/src/kernel-patches/all/2.6.26/apply/debian orig
 	    </item>  
 	  </taglist>
 	</item> 
-        <tag><tt>linux-tree-<em>version</em></tt></tag> 
-	<item>
-
-	    This is a dummy package whose sole purpose is to satisfy
-	    the build dependencies for a successful kernel build. In
-	    the old kernel build system build-depending on the package
-	    <tt>linux-tree-<em>version</em>-<em>N</em></tt>, provided
-	    by the <tt>linux-tree-<em>version</em></tt>, would result
-	    in the automatic installation of all the required source
-	    and patch packages, and patching of the kernel source to
-	    patchlevel <tt><em>N</em></tt> before building. It has
-	    been obsoleted by the new common packaging system and is
-	    provided for backward compatibility only.
-
-	</item>
         <tag><tt>linux-support-<em>version</em>-<em>abiname</em></tt></tag> 
 	<item>
 
