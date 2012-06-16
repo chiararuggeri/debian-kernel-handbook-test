@@ -86,16 +86,29 @@ $ fakeroot make -f debian/rules.real install-linux-base
 	  <heading>Applying patches or configuration changes</heading>
 	  <p>
 	    It is possible to apply extra patches to the source before
-	    starting the build. First, you should apply the existing
-	    patches by running:
+	    starting the build.  In the <tt>linux</tt> source package,
+	    The default (non-featureset) patches are automatically
+	    applied in the top level directory.  If you are building
+	    the <tt>linux-2.6</tt> source package or building with a
+	    featureset, you should first apply the existing patches by
+	    running:
 	    <example>
 $ fakeroot debian/rules source
 	    </example>
-	    You will then find the patched source in the subdirectories
-	    <tt>debian/build/source_<em>arch</em>_none</tt> (default) and
-	    <tt>debian/build/source_<em>arch</em>_<em>featureset</em></tt>
-	    (featuresets added).  You should apply the extra patches in
-	    the appropriate subdirectory.
+	    The patched source appears in the following directories.
+	    <taglist>
+	      <tag>linux default source:</tag>
+	      <item>top level</item>
+	      <tag>linux source with featureset:</tag>
+	      <item><tt>debian/build/source_<em>featureset</em></tt></item>
+	      <tag><tt>linux-2.6</tt> default source:</tag>
+	      <item><tt>debian/build/source_<em>arch</em>_none</tt></item>
+	      <tag><tt>linux-2.6</tt> source with featureset:</tag>
+	      <item><tt>debian/build/source_<em>arch</em>_<em>featureset</em></tt></item>
+	    </taglist>
+	    You should apply the extra patches in the appropriate
+	    directory. In the <tt>linux</tt> source package you can
+	    use the <tt>quilt</tt> utility to do this.
 	  </p>
 	  <p>
 	    To change the configuration before building, for example
