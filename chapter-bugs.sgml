@@ -361,25 +361,6 @@
 	  a metapackage (e.g. <package>linux-image-686-pae</package>).
         </item>
 	<item>
-	  <em>Bugs involving ACPI.</em> While ACPI (Advanced Control
-	  and Power Interface) support in Linux kernel has matured
-	  greatly in the 2.6 series, it occasionally causes problems
-	  (misrouted interrupts, failure to go into or return from the
-	  sleep/hybernation/suspend mode, thermal problems) on newer laptop models. They
-	  may be caused both by bugs in the kernel code or (more
-	  likely) in the ACPI interface of a particular machine. As
-	  resolution of such bugs requires access to the machine in
-	  question, it is pretty unlikely that kernel team will be able
-	  to do something about it. Consider reporting the problem to
-	  the <url
-	  id="http://vger.kernel.org/vger-lists.html#linux-acpi"
-	  name="Linux ACPI mailing list"> along with the submission to
-	  the Debian BTS. As a workaround, try booting the kernel with
-	  some combination of boot options <tt>acpi=off</tt>,
-	  <tt>pci=norouteirq</tt>, <tt>pci=noacpi</tt>, and
-	  <tt>nolapic</tt> to see if that improves the situation.
-	</item>
-	<item>
 	  <em>Bugs involving tainted kernels.</em> If a kernel
 	  crashes, it normally prints out some debugging
 	  information, indicating, among other things, whether the
