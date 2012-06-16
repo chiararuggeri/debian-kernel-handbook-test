@@ -9,7 +9,7 @@
       architectures as possible, starting with 2.6.12 the kernel team
       introduced a new packaging scheme. In it most of the
       kernel-related binary packages are built from a single source
-      package <tt>linux</tt>. The 
+      package <tt>linux</tt> (previously <tt>linux-2.6</tt>). The
       <tt>linux</tt> source package supports building of kernel
       images and headers for all currently supported
       architectures. Subsequent sections of this chapter document the
