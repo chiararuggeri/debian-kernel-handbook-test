@@ -10,6 +10,7 @@ kernel-handbook (1.0.13) UNRELEASED; urgency=low
     examples
   * Refer to the linux source package rather than linux-2.6
   * Remove outdated advice to try disabling ACPI and IRQ routing options
+  * Remove an unnecessary version qualification
 
  -- Ben Hutchings <ben@decadent.org.uk>  Fri, 16 Dec 2011 05:26:30 +0000
 

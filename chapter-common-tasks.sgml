@@ -57,9 +57,9 @@ $ tar jxf /usr/src/linux-source-3.2.tar.bz2
 	<sect1>
 	  <heading>Simple patching and building</heading>
 	  <p>
-	    Starting from version 2.6.32-6, the source package includes
-	    a script to simplify the process of building with extra
-	    patches.  You can use this by running commands such as:
+	    The source package includes a script to simplify the
+	    process of building with extra patches.  You can use this
+	    by running commands such as:
 	    <example>
 # apt-get install devscripts
 $ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch
