@@ -5,7 +5,7 @@
     maintainer scripts which can invoke the initramfs builder and/or a
     boot loader, based on a mixture of file tests, explicit
     configuration through the file <tt>/etc/kernel-img.conf</tt> and
-    debconf questions.  Starting with Debian 6.0, this will be greatly
+    debconf questions.  Starting with Debian 6.0, this has been greatly
     simplified.
   </p>
   <p>
@@ -103,12 +103,7 @@ exec &lt;/dev/null >&2
       <tt>/etc/kernel/postinst.d</tt> and
       <tt>/etc/kernel/postrm.d</tt>, to create/update and delete the
       corresponding initramfs images.  The postinst hook script must
-      complete its work before returning.  [<tt>initramfs-tools</tt>
-      currently uses a trigger to defer this because it may be
-      invoked twice, but this means it also has to know how to
-      update specific boot loaders.  This new requirement will allow
-      boot loader packages to avoid unnecessary updates, as
-      described in the following section.]
+      complete its work before returning.
     </p>
   </sect>
   <sect id="loader-optimisation">
@@ -145,8 +140,8 @@ exec &lt;/dev/null >&2
 	yes</tt> or equivalent, maintainer scripts that previously
       acted on this must warn that they are ignoring
       it.  <tt>linux-base</tt> must also warn on upgrade that the
-      default has changed.  In squeeze+1, this prohibition extends
-      to initramfs builder packages.
+      default has changed.  In Debian 7.0 'wheezy', this prohibition
+      extends to initramfs builder packages.
     </p>
   </sect>
   <sect id="init-config">
