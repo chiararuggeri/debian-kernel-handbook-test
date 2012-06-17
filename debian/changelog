@@ -17,6 +17,8 @@ kernel-handbook (1.0.13) UNRELEASED; urgency=low
     - Debian 6.0 release is now in the past
     - initramfs-tools is no longer special
     - squeeze+1 has a name and number
+  * Note that official Linux kernel packages will use only 2 version
+    components in wheezy+1
 
  -- Ben Hutchings <ben@decadent.org.uk>  Fri, 16 Dec 2011 05:26:30 +0000
 
