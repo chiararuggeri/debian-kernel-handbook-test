@@ -251,7 +251,7 @@ $ python debian/bin/genorig.py ~/src/linux
 	</p>
 	<p>
 	  Either of these will generate a file such as
-	  <tt>../orig/linux_3.5~rc1.orig.tar.gz</tt>.
+	  <tt>../orig/linux_3.5~rc1.orig.tar.xz</tt>.
 	  You can then combine this tarball with the Debian packaging
 	  by running:
 	  <example>
