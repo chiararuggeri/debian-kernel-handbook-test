@@ -10,6 +10,7 @@ Vcs-Git: git://anonscm.debian.org/kernel-handbook/kernel-handbook.git
 
 Package: debian-kernel-handbook
 Architecture: all
+Multi-Arch: foreign
 Depends: ${misc:Depends}
 Recommends: www-browser
 Description: reference to Debian Linux kernel packages and development
