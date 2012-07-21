@@ -1,5 +1,6 @@
 kernel-handbook (1.0.14) UNRELEASED; urgency=low
 
+  [ Ben Hutchings ]
   * Remove custom version from 'make deb-pkg' example (Closes: #627838)
   * Fix introduction to say the handbook describes wheezy (Closes: #651467)
   * Add a section on disk space requirements for the official'linux' package
@@ -7,6 +8,10 @@ kernel-handbook (1.0.14) UNRELEASED; urgency=low
   * Add Vcs-Git control field (Closes: #638479)
   * Mark as capable of satisfying relations from foreign packages
     (Multi-Arch: foreign) (Closes: #679204)
+
+  [ Jonathan Nieder ]
+  * Explain how to narrow the regression window with "git bisect"
+    when filing bugs (Closes: #627960)
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sat, 21 Jul 2012 20:02:21 +0100
 

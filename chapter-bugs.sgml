@@ -378,6 +378,86 @@
 	</item>
       </list>
       </p>
+
+	<sect1>
+	  Bisecting (finding the upstream version that introduced a bug)
+
+	<p>
+	  When a bug is easy to reproduce locally but hard to get developers
+	  to reproduce (as is often true of workflow- or hardware-dependent
+	  bugs), it can be useful to compile and test a few versions to narrow
+	  down what changes introduced the regression.
+	</p>
+
+	<p>
+	  To start, recreate the problem with a vanilla kernel:
+	  <example>
+# apt-get install git build-essential
+$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+$ cd linux
+$ make localmodconfig; # minimal configuration
+	  </example>
+	  The above commands acquire and configure a vanilla kernel.
+	  Build and test a binary package as explained in
+	  <ref id="common-building">:
+	  <example>
+$ make deb-pkg
+# dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb; # substitute package name from the previous command
+# reboot
+	  </example>
+	  If the bug doesn't show up, try again with the official
+	  configuration file from /boot.  (If it still doesn't show up
+	  after that, declare victory and celebrate.)
+	</p>
+
+	<p>
+	  Initialize the bisection process by declaring which versions worked
+	  and did not work:
+	  <example>
+$ cd linux
+$ git bisect start
+$ git bisect good v3.0; # or whichever was known to be good
+$ git bisect bad; # current version is bad
+	  </example>
+	  Now git checks out a version half-way in between to test.
+	  Build it, reusing the prepared configuration.
+	  <example>
+$ make silentoldconfig
+$ make deb-pkg
+	  </example>
+	</p>
+
+	<p>
+	  Install the package, reboot, and test.
+	  <example>
+$ git bisect good; # if this version doesn't exhibit the bug
+$ git bisect bad; # if it does
+$ git bisect skip; # if some other bug makes it hard to test
+	  </example>
+	  And on to the next iteration:
+	  <example>
+$ make silentoldconfig
+$ make deb-pkg
+	  </example>
+	</p>
+
+	<p>
+	  At the end of the process, the name of the "first bad commit" is
+	  printed, which is very useful for tracking down the bug. Narrowing
+	  down the regression range with a few rounds is useful even if you
+	  don't get that far; in that case, run <tt>git bisect log</tt> to
+	  produce a log. If you are the visual sort of person, <tt>git bisect
+	  visualize</tt> with the <tt>gitk</tt> package installed can show
+	  what is happening between steps.
+	</p>
+
+	<p>
+	  See Christian Couder's article "Fighting regressions with git bisect"
+	  from <url id="http://www.kernel.org/pub/software/scm/git/docs/git-bisect-lk2009.html"
+	  name="kernel.org"> or <url id="file:///usr/share/doc/git-doc/git-bisect-lk2009.html"
+	  name="the git-doc package"> for details.
+	</p>
+	</sect1>
       </sect>
 </chapt>
 
