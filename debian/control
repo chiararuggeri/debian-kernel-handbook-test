@@ -6,6 +6,7 @@ Uploaders: Ben Hutchings <ben@decadent.org.uk>, maximilian attems <maks@debian.o
 Build-Depends: debhelper (>= 7.0.50~), debiandoc-sgml
 Standards-Version: 3.9.1
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=kernel-handbook/kernel-handbook.git
+Vcs-Git: git://anonscm.debian.org/kernel-handbook/kernel-handbook.git
 
 Package: debian-kernel-handbook
 Architecture: all
