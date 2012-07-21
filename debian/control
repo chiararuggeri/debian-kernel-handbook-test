@@ -16,7 +16,7 @@ Recommends: www-browser
 Description: reference to Debian Linux kernel packages and development
  A reference manual for:
  .
-  * Working on the linux-2.6 package
+  * Working on the linux package
   * Building custom kernels and modules
   * Working with initramfs images
   * Kernel team policies
