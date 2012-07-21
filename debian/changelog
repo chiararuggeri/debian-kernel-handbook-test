@@ -8,6 +8,7 @@ kernel-handbook (1.0.14) UNRELEASED; urgency=low
   * Add Vcs-Git control field (Closes: #638479)
   * Mark as capable of satisfying relations from foreign packages
     (Multi-Arch: foreign) (Closes: #679204)
+  * Add example of using lsinitramfs command (Closes: #639846)
 
   [ Jonathan Nieder ]
   * Explain how to narrow the regression window with "git bisect"

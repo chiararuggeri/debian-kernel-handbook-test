@@ -62,5 +62,13 @@
 $ zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i
         </example>
 	It will unpack the contents of the initramfs into the current directory.
+	</p>
+	<p>
+	  It is also possible to list the contents of an initramfs
+	  using the <tt>cpio -t</tt> option or the command
+	  <example>
+$ lsinitramfs /boot/initrd.img-3.2.0-2-686-pae
+          </example>
+	</p>
       </sect>
     </chapt>
