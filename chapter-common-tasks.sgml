@@ -313,19 +313,16 @@ $ make menuconfig
 	  is started using the commands
 	  <example>
 $ make clean
-$ make KDEB_PKGVERSION=custom.1.0 deb-pkg
+$ make deb-pkg
           </example>
-	  The <tt>custom.1.0</tt> part in this command is the version
-	  identifier, which will get appended to the kernel package
-	  name. Feel free to adjust it to your liking.
           As a result of the build, a custom kernel package
-	  <tt>linux-image-3.2.19_custom.1.0_i386.deb</tt> (name will
-	  reflect the version of the kernel and the revision chosen in
-	  the command line above) will be created in the directory one
-	  level above the top of the tree. It may be installed using
+	  <tt>linux-image-3.2.19_3.2.19-1_i386.deb</tt> (name will
+	  reflect the version of the kernel and build number) will be
+	  created in the directory one level above the top of the
+	  tree. It may be installed using
           <tt>dpkg</tt> just as any other package:
 	  <example> 
-# dpkg -i ../linux-image-3.2.19_custom.1.0_i386.deb
+# dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb
 	  </example>
 	  This command will unpack the kernel, generate the initrd if
 	  necessary (see <ref id="initramfs"> for details), and configure
