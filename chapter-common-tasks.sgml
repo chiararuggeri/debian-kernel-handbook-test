@@ -111,7 +111,7 @@ $ fakeroot make -f debian/rules.real install-linux-base
 	  <p>
 	    It is possible to apply extra patches to the source before
 	    starting the build.  In the <tt>linux</tt> source package,
-	    The default (non-featureset) patches are automatically
+	    the default (non-featureset) patches are automatically
 	    applied in the top level directory.  If you are building
 	    the <tt>linux-2.6</tt> source package or building with a
 	    featureset, you should first apply the existing patches by
