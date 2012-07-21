@@ -6,8 +6,8 @@
 
       The main goal of this handbook is to serve as a single access
       point to all kernel-related documentation. It contains the
-      information about the Debian packaging of Linux kernel for the
-      Lenny release of Debian (version 5.0). The latest released
+      information about the Debian packaging of Linux kernel for
+      Debian 7.0 (wheezy). The latest released
       version is always available from <url
       id="http://kernel-handbook.alioth.debian.org"
       name="http://kernel-handbook.alioth.debian.org">. Note that this

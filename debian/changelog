@@ -1,6 +1,7 @@
 kernel-handbook (1.0.14) UNRELEASED; urgency=low
 
   * Remove custom version from 'make deb-pkg' example (Closes: #627838)
+  * Fix introduction to say the handbook describes wheezy (Closes: #651467)
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sat, 21 Jul 2012 20:02:21 +0100
 
