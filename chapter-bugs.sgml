@@ -395,12 +395,13 @@
 # apt-get install git build-essential
 $ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 $ cd linux
-$ make localmodconfig; # minimal configuration
 	  </example>
-	  The above commands acquire and configure a vanilla kernel.
-	  Build and test a binary package as explained in
+	  The above commands acquire a vanilla kernel.
+	  Configure, build and test a binary package as explained in
 	  <ref id="common-building">:
 	  <example>
+$ make localmodconfig; # minimal configuration
+$ scripts/config --disable DEBUG_INFO; # to keep the build reasonably small
 $ make deb-pkg
 # dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb; # substitute package name from the previous command
 # reboot

@@ -2,6 +2,7 @@ kernel-handbook (1.0.15) UNRELEASED; urgency=low
 
   * Fix capitalization in "Applying patches or configuration changes"
     section
+  * Add a reminder to disable CONFIG_DEBUG_INFO in 'make deb-pkg' examples
 
  -- Jonathan Nieder <jrnieder@gmail.com>  Sat, 21 Jul 2012 17:30:35 -0500
 

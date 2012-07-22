@@ -53,7 +53,7 @@ $ tar jxf /usr/src/linux-source-3.2.tar.bz2
 	      </item>
 	    </taglist>
 	  </p>
-	  <sect2>
+	  <sect2 id="common-size">
 	    <heading>Disk space requirements</heading>
 	    <p>
 	      Building binary packages for a single kernel flavour
@@ -329,6 +329,15 @@ $ make menuconfig
 	  frontend requires the <tt>ncurses</tt> library, which at
 	  time of writing is provided by the <tt>libncurses5-dev</tt>
 	  package.
+	</p>
+	<p>
+	  The build will use less disk space if the CONFIG_DEBUG_INFO
+	  option is disabled (see <ref id="common-size">).
+	  Debuginfo is only needed if you plan to use binary object
+	  tools like crash, kgdb, and SystemTap on the kernel.
+	  <example>
+$ scripts/config --disable DEBUG_INFO
+	  </example>
 	</p>
 	<p>
 	  After the configuration process is finished, the new or
