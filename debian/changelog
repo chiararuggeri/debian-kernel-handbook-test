@@ -1,4 +1,4 @@
-kernel-handbook (1.0.15) UNRELEASED; urgency=low
+kernel-handbook (1.0.15) unstable; urgency=low
 
   [ Jonathan Nieder ]
   * Fix capitalization in "Applying patches or configuration changes"
@@ -9,7 +9,7 @@ kernel-handbook (1.0.15) UNRELEASED; urgency=low
   * Work around debiandoc-sgml bug (#685046) to fix the 'current bug list'
     link in the 'Filing a bug against a kernel package' section
 
- -- Jonathan Nieder <jrnieder@gmail.com>  Sat, 21 Jul 2012 17:30:35 -0500
+ -- Ben Hutchings <ben@decadent.org.uk>  Fri, 17 Aug 2012 02:10:14 +0100
 
 kernel-handbook (1.0.14) unstable; urgency=low
 
