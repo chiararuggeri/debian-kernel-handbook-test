@@ -395,19 +395,19 @@ $ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.bz2
           The integrity of the downloaded archive may be verified by fetching
           the corresponding cryptographic signature
 	  <example> 
-$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.bz2.sign
+$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.sign
 	  </example> 
           and running this command (<tt>gnupg</tt> package must be installed):
           <example>
-$ gpg --verify linux-3.4.tar.bz2.sign 
+$ bunzip2 -c linux-3.4.tar.bz2 | gpg --verify linux-3.4.tar.sign -
           </example>
           Successful verification results in output similar to the one below:
           <example>
-gpg: Signature made Wed 29 Nov 2006 02:50:07 PM PST using DSA key ID 517D0F0E
-gpg: Good signature from "Linux Kernel Archives Verification Key &lt;ftpadmin@kernel.org&gt;"
+gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886
+gpg: Good signature from "Linus Torvalds &lt;torvalds@linux-foundation.org&gt;"
 gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: C75D C40A 11D7 AF88 9981  ED5B C86B A06A 517D 0F0E
+Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886
           </example>
           After that the archive may be unpacked using
           <example>
