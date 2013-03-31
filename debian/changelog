@@ -1,7 +1,11 @@
 kernel-handbook (1.0.16) UNRELEASED; urgency=low
 
+  [ Uwe Kleine-König ]
   * Adapt integrity checking to kernel.org only providing signatures for
     uncompressed archives
+
+  [ Ben Hutchings ]
+  * Correct order of preparation for rebuilding official Debian kernel packages
 
  -- Uwe Kleine-König <uwe@kleine-koenig.org>  Thu, 08 Nov 2012 09:16:12 +0100
 
