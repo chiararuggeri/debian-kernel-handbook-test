@@ -30,7 +30,7 @@
 		If the report is relaying information about a bug
 		acknowledged upstream, we do not need system
 		information but we do need specific references
-		(<httpsite>bugzilla.kernel.org</httpsite>
+		(<url id="http://bugzilla.kernel.org" name="bugzilla.kernel.org">
 		or <prgn>git</prgn> commit id).
 	      </item>
 	      <item>
@@ -200,10 +200,10 @@
 	  <p>
 	    When a bug occurs in what upstream considers the current
 	    or previous stable release, and we cannot fix it, we ask
-	    the submitter to report it upstream
-	    at <httpsite>bugzilla.kernel.org</httpsite> under a
-	    specific Product and Component, and to tell us the
-	    upstream bug number.  We do not report bugs directly
+	    the submitter to report it upstream at
+	    <url id="http://bugzilla.kernel.org" name="bugzilla.kernel.org">
+	    under a specific Product and Component, and to tell us
+	    the upstream bug number.  We do not report bugs directly
 	    because follow-up questions from upstream need to go to
 	    the submitter, not to us.  Given the upstream bug number,
 	    we mark the bug as forwarded.
