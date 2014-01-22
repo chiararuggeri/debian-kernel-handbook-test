@@ -20,3 +20,19 @@ Description: reference to Debian Linux kernel packages and development
   * Building custom kernels and modules
   * Working with initramfs images
   * Kernel team policies
+
+Package: debian-kernel-handbook-ja
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Recommends: www-browser
+Description: reference to Debian Linux kernel packages and development (Japanese)
+ A reference manual for:
+ .
+  * Working on the linux package
+  * Building custom kernels and modules
+  * Working with initramfs images
+  * Kernel team policies
+ .
+ This is Japanese translation.
+
