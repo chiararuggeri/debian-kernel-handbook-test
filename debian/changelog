@@ -6,6 +6,8 @@ kernel-handbook (1.0.16) UNRELEASED; urgency=low
 
   [ Ben Hutchings ]
   * Correct order of preparation for rebuilding official Debian kernel packages
+  * Update "Building a development version of the Debian kernel package" for
+    conversion to git
 
   [ Ian Campbell ]
   * Mention unifdef as a dependency for genorig

@@ -203,19 +203,20 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_real
 	  To build a kernel image based on the kernel team's
 	  unreleased development version:
 	  <taglist>
-	    <tag><tt># apt-get install build-essential fakeroot rsync svn</tt></tag>
+	    <tag><tt># apt-get install build-essential fakeroot rsync git</tt></tag>
 	    <tag><tt># apt-get build-dep linux</tt></tag>
 	    <item>
 	      The last two commands will install the build
 	      dependencies required by the kernel build process.
 	    </item>
-	    <tag><tt>$ svn co svn://anonscm.debian.org/svn/kernel/dists/<em>dist</em>/linux</tt></tag>
+	    <tag><tt>$ git clone -b <em>dist</em> --single-branch https://anonscm.debian.org/git/kernel/linux.git</tt></tag>
 	    <item>
 	      This will check out the Debian packaging.  <em>dist</em>
 	      is normally the distribution codename such as
               <tt>wheezy</tt> or <tt>sid</tt> (unstable).  For the very
 	      latest version, usually based on an upstream release
-	      candidate, use <tt>trunk</tt>.
+	      candidate, use <tt>master</tt>.  Note that this will
+	      download several hundred megabytes of data.
 	    </item>
 	    <tag><tt>$ apt-get source -d linux</tt></tag>
 	    <item>
