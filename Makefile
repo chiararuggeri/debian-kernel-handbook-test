@@ -20,6 +20,7 @@ clean:
 		rm -rf kernel-handbook.$(lng).html; \
 		rm -rf kernel-handbook.$(lng).sgml; \
 	)
+	rm -rf pub
 
 version.ent: FORCE
 	if [ "$(version)" !=						   \
@@ -30,7 +31,18 @@ version.ent: FORCE
 	fi
 
 sync:
-	rsync -v -e ssh --chmod=a+rX --times kernel-handbook.html/* alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
+	mkdir -p pub
+	rm -f pub/*
+	cp htaccess pub/.htaccess
+	$(foreach lng,$(LANGS), \
+	for html in kernel-handbook$(subst .en,,.$(lng)).html/*.html; do \
+		ln -s ../$$html pub/$$(basename $$html).$(lng); \
+	done; \
+	echo 'AddLanguage $(lng) .$(lng)' >>pub/.htaccess; \
+	)
+	rsync -v -e ssh --chmod=a+rX --times --omit-dir-times --recursive \
+		--copy-links --delete pub/ \
+		alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
 
 po-update:
 	$(foreach lng,$(LANG_PO), \
