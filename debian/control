@@ -5,8 +5,8 @@ Maintainer: Debian kernel team <debian-kernel@lists.debian.org>
 Uploaders: Ben Hutchings <ben@decadent.org.uk>, maximilian attems <maks@debian.org>
 Build-Depends: debhelper (>= 7.0.50~), debiandoc-sgml, po4a
 Standards-Version: 3.9.1
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=kernel-handbook/kernel-handbook.git
-Vcs-Git: git://anonscm.debian.org/kernel-handbook/kernel-handbook.git
+Vcs-Browser: https://anonscm.debian.org/cgit/kernel-handbook/kernel-handbook.git
+Vcs-Git: https://anonscm.debian.org/git/kernel-handbook/kernel-handbook.git
 
 Package: debian-kernel-handbook
 Architecture: all
