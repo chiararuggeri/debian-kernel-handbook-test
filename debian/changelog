@@ -1,6 +1,7 @@
 kernel-handbook (1.0.17) UNRELEASED; urgency=medium
 
   * debian/control: Change Vcs-Git and Vcs-Browser to canonical HTTP-S URLs
+  * debian/copyright: Change URL for GPL text to use HTTP-S
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 30 Aug 2015 13:21:25 +0100
 
