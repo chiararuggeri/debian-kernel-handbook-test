@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.16 VERSION\n"
 "POT-Creation-Date: 2014-01-22 20:10+0900\n"
-"PO-Revision-Date: 2014-01-21 22:35+0900\n"
+"PO-Revision-Date: 2015-09-01 18:23+0100\n"
 "Last-Translator: Yusuke YATSUO <yyatsuo@debian.or.jp>\n"
 "Language-Team: Debian JP Project\n"
 "Language: Japanese \n"
@@ -1361,8 +1361,8 @@ msgstr ""
 #. type: <example></example>
 #: kernel-handbook.sgml:59 chapter-common-tasks.sgml:272
 #, no-wrap
-msgid "$ python debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2"
-msgstr "$ python debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2"
+msgid "$ debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2"
+msgstr "$ debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2"
 
 #. type: <p><example>
 #: kernel-handbook.sgml:59 chapter-common-tasks.sgml:277
@@ -1374,8 +1374,8 @@ msgstr "git リポジトリが手元にある場合は、そのディレクト�
 #. type: <example></example>
 #: kernel-handbook.sgml:59 chapter-common-tasks.sgml:279
 #, no-wrap
-msgid "$ python debian/bin/genorig.py ~/src/linux"
-msgstr "$ python debian/bin/genorig.py ~/src/linux"
+msgid "$ debian/bin/genorig.py ~/src/linux"
+msgstr "$ debian/bin/genorig.py ~/src/linux"
 
 #. type: <p><example>
 #: kernel-handbook.sgml:59 chapter-common-tasks.sgml:286

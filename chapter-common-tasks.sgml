@@ -270,14 +270,14 @@ $ fakeroot make -f debian/rules.gen binary-arch_i386_none_real
 	<p>
 	  Then if you have a tarball, run a command such as:
 	  <example>
-$ python debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2
+$ debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2
 	  </example>
 	</p>
 	<p>
 	  Or if you have a git repository, pass the name of its
 	  directory:
 	  <example>
-$ python debian/bin/genorig.py ~/src/linux
+$ debian/bin/genorig.py ~/src/linux
           </example>
 	</p>
 	<p>
