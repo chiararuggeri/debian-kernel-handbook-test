@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- -*- DocBook -*- -->
+<chapter id="ch-packaging">
+<?dbhtml filename="ch-packaging.html" ?>
+<title>Debian kernel packages</title>
+<section id="s-source-pkg"><title>Source package</title>
+<para>
+To ensure that the latest kernel version, containing all the essential bug and
+security fixes is available on as many architectures as possible, starting with
+2.6.12 the kernel team introduced a new packaging scheme.  In it most of the
+kernel-related binary packages are built from a single source package
+<literal>linux</literal> (previously <literal>linux-2.6</literal>).  The
+<literal>linux</literal> source package supports building of kernel images and
+headers for all currently supported architectures.  Subsequent sections of this
+chapter document the naming and contents of the binary packages built from the
+<literal>linux</literal> source package.
+</para>
+</section>
+
+<section id="s-arch-indep"><title>Architecture-independent packages</title>
+<variablelist>
+<varlistentry>
+<term><literal>linux-source-<replaceable>version</replaceable></literal></term>
+<listitem>
+<para>
+This package contains the Debian kernel source tarball.  The patchlevel of the
+source is determined by the Debian revision of the package, for example the
+version 3.2.19-1 of the package <literal>linux-source-3.2</literal> contains
+the version 3.2.19 of the Debian kernel source patched to patchlevel 1.  Once
+the package is installed, the source tarball is available at
+<literal>/usr/src/linux-source-<replaceable>version</replaceable>.tar.bz2</literal>.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>linux-manual-<replaceable>version</replaceable></literal></term>
+<listitem>
+<para>
+This package contains the manual pages for the functions, constituting the
+kernel API.  These pages are installed into
+<literal>/usr/share/man/man9/</literal>, and are accessible with the standard
+<literal>man</literal> command.  Due to filename conflicts, only one
+<literal>linux-manual</literal> package may be installed at any given time.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>linux-doc-<replaceable>version</replaceable></literal></term>
+<listitem>
+<para>
+This package contains the rest of the kernel documentation in various formats.
+It is installed in
+<literal>/usr/share/doc/linux-doc-<replaceable>version</replaceable></literal>.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>linux-support-<replaceable>version</replaceable>-<replaceable>abiname</replaceable></literal></term>
+<listitem>
+<para>
+This package contains the support files for building of out-of-tree modules for
+given version and abiname.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+
+<section id="s-arch-dep"><title>Architecture-dependent packages</title>
+<para>
+The kind of hardware the particular kernel package is designed for is uniquely
+identified by the <emphasis>architecture</emphasis>,
+<emphasis>featureset</emphasis>, and <emphasis>flavour</emphasis>.  Kernels for
+all architectures are built from the same Debian kernel source tree, which is
+obtained using the procedure described in <xref linkend="ch-source"/>.  Each
+architecture usually has multiple flavours of the binary kernel images.
+Different flavours correspond to different kernel configuration files, used to
+build the binary images from the <emphasis role="strong">same</emphasis> kernel
+tree.
+</para>
+<para>
+In order to build a working kernel with an extra featureset not provided by the
+upstream source, additional changes to the Debian kernel source are required.
+Again, multiple flavours of binary images may be built from the featureset
+tree.  For example, the <literal>i386</literal> architecture has a number of
+different flavours, such as <literal>486</literal>, <literal>686-pae</literal>
+and <literal>amd64</literal>, built from the common Debian kernel source.  It
+also contains the <literal>rt</literal> featureset.  The source tree for
+building the kernels for each of these featuresets is obtained by applying
+additional patches to the Debian kernel source.  It may be used to build the
+<literal>rt-686-pae</literal> binary image flavours.  The names of the Debian
+binary packages incorporate the name of the flavour and, if necessary, the name
+of the featureset (there is no need to worry about the name of the
+architecture, since Debian tools will only allow installation of the packages
+with "correct" architecture).  If the arch does not have any featuresets, the
+featureset part is omitted from the name, as indicated by the square brackets
+below.
+</para>
+<para>
+Package names also include the <emphasis>abiname</emphasis>, a small integer,
+which identifies the kernel's binary compatibility level.  The kernels with
+different abinames are binary incompatible, so upgrading to a kernel with a
+different abiname will most likely require recompilation of third-party binary
+modules against the new kernel.  The list of architecture-dependent packages
+together with a short description is given below.
+</para>
+<variablelist>
+<varlistentry>
+<term><literal>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</literal></term>
+<listitem>
+<para>
+This package contains a common set of kernel headers for a particular
+featureset (or arch, if featureset is empty).  Together with the
+flavour-specific <literal>linux-headers</literal> package it provides a full
+set of kernel headers, suitable for building of out-of-tree modules.  This
+package should not normally be installed directly, but only as a dependency of
+the flavour-specific headers package (see next description).  It unpacks into
+the
+<literal>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</literal>
+directory.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<variablelist>
+<varlistentry>
+<term><literal>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<listitem>
+<para>
+This package provides flavour-specific header files.  It depends on the
+corresponding
+<literal>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</literal>
+package, and sets up symbolic links into its directory tree in such a way that
+the directory
+<literal>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal>
+appears to contain a full set of headers, required for building of out-of-tree
+kernel modules.  For more information on this check out <xref
+linkend="s-common-out-of-tree"/>.  A complete set of kernel headers matching the
+currently running official kernel may be installed with a command
+</para>
+<screen>
+apt-get install linux-headers-$(uname -r)
+</screen>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>linux-image[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<term><literal>linux-headers[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<listitem>
+<para>
+These virtual packages provide (via dependencies) the latest binary image and
+matching set of header files (respectively) for a particular flavour.  Example:
+<literal>linux-image-rt-686-pae</literal>
+</para>
+<para>
+In Debian 6.0 (squeeze) and earlier, the headers metapackages were named
+<literal>linux-headers-2.6[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal>.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>linux-image-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<listitem>
+<para>
+This package contains the binary kernel image and pre-built binary modules for
+a particular arch/featureset/flavour combination.  Names of the files installed
+by this package are architecture-dependent.  Typical locations of essential
+files for the <literal>i386</literal> architecture are:
+</para>
+<variablelist>
+<varlistentry>
+<term><literal>/boot/vmlinuz-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<listitem>
+<para>
+The binary (compressed) kernel image.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>/boot/initrd.img-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<listitem>
+<para>
+Initial RAM filesystem (initramfs) image.  Note, that this file is
+automatically generated in the installation process and is <emphasis
+role="strong">not</emphasis> shipped as a part of the package.  See <xref
+linkend="ch-initramfs"/> for more details.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>/boot/config-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<listitem>
+<para>
+The kernel configuration file used to build this particular kernel.  May be
+used to rebuild the kernel from source, if necessary.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>/lib/modules/<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable>/</literal></term>
+<listitem>
+<para>
+Directory containing the pre-built binary kernel modules.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><literal>linux-libc-dev</literal></term>
+<listitem>
+<para>
+This package provides Linux kernel headers for use by userspace programs, such
+as GNU glibc and other system libraries.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+
+</chapter>
+

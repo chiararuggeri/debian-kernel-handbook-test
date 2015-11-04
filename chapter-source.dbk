@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- -*- DocBook -*- -->
+<chapter id="ch-source">
+<?dbhtml filename="ch-source.html" ?>
+<title>Debian kernel source</title>
+<section id="s-changes"><title>Changes to the pristine kernel source</title>
+<para>
+The kernels in Debian are distributed in binary form, built from the Debian
+kernel source.  It is important to recognize that Debian kernel source may be
+(and in most cases is) different from the upstream (or "pristine") kernel
+source, distributed from <ulink
+url="http://www.kernel.org">www.kernel.org</ulink> and its mirrors.  Due to
+licensing restrictions, unclear license information, or failure to comply with
+the Debian Free Software Guidelines (DFSG), parts of the kernel are removed in
+order to distribute the source in the <literal>main</literal> section of the
+Debian archive.  Such removal produces
+<literal>linux_<replaceable>version</replaceable>.orig.tar.xz</literal> tarball,
+which serves as the original upstream source.  <replaceable>version</replaceable> is
+the actual upstream version.
+</para>
+<para>
+The guidelines for firmware removal were set by the <ulink
+url="http://www.debian.org/vote/2006/vote_007">Handling source-less firmware in
+the Linux kernel</ulink> General Resolution and the <ulink
+url="http://lists.debian.org/debian-kernel/2006/10/msg00541.html">position
+statement</ulink> by the release managers.  Even though these documents
+originally applied to the Etch release, there were no significant changes in
+the removal policy, so they were in effect for the Lenny release as well.  As
+of version 2.6.31-1, all known sourceless firmware has been removed from the
+Debian package, but much of it is included in the <ulink
+url="http://packages.debian.org/source/firmware-nonfree">firmware-nonfree</ulink>
+package.  Additional information about firmware licensing and removals may be
+found at the <ulink url="http://wiki.debian.org">Debian Wiki</ulink> page
+<ulink
+url="http://wiki.debian.org/KernelFirmwareLicensing">KernelFirmwareLicensing</ulink>.
+</para>
+</section>
+
+<section id="s-patches"><title>Debian kernel patches</title>
+<para>
+The source from which the Debian binary kernels are built is obtained by taking
+the source from
+<literal>linux_<replaceable>version</replaceable>.orig.tar.xz</literal> (that is,
+pristine kernel source with problematic parts removed) and applying a set of
+Debian patches.  These patches typically implement essential fixes for serious
+bugs and security holes.  The Debian version of the kernel packages has the
+form <replaceable>version</replaceable><literal>-</literal><replaceable>revision</replaceable> where
+<replaceable>version</replaceable> is the upstream version of the
+kernel (like 3.2.20) and <replaceable>revision</replaceable>
+determines the patchlevel.  For example, the packages with version 3.2.20-1 are
+built from the <literal>linux_3.2.20.orig.tar.xz</literal> source, patched up
+to patchlevel 1.  Certain packages include extra 'featuresets' not included in
+the upstream source, such as <literal>rt</literal>.
+</para>
+</section>
+
+<section id="s-acceptance"><title>Policy for patch acceptance</title>
+<para>
+The general policy of the Debian kernel team is that a patch must either fix a
+bug or add hardware support, and must be based on a change already accepted by
+the upstream kernel maintainers.  The change does not need to have been
+included in an upstream release yet.  This policy allows the team to drop most
+patches when moving to a new upstream version, rather than having to maintain
+an increasing series of Debian-specific patches.  The recommended procedure for
+inclusion of patches introducing optional features is to submit to the upstream
+maintainer.
+</para>
+</section>
+
+</chapter>
+

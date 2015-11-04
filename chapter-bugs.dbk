@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- -*- DocBook -*- -->
+<chapter id="ch-bugs">
+<?dbhtml filename="ch-bugs.html" ?>
+<title>Reporting and handling bugs</title>
+<section id="s9.1"><title>Bug handling policy for the kernel team</title>
+<section id="s9.1.1"><title>Required information</title>
+<para>
+Submitters are expected to run <command>reportbug</command> or other tool that
+runs our <systemitem role="package">bug</systemitem> script under the kernel
+version in question.  The response to reports without this information should
+be a request to follow-up using <command>reportbug</command>.  If we do not
+receive this information within a month of the request, the bug may be closed.
+</para>
+<para>
+Exceptions:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+If the kernel does not boot or is very unstable, instead of the usual system
+information we need the console messages via <ulink
+url="http://www.kernel.org/doc/Documentation/networking/netconsole.txt">netconsole</ulink>,
+<ulink url="http://www.kernel.org/doc/Documentation/serial-console.txt">serial
+console</ulink>, or a photograph.
+</para>
+</listitem>
+<listitem>
+<para>
+If the report is relaying information about a bug acknowledged upstream, we do
+not need system information but we do need specific references (<ulink
+url="http://bugzilla.kernel.org">bugzilla.kernel.org</ulink> or
+<command>git</command> commit id).
+</para>
+</listitem>
+<listitem>
+<para>
+If the bug is clearly not hardware-specific (e.g.  packaging error), we do not
+need system information.
+</para>
+</listitem>
+<listitem>
+<para>
+If the bug is reported against a well-defined model, we may not need device
+listings.
+</para>
+</listitem>
+</itemizedlist>
+</section>
+
+<section id="s9.1.2"><title>Severities</title>
+<para>
+Many submitters report bugs with the wrong severity.  We interpret the criteria
+as follows and will adjust severity as appropriate:
+</para>
+<variablelist>
+<varlistentry>
+<term>critical: makes unrelated software on the system (or the whole system) break...</term>
+<listitem>
+<para>
+The bug must make the kernel unbootable or unstable on common hardware or all
+systems that a specific flavour is supposed to support.  There is no 'unrelated
+software' since everything depends on the kernel.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>grave: makes the package in question unusable or mostly so...</term>
+<listitem>
+<para>
+If the kernel is unusable, this already qualifies as critical.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>grave: ...or causes data loss...</term>
+<listitem>
+<para>
+We exclude loss of data in memory due to a crash.  Only corruption of data in
+storage or communication, or silent failure to write data, qualifies.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>important</term>
+<listitem>
+<para>
+We include lack of support for new hardware that is generally available.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+
+<section id="s9.1.3"><title>Tagging</title>
+<para>
+We do not use user-tags.  In order to aid bug triage we should make use of the
+standard tags and <literal>forwarded</literal> field defined by the BTS.  In
+particular:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+Add <literal>moreinfo</literal> whenever we are waiting for a response from the
+submitter and remove it when we are not
+</para>
+</listitem>
+<listitem>
+<para>
+Do not add <literal>unreproducible</literal> to bugs that may be
+hardware-dependent
+</para>
+</listitem>
+</itemizedlist>
+</section>
+
+<section id="s9.1.4"><title>Analysis by maintainers</title>
+<para>
+Generally we should not expect to be able to reproduce bugs without having
+similar hardware.  We should consider:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+Searching <ulink url="http://bugzilla.kernel.org">bugzilla.kernel.org</ulink>
+(including closed bugs) or other relevant bug tracker
+</para>
+</listitem>
+<listitem>
+<para>
+Searching kernel mailing lists
+</para>
+<itemizedlist>
+<listitem>
+<para>
+Of the many archives, <ulink url="http://news.gmane.org">news.gmane.org</ulink>
+seems to suck least
+</para>
+</listitem>
+<listitem>
+<para>
+Patches submitted to some lists are archived at <ulink
+url="http://patchwork.kernel.org">patchwork.kernel.org</ulink>
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para>
+Viewing git commit logs for relevant source files
+</para>
+<itemizedlist>
+<listitem>
+<para>
+In case of a regression, from the known good to the bad version
+</para>
+</listitem>
+<listitem>
+<para>
+In other cases, from the bad version forwards, in case the bug has been fixed
+since
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para>
+Searching kerneloops.org for similar oopses
+</para>
+</listitem>
+<listitem>
+<para>
+Matching the machine code and registers in an 'oops' against the source and
+deducing how the impossible happened (this doesn't work that often but when it
+does you look like a genius ;-)
+</para>
+</listitem>
+</itemizedlist>
+</section>
+
+<section id="s9.1.5"><title>Testing by submitter</title>
+<para>
+Depending on the technical sophistication of the submitter and the service
+requirements of the system in question (e.g.  whether it's a production server)
+we can request one or more of the following:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+Gathering more information passively (e.g.  further logging, reporting contents
+of files in procfs or sysfs)
+</para>
+</listitem>
+<listitem>
+<para>
+Upgrading to the current stable/stable-proposed-updates/stable-security
+version, if it includes a fix for a similar bug
+</para>
+</listitem>
+<listitem>
+<para>
+Adding debug or fallback options to the kernel command line or module
+parameters
+</para>
+</listitem>
+<listitem>
+<para>
+Installing the unstable or backports version temporarily
+</para>
+</listitem>
+<listitem>
+<para>
+Rebuilding and installing the kernel with a specific patch added (the script
+<command>debian/bin/test-patches</command> should make this easy)
+</para>
+</listitem>
+<listitem>
+<para>
+Using <command>git bisect</command> to find a specific upstream change that
+introduced the bug
+</para>
+</listitem>
+</itemizedlist>
+<para>
+When a bug occurs in what upstream considers the current or previous stable
+release, and we cannot fix it, we ask the submitter to report it upstream at
+<ulink url="http://bugzilla.kernel.org">bugzilla.kernel.org</ulink> under a
+specific Product and Component, and to tell us the upstream bug number.  We do
+not report bugs directly because follow-up questions from upstream need to go
+to the submitter, not to us.  Given the upstream bug number, we mark the bug as
+forwarded.  <command>bts-link</command> then updates its status.
+</para>
+</section>
+
+<section id="s9.1.6"><title>Keeping bugs separate</title>
+<para>
+Many submitters search for a characteristic error message and treat this as
+indicating a specific bug.  This can lead to many 'me too' follow-ups where,
+for example, the message indicates a driver bug and the second submitter is
+using a different driver from the original submitter.
+</para>
+<para>
+In order to avoid the report turning into a mess of conflicting information
+about two or more different bugs:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+We should try to respond to such a follow-up quickly, requesting a separate bug
+report
+</para>
+</listitem>
+<listitem>
+<para>
+We can use the BTS <literal>summary</literal> command to improve the
+description of the bug
+</para>
+</listitem>
+<listitem>
+<para>
+As a last resort, it may be necessary to open new bugs with the relevant
+information, set their submitters accordingly, and close the original report
+</para>
+</listitem>
+</itemizedlist>
+<para>
+Where the original report describes more than one bug ('...and other
+thing...'), we should clone it and deal with each separately.
+</para>
+</section>
+
+<section id="s9.1.7"><title>Applying patches</title>
+<para>
+Patches should normally be reviewed and accepted by the relevant upstream
+maintainer (aside from necessary adjustments for an older kernel version)
+before being applied.
+</para>
+</section>
+
+<section id="s9.1.8"><title>Talking to submitters</title>
+<para>
+We should always be polite to submitters.  Not only is this implied by the
+<ulink url="http://www.debian.org/social_contract">Social Contract</ulink>, but
+it is likely to lead to a faster resolution of the bug.  If a submitter
+overrated the severity, quietly downgrade it.  If a submitter has done
+something stupid, request that they undo that and report back.  'Sorry' and
+'please' make a big difference in tone.
+</para>
+<para>
+We will maintain general advice to submitters at <ulink
+url="http://wiki.debian.org/DebianKernelReportingBugs">http://wiki.debian.org/DebianKernelReportingBugs</ulink>.
+</para>
+</section>
+
+</section>
+
+<section id="s9.2"><title>Filing a bug against a kernel package</title>
+<para>
+Debian kernel team keeps track of the kernel package bugs in the Debian Bug
+Tracking System (BTS).  For information on how to use the system see <ulink
+url="http://bugs.debian.org">http://bugs.debian.org</ulink>.  You can also
+submit the bugs by using the <literal>reportbug</literal> command from the
+package with the same name.  Please note that kernel bugs found in
+distributions derived from Debian (such as Knoppix, Mepis, Progeny, Ubuntu,
+Xandros, etc.) should <emphasis>not</emphasis> be reported to the Debian BTS
+(unless they can be also reproduced on a Debian system using official Debian
+kernel packages).  Derived distributions have their own policies and procedures
+regarding kernel packaging, so the bugs found in them should be reported
+directly to their bug tracking systems or mailing lists.
+</para>
+<para>
+Nothing in this chapter is intended to keep you from filing a bug against one
+of the Debian kernel packages.  However, you should recognize that the
+resources of the Debian kernel team are limited, and efficient reaction to a
+bug is largely determined by the amount and quality of the information included
+in the bug report.  Please help us to do a better job by using the following
+guidelines when preparing to file the bug against kernel packages:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<emphasis>Do the research.</emphasis> Before filing the bug search the web for
+the particular error message or symptom you are getting.  As it is highly
+unlikely that you are the only person experiencing a particular problem, there
+is always a chance that it has been discussed elsewhere, and a possible
+solution, patch, or workaround has been proposed.  If such information exists,
+always include the references to it in your report.  Check the <ulink
+url="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux&amp;src=linux-2.6">current
+bug list</ulink> to see whether something similar has been reported already.
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis>Collect the information.</emphasis> Please provide enough information
+with your report.  At a minimum, it should contain the exact version of the
+official Debian kernel package, where the bug is encountered, and steps to
+reproduce it.  Depending on the nature of the bug you are reporting, you might
+also want to include the output of <literal>dmesg</literal> (or portions
+thereof), output of the <literal>lspci -vn</literal>.
+<command>reportbug</command> will do this automatically.  If applicable,
+include the information about the latest known kernel version where the bug is
+not present, and output of the above commands for the working kernel as well.
+Use common sense and include other relevant information, if you think that it
+might help in solving the problem.
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis>Try to reproduce the problem with "vanilla" kernel.</emphasis> If you
+have a chance, try to reproduce the problem by building the binary kernel image
+from the "vanilla" kernel source, available from <ulink
+url="http://www.kernel.org">http://www.kernel.org</ulink> or its mirrors, using
+the same configuration as the Debian stock kernels.  For more information on
+how to do this, look at <xref linkend="s-common-building"/>.  If there is
+convincing evidence that the buggy behavior is caused by the Debian-specific
+changes to the kernel, the bug will usually be assigned higher priority by the
+kernel team.  If the bug is not specific for Debian, check out the upstream
+<ulink url="http://bugzilla.kernel.org">kernel bug database</ulink> to see if
+it has been reported there.  If you are sure that it is an upstream problem,
+you can also report your bug there (but submit it to Debian BTS anyway, so that
+we can track it properly).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis>Use the correct package to report the bug against.</emphasis> Please
+file bugs against the package containing the kernel version where the problem
+occurs (e.g.  <systemitem
+role="package">linux-image-3.2.0-2-686-pae</systemitem>), not a metapackage
+(e.g.  <systemitem role="package">linux-image-686-pae</systemitem>).
+</para>
+</listitem>
+<listitem>
+<para>
+<emphasis>Bugs involving tainted kernels.</emphasis> If a kernel crashes, it
+normally prints out some debugging information, indicating, among other things,
+whether the running kernel has been tainted.  The kernel is referred to as
+tainted if at the time of the crash it had some binary third-party modules
+loaded.  As kernel developers do not have access to the source code for such
+modules, problems involving them are notoriously difficult to debug.  It is
+therefore strongly recommended to try and reproduce the problem with an
+untainted kernel (by preventing the loading of binary modules, for example).
+If the problem is due to the presence of such modules, there is not much the
+kernel community can do about it and it should be reported directly to their
+authors.
+</para>
+</listitem>
+</itemizedlist>
+<section id="s9.2.1"><title>Bisecting (finding the upstream version that introduced a bug)</title>
+<para>
+When a bug is easy to reproduce locally but hard to get developers to reproduce
+(as is often true of workflow- or hardware-dependent bugs), it can be useful to
+compile and test a few versions to narrow down what changes introduced the
+regression.
+</para>
+<para>
+To start, recreate the problem with a vanilla kernel:
+</para>
+<screen>
+# apt-get install git build-essential
+$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+$ cd linux
+</screen>
+<para>
+The above commands acquire a vanilla kernel.  Configure, build and test a
+binary package as explained in <xref linkend="s-common-building"/>:
+</para>
+<screen>
+$ make localmodconfig; # minimal configuration
+$ scripts/config --disable DEBUG_INFO; # to keep the build reasonably small
+$ make deb-pkg
+# dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb; # substitute package name from the previous command
+# reboot
+</screen>
+<para>
+If the bug doesn't show up, try again with the official configuration file from
+/boot.  (If it still doesn't show up after that, declare victory and
+celebrate.)
+</para>
+<para>
+Initialize the bisection process by declaring which versions worked and did not
+work:
+</para>
+<screen>
+$ cd linux
+$ git bisect start
+$ git bisect good v3.0; # or whichever was known to be good
+$ git bisect bad; # current version is bad
+</screen>
+<para>
+Now git checks out a version half-way in between to test.  Build it, reusing
+the prepared configuration.
+</para>
+<screen>
+$ make silentoldconfig
+$ make deb-pkg
+</screen>
+<para>
+Install the package, reboot, and test.
+</para>
+<screen>
+$ git bisect good; # if this version doesn't exhibit the bug
+$ git bisect bad; # if it does
+$ git bisect skip; # if some other bug makes it hard to test
+</screen>
+<para>
+And on to the next iteration:
+</para>
+<screen>
+$ make silentoldconfig
+$ make deb-pkg
+</screen>
+<para>
+At the end of the process, the name of the "first bad commit" is printed, which
+is very useful for tracking down the bug.  Narrowing down the regression range
+with a few rounds is useful even if you don't get that far; in that case, run
+<literal>git bisect log</literal> to produce a log.  If you are the visual sort
+of person, <literal>git bisect visualize</literal> with the
+<literal>gitk</literal> package installed can show what is happening between
+steps.
+</para>
+<para>
+See Christian Couder's article "Fighting regressions with git bisect" from
+<ulink
+url="http://www.kernel.org/pub/software/scm/git/docs/git-bisect-lk2009.html">kernel.org</ulink>
+or <ulink url="file:///usr/share/doc/git-doc/git-bisect-lk2009.html">the
+git-doc package</ulink> for details.
+</para>
+</section>
+
+</section>
+
+</chapter>
+

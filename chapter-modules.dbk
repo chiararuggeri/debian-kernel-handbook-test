@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- -*- DocBook -*- -->
+<chapter id="ch-modules">
+<?dbhtml filename="ch-modules.html" ?>
+<title>Managing the kernel modules</title>
+<para>
+Linux device drivers come in the form of kernel modules - object files which
+may be loaded into the running kernel to extend its functionality.  The list of
+currently loaded kernel modules can be obtained using the
+<literal>lsmod</literal> command, modules may be loaded using
+<literal>modprobe</literal>, and removed using <literal>modprobe -r</literal>.
+The <literal>depmod</literal> command may be used to regenerate the list of
+available modules (after installation of the new modules, for example), even
+though it is pretty unlikely that you will ever need to invoke it by hand.
+</para>
+<para>
+Normally, the devices are detected and neccessary kernel modules are loaded by
+<literal>udev</literal> during boot time.  Occasionally, one may need finer
+control over the loading of kernel modules, for example to pass the additional
+parameters to the module, force loading of some modules on startup, or prevent
+certain module(s) from being loaded.
+</para>
+<para>
+If some modules are not loaded automatically by <literal>udev</literal>, but
+you would like them to be loaded during boot, it is possible to force it by
+listing the names of the modules in <literal>/etc/modules</literal>.  This will
+be scanned for the names of the modules (one name per line), which will then be
+loaded using <literal>modprobe</literal>.  You can also specify the arguments
+for the modules.  For example, a typical <literal>/etc/modules</literal> might
+look like that
+</para>
+<screen>
+loop max_int=32
+sbp2
+</screen>
+<para>
+To find out what parameters are accepted by a given module, you can use the
+<literal>modinfo</literal> command, for example:
+</para>
+<screen>
+# modinfo loop
+filename:       /lib/modules/3.2.0-2-686-pae/kernel/drivers/block/loop.ko
+alias:          devname:loop-control
+alias:          char-major-10-237
+alias:          block-major-7-*
+license:        GPL
+depends:        
+intree:         Y
+vermagic:       3.2.0-2-686-pae SMP mod_unload modversions 686
+parm:           max_loop:Maximum number of loop devices (int)
+parm:           max_part:Maximum number of partitions per loop device (int)
+</screen>
+<para>
+To add custom arguments to the modules loaded by <literal>udev</literal> early
+in the boot process, you need to create a custom configuration file for
+<literal>modprobe</literal>, which <literal>udev</literal> uses to load the
+modules.  For example, to pass an <literal>atapi_enabled=1</literal> argument
+to the <literal>libata</literal> kernel module, create
+<literal>/etc/modprobe.d/local</literal> file with a following line:
+</para>
+<screen>
+options libata atapi_enabled=1
+</screen>
+<para>
+You can choose arbitrary names for the configuration files in
+<literal>/etc/modprobe.d</literal> and put multiple <literal>options</literal>
+lines in the same file.
+</para>
+<para>
+Sometimes two different modules claim support for the same device, usually
+because two slightly different versions of the device exist, requiring
+different kernel modules to operate.  In such situation <literal>udev</literal>
+loads both kernel modules, with unpredictable results.  To avoid this problem,
+you can prevent any module (let's say, <literal>tulip</literal>) from loading
+by creating an arbitrarily named file, containing a line
+</para>
+<screen>
+blacklist tulip
+</screen>
+<para>
+in <literal>/etc/modprobe.d</literal> directory.  See the
+<literal>modprobe</literal> manual page (<literal>man modprobe</literal>) for
+much more information on configuring and using modprobe.
+</para>
+</chapter>
+

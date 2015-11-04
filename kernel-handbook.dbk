@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- -*- DocBook -*- -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % versiondata SYSTEM "version.ent"> %versiondata;
+]>
+
+<book lang="en">
+<?dbhtml filename="index.html" ?>
+
+<title>Debian Linux Kernel Handbook</title>
+
+<bookinfo>
+
+<authorgroup>
+<corpauthor><link linkend="s-authors">The Debian Kernel Handbook Project</link></corpauthor>
+
+</authorgroup>
+<releaseinfo>version &version;</releaseinfo>
+
+<pubdate>&date;</pubdate>
+
+
+<copyright><year>2005-2012</year><holder>Debian Kernel Handbook Project</holder></copyright>
+<legalnotice>
+<para>
+This handbook is free software; you may redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2, or (at your option) any later version.
+</para>
+<para>
+This is distributed in the hope that it will be useful, but <emphasis>without
+any warranty</emphasis>; without even the implied warranty of merchantability
+or fitness for a particular purpose.  See the GNU General Public License for
+more details.
+</para>
+<para>
+A copy of the GNU General Public License is available as
+<filename>/usr/share/common-licenses/GPL</filename> in the Debian GNU/Linux
+distribution or on the World Wide Web at <ulink
+url="http://www.gnu.org/copyleft/gpl.html">the GNU General Public
+Licence</ulink>.  You can also obtain it by writing to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+</para>
+</legalnotice>
+
+</bookinfo>
+
+<!-- XInclude list start -->
+<xi:include href="chapter-scope.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-source.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-packaging.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-common-tasks.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-versions.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-modules.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-initramfs.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-update-hooks.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include href="chapter-bugs.dbk" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<!-- XInclude list end -->
+
+
+
+</book>
+
