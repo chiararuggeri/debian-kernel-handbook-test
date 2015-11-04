@@ -43,7 +43,7 @@ eval set -- "$DEB_MAINT_PARAMS"
       to stderr (fd 2).  A shell script can ensure that it does this
       using:
       <example>
-exec &lt;/dev/null >&2
+exec &lt;/dev/null >&amp;2
       </example>
     </p>
   </sect>
