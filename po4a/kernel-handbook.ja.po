@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.16 VERSION\n"
-"POT-Creation-Date: 2015-11-05 21:29+0000\n"
-"PO-Revision-Date: 2015-11-05 21:32+0000\n"
+"POT-Creation-Date: 2015-11-13 22:40+0000\n"
+"PO-Revision-Date: 2015-11-13 22:40+0000\n"
 "Last-Translator: Yusuke YATSUO <yyatsuo@debian.or.jp>\n"
 "Language-Team: Debian JP Project\n"
 "Language: Japanese \n"
@@ -1119,7 +1119,20 @@ msgid ""
 "database</ulink> to see if it has been reported there.  If you are sure that "
 "it is an upstream problem, you can also report your bug there (but submit it "
 "to Debian BTS anyway, so that we can track it properly)."
-msgstr "<emphasis> \"vanilla\" カーネルで再現させる</emphasis>: 機会があれば、\"vanilla\" カーネルからビルドした バイナリカーネルイメージで再現できるか試してみてください。vanilla カーネルのソースは<ulink url=\"http://www.kernel.org\">http://www.kernel.org</ulink> か、そのミラーから入手することができます。Debian の stock カーネルと同じ設定を使用してください。これをどのように実施するか、さらに詳しい情報は、<xref linkend=\"s-common-building\"/>を参照して下さい。もしバグがカーネルに対して行なわれた Debian 特有の変更が原因であるという説得力のある証拠があれば、バグはカーネルチームによってより高い優先度をつけられます。もしバグが Debian 特有のものでない場合は、すでにアップストリームで報告済みでないか<ulink url=\"http://bugzilla.kernel.org\">カーネルバグデータベース</ulink>を確認してください。 アップストリームの問題であることが明確な場合は、そちらにもバグ報告をすることができます。(いずれにせよ、その問題を適切に追跡できるように Debian BTS には報告してください。)"
+msgstr ""
+"<emphasis> \"vanilla\" カーネルで再現させる</emphasis>: 機会があれ"
+"ば、\"vanilla\" カーネルからビルドした バイナリカーネルイメージで再現できるか"
+"試してみてください。vanilla カーネルのソースは<ulink url=\"http://www.kernel."
+"org\">http://www.kernel.org</ulink> か、そのミラーから入手することができま"
+"す。Debian の stock カーネルと同じ設定を使用してください。これをどのように実"
+"施するか、さらに詳しい情報は、<xref linkend=\"s-common-building\"/>を参照して"
+"下さい。もしバグがカーネルに対して行なわれた Debian 特有の変更が原因であると"
+"いう説得力のある証拠があれば、バグはカーネルチームによってより高い優先度をつ"
+"けられます。もしバグが Debian 特有のものでない場合は、すでにアップストリーム"
+"で報告済みでないか<ulink url=\"http://bugzilla.kernel.org\">カーネルバグデー"
+"タベース</ulink>を確認してください。 アップストリームの問題であることが明確な"
+"場合は、そちらにもバグ報告をすることができます。(いずれにせよ、その問題を適切"
+"に追跡できるように Debian BTS には報告してください。)"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:366
@@ -1202,7 +1215,9 @@ msgstr ""
 msgid ""
 "The above commands acquire a vanilla kernel.  Configure, build and test a "
 "binary package as explained in <xref linkend=\"s-common-building\"/>:"
-msgstr "上記のコマンドで vanilla カーネルを取得します。<xref linkend=\"s-common-building\"/>で説明したバイナリパッケージの設定、ビルド、テストを行います:"
+msgstr ""
+"上記のコマンドで vanilla カーネルを取得します。<xref linkend=\"s-common-"
+"building\"/>で説明したバイナリパッケージの設定、ビルド、テストを行います:"
 
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-bugs.dbk:409
@@ -1502,231 +1517,6 @@ msgstr ""
 "という行を記述した任意の名前のファイルを作成します。modprobe の使い方や設定方"
 "法に関するより詳しい情報は、<literal>modprobe</literal> のマニュアルページ "
 "(<literal>man modprob e</literal>) を参照してください。"
-
-#. type: Content of: <chapter><title>
-#: chapter-versions.dbk:5
-msgid "Version numbers and ABIs"
-msgstr "バージョン番号と ABI"
-
-#. type: Content of: <chapter><section><title>
-#: chapter-versions.dbk:6
-msgid "The different types of version"
-msgstr "異なるバージョンのタイプ"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-versions.dbk:9
-msgid "Upstream version"
-msgstr "アップストリームバージョン"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-versions.dbk:12
-msgid ""
-"The version that Linus or a stable series maintainer uses for a release.  "
-"Currently Linus will use the version format: 3.<replaceable>x</replaceable>[-"
-"rc<replaceable>y</replaceable>].  Stable series maintainers use the version "
-"format: 3.<replaceable>x</replaceable>.<replaceable>y</replaceable>."
-msgstr ""
-"Linus や安定版のメンテナがリリースに使用するバージョンです。現在 Linus はバー"
-"ジョンナンバに 3.<replaceable>x</replaceable>[-rc<replaceable>y</"
-"replaceable>] というフォーマットを使用しています。安定版のメンテナはバージョ"
-"ンナンバに 3.<replaceable>x</replaceable>.<replaceable>y</replaceable>. とい"
-"うフォーマットを使用しています。"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-versions.dbk:21
-msgid "Package version"
-msgstr "パッケージバージョン"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-versions.dbk:24
-msgid ""
-"The version used in a Debian package.  Following Debian policy, it should "
-"follow the format <replaceable>upstreamversion</replaceable>-"
-"<replaceable>debianrevision</replaceable>.  However, for an upstream release "
-"candidate, the string '-rc' must be replaced with '~rc' so that it will be "
-"recognised as an earlier version than the following release."
-msgstr ""
-"Debian パッケージで使用されるバージョンナンバDebian ポリシーによると、"
-"<replaceable>アップストリームのバージョン</replaceable>-<replaceable>Debian "
-"のリビジョン</replaceable>というフォーマットに従う必要がります。しかし、アッ"
-"プストリームのリリース候補版で使用される 「-rc」 は 「~rc」 で置き換える必要"
-"があります。これ以降にリリースされるバージョンよりも前のバージョンであると認"
-"識させるためです。"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-versions.dbk:34
-msgid "Kernel version"
-msgstr "カーネルバージョン"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-versions.dbk:37
-msgid ""
-"This is the version that appears in kernel messages, filenames, package "
-"names and the output of 'uname -r'.  In official kernel packages it follows "
-"the format <replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
-"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
-"replaceable>.  It is not changed for every new package version.  The "
-"<replaceable>abiname</replaceable> is changed as explained below."
-msgstr ""
-"これはカーネルメッセージ、ファイル名、パッケージ名、「uname -r」 コマンドで出"
-"力されるバージョンナンバです。公式のカーネルパッケージでは "
-"<replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
-"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
-"replaceable> というフォーマットに従います。これは全ての新しいパッケージバー"
-"ジョンで変わるものではありません。<replaceable>abiname</replaceable>は以下の"
-"ルールに従い変更されます。"
-
-#. type: Content of: <chapter><section><para>
-#: chapter-versions.dbk:48
-msgid ""
-"Many programs parse the kernel version string reported by the "
-"<literal>uname</literal> system call or command and expect to find at least "
-"3 version components separated by dots.  For compatibility, the official "
-"kernel packages currently add '.0' to the upstream version, but this will be "
-"dropped in wheezy+1."
-msgstr ""
-"多くのプログラムがカーネルバージョンを<literal>uname</literal>システムコール"
-"かコマンドからパースしますが、最低でも 3 つのバージョンのパーツがドットで区切"
-"られていることが前提となっています。互換性のために、公式のカーネルパッケージ"
-"は現在アップストリームバージョンに「.0」を付けていますが、これは wheezy+1 (訳"
-"注：Wheezy の 次のバージョン Jessie) で廃止される予定です。"
-
-#. type: Content of: <chapter><section><title>
-#: chapter-versions.dbk:56
-msgid "The kernel ABI"
-msgstr "カーネルの ABI"
-
-#. type: Content of: <chapter><section><para>
-#: chapter-versions.dbk:58
-msgid ""
-"An ABI (Application Binary Interface) is an interface between two software "
-"components, considered at the level of register allocation and memory "
-"layout.  The ABI between the kernel and user-space is generally maintained "
-"carefully, and is not a concern here.  However, the ABI between the kernel "
-"and its modules is not.  In order to support out-of-tree modules, the kernel "
-"version should be changed when the ABI between the kernel and modules "
-"changes."
-msgstr ""
-"ABI (Application Binary Interface) はレジスタの割り当てやメモリのレイアウトの"
-"レベルで考慮されているソフトウェアコンポーネント間のインタフェースです。カー"
-"ネルとユーザ空間の間の ABI は定常的に注意深くメンテナンスされているため、ここ"
-"では考慮する必要はありません。しかし、カーネルとカーネルモジュール間の ABI は"
-"その限りではありません。ツリー外のモジュールをサポートするためには、カーネル"
-"とモジュール間の ABI に変更があるたびにカーネルバージョンを変更しなければなり"
-"ません。"
-
-#. type: Content of: <chapter><section><section><title>
-#: chapter-versions.dbk:65
-msgid "The ABI name"
-msgstr "ABI 名"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:67
-msgid ""
-"In official kernel packages, we change the <replaceable>abiname</"
-"replaceable> part of the kernel version to mark ABI changes that aren't due "
-"to a new upstream version.  This part comes from the <literal>abiname</"
-"literal> setting in <literal>debian/config/defines</literal>.  We use either "
-"a number or 'trunk' (for experimental), but for a custom package it should "
-"be some other string."
-msgstr ""
-"公式のカーネルパッケージでは、私達はカーネルバージョン名の一部である "
-"<replaceable>abiname</replaceable> を変更します。これは、新しいアップストリー"
-"ムバージョンに起因しない ABI の変更をマークするためです。この部分は "
-"<literal>debian/config/defines</literal> 中の <literal>abiname</literal> の設"
-"定で管理されています。私達は、この部分に 「trunk」(experimental 用) か番号を"
-"使用しますが、カスタムパッケージにはそれ以外の文字列を使うべきです。"
-
-#. type: Content of: <chapter><section><section><title>
-#: chapter-versions.dbk:75
-msgid "Maintaining and updating the ABI"
-msgstr "ABI の管理と更新"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:77
-msgid ""
-"In order to avoid the need for users to rebuild out-of-tree modules "
-"frequently, we try to avoid changing the kernel ABI during updates to a "
-"Debian stable or oldstable release.  Most importantly, we avoid making such "
-"changes without changing the ABI name, except where it appears that out-of-"
-"tree modules do not depend on that part of the ABI."
-msgstr ""
-"私達は、ユーザがツリー外のモジュールを頻繁にビルドする必要が無いよう、Debian "
-"安定版や旧安定版に対するアップデートでは、カーネルの ABI を変更しません。最も"
-"重要なことは、ツリー外のモジュールが ABI のある部分に依存していないと思われる"
-"場合を除き、ABI 名を変更せずにそのような変更を行うことを避けるということで"
-"す。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:84
-msgid ""
-"Bug fixes or configuration changes to the kernel may alter the ABI.  If an "
-"exported function is conditional on <literal>CONFIG_</"
-"literal><replaceable>FOO</replaceable>, or it uses a type whose definition "
-"depends on <literal>CONFIG_</literal><replaceable>FOO</replaceable>, then "
-"turning <literal>CONFIG_</literal><replaceable>FOO</replaceable> on or off "
-"changes the ABI of that function, and thus of the kernel as a whole.  "
-"Enabling or changing the configuration of a single driver usually doesn't "
-"change the ABI, because most drivers don't export anything."
-msgstr ""
-"カーネルへのバグ修正や設定の変更は ABI の変更をともなう場合があります。もしエ"
-"クスポートされた関数が <literal>CONFIG_</literal><replaceable>FOO</"
-"replaceable> を条件としているか、もしくは型定義が <literal>CONFIG_</"
-"literal><replaceable>FOO</replaceable> に依存するものを使用している場合、"
-"<literal>CONFIG_</literal><replaceable>FOO</replaceable> の有効無効によってそ"
-"の関数の ABI、ひいてはカーネル全体の ABI が変更になります。1 つのドライバの設"
-"定を有効化したり変更したりする場合、たいてい ABI は変更しません。ほとんどのド"
-"ライバは何もエクスポートしないからです。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:95
-msgid ""
-"The kernel build process generates a 'symbol version' for each exported "
-"function or variable.  This is a hash of the definitions that it depends on, "
-"and should change whenever the function's ABI changes.  The kernel module "
-"loader detects incompatible modules by comparing symbol versions.  The whole "
-"set of symbol versions represents the kernel ABI."
-msgstr ""
-"カーネルのビルドプロセスによって 、それぞれのエクスポートされた関数や変数用に"
-"「シンボルバージョン」が生成されます。これは自身が依存している定義のハッシュ"
-"で、関数の ABI が変更された場合は必ず変更しなければなりません。シンボルバー"
-"ジョンを比較することで、カーネルモジュールローダは非互換のモジュールを検出し"
-"ます。シンボルバージョンの完全なセットはカーネル ABI で表現されます。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:102
-msgid ""
-"We collect the symbol versions for previously uploaded packages under the "
-"directory <literal>debian/abi</literal> and then compare the new kernel with "
-"those.  If the ABI name is unchanged but the ABI itself is changed - except "
-"for additions, or changes that we have marked as acceptable - then the build "
-"is aborted."
-msgstr ""
-"私達は以前アップロードした <literal>debian/abi</literal> ディレクトリ以下の"
-"パッケージのシンボルバージョンを修正し、新しいカーネルのものと比較します。も"
-"し ABI 名が変更さないにも関わらず ABI そのものに変更がある場合は、ビルドを中"
-"止します。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:109
-msgid ""
-"If the kernel ABI has changed you must then change the ABI name in "
-"<literal>debian/config/defines</literal>.  Then run the command"
-msgstr ""
-"カーネル ABI が変更された場合は、<literal>debian/config/defines</literal> の "
-"ABI 名を変更しなければなりません。"
-
-#. type: Content of: <chapter><section><section><screen>
-#: chapter-versions.dbk:113
-#, no-wrap
-msgid "$ fakeroot debian/rules debian/control-real\n"
-msgstr "$ fakeroot debian/rules debian/control-real\n"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:116
-msgid "to regenerate the package definitions for this ABI name."
-msgstr ""
-"このコマンドで ABI に対応したパッケージ定義を再生成することができます。"
 
 #. type: Content of: <chapter><title>
 #: chapter-source.dbk:5
@@ -2201,7 +1991,9 @@ msgid ""
 "If the patches or configuration changes alter type definitions for the "
 "kernel, you may need to change the ABI name; see <xref linkend=\"s-abi-name"
 "\"/>."
-msgstr "パッチまたは変更した設定が、カーネルの型定義を変更する場合、 ABI 名を変更する必要があるかもしれません。<xref linkend=\"s-abi-name\"/>を参照して下さい。"
+msgstr ""
+"パッチまたは変更した設定が、カーネルの型定義を変更する場合、 ABI 名を変更する"
+"必要があるかもしれません。<xref linkend=\"s-abi-name\"/>を参照して下さい。"
 
 #. type: Content of: <chapter><section><section><title>
 #: chapter-common-tasks.dbk:187
@@ -2437,7 +2229,9 @@ msgstr ""
 msgid ""
 "Finally, build binary packages as explained in <xref linkend=\"s-common-"
 "official\"/>."
-msgstr "<xref linkend=\"s-common-official\"/> で説明したバイナリパッケージをビルドします。"
+msgstr ""
+"<xref linkend=\"s-common-official\"/> で説明したバイナリパッケージをビルドし"
+"ます。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-common-tasks.dbk:311
@@ -2622,7 +2416,11 @@ msgid ""
 "disabled (see <xref linkend=\"s-common-size\"/>).  Debuginfo is only needed "
 "if you plan to use binary object tools like crash, kgdb, and SystemTap on "
 "the kernel."
-msgstr "CONFIG_DEBUG_INFO オプションが無効化されている場合は (<xref linkend=\"s-common-size\"/> 参照) ビルドに必要な空きディスクスペースは少なく済みます。デバッグ情報は、crash、kgbd、SystemTap のようなカーネル上のバイナリオブジェクトツールを使わない場合は不要です。"
+msgstr ""
+"CONFIG_DEBUG_INFO オプションが無効化されている場合は (<xref linkend=\"s-"
+"common-size\"/> 参照) ビルドに必要な空きディスクスペースは少なく済みます。デ"
+"バッグ情報は、crash、kgbd、SystemTap のようなカーネル上のバイナリオブジェクト"
+"ツールを使わない場合は不要です。"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:396
@@ -2679,7 +2477,11 @@ msgid ""
 "<xref linkend=\"ch-initramfs\"/> for details), and configure the bootloader "
 "to make the newly installed kernel the default one.  If this command "
 "completed without any problems, you can reboot using the"
-msgstr "このコマンドはカーネルを展開し、もし必要であれば initrd を生成し (詳細は <xref linkend=\"ch-initramfs\"/> を参照) 新規でインストールしたカーネルがデフォルトとなるようにブートローダを設定します。このコマンドが問題無く完了したら"
+msgstr ""
+"このコマンドはカーネルを展開し、もし必要であれば initrd を生成し (詳細は "
+"<xref linkend=\"ch-initramfs\"/> を参照) 新規でインストールしたカーネルがデ"
+"フォルトとなるようにブートローダを設定します。このコマンドが問題無く完了した"
+"ら"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:425
@@ -3219,7 +3021,16 @@ msgid ""
 "images.  Different flavours correspond to different kernel configuration "
 "files, used to build the binary images from the <emphasis role=\"strong"
 "\">same</emphasis> kernel tree."
-msgstr "あるカーネルパッケージが特定のハードウェア向けに構成されている場合、ターゲットとなるハードウェアの種類は、<emphasis>アーキテクチャ</emphasis>、<emphasis>フィーチャセット</emphasis>、<emphasis>フレーバ</emphasis>で一意に識別することができます。全てのアーキテクチャ向けのカーネルは、同一の Debian カーネルソースツリーからビルドすることができ、そのソースツリーは <xref linkend=\"ch-source\"/> で説明した方法で入手できます。各アーキテクチャには大抵、複数のフレーバのバイナリカーネルイメージがあります。異なるフレーバは<emphasis role=\"strong\">同一の</emphasis>カーネルツリーからビルドされますが、バイナリイメージをビルドする際に使用されるカーネルの設定ファイルが異なります。"
+msgstr ""
+"あるカーネルパッケージが特定のハードウェア向けに構成されている場合、ターゲッ"
+"トとなるハードウェアの種類は、<emphasis>アーキテクチャ</emphasis>、<emphasis>"
+"フィーチャセット</emphasis>、<emphasis>フレーバ</emphasis>で一意に識別するこ"
+"とができます。全てのアーキテクチャ向けのカーネルは、同一の Debian カーネル"
+"ソースツリーからビルドすることができ、そのソースツリーは <xref linkend=\"ch-"
+"source\"/> で説明した方法で入手できます。各アーキテクチャには大抵、複数のフ"
+"レーバのバイナリカーネルイメージがあります。異なるフレーバは<emphasis role="
+"\"strong\">同一の</emphasis>カーネルツリーからビルドされますが、バイナリイ"
+"メージをビルドする際に使用されるカーネルの設定ファイルが異なります。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-packaging.dbk:82
@@ -3335,7 +3146,19 @@ msgid ""
 "check out <xref linkend=\"s-common-out-of-tree\"/>.  A complete set of "
 "kernel headers matching the currently running official kernel may be "
 "installed with a command"
-msgstr "このパッケージはフレーバ固有のヘッダファイルを提供します。このパッケージに対応する <literal>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</literal> パッケージに依存しており、シンボリックリンクをディレクトリツリー中に設定します。そうすることによって、 <literal>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal> がツリー外のカーネルモジュールをビルドするために必要なフルセットのヘッダーを持っているように見えます。さらに詳しく知りたい場合は、<xref linkend=\"s-common-out-of-tree\"/> を参照して下さい。実行中の公式カーネルに対応したカーネルヘッダの完全なセットは次のコマンドでインストールすることができます："
+msgstr ""
+"このパッケージはフレーバ固有のヘッダファイルを提供します。このパッケージに対"
+"応する <literal>linux-headers-<replaceable>version</replaceable>-"
+"<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
+"replaceable>]</literal> パッケージに依存しており、シンボリックリンクをディレ"
+"クトリツリー中に設定します。そうすることによって、 <literal>/usr/src/linux-"
+"headers-<replaceable>version</replaceable>-<replaceable>abiname</"
+"replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
+"replaceable></literal> がツリー外のカーネルモジュールをビルドするために必要な"
+"フルセットのヘッダーを持っているように見えます。さらに詳しく知りたい場合は、"
+"<xref linkend=\"s-common-out-of-tree\"/> を参照して下さい。実行中の公式カーネ"
+"ルに対応したカーネルヘッダの完全なセットは次のコマンドでインストールすること"
+"ができます："
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><screen>
 #: chapter-packaging.dbk:142
@@ -3442,7 +3265,11 @@ msgid ""
 "automatically generated in the installation process and is <emphasis role="
 "\"strong\">not</emphasis> shipped as a part of the package.  See <xref "
 "linkend=\"ch-initramfs\"/> for more details."
-msgstr "初期 RAM ファイルシステム (initramfs) イメージです。このファイルはインストール中に自動的に生成されたものです。パッケージの一部として提供されているものでは<emphasis role=\"strong\">ない</emphasis>ことに注意して下さい。 詳細は <xref linkend=\"ch-initramfs\"/> を参照して下さい。"
+msgstr ""
+"初期 RAM ファイルシステム (initramfs) イメージです。このファイルはインストー"
+"ル中に自動的に生成されたものです。パッケージの一部として提供されているもので"
+"は<emphasis role=\"strong\">ない</emphasis>ことに注意して下さい。 詳細は "
+"<xref linkend=\"ch-initramfs\"/> を参照して下さい。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:191
@@ -3494,3 +3321,228 @@ msgid ""
 msgstr ""
 "このパッケージは GNU glibc や、その他のシステムライブラリなどのユーザ空間プロ"
 "グラムによって使用される Linux カーネルヘッダを提供します。"
+
+#. type: Content of: <chapter><title>
+#: chapter-versions.dbk:5
+msgid "Version numbers and ABIs"
+msgstr "バージョン番号と ABI"
+
+#. type: Content of: <chapter><section><title>
+#: chapter-versions.dbk:6
+msgid "The different types of version"
+msgstr "異なるバージョンのタイプ"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><term>
+#: chapter-versions.dbk:9
+msgid "Upstream version"
+msgstr "アップストリームバージョン"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
+#: chapter-versions.dbk:12
+msgid ""
+"The version that Linus or a stable series maintainer uses for a release.  "
+"Currently Linus will use the version format: 3.<replaceable>x</replaceable>[-"
+"rc<replaceable>y</replaceable>].  Stable series maintainers use the version "
+"format: 3.<replaceable>x</replaceable>.<replaceable>y</replaceable>."
+msgstr ""
+"Linus や安定版のメンテナがリリースに使用するバージョンです。現在 Linus はバー"
+"ジョンナンバに 3.<replaceable>x</replaceable>[-rc<replaceable>y</"
+"replaceable>] というフォーマットを使用しています。安定版のメンテナはバージョ"
+"ンナンバに 3.<replaceable>x</replaceable>.<replaceable>y</replaceable>. とい"
+"うフォーマットを使用しています。"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><term>
+#: chapter-versions.dbk:21
+msgid "Package version"
+msgstr "パッケージバージョン"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
+#: chapter-versions.dbk:24
+msgid ""
+"The version used in a Debian package.  Following Debian policy, it should "
+"follow the format <replaceable>upstreamversion</replaceable>-"
+"<replaceable>debianrevision</replaceable>.  However, for an upstream release "
+"candidate, the string '-rc' must be replaced with '~rc' so that it will be "
+"recognised as an earlier version than the following release."
+msgstr ""
+"Debian パッケージで使用されるバージョンナンバDebian ポリシーによると、"
+"<replaceable>アップストリームのバージョン</replaceable>-<replaceable>Debian "
+"のリビジョン</replaceable>というフォーマットに従う必要がります。しかし、アッ"
+"プストリームのリリース候補版で使用される 「-rc」 は 「~rc」 で置き換える必要"
+"があります。これ以降にリリースされるバージョンよりも前のバージョンであると認"
+"識させるためです。"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><term>
+#: chapter-versions.dbk:34
+msgid "Kernel version"
+msgstr "カーネルバージョン"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
+#: chapter-versions.dbk:37
+msgid ""
+"This is the version that appears in kernel messages, filenames, package "
+"names and the output of 'uname -r'.  In official kernel packages it follows "
+"the format <replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
+"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
+"replaceable>.  It is not changed for every new package version.  The "
+"<replaceable>abiname</replaceable> is changed as explained below."
+msgstr ""
+"これはカーネルメッセージ、ファイル名、パッケージ名、「uname -r」 コマンドで出"
+"力されるバージョンナンバです。公式のカーネルパッケージでは "
+"<replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
+"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
+"replaceable> というフォーマットに従います。これは全ての新しいパッケージバー"
+"ジョンで変わるものではありません。<replaceable>abiname</replaceable>は以下の"
+"ルールに従い変更されます。"
+
+#. type: Content of: <chapter><section><para>
+#: chapter-versions.dbk:48
+msgid ""
+"Many programs parse the kernel version string reported by the "
+"<literal>uname</literal> system call or command and expect to find at least "
+"3 version components separated by dots.  For compatibility, the official "
+"kernel packages currently add '.0' to the upstream version, but this will be "
+"dropped in wheezy+1."
+msgstr ""
+"多くのプログラムがカーネルバージョンを<literal>uname</literal>システムコール"
+"かコマンドからパースしますが、最低でも 3 つのバージョンのパーツがドットで区切"
+"られていることが前提となっています。互換性のために、公式のカーネルパッケージ"
+"は現在アップストリームバージョンに「.0」を付けていますが、これは wheezy+1 (訳"
+"注：Wheezy の 次のバージョン Jessie) で廃止される予定です。"
+
+#. type: Content of: <chapter><section><title>
+#: chapter-versions.dbk:56
+msgid "The kernel ABI"
+msgstr "カーネルの ABI"
+
+#. type: Content of: <chapter><section><para>
+#: chapter-versions.dbk:58
+msgid ""
+"An ABI (Application Binary Interface) is an interface between two software "
+"components, considered at the level of register allocation and memory "
+"layout.  The ABI between the kernel and user-space is generally maintained "
+"carefully, and is not a concern here.  However, the ABI between the kernel "
+"and its modules is not.  In order to support out-of-tree modules, the kernel "
+"version should be changed when the ABI between the kernel and modules "
+"changes."
+msgstr ""
+"ABI (Application Binary Interface) はレジスタの割り当てやメモリのレイアウトの"
+"レベルで考慮されているソフトウェアコンポーネント間のインタフェースです。カー"
+"ネルとユーザ空間の間の ABI は定常的に注意深くメンテナンスされているため、ここ"
+"では考慮する必要はありません。しかし、カーネルとカーネルモジュール間の ABI は"
+"その限りではありません。ツリー外のモジュールをサポートするためには、カーネル"
+"とモジュール間の ABI に変更があるたびにカーネルバージョンを変更しなければなり"
+"ません。"
+
+#. type: Content of: <chapter><section><section><title>
+#: chapter-versions.dbk:65
+msgid "The ABI name"
+msgstr "ABI 名"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:67
+msgid ""
+"In official kernel packages, we change the <replaceable>abiname</"
+"replaceable> part of the kernel version to mark ABI changes that aren't due "
+"to a new upstream version.  This part comes from the <literal>abiname</"
+"literal> setting in <literal>debian/config/defines</literal>.  We use either "
+"a number or 'trunk' (for experimental), but for a custom package it should "
+"be some other string."
+msgstr ""
+"公式のカーネルパッケージでは、私達はカーネルバージョン名の一部である "
+"<replaceable>abiname</replaceable> を変更します。これは、新しいアップストリー"
+"ムバージョンに起因しない ABI の変更をマークするためです。この部分は "
+"<literal>debian/config/defines</literal> 中の <literal>abiname</literal> の設"
+"定で管理されています。私達は、この部分に 「trunk」(experimental 用) か番号を"
+"使用しますが、カスタムパッケージにはそれ以外の文字列を使うべきです。"
+
+#. type: Content of: <chapter><section><section><title>
+#: chapter-versions.dbk:75
+msgid "Maintaining and updating the ABI"
+msgstr "ABI の管理と更新"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:77
+msgid ""
+"In order to avoid the need for users to rebuild out-of-tree modules "
+"frequently, we try to avoid changing the kernel ABI during updates to a "
+"Debian stable or oldstable release.  Most importantly, we avoid making such "
+"changes without changing the ABI name, except where it appears that out-of-"
+"tree modules do not depend on that part of the ABI."
+msgstr ""
+"私達は、ユーザがツリー外のモジュールを頻繁にビルドする必要が無いよう、Debian "
+"安定版や旧安定版に対するアップデートでは、カーネルの ABI を変更しません。最も"
+"重要なことは、ツリー外のモジュールが ABI のある部分に依存していないと思われる"
+"場合を除き、ABI 名を変更せずにそのような変更を行うことを避けるということで"
+"す。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:84
+msgid ""
+"Bug fixes or configuration changes to the kernel may alter the ABI.  If an "
+"exported function is conditional on <literal>CONFIG_</"
+"literal><replaceable>FOO</replaceable>, or it uses a type whose definition "
+"depends on <literal>CONFIG_</literal><replaceable>FOO</replaceable>, then "
+"turning <literal>CONFIG_</literal><replaceable>FOO</replaceable> on or off "
+"changes the ABI of that function, and thus of the kernel as a whole.  "
+"Enabling or changing the configuration of a single driver usually doesn't "
+"change the ABI, because most drivers don't export anything."
+msgstr ""
+"カーネルへのバグ修正や設定の変更は ABI の変更をともなう場合があります。もしエ"
+"クスポートされた関数が <literal>CONFIG_</literal><replaceable>FOO</"
+"replaceable> を条件としているか、もしくは型定義が <literal>CONFIG_</"
+"literal><replaceable>FOO</replaceable> に依存するものを使用している場合、"
+"<literal>CONFIG_</literal><replaceable>FOO</replaceable> の有効無効によってそ"
+"の関数の ABI、ひいてはカーネル全体の ABI が変更になります。1 つのドライバの設"
+"定を有効化したり変更したりする場合、たいてい ABI は変更しません。ほとんどのド"
+"ライバは何もエクスポートしないからです。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:95
+msgid ""
+"The kernel build process generates a 'symbol version' for each exported "
+"function or variable.  This is a hash of the definitions that it depends on, "
+"and should change whenever the function's ABI changes.  The kernel module "
+"loader detects incompatible modules by comparing symbol versions.  The whole "
+"set of symbol versions represents the kernel ABI."
+msgstr ""
+"カーネルのビルドプロセスによって 、それぞれのエクスポートされた関数や変数用に"
+"「シンボルバージョン」が生成されます。これは自身が依存している定義のハッシュ"
+"で、関数の ABI が変更された場合は必ず変更しなければなりません。シンボルバー"
+"ジョンを比較することで、カーネルモジュールローダは非互換のモジュールを検出し"
+"ます。シンボルバージョンの完全なセットはカーネル ABI で表現されます。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:102
+msgid ""
+"We collect the symbol versions for previously uploaded packages under the "
+"directory <literal>debian/abi</literal> and then compare the new kernel with "
+"those.  If the ABI name is unchanged but the ABI itself is changed - except "
+"for additions, or changes that we have marked as acceptable - then the build "
+"is aborted."
+msgstr ""
+"私達は以前アップロードした <literal>debian/abi</literal> ディレクトリ以下の"
+"パッケージのシンボルバージョンを修正し、新しいカーネルのものと比較します。も"
+"し ABI 名が変更さないにも関わらず ABI そのものに変更がある場合は、ビルドを中"
+"止します。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:109
+msgid ""
+"If the kernel ABI has changed you must then change the ABI name in "
+"<literal>debian/config/defines</literal>.  Then run the command"
+msgstr ""
+"カーネル ABI が変更された場合は、<literal>debian/config/defines</literal> の "
+"ABI 名を変更しなければなりません。"
+
+#. type: Content of: <chapter><section><section><screen>
+#: chapter-versions.dbk:113
+#, no-wrap
+msgid "$ fakeroot debian/rules debian/control-real\n"
+msgstr "$ fakeroot debian/rules debian/control-real\n"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:116
+msgid "to regenerate the package definitions for this ABI name."
+msgstr ""
+"このコマンドで ABI に対応したパッケージ定義を再生成することができます。"
