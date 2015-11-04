@@ -6,6 +6,7 @@ kernel-handbook (1.0.17) UNRELEASED; urgency=medium
     and is incorrect since it now needs Python 3
   * Use changelog date as document date
   * Convert all source files to DocBook format
+    - Makefile,debian/control: Use xmlto to build from DocBook
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 30 Aug 2015 13:21:25 +0100
 

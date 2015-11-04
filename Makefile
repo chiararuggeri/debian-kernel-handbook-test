@@ -5,29 +5,39 @@ LANG_PO := ja
 LANG_EN := en
 LANGS := $(LANG_EN) $(LANG_PO)
 
+SOURCES := kernel-handbook.dbk $(wildcard chapter-*.dbk)
+
+# Ensure xmlto uses UTF-8 and not numbered entities
+unexport LC_ALL
+export LC_CTYPE=C.UTF-8
+
 all: version.ent $(LANGS)
 
 en:
-	debiandoc2html kernel-handbook.sgml
+	xmlto -o kernel-handbook.html -m stylesheet.xsl html kernel-handbook.dbk
 
 ja:
-	po4a-translate -L EUC-JP -f sgml -m kernel-handbook.sgml -p po4a/kernel-handbook.ja.po -l kernel-handbook.ja.sgml
-	debiandoc2html -lja_JP.eucJP kernel-handbook.ja.sgml
+	mkdir -p kernel-handbook.ja.dbk
+	ln -sf ../version.ent kernel-handbook.ja.dbk/
+	for src in $(SOURCES); do \
+		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.ja.po -l kernel-handbook.ja.dbk/"$$src" || exit; \
+	done
+	xmlto -o kernel-handbook.ja.html -m stylesheet.xsl html kernel-handbook.ja.dbk/kernel-handbook.dbk
 
 clean:
 	rm -rf kernel-handbook.html
 	$(foreach lng,$(LANGS), \
 		rm -rf kernel-handbook.$(lng).html; \
-		rm -rf kernel-handbook.$(lng).sgml; \
+		rm -rf kernel-handbook.$(lng).dbk; \
 	)
 	rm -rf pub
 
 version.ent: FORCE
 	if [ "$(date)" !=						   \
-	     "$$(sed 's/<!entity date *"\(.*\)">/\1/; t; d' $@)" ]; then   \
+	     "$$(sed 's/<!ENTITY date *"\(.*\)">/\1/; t; d' $@)" ]; then   \
 		rm -f $@ &&						   \
-		echo "<!entity version \"$(version)\">"	>> $@ &&	   \
-		echo "<!entity date    \"$(date)\">"    >> $@;		   \
+		echo "<!ENTITY version \"$(version)\">"	>> $@ &&	   \
+		echo "<!ENTITY date    \"$(date)\">"    >> $@;		   \
 	fi
 
 sync:
@@ -46,7 +56,7 @@ sync:
 
 po-update:
 	$(foreach lng,$(LANG_PO), \
-	po4a-updatepo -f sgml -m kernel-handbook.sgml -p po4a/kernel-handbook.$(lng).po; \
+	po4a-updatepo -f docbook $(patsubst %,-m %,$(SOURCES)) -p po4a/kernel-handbook.$(lng).po; \
 	)
 
 .PHONY: all sync FORCE
