@@ -1,4 +1,4 @@
-version := $(shell dpkg-parsechangelog | sed -ne 's,^Version: *\(.*\)$$,\1,p')
+version := $(shell dpkg-parsechangelog -SVersion)
 date    := $(shell date)
 
 LANG_PO := ja
