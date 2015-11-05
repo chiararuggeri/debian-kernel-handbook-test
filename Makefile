@@ -1,5 +1,5 @@
 version := $(shell dpkg-parsechangelog -SVersion)
-date    := $(shell date)
+date    := $(shell date -d "$$(dpkg-parsechangelog -SDate)")
 
 LANG_PO := ja
 LANG_EN := en
@@ -23,8 +23,8 @@ clean:
 	rm -rf pub
 
 version.ent: FORCE
-	if [ "$(version)" !=						   \
-	     "$$(sed 's/<!entity version "\(.*\)">/\1/; t; d' $@)" ]; then \
+	if [ "$(date)" !=						   \
+	     "$$(sed 's/<!entity date *"\(.*\)">/\1/; t; d' $@)" ]; then   \
 		rm -f $@ &&						   \
 		echo "<!entity version \"$(version)\">"	>> $@ &&	   \
 		echo "<!entity date    \"$(date)\">"    >> $@;		   \
