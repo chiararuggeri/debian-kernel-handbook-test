@@ -245,7 +245,7 @@ this will download several hundred megabytes of data.
 This will download the <literal>linux</literal> upstream source (and the last
 released Debian patches).  Depending on which version you are trying to build,
 you might need to override APT's version selection or download a tarball from
-<ulink url="http://people.debian.org">people.debian.org</ulink> instead.
+<ulink url="https://people.debian.org">people.debian.org</ulink> instead.
 </para>
 </listitem>
 </varlistentry>
@@ -413,7 +413,7 @@ package involved.
 <para>
 Building a kernel from the "pristine" (also sometimes called "vanilla") kernel
 source, distributed from <ulink
-url="http://www.kernel.org">www.kernel.org</ulink> and its mirrors, may be
+url="https://www.kernel.org">www.kernel.org</ulink> and its mirrors, may be
 occasionally useful for debugging or in the situations when a newer kernel
 version is desired.  The procedure differs only in obtaining the kernel source:
 instead of unpacking the kernel source from Debian packages, the "pristine"
@@ -421,7 +421,7 @@ source is downloaded using your favourite browser or using wget, as follows:
 </para>
 <screen>
  
-$ wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
+$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
 </screen>
 <para>
 The integrity of the downloaded archive may be verified by fetching the
@@ -429,7 +429,7 @@ corresponding cryptographic signature
 </para>
 <screen>
  
-$ wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign
+$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign
 </screen>
 <para>
 and running this command (<literal>gnupg</literal> package must be installed):

@@ -20,8 +20,8 @@ Exceptions:
 <para>
 If the kernel does not boot or is very unstable, instead of the usual system
 information we need the console messages via <ulink
-url="http://www.kernel.org/doc/Documentation/networking/netconsole.txt">netconsole</ulink>,
-<ulink url="http://www.kernel.org/doc/Documentation/serial-console.txt">serial
+url="https://www.kernel.org/doc/Documentation/networking/netconsole.txt">netconsole</ulink>,
+<ulink url="https://www.kernel.org/doc/Documentation/serial-console.txt">serial
 console</ulink>, or a photograph.
 </para>
 </listitem>
@@ -29,7 +29,7 @@ console</ulink>, or a photograph.
 <para>
 If the report is relaying information about a bug acknowledged upstream, we do
 not need system information but we do need specific references (<ulink
-url="http://bugzilla.kernel.org">bugzilla.kernel.org</ulink> or
+url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink> or
 <command>git</command> commit id).
 </para>
 </listitem>
@@ -122,7 +122,7 @@ similar hardware.  We should consider:
 <itemizedlist>
 <listitem>
 <para>
-Searching <ulink url="http://bugzilla.kernel.org">bugzilla.kernel.org</ulink>
+Searching <ulink url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink>
 (including closed bugs) or other relevant bug tracker
 </para>
 </listitem>
@@ -140,7 +140,7 @@ seems to suck least
 <listitem>
 <para>
 Patches submitted to some lists are archived at <ulink
-url="http://patchwork.kernel.org">patchwork.kernel.org</ulink>
+url="https://patchwork.kernel.org">patchwork.kernel.org</ulink>
 </para>
 </listitem>
 </itemizedlist>
@@ -224,7 +224,7 @@ introduced the bug
 <para>
 When a bug occurs in what upstream considers the current or previous stable
 release, and we cannot fix it, we ask the submitter to report it upstream at
-<ulink url="http://bugzilla.kernel.org">bugzilla.kernel.org</ulink> under a
+<ulink url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink> under a
 specific Product and Component, and to tell us the upstream bug number.  We do
 not report bugs directly because follow-up questions from upstream need to go
 to the submitter, not to us.  Given the upstream bug number, we mark the bug as
@@ -280,7 +280,7 @@ before being applied.
 <section id="s9.1.8"><title>Talking to submitters</title>
 <para>
 We should always be polite to submitters.  Not only is this implied by the
-<ulink url="http://www.debian.org/social_contract">Social Contract</ulink>, but
+<ulink url="https://www.debian.org/social_contract">Social Contract</ulink>, but
 it is likely to lead to a faster resolution of the bug.  If a submitter
 overrated the severity, quietly downgrade it.  If a submitter has done
 something stupid, request that they undo that and report back.  'Sorry' and
@@ -288,7 +288,7 @@ something stupid, request that they undo that and report back.  'Sorry' and
 </para>
 <para>
 We will maintain general advice to submitters at <ulink
-url="http://wiki.debian.org/DebianKernelReportingBugs">http://wiki.debian.org/DebianKernelReportingBugs</ulink>.
+url="https://wiki.debian.org/DebianKernelReportingBugs">https://wiki.debian.org/DebianKernelReportingBugs</ulink>.
 </para>
 </section>
 
@@ -298,7 +298,7 @@ url="http://wiki.debian.org/DebianKernelReportingBugs">http://wiki.debian.org/De
 <para>
 Debian kernel team keeps track of the kernel package bugs in the Debian Bug
 Tracking System (BTS).  For information on how to use the system see <ulink
-url="http://bugs.debian.org">http://bugs.debian.org</ulink>.  You can also
+url="https://bugs.debian.org">https://bugs.debian.org</ulink>.  You can also
 submit the bugs by using the <literal>reportbug</literal> command from the
 package with the same name.  Please note that kernel bugs found in
 distributions derived from Debian (such as Knoppix, Mepis, Progeny, Ubuntu,
@@ -325,7 +325,7 @@ unlikely that you are the only person experiencing a particular problem, there
 is always a chance that it has been discussed elsewhere, and a possible
 solution, patch, or workaround has been proposed.  If such information exists,
 always include the references to it in your report.  Check the <ulink
-url="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux">current
+url="https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux">current
 bug list</ulink> to see whether something similar has been reported already.
 </para>
 </listitem>
@@ -349,13 +349,13 @@ might help in solving the problem.
 <emphasis>Try to reproduce the problem with "vanilla" kernel.</emphasis> If you
 have a chance, try to reproduce the problem by building the binary kernel image
 from the "vanilla" kernel source, available from <ulink
-url="http://www.kernel.org">http://www.kernel.org</ulink> or its mirrors, using
+url="https://www.kernel.org">https://www.kernel.org</ulink> or its mirrors, using
 the same configuration as the Debian stock kernels.  For more information on
 how to do this, look at <xref linkend="s-common-building"/>.  If there is
 convincing evidence that the buggy behavior is caused by the Debian-specific
 changes to the kernel, the bug will usually be assigned higher priority by the
 kernel team.  If the bug is not specific for Debian, check out the upstream
-<ulink url="http://bugzilla.kernel.org">kernel bug database</ulink> to see if
+<ulink url="https://bugzilla.kernel.org">kernel bug database</ulink> to see if
 it has been reported there.  If you are sure that it is an upstream problem,
 you can also report your bug there (but submit it to Debian BTS anyway, so that
 we can track it properly).
@@ -462,7 +462,7 @@ steps.
 <para>
 See Christian Couder's article "Fighting regressions with git bisect" from
 <ulink
-url="http://www.kernel.org/pub/software/scm/git/docs/git-bisect-lk2009.html">kernel.org</ulink>
+url="https://www.kernel.org/pub/software/scm/git/docs/git-bisect-lk2009.html">kernel.org</ulink>
 or <ulink url="file:///usr/share/doc/git-doc/git-bisect-lk2009.html">the
 git-doc package</ulink> for details.
 </para>
