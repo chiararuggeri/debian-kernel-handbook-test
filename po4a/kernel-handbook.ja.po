@@ -3397,12 +3397,18 @@ msgstr ""
 
 #. type: Content of: <chapter><section><para>
 #: chapter-versions.dbk:48
+#, fuzzy
+#| msgid ""
+#| "Many programs parse the kernel version string reported by the "
+#| "<literal>uname</literal> system call or command and expect to find at "
+#| "least 3 version components separated by dots.  For compatibility, the "
+#| "official kernel packages currently add '.0' to the upstream version, but "
+#| "this will be dropped in wheezy+1."
 msgid ""
 "Many programs parse the kernel version string reported by the "
 "<literal>uname</literal> system call or command and expect to find at least "
 "3 version components separated by dots.  For compatibility, the official "
-"kernel packages currently add '.0' to the upstream version, but this will be "
-"dropped in wheezy+1."
+"kernel packages currently add '.0' to the upstream version."
 msgstr ""
 "多くのプログラムがカーネルバージョンを<literal>uname</literal>システムコール"
 "かコマンドからパースしますが、最低でも 3 つのバージョンのパーツがドットで区切"
@@ -3411,12 +3417,12 @@ msgstr ""
 "注：Wheezy の 次のバージョン Jessie) で廃止される予定です。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-versions.dbk:56
+#: chapter-versions.dbk:55
 msgid "The kernel ABI"
 msgstr "カーネルの ABI"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-versions.dbk:58
+#: chapter-versions.dbk:57
 msgid ""
 "An ABI (Application Binary Interface) is an interface between two software "
 "components, considered at the level of register allocation and memory "
@@ -3435,12 +3441,12 @@ msgstr ""
 "ません。"
 
 #. type: Content of: <chapter><section><section><title>
-#: chapter-versions.dbk:65
+#: chapter-versions.dbk:64
 msgid "The ABI name"
 msgstr "ABI 名"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:67
+#: chapter-versions.dbk:66
 msgid ""
 "In official kernel packages, we change the <replaceable>abiname</"
 "replaceable> part of the kernel version to mark ABI changes that aren't due "
@@ -3457,12 +3463,12 @@ msgstr ""
 "使用しますが、カスタムパッケージにはそれ以外の文字列を使うべきです。"
 
 #. type: Content of: <chapter><section><section><title>
-#: chapter-versions.dbk:75
+#: chapter-versions.dbk:74
 msgid "Maintaining and updating the ABI"
 msgstr "ABI の管理と更新"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:77
+#: chapter-versions.dbk:76
 msgid ""
 "In order to avoid the need for users to rebuild out-of-tree modules "
 "frequently, we try to avoid changing the kernel ABI during updates to a "
@@ -3477,7 +3483,7 @@ msgstr ""
 "す。"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:84
+#: chapter-versions.dbk:83
 msgid ""
 "Bug fixes or configuration changes to the kernel may alter the ABI.  If an "
 "exported function is conditional on <literal>CONFIG_</"
@@ -3498,7 +3504,7 @@ msgstr ""
 "ライバは何もエクスポートしないからです。"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:95
+#: chapter-versions.dbk:94
 msgid ""
 "The kernel build process generates a 'symbol version' for each exported "
 "function or variable.  This is a hash of the definitions that it depends on, "
@@ -3513,7 +3519,7 @@ msgstr ""
 "ます。シンボルバージョンの完全なセットはカーネル ABI で表現されます。"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:102
+#: chapter-versions.dbk:101
 msgid ""
 "We collect the symbol versions for previously uploaded packages under the "
 "directory <literal>debian/abi</literal> and then compare the new kernel with "
@@ -3527,7 +3533,7 @@ msgstr ""
 "止します。"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:109
+#: chapter-versions.dbk:108
 msgid ""
 "If the kernel ABI has changed you must then change the ABI name in "
 "<literal>debian/config/defines</literal>.  Then run the command"
@@ -3536,13 +3542,13 @@ msgstr ""
 "ABI 名を変更しなければなりません。"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-versions.dbk:113
+#: chapter-versions.dbk:112
 #, no-wrap
 msgid "$ fakeroot debian/rules debian/control-real\n"
 msgstr "$ fakeroot debian/rules debian/control-real\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:116
+#: chapter-versions.dbk:115
 msgid "to regenerate the package definitions for this ABI name."
 msgstr ""
 "このコマンドで ABI に対応したパッケージ定義を再生成することができます。"

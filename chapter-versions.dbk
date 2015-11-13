@@ -48,8 +48,7 @@ It is not changed for every new package version.  The
 Many programs parse the kernel version string reported by the
 <literal>uname</literal> system call or command and expect to find at least 3
 version components separated by dots.  For compatibility, the official kernel
-packages currently add '.0' to the upstream version, but this will be dropped
-in wheezy+1.
+packages currently add '.0' to the upstream version.
 </para>
 </section>
 
