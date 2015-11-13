@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.16 VERSION\n"
-"POT-Creation-Date: 2015-11-13 22:40+0000\n"
+"POT-Creation-Date: 2015-11-13 23:30+0000\n"
 "PO-Revision-Date: 2015-11-13 22:40+0000\n"
 "Last-Translator: Yusuke YATSUO <yyatsuo@debian.or.jp>\n"
 "Language-Team: Debian JP Project\n"
@@ -340,13 +340,21 @@ msgstr "非推奨の機能"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-update-hooks.dbk:131
+#, fuzzy
+#| msgid ""
+#| "Kernel packages must not invoke boot loaders except via hooks.  If "
+#| "<literal>/etc/kernel-img.conf</literal> contains <literal>do_bootloader = "
+#| "yes</literal> or equivalent, maintainer scripts that previously acted on "
+#| "this must warn that they are ignoring it.  <literal>linux-base</literal> "
+#| "must also warn on upgrade that the default has changed.  In Debian 7.0 "
+#| "'wheezy', this prohibition extends to initramfs builder packages."
 msgid ""
-"Kernel packages must not invoke boot loaders except via hooks.  If <literal>/"
-"etc/kernel-img.conf</literal> contains <literal>do_bootloader = yes</"
-"literal> or equivalent, maintainer scripts that previously acted on this "
-"must warn that they are ignoring it.  <literal>linux-base</literal> must "
-"also warn on upgrade that the default has changed.  In Debian 7.0 'wheezy', "
-"this prohibition extends to initramfs builder packages."
+"Kernel packages must not invoke boot loaders or initramfs builders except "
+"via hooks.  If <literal>/etc/kernel-img.conf</literal> contains "
+"<literal>do_bootloader = yes</literal> or equivalent, maintainer scripts "
+"that previously acted on this must warn that they are ignoring it.  "
+"<literal>linux-base</literal> must also warn on upgrade that the default has "
+"changed."
 msgstr ""
 "カーネルパッケージはフックを経由する以外の方法でブートローダを起動してはいけ"
 "ません。<literal>/etc/kernel-img.conf</literal> に <literal>do_bootloader = "
@@ -2756,13 +2764,23 @@ msgstr "扱う範囲"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-scope.dbk:8
+#, fuzzy
+#| msgid ""
+#| "The main goal of this handbook is to serve as a single access point to "
+#| "all kernel-related documentation.  It contains the information about the "
+#| "Debian packaging of Linux kernel for Debian 7.0 (wheezy).  The latest "
+#| "released version is always available from <ulink url=\"https://kernel-"
+#| "handbook.alioth.debian.org\">https://kernel-handbook.alioth.debian.org</"
+#| "ulink>.  Note that this is a work in progress, and some information is "
+#| "inaccurate."
 msgid ""
 "The main goal of this handbook is to serve as a single access point to all "
 "kernel-related documentation.  It contains the information about the Debian "
-"packaging of Linux kernel for Debian 7.0 (wheezy).  The latest released "
-"version is always available from <ulink url=\"https://kernel-handbook.alioth."
-"debian.org\">https://kernel-handbook.alioth.debian.org</ulink>.  Note that "
-"this is a work in progress, and some information is inaccurate."
+"packaging of Linux kernel for Debian 7 (wheezy), 8 (jessie), and 9 (stretch, "
+"under development).  The latest released version is always available from "
+"<ulink url=\"https://kernel-handbook.alioth.debian.org\">https://kernel-"
+"handbook.alioth.debian.org</ulink>.  Note that this is a work in progress, "
+"and some information is inaccurate."
 msgstr ""
 "このハンドブックの主な目標は、カーネル関係の全ドキュメントに対する唯一のポイ"
 "ンタとなることです。この文書には、Debian 7.0 (wheezy) の Linux カーネルパッ"
@@ -2772,7 +2790,7 @@ msgstr ""
 "であり、ここに書かれていることが必ずしも正しいとは限りません。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-scope.dbk:16
+#: chapter-scope.dbk:17
 msgid ""
 "Some of the commands mentioned in the text must be executed with superuser "
 "priviliges, either by becoming the <literal>root</literal> user or by using "
@@ -2788,12 +2806,12 @@ msgstr ""
 "して区別します。これらの記号はコマンドの一部ではありません。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-scope.dbk:25
+#: chapter-scope.dbk:26
 msgid "Authors and Contributors"
 msgstr "著者と貢献者達"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-scope.dbk:27
+#: chapter-scope.dbk:28
 msgid ""
 "This handbook is maintained within the <ulink url=\"https://alioth.debian."
 "org/projects/kernel-handbook\">kernel-handbook</ulink> project on <ulink url="
@@ -2822,27 +2840,27 @@ msgstr ""
 "GPL version 2 or later になります。現在の貢献者リストです。 (敬称略)"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
-#: chapter-scope.dbk:45
+#: chapter-scope.dbk:46
 msgid "Jurij Smakov"
 msgstr "Jurij Smakov"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
-#: chapter-scope.dbk:50
+#: chapter-scope.dbk:51
 msgid "Sven Luther"
 msgstr "Sven Luther"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
-#: chapter-scope.dbk:55
+#: chapter-scope.dbk:56
 msgid "Andres Salomon"
 msgstr "Andres Salomon"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
-#: chapter-scope.dbk:60
+#: chapter-scope.dbk:61
 msgid "Maximilian Attems"
 msgstr "Maximilian Attems"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
-#: chapter-scope.dbk:65
+#: chapter-scope.dbk:66
 msgid "Ben Hutchings"
 msgstr "Ben Hutchings"
 

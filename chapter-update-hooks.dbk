@@ -128,12 +128,12 @@ whether <literal>$DPKG_MAINTSCRIPT_PACKAGE</literal> begins with
 
 <section id="s-deprecation"><title>Deprecated features</title>
 <para>
-Kernel packages must not invoke boot loaders except via hooks.  If
-<literal>/etc/kernel-img.conf</literal> contains <literal>do_bootloader =
-yes</literal> or equivalent, maintainer scripts that previously acted on this
-must warn that they are ignoring it.  <literal>linux-base</literal> must also
-warn on upgrade that the default has changed.  In Debian 7.0 'wheezy', this
-prohibition extends to initramfs builder packages.
+Kernel packages must not invoke boot loaders or initramfs builders
+except via hooks.  If <literal>/etc/kernel-img.conf</literal> contains
+<literal>do_bootloader = yes</literal> or equivalent, maintainer
+scripts that previously acted on this must warn that they are ignoring
+it.  <literal>linux-base</literal> must also warn on upgrade that the
+default has changed.
 </para>
 </section>
 

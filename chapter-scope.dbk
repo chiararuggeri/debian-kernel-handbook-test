@@ -5,10 +5,11 @@
 <title>About this handbook</title>
 <section id="s1.1"><title>Scope</title>
 <para>
-The main goal of this handbook is to serve as a single access point to all
-kernel-related documentation.  It contains the information about the Debian
-packaging of Linux kernel for Debian 7.0 (wheezy).  The latest released version
-is always available from <ulink
+The main goal of this handbook is to serve as a single access point to
+all kernel-related documentation.  It contains the information about
+the Debian packaging of Linux kernel for Debian 7 (wheezy), 8
+(jessie), and 9 (stretch, under development).  The latest released
+version is always available from <ulink
 url="https://kernel-handbook.alioth.debian.org">https://kernel-handbook.alioth.debian.org</ulink>.
 Note that this is a work in progress, and some information is inaccurate.
 </para>
