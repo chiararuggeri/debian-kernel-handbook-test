@@ -10,7 +10,8 @@ kernel-handbook (1.0.17) UNRELEASED; urgency=medium
     - Update Japanese translation for the format conversion
   * Remove statement that the final '.0' will be removed from upstream versions
   * Update 'Linus version format' to begin with 4
-  * Remove references to linux-2.6 source package
+  * Remove references to Debian 6.0 and earlier releases, and the linux-2.6
+    source package
   * Change examples to use xz compressed files with recent versions,
     instead of older bzip2 compressed files
   * Change links to use HTTP-S where possible

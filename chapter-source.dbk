@@ -23,9 +23,7 @@ The guidelines for firmware removal were set by the <ulink
 url="https://www.debian.org/vote/2006/vote_007">Handling source-less firmware in
 the Linux kernel</ulink> General Resolution and the <ulink
 url="https://lists.debian.org/debian-kernel/2006/10/msg00541.html">position
-statement</ulink> by the release managers.  Even though these documents
-originally applied to the Etch release, there were no significant changes in
-the removal policy, so they were in effect for the Lenny release as well.  As
+statement</ulink> by the release managers.  As
 of version 2.6.31-1, all known sourceless firmware has been removed from the
 Debian package, but much of it is included in the <ulink
 url="https://packages.debian.org/source/firmware-nonfree">firmware-nonfree</ulink>

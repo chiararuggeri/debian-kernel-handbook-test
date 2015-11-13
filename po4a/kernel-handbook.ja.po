@@ -90,37 +90,27 @@ msgstr "コマンドを利用することもできます。"
 
 #. type: Content of: <chapter><para>
 #: chapter-update-hooks.dbk:7
+#, fuzzy
+#| msgid ""
+#| "The following policy applies to Debian GNU/Linux 6.0 'squeeze' and later "
+#| "releases.  Some parts may be applicable to kernels other than Linux, but "
+#| "this policy does not set any requirements for them."
 msgid ""
-"Kernel packages for Debian have historically had complex maintainer scripts "
-"which can invoke the initramfs builder and/or a boot loader, based on a "
-"mixture of file tests, explicit configuration through the file <literal>/etc/"
-"kernel-img.conf</literal> and debconf questions.  Starting with Debian 6.0, "
-"this has been greatly simplified."
-msgstr ""
-"Debian のカーネルパッケージは複雑なメンテナスクリプトを歴史的に引き継いでいま"
-"す。このスクリプは、ファイルテストと、<literal>/etc/kernel-img.conf</literal>"
-"ファイルと debconf の質問による明示的な設定の複合に基いて、initramfs ビルダー"
-"および/またはブートローダを起動します。Debian 6.0 以降、これは大幅に簡略化さ"
-"れています。"
-
-#. type: Content of: <chapter><para>
-#: chapter-update-hooks.dbk:14
-msgid ""
-"The following policy applies to Debian GNU/Linux 6.0 'squeeze' and later "
-"releases.  Some parts may be applicable to kernels other than Linux, but "
-"this policy does not set any requirements for them."
+"The following policy applies to Debian GNU/Linux.  Some parts may be "
+"applicable to kernels other than Linux, but this policy does not set any "
+"requirements for them."
 msgstr ""
 "以下のポリシーは GNU/Linux 6.0 'squeeze' と、それ以降のリリースに関し適用され"
 "ます。これらのなかには、 Linux 以外のカーネルに対して適用可能なものもあります"
 "が、このポリシーにはそれらのための要件を設定していません。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:18
+#: chapter-update-hooks.dbk:11
 msgid "Kernel hooks"
 msgstr "Kernel フック"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:20
+#: chapter-update-hooks.dbk:13
 msgid ""
 "The maintainer scripts in Linux kernel packages must use <literal>run-parts</"
 "literal> to invoke hook scripts in the corresponding subdirectory of "
@@ -134,7 +124,7 @@ msgstr ""
 "literal> 内のスクリプトを起動します。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:27
+#: chapter-update-hooks.dbk:20
 msgid ""
 "The arguments given to all kernel hook scripts are the kernel ABI version "
 "(the string that <literal>uname -r</literal> reports) and, optionally, the "
@@ -157,13 +147,13 @@ msgstr ""
 "ようにパースできます："
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-update-hooks.dbk:38
+#: chapter-update-hooks.dbk:31
 #, no-wrap
 msgid "eval set -- \"$DEB_MAINT_PARAMS\"\n"
 msgstr "eval set -- \"$DEB_MAINT_PARAMS\"\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:41
+#: chapter-update-hooks.dbk:34
 msgid ""
 "Kernel hook scripts may be run under debconf.  In this case they must not "
 "use stdin and stdout, and should send all output to stderr (fd 2).  A shell "
@@ -174,18 +164,18 @@ msgstr ""
 "シェルスクリプトで確実にそうするには、次のように書きます："
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-update-hooks.dbk:46
+#: chapter-update-hooks.dbk:39
 #, no-wrap
 msgid "exec &lt;/dev/null >&amp;2\n"
 msgstr "exec &lt;/dev/null >&amp;2\n"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:50
+#: chapter-update-hooks.dbk:43
 msgid "Kernel hooks required for boot loaders"
 msgstr "ブートローダに必要なカーネルフック"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:52
+#: chapter-update-hooks.dbk:45
 msgid ""
 "Packages for boot loaders that need to be updated whenever the files they "
 "load are modified (i.e.  those that store a block list) must install hook "
@@ -198,7 +188,7 @@ msgstr ""
 "literal> にフックスクリプトをインストールしなければなりません。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:58
+#: chapter-update-hooks.dbk:51
 msgid ""
 "Since these boot loaders should be updated as the last step during "
 "installation/upgrade and removal, hook scripts for boot loaders must be "
@@ -217,7 +207,7 @@ msgstr ""
 "コードは 0 を返さなければなりません。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:67
+#: chapter-update-hooks.dbk:60
 msgid ""
 "These boot loader packages must be installable on the filesystem in a "
 "disabled state where they will not write to the boot sector or other special "
@@ -232,7 +222,7 @@ msgstr ""
 "ければなりません。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:74
+#: chapter-update-hooks.dbk:67
 msgid ""
 "Packages for boot loaders that can provide a menu of kernel versions should "
 "install kernel hook scripts in order to update that menu."
@@ -242,12 +232,12 @@ msgstr ""
 "す。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:79
+#: chapter-update-hooks.dbk:72
 msgid "Initramfs hooks"
 msgstr "Initramfs フック"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:81
+#: chapter-update-hooks.dbk:74
 msgid ""
 "Packages for boot loaders that need to be updated whenever the files they "
 "load are modified must also install hook scripts in <literal>/etc/initramfs/"
@@ -265,7 +255,7 @@ msgstr ""
 "す。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:89
+#: chapter-update-hooks.dbk:82
 msgid ""
 "While a boot loader is disabled, any initramfs hook it includes must do "
 "nothing except (optionally) printing a warning that the boot loader is "
@@ -276,12 +266,12 @@ msgstr ""
 "りません。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:95
+#: chapter-update-hooks.dbk:88
 msgid "Kernel hooks required for initramfs builders"
 msgstr "Kernel フックに依存する initramfs ビルダー"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:97
+#: chapter-update-hooks.dbk:90
 msgid ""
 "Initramfs builders must install hook scripts in <literal>/etc/kernel/"
 "postinst.d</literal> and <literal>/etc/kernel/postrm.d</literal>, to create/"
@@ -294,12 +284,12 @@ msgstr ""
 "クスクリプトは return する前にその処理を終えている必要があります。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:105
+#: chapter-update-hooks.dbk:98
 msgid "Optimising boot loader updates"
 msgstr "ブートローダの更新を最適化する"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:107
+#: chapter-update-hooks.dbk:100
 msgid ""
 "During a kernel package installation, upgrade or removal, various boot "
 "loader hooks may be invoked (in this order):"
@@ -308,7 +298,7 @@ msgstr ""
 "hook が (次の順で) 起動します:"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: chapter-update-hooks.dbk:113
+#: chapter-update-hooks.dbk:106
 msgid ""
 "A <literal>postinst_hook</literal> or <literal>postrm_hook</literal> command "
 "set by the user or the installer in <literal>/etc/kernel-img.conf</literal>"
@@ -318,12 +308,12 @@ msgstr ""
 "ト"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: chapter-update-hooks.dbk:119
+#: chapter-update-hooks.dbk:112
 msgid "A hook script in <literal>/etc/initramfs/post-update.d</literal>"
 msgstr "<literal>/etc/initramfs/post-update.d</literal>内のフックスクリプト"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: chapter-update-hooks.dbk:124
+#: chapter-update-hooks.dbk:117
 msgid ""
 "A hook script in <literal>/etc/kernel/postinst.d</literal> or ...<literal>/"
 "postrm.d</literal>"
@@ -332,7 +322,7 @@ msgstr ""
 "literal> 内のフックスクリプト"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:130
+#: chapter-update-hooks.dbk:123
 msgid ""
 "To avoid unnecessary updates, the hooks invoked at steps 1 and 2 may check "
 "whether <literal>$DPKG_MAINTSCRIPT_PACKAGE</literal> begins with "
@@ -344,12 +334,12 @@ msgstr ""
 "しょう。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:136
+#: chapter-update-hooks.dbk:129
 msgid "Deprecated features"
 msgstr "非推奨の機能"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:138
+#: chapter-update-hooks.dbk:131
 msgid ""
 "Kernel packages must not invoke boot loaders except via hooks.  If <literal>/"
 "etc/kernel-img.conf</literal> contains <literal>do_bootloader = yes</"
@@ -367,12 +357,12 @@ msgstr ""
 "initramfs ビルダーパッケージにも拡張されます。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:147
+#: chapter-update-hooks.dbk:140
 msgid "Initial configuration by the installer"
 msgstr "インストーラによる初期設定"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:149
+#: chapter-update-hooks.dbk:142
 msgid ""
 "The installer must not define <literal>do_bootloader</literal>, "
 "<literal>postinst_hook</literal> or <literal>postrm_hook</literal> in "
@@ -1558,20 +1548,34 @@ msgstr ""
 
 #. type: Content of: <chapter><section><para>
 #: chapter-source.dbk:22
+#, fuzzy
+#| msgid ""
+#| "The guidelines for firmware removal were set by the <ulink url=\"https://"
+#| "www.debian.org/vote/2006/vote_007\">Handling source-less firmware in the "
+#| "Linux kernel</ulink> General Resolution and the <ulink url=\"https://"
+#| "lists.debian.org/debian-kernel/2006/10/msg00541.html\">position "
+#| "statement</ulink> by the release managers.  Even though these documents "
+#| "originally applied to the Etch release, there were no significant changes "
+#| "in the removal policy, so they were in effect for the Lenny release as "
+#| "well.  As of version 2.6.31-1, all known sourceless firmware has been "
+#| "removed from the Debian package, but much of it is included in the <ulink "
+#| "url=\"https://packages.debian.org/source/firmware-nonfree\">firmware-"
+#| "nonfree</ulink> package.  Additional information about firmware licensing "
+#| "and removals may be found at the <ulink url=\"https://wiki.debian.org"
+#| "\">Debian Wiki</ulink> page <ulink url=\"https://wiki.debian.org/"
+#| "KernelFirmwareLicensing\">KernelFirmwareLicensing</ulink>."
 msgid ""
 "The guidelines for firmware removal were set by the <ulink url=\"https://www."
 "debian.org/vote/2006/vote_007\">Handling source-less firmware in the Linux "
 "kernel</ulink> General Resolution and the <ulink url=\"https://lists.debian."
 "org/debian-kernel/2006/10/msg00541.html\">position statement</ulink> by the "
-"release managers.  Even though these documents originally applied to the "
-"Etch release, there were no significant changes in the removal policy, so "
-"they were in effect for the Lenny release as well.  As of version 2.6.31-1, "
-"all known sourceless firmware has been removed from the Debian package, but "
-"much of it is included in the <ulink url=\"https://packages.debian.org/source/"
-"firmware-nonfree\">firmware-nonfree</ulink> package.  Additional information "
-"about firmware licensing and removals may be found at the <ulink url="
-"\"https://wiki.debian.org\">Debian Wiki</ulink> page <ulink url=\"https://wiki."
-"debian.org/KernelFirmwareLicensing\">KernelFirmwareLicensing</ulink>."
+"release managers.  As of version 2.6.31-1, all known sourceless firmware has "
+"been removed from the Debian package, but much of it is included in the "
+"<ulink url=\"https://packages.debian.org/source/firmware-nonfree\">firmware-"
+"nonfree</ulink> package.  Additional information about firmware licensing "
+"and removals may be found at the <ulink url=\"https://wiki.debian.org"
+"\">Debian Wiki</ulink> page <ulink url=\"https://wiki.debian.org/"
+"KernelFirmwareLicensing\">KernelFirmwareLicensing</ulink>."
 msgstr ""
 "ファームウェアを除外するガイドラインが一般決議: <ulink url=\"https://www."
 "debian.org/vote/2006/vote_007\">Linux カーネルにおけるソースの無いファーム"
@@ -1588,12 +1592,12 @@ msgstr ""
 "\">KernelFirmwareLicensing</ulink> を参照して下さい。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-source.dbk:39
+#: chapter-source.dbk:37
 msgid "Debian kernel patches"
 msgstr "Debian カーネルパッチ"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-source.dbk:41
+#: chapter-source.dbk:39
 msgid ""
 "The source from which the Debian binary kernels are built is obtained by "
 "taking the source from <literal>linux_<replaceable>version</replaceable>."
@@ -1625,12 +1629,12 @@ msgstr ""
 "れている場合があります。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-source.dbk:57
+#: chapter-source.dbk:55
 msgid "Policy for patch acceptance"
 msgstr "パッチ受入れのポリシー"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-source.dbk:59
+#: chapter-source.dbk:57
 msgid ""
 "The general policy of the Debian kernel team is that a patch must either fix "
 "a bug or add hardware support, and must be based on a change already "
@@ -3162,19 +3166,8 @@ msgstr ""
 "ナリイメージとそれに対応する (それぞれの) ヘッダファイルを提供します。例: "
 "<literal>linux-image-rt-686-pae</literal>"
 
-#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-packaging.dbk:156
-msgid ""
-"In Debian 6.0 (squeeze) and earlier, the headers metapackages were named "
-"<literal>linux-headers-2.6[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>."
-msgstr ""
-"Debian 6.0 (squeeze) 以前は、ヘッダは <literal>linux-headers-2.6[-"
-"<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></"
-"literal> という名前のメタパッケージでした。"
-
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-packaging.dbk:162
+#: chapter-packaging.dbk:158
 msgid ""
 "<literal>linux-image-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
@@ -3185,7 +3178,7 @@ msgstr ""
 "<replaceable>flavour</replaceable></literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-packaging.dbk:165
+#: chapter-packaging.dbk:161
 msgid ""
 "This package contains the binary kernel image and pre-built binary modules "
 "for a particular arch/featureset/flavour combination.  Names of the files "
@@ -3199,7 +3192,7 @@ msgstr ""
 "ディレクトリが典型的な配置場所です:"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
-#: chapter-packaging.dbk:172
+#: chapter-packaging.dbk:168
 msgid ""
 "<literal>/boot/vmlinuz-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
@@ -3210,12 +3203,12 @@ msgstr ""
 "<replaceable>flavour</replaceable></literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
-#: chapter-packaging.dbk:175
+#: chapter-packaging.dbk:171
 msgid "The binary (compressed) kernel image."
 msgstr "バイナリ (圧縮された) kernel イメージです。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
-#: chapter-packaging.dbk:180
+#: chapter-packaging.dbk:176
 msgid ""
 "<literal>/boot/initrd.img-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
@@ -3226,7 +3219,7 @@ msgstr ""
 "<replaceable>flavour</replaceable></literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
-#: chapter-packaging.dbk:183
+#: chapter-packaging.dbk:179
 msgid ""
 "Initial RAM filesystem (initramfs) image.  Note, that this file is "
 "automatically generated in the installation process and is <emphasis role="
@@ -3239,7 +3232,7 @@ msgstr ""
 "<xref linkend=\"ch-initramfs\"/> を参照して下さい。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
-#: chapter-packaging.dbk:191
+#: chapter-packaging.dbk:187
 msgid ""
 "<literal>/boot/config-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
@@ -3250,7 +3243,7 @@ msgstr ""
 "<replaceable>flavour</replaceable></literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
-#: chapter-packaging.dbk:194
+#: chapter-packaging.dbk:190
 msgid ""
 "The kernel configuration file used to build this particular kernel.  May be "
 "used to rebuild the kernel from source, if necessary."
@@ -3259,7 +3252,7 @@ msgstr ""
 "要であれば、カーネルをソースから再構築するために利用できます。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
-#: chapter-packaging.dbk:200
+#: chapter-packaging.dbk:196
 msgid ""
 "<literal>/lib/modules/<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
@@ -3270,18 +3263,18 @@ msgstr ""
 "<replaceable>flavour</replaceable>/</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
-#: chapter-packaging.dbk:203
+#: chapter-packaging.dbk:199
 msgid "Directory containing the pre-built binary kernel modules."
 msgstr ""
 "ディレクトリには、ビルド済みのバイナリカーネルモジュールが含まれています。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-packaging.dbk:211
+#: chapter-packaging.dbk:207
 msgid "<literal>linux-libc-dev</literal>"
 msgstr "<literal>linux-libc-dev</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-packaging.dbk:214
+#: chapter-packaging.dbk:210
 msgid ""
 "This package provides Linux kernel headers for use by userspace programs, "
 "such as GNU glibc and other system libraries."

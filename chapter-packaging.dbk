@@ -152,10 +152,6 @@ These virtual packages provide (via dependencies) the latest binary image and
 matching set of header files (respectively) for a particular flavour.  Example:
 <literal>linux-image-rt-686-pae</literal>
 </para>
-<para>
-In Debian 6.0 (squeeze) and earlier, the headers metapackages were named
-<literal>linux-headers-2.6[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal>.
-</para>
 </listitem>
 </varlistentry>
 <varlistentry>

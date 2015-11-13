@@ -4,16 +4,9 @@
 <?dbhtml filename="ch-update-hooks.html" ?>
 <title>Package maintainer scripts and hooks</title>
 <para>
-Kernel packages for Debian have historically had complex maintainer scripts
-which can invoke the initramfs builder and/or a boot loader, based on a mixture
-of file tests, explicit configuration through the file
-<literal>/etc/kernel-img.conf</literal> and debconf questions.  Starting with
-Debian 6.0, this has been greatly simplified.
-</para>
-<para>
-The following policy applies to Debian GNU/Linux 6.0 'squeeze' and later
-releases.  Some parts may be applicable to kernels other than Linux, but this
-policy does not set any requirements for them.
+The following policy applies to Debian GNU/Linux.  Some parts may be
+applicable to kernels other than Linux, but this policy does not set
+any requirements for them.
 </para>
 <section id="s-kernel-hooks"><title>Kernel hooks</title>
 <para>
