@@ -2082,10 +2082,9 @@ msgstr ""
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:220
-#, fuzzy
 msgid "<literal># apt-get install build-essential fakeroot rsync git</literal>"
 msgstr ""
-"<literal># apt-get install build-essential fakeroot rsync svn</literal>"
+"<literal># apt-get install build-essential fakeroot rsync git</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:224
@@ -2227,10 +2226,9 @@ msgstr ""
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:295
-#, fuzzy, no-wrap
-#| msgid "# apt-get install squashfs-source"
+#, no-wrap
 msgid "# apt-get install unifdef\n"
-msgstr "# apt-get install squashfs-source"
+msgstr "# apt-get install unifdef\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:298
