@@ -16,9 +16,9 @@ Note that this is a work in progress, and some information is inaccurate.
 <para>
 Some of the commands mentioned in the text must be executed with superuser
 priviliges, either by becoming the <literal>root</literal> user or by using
-<literal>sudo</literal>.  To distinguish between commands which may be executed
+<command>sudo</command>.  To distinguish between commands which may be executed
 by an unprivileged user and those requiring superuser privileges, commands are
-prepended by <literal>$</literal> or <literal>#</literal> respectively.  This
+prepended by <prompt>$</prompt> or <prompt>#</prompt> respectively.  This
 symbol is not a part of the command.
 </para>
 </section>
@@ -33,7 +33,7 @@ url="https://anonscm.debian.org/gitweb/?p=kernel-handbook/kernel-handbook.git">g
 repository</ulink>.  It is intended as a community project, thus all proposals
 for improvements and contributions are welcome.  The preferred way to submit a
 contribution is to send it to the
-<literal>kernel-handbook-general@lists.alioth.debian.org</literal> mailing
+<email>kernel-handbook-general@lists.alioth.debian.org</email> mailing
 list.  When submitting a contribution please clearly identify its copyright
 holder and include the licensing statement.  Note that to be accepted the
 contribution must be licensed under the same license as the rest of the

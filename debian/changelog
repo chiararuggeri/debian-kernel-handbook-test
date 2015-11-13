@@ -8,6 +8,7 @@ kernel-handbook (1.0.17) UNRELEASED; urgency=medium
   * Convert all source files to DocBook format
     - Makefile,debian/control: Use xmlto to build from DocBook
     - Update Japanese translation for the format conversion
+    - Use a richer set of markup elements
   * Remove statement that the final '.0' will be removed from upstream versions
   * Update 'Linus version format' to begin with 4
   * Remove references to Debian 6.0 and earlier releases, and the linux-2.6

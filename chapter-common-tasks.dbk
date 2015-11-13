@@ -7,16 +7,16 @@
 <para>
 To get the Debian kernel source at the current maximum patchlevel, it is
 sufficient to install the latest
-<literal>linux-source-<replaceable>version</replaceable></literal> package and unpack
+<package>linux-source-<replaceable>version</replaceable></package> package and unpack
 the source, for example:
 </para>
 <screen>
-# apt-get install linux-source-4.3
-$ tar xaf /usr/src/linux-source-4.3.tar.xz
+<prompt>#</prompt> <userinput>apt-get install linux-source-4.3</userinput>
+<prompt>$</prompt> <userinput>tar xaf /usr/src/linux-source-4.3.tar.xz</userinput>
 </screen>
 <para>
 The unpacked source tree then will be available in
-<literal>linux-source-4.3</literal> directory.
+<filename>linux-source-4.3</filename> directory.
 </para>
 </section>
 
@@ -31,8 +31,8 @@ Run the following commands:
 </para>
 <variablelist>
 <varlistentry>
-<term><literal># apt-get install build-essential fakeroot</literal></term>
-<term><literal># apt-get build-dep linux</literal></term>
+<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</userinput></term>
+<term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
 <listitem>
 <para>
 This will install the packages required by the kernel build process.
@@ -40,12 +40,12 @@ This will install the packages required by the kernel build process.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>$ apt-get source linux</literal></term>
+<term><prompt>$</prompt> <userinput>apt-get source linux</userinput></term>
 <listitem>
 <para>
-This will download and unpack the <literal>linux</literal> source package,
+This will download and unpack the <package>linux</package> source package,
 making the tree available in the
-<literal>linux-<replaceable>version</replaceable></literal> directory.  As always,
+<filename>linux-<replaceable>version</replaceable></filename> directory.  As always,
 the revision part of the version of this package (for example, 1 in 3.2.19-1)
 will determine its patchlevel with respect to the original upstream kernel
 source.
@@ -53,7 +53,7 @@ source.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>$ cd linux-<replaceable>version</replaceable></literal></term>
+<term><prompt>$</prompt> <userinput>cd linux-<replaceable>version</replaceable></userinput></term>
 <listitem>
 <para>
 Enter the source directory.
@@ -67,14 +67,14 @@ Building binary packages for a single kernel flavour with debug info enabled
 (currently true for the <literal>686-pae</literal>, <literal>amd64</literal>,
 <literal>rt-686-pae</literal>, <literal>rt-amd64</literal> and
 <literal>s390x</literal> configurations) requires up to 10 GB space in the
-package directory and 300 MB in <literal>/tmp</literal> (or
-<literal>$TMPDIR</literal>).
+package directory and 300 MB in <filename>/tmp</filename> (or
+<envar>$TMPDIR</envar>).
 </para>
 <para>
 Building with debug info disabled requires about 2 GB and 25 MB respectively.
 You can disable debug info by changing the value of
 <literal>debug-info</literal> to <literal>false</literal> in
-<literal>debian/config/</literal><replaceable>arch</replaceable><literal>/defines</literal>.
+<filename>debian/config/<replaceable>arch</replaceable>/defines</filename>.
 </para>
 <para>
 Building all binary packages for i386 or amd64 currently requires about 20 GB
@@ -91,21 +91,21 @@ The source package includes a script to simplify the process of building with
 extra patches.  You can use this by running commands such as:
 </para>
 <screen>
-# apt-get install devscripts
-$ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch
+<prompt>#</prompt> <userinput>apt-get install devscripts</userinput>
+<prompt>$</prompt> <userinput>bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch</userinput>
 </screen>
 <para>
 This script has options to control the flavour, featureset, etc.  For a summary
 of the options, run:
 </para>
 <screen>
-$ bash debian/bin/test-patches
+<prompt>$</prompt> <userinput>bash debian/bin/test-patches</userinput>
 </screen>
 <para>
 You may then need to build the linux-base package as well:
 </para>
 <screen>
-$ fakeroot make -f debian/rules.real install-linux-base
+<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.real install-linux-base</userinput>
 </screen>
 <para>
 However, if you need to change the configuration or make other changes, you
@@ -116,7 +116,7 @@ should not use this script and should follow the instructions below.
 <section id="s4.2.3"><title>Applying patches or configuration changes</title>
 <para>
 It is possible to apply extra patches to the source before starting the build.
-In the <literal>linux</literal> source package, the default (non-featureset)
+In the <package>linux</package> source package, the default (non-featureset)
 patches are automatically applied in the top level directory.
 </para>
 <para>
@@ -135,23 +135,23 @@ top level
 <term>source with featureset:</term>
 <listitem>
 <para>
-<literal>debian/build/source_<replaceable>featureset</replaceable></literal>
+<filename>debian/build/source_<replaceable>featureset</replaceable></filename>
 </para>
 </listitem>
 </varlistentry>
 </variablelist>
 <para>
 You should apply the extra patches in the appropriate directory.  In the
-<literal>linux</literal> source package you can use the
-<literal>quilt</literal> utility to do this.
+<package>linux</package> source package you can use the
+<command>quilt</command> utility to do this.
 </para>
 <para>
 To change the configuration before building, for example for the 686-pae
 flavour on i386, run the commands:
 </para>
 <screen>
-$ fakeroot make -f debian/rules.gen setup_i386_none_686-pae
-$ make -C debian/build/build_i386_none_686-pae menuconfig
+<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>
+<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae menuconfig</userinput>
 </screen>
 <para>
 If the patches or configuration changes alter type definitions for the kernel,
@@ -164,19 +164,19 @@ you may need to change the ABI name; see <xref linkend="s-abi-name"/>.
 To build all possible packages for this architecture, run:
 </para>
 <screen>
-$ fakeroot debian/rules binary
+<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>
 </screen>
 <para>
 To build all architecture-dependent packages, run:
 </para>
 <screen>
-$ fakeroot debian/rules binary-arch
+<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>
 </screen>
 <para>
 To build all architecture-independent packages, run:
 </para>
 <screen>
-$ fakeroot debian/rules binary-indep
+<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>
 </screen>
 </section>
 
@@ -186,8 +186,8 @@ For example, to build only the binary packages for 686-pae flavour on i386
 architecture, use the following commands:
 </para>
 <screen>
-$ fakeroot debian/rules source
-$ fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae
+<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
+<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>
 </screen>
 <para>
 The target in this command has the general form of
@@ -195,12 +195,12 @@ The target in this command has the general form of
 Replace the <literal><replaceable>featureset</replaceable></literal> with
 <literal>none</literal> if you do not want any of the extra featuresets.  This
 command will build the linux image and kernel headers packages.  You may also
-need the <literal>linux-headers-<replaceable>version</replaceable>-common</literal>
+need the <package>linux-headers-<replaceable>version</replaceable>-common</package>
 binary package, which can be built using the commands:
 </para>
 <screen>
-$ fakeroot debian/rules source
-$ fakeroot make -f debian/rules.gen binary-arch_i386_none_real
+<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
+<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>
 </screen>
 <para>
 The target in this command has the general form of
@@ -217,8 +217,8 @@ version:
 </para>
 <variablelist>
 <varlistentry>
-<term><literal># apt-get install build-essential fakeroot rsync git</literal></term>
-<term><literal># apt-get build-dep linux</literal></term>
+<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync git</userinput></term>
+<term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
 <listitem>
 <para>
 The last two commands will install the build dependencies required by the
@@ -227,7 +227,7 @@ kernel build process.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>$ git clone -b <replaceable>dist</replaceable> --single-branch https://anonscm.debian.org/git/kernel/linux.git</literal></term>
+<term><prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --single-branch https://anonscm.debian.org/git/kernel/linux.git</userinput></term>
 <listitem>
 <para>
 This will check out the Debian packaging.  <replaceable>dist</replaceable> is
@@ -239,10 +239,10 @@ this will download several hundred megabytes of data.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>$ apt-get source -d linux</literal></term>
+<term><prompt>$</prompt> <userinput>apt-get source -d linux</userinput></term>
 <listitem>
 <para>
-This will download the <literal>linux</literal> upstream source (and the last
+This will download the <package>linux</package> upstream source (and the last
 released Debian patches).  Depending on which version you are trying to build,
 you might need to override APT's version selection or download a tarball from
 <ulink url="https://people.debian.org">people.debian.org</ulink> instead.
@@ -250,8 +250,8 @@ you might need to override APT's version selection or download a tarball from
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>$ cd linux</literal></term>
-<term><literal>$ debian/rules orig</literal></term>
+<term><prompt>$</prompt> <userinput>cd linux</userinput></term>
+<term><prompt>$</prompt> <userinput>debian/rules orig</userinput></term>
 <listitem>
 <para>
 This unpacks the upstream source and merges it with the Debian packaging.
@@ -259,7 +259,7 @@ This unpacks the upstream source and merges it with the Debian packaging.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>$ debian/rules debian/control</literal></term>
+<term><prompt>$</prompt> <userinput>debian/rules debian/control</userinput></term>
 <listitem>
 <para>
 This generates a Debian package control file based on the current definitions
@@ -268,7 +268,7 @@ of the various kernel flavours which can be built.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>$ fakeroot debian/rules <replaceable>target</replaceable></literal></term>
+<term><prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</replaceable></userinput></term>
 <listitem>
 <para>
 Finally, build binary packages as explained in <xref
@@ -287,32 +287,32 @@ version is a release candidate, change the string <literal>-rc</literal> to
 <literal>~</literal> indicates a pre-release.)
 </para>
 <para>
-The 'orig' tarball is generated by the <literal>genorig.py</literal> script.
+The 'orig' tarball is generated by the <command>genorig.py</command> script.
 It takes either a tarball and optional patch from kernel.org, or a git
 repository.  First ensure you have the necessary tools installed:
 </para>
 <screen>
-# apt-get install unifdef
+<prompt>#</prompt> <userinput>apt-get install unifdef</userinput>
 </screen>
 <para>
 Then if you have a tarball, run a command such as:
 </para>
 <screen>
-$ debian/bin/genorig.py ../linux-4.3.tar.xz ../patch-4.4-rc1.xz
+<prompt>$</prompt> <userinput>debian/bin/genorig.py ../linux-4.3.tar.xz ../patch-4.4-rc1.xz</userinput>
 </screen>
 <para>
 Or if you have a git repository, pass the name of its directory:
 </para>
 <screen>
-$ debian/bin/genorig.py ~/src/linux
+<prompt>$</prompt> <userinput>debian/bin/genorig.py ~/src/linux</userinput>
 </screen>
 <para>
 Either of these will generate a file such as
-<literal>../orig/linux_3.5~rc1.orig.tar.xz</literal>.  You can then combine
+<filename>../orig/linux_3.5~rc1.orig.tar.xz</filename>.  You can then combine
 this tarball with the Debian packaging by running:
 </para>
 <screen>
-$ debian/rules orig
+<prompt>$</prompt> <userinput>debian/rules orig</userinput>
 </screen>
 </section>
 
@@ -327,13 +327,13 @@ to it.
 <para>
 The easiest way to build a custom kernel (the kernel with the configuration
 different from the one used in the official packages) from the Debian kernel
-source is to use the <literal>linux-source</literal> package and the
-<literal>make deb-pkg</literal> target.  First, prepare the kernel tree:
+source is to use the <package>linux-source</package> package and the
+<command>make deb-pkg</command> target.  First, prepare the kernel tree:
 </para>
 <screen>
-# apt-get install linux-source-4.3
-$ tar xaf /usr/src/linux-source-4.3.tar.xz
-$ cd linux-source-4.3
+<prompt>#</prompt> <userinput>apt-get install linux-source-4.3</userinput>
+<prompt>$</prompt> <userinput>tar xaf /usr/src/linux-source-4.3.tar.xz</userinput>
+<prompt>$</prompt> <userinput>cd linux-source-4.3</userinput>
 </screen>
 <para>
 The kernel now needs to be configured, that is you have to set the kernel
@@ -343,48 +343,49 @@ number of targets, which invoke different configuration frontends.  For
 example, one can use console-based menu configuration by invoking the command
 </para>
 <screen>
-$ make menuconfig
+<prompt>$</prompt> <userinput>make menuconfig</userinput>
 </screen>
 <para>
 Instead of <literal>menuconfig</literal> one can use <literal>config</literal>
 (text-based line-by-line configuration frontend) or <literal>xconfig</literal>
 (graphical configuration frontend).  It is also possible to reuse your old
-configuration file by placing it as a <literal>.config</literal> file in the
+configuration file by placing it as a <filename>.config</filename> file in the
 top-level directory and running one of the configuration targets (if you want
-to adjust something) or <literal>make oldconfig</literal> (to keep the same
+to adjust something) or <command>make oldconfig</command> (to keep the same
 configuration).  Note that different frontends may require different additional
 libraries and utilities to be installed to function properly.  For example, the
 <literal>menuconfig</literal> frontend requires the <literal>ncurses</literal>
 library, which at time of writing is provided by the
-<literal>libncurses5-dev</literal> package.
+<package>libncurses5-dev</package> package.
 </para>
 <para>
-The build will use less disk space if the CONFIG_DEBUG_INFO option is disabled
-(see <xref linkend="s-common-size"/>).  Debuginfo is only needed if you plan to
+The build will use less disk space if the
+<symbol>CONFIG_DEBUG_INFO</symbol> option is disabled (see <xref
+linkend="s-common-size"/>).  Debuginfo is only needed if you plan to
 use binary object tools like crash, kgdb, and SystemTap on the kernel.
 </para>
 <screen>
-$ scripts/config --disable DEBUG_INFO
+<prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>
 </screen>
 <para>
 After the configuration process is finished, the new or updated kernel
-configuration will be stored in <literal>.config</literal> file in the
+configuration will be stored in <filename>.config</filename> file in the
 top-level directory.  The build is started using the commands
 </para>
 <screen>
-$ make clean
-$ make deb-pkg
+<prompt>$</prompt> <userinput>make clean</userinput>
+<prompt>$</prompt> <userinput>make deb-pkg</userinput>
 </screen>
 <para>
 As a result of the build, a custom kernel package
-<literal>linux-image-3.2.19_3.2.19-1_i386.deb</literal> (name will reflect the
+<filename>linux-image-3.2.19_3.2.19-1_i386.deb</filename> (name will reflect the
 version of the kernel and build number) will be created in the directory one
 level above the top of the tree.  It may be installed using
-<literal>dpkg</literal> just as any other package:
+<command>dpkg</command> just as any other package:
 </para>
 <screen>
  
-# dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb
+<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb</userinput>
 </screen>
 <para>
 This command will unpack the kernel, generate the initrd if necessary (see
@@ -393,7 +394,7 @@ the newly installed kernel the default one.  If this command completed without
 any problems, you can reboot using the
 </para>
 <screen>
-# shutdown -r now
+<prompt>#</prompt> <userinput>shutdown -r now</userinput>
 </screen>
 <para>
 command to boot the new kernel.
@@ -401,10 +402,10 @@ command to boot the new kernel.
 <para>
 For much more information about bootloaders and their configuration please
 check their documentation, which can be accessed using the commands
-<literal>man lilo</literal>, <literal>man lilo.conf</literal>, <literal>man
-grub</literal>, and so on.  You can also look for documentation in the
-<literal>/usr/share/doc/<replaceable>package</replaceable></literal> directories,
-with <literal><replaceable>package</replaceable></literal> being the name of the
+<command>man lilo</command>, <command>man lilo.conf</command>, <command>man
+grub</command>, and so on.  You can also look for documentation in the
+<filename>/usr/share/doc/<replaceable>package</replaceable></filename> directories,
+with <replaceable>package</replaceable> being the name of the
 package involved.
 </para>
 </section>
@@ -421,7 +422,7 @@ source is downloaded using your favourite browser or using wget, as follows:
 </para>
 <screen>
  
-$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
+<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz</userinput>
 </screen>
 <para>
 The integrity of the downloaded archive may be verified by fetching the
@@ -429,43 +430,43 @@ corresponding cryptographic signature
 </para>
 <screen>
  
-$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign
+<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign</userinput>
 </screen>
 <para>
-and running this command (<literal>gnupg</literal> package must be installed):
+and running this command (<package>gnupg</package> package must be installed):
 </para>
 <screen>
-$ unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -
+<prompt>$</prompt> <userinput>unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -</userinput>
 </screen>
 <para>
 Successful verification results in output similar to the one below:
 </para>
 <screen>
-gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886
+<computeroutput>gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886
 gpg: Good signature from "Linus Torvalds &lt;torvalds@linux-foundation.org&gt;"
 gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886
+Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886</computeroutput>
 </screen>
 <para>
 After that the archive may be unpacked using
 </para>
 <screen>
-$ tar xaf linux-4.3.tar.xz
-$ cd linux-4.3
+<prompt>$</prompt> <userinput>tar xaf linux-4.3.tar.xz</userinput>
+<prompt>$</prompt> <userinput>cd linux-4.3</userinput>
 </screen>
 <para>
-The unpacked kernel tree (in <literal>linux-4.3</literal> now has to be
+The unpacked kernel tree (in <filename>linux-4.3</filename> now has to be
 configured.  The existing configuration file may be used as a starting point
 </para>
 <screen>
-$ cp /boot/config-3.2.0-2-686-pae ./.config
+<prompt>$</prompt> <userinput>cp /boot/config-3.2.0-2-686-pae ./.config</userinput>
 </screen>
 <para>
 After the configuration with one of the configuration frontends (invoked by
-<literal>make oldconfig</literal>, <literal>make config</literal>,
-<literal>make menuconfig</literal>, etc) is completed, the build may be started
-using <literal>make deb-pkg</literal> target as described above.
+<command>make oldconfig</command>, <command>make config</command>,
+<command>make menuconfig</command>, etc) is completed, the build may be started
+using <command>make deb-pkg</command> target as described above.
 </para>
 </section>
 
@@ -475,11 +476,11 @@ Some kernel modules are not included in the upstream or Debian kernel source,
 but are provided as third-party source packages.  For some of the most popular
 out-of-tree modules, the binary Debian packages with modules built against the
 stock Debian kernels are provided.  For example, if you are running stock
-Debian kernel <literal>3.2.0-2-686-pae</literal> (use the <literal>uname
--r</literal> command to verify the version) from the
-<literal>linux-image-3.2.0-2-686-pae</literal> package, and would like to use
+Debian kernel <literal>3.2.0-2-686-pae</literal> (use the <command>uname
+-r</command> command to verify the version) from the
+<package>linux-image-3.2.0-2-686-pae</package> package, and would like to use
 the squash filesystem, all you need to do is install
-<literal>squashfs-modules-3.2.0-2-686-pae</literal> binary package, which
+<package>squashfs-modules-3.2.0-2-686-pae</package> binary package, which
 provides the neccessary binary kernel modules.
 </para>
 <para>
@@ -487,13 +488,13 @@ If you are not so lucky, and there are no binary module packages in the
 archive, there is a fair chance that the Debian archive contains the packaged
 <replaceable role="strong">source</replaceable> for the kernel modules.  Names of
 such packages typically end in <literal>-source</literal>, for example
-<literal>squashfs-source</literal>, <literal>thinkpad-source</literal>,
-<literal>rt2x00-source</literal> and many others.  These packages contain
+<package>squashfs-source</package>, <package>thinkpad-source</package>,
+<package>rt2x00-source</package> and many others.  These packages contain
 debianized source code of the kernel modules, suitable for building using the
-<literal>module-assistant</literal> (or <literal>m-a</literal>) script from the
-<literal>module-assistant</literal> package.  Typical sequence to build a
+<command>module-assistant</command> (or <command>m-a</command>) script from the
+<package>module-assistant</package> package.  Typical sequence to build a
 custom binary module package, matching a kernel
-<literal>3.2.0-2-686-pae</literal> (as returned by <literal>uname -r</literal>)
+<literal>3.2.0-2-686-pae</literal> (as returned by <command>uname -r</command>)
 from the debianized source consists of the following steps:
 </para>
 <para>
@@ -501,33 +502,33 @@ Install a set of kernel headers, matching the kernel for which the modules are
 going to be built:
 </para>
 <screen>
-# apt-get install linux-headers-3.2.0-2-686-pae
+<prompt>#</prompt> <userinput>apt-get install linux-headers-3.2.0-2-686-pae</userinput>
 </screen>
 <para>
 Install the package containing the source:
 </para>
 <screen>
-# apt-get install squashfs-source
+<prompt>#</prompt> <userinput>apt-get install squashfs-source</userinput>
 </screen>
 <para>
-Invoke <literal>module-assistant</literal> (aka <literal>m-a</literal>) to do
+Invoke <command>module-assistant</command> (aka <command>m-a</command>) to do
 the heavy lifting:
 </para>
 <screen>
-# m-a build squashfs
+<prompt>#</prompt> <userinput>m-a build squashfs</userinput>
 </screen>
 <para>
 As a result, a Debian package is going to be built and placed in
-<literal>/usr/src</literal>.  It can be installed the usual way, using
-<literal>dpkg -i</literal>.  Two last steps (building and installation) may be
+<filename>/usr/src</filename>.  It can be installed the usual way, using
+<command>dpkg -i</command>.  Two last steps (building and installation) may be
 combined using the invocation
 </para>
 <screen>
-# m-a auto-install squashfs
+<prompt>#</prompt> <userinput>m-a auto-install squashfs</userinput>
 </screen>
 <para>
-Check out the <literal>module-assistant</literal> documentation (<literal>man
-module-assistant</literal>) for other options and much more information on how
+Check out the <command>module-assistant</command> documentation (<command>man
+module-assistant</command>) for other options and much more information on how
 to use it.
 </para>
 <para>
@@ -536,10 +537,10 @@ from the upstream source packages.  In that case, follow the documentation
 included with the package to build the modules.  If the build process will
 require you to specify the directory with the kernel headers, matching the
 currently running kernel, for stock Debian kernels this directory is
-<literal>/usr/src/linux-headers-<replaceable>uname</replaceable></literal>, provided
-by the <literal>linux-headers-<replaceable>uname</replaceable></literal> package.
-Here <literal><replaceable>uname</replaceable></literal> is the output of the
-<literal>uname -r</literal> command.  If you are building and running your own
+<filename>/usr/src/linux-headers-<replaceable>uname</replaceable></filename>, provided
+by the <package>linux-headers-<replaceable>uname</replaceable></package> package.
+Here <replaceable>uname</replaceable> is the output of the
+<command>uname -r</command> command.  If you are building and running your own
 custom kernels, it is a good idea to keep the original build tree around, as it
 also can be used for out-of-tree module building.
 </para>

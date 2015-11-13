@@ -9,53 +9,53 @@ To ensure that the latest kernel version, containing all the essential bug and
 security fixes is available on as many architectures as possible, starting with
 2.6.12 the kernel team introduced a new packaging scheme.  In it most of the
 kernel-related binary packages are built from a single source package
-<literal>linux</literal>.  The
-<literal>linux</literal> source package supports building of kernel images and
+<package>linux</package>.  The
+<package>linux</package> source package supports building of kernel images and
 headers for all currently supported architectures.  Subsequent sections of this
 chapter document the naming and contents of the binary packages built from the
-<literal>linux</literal> source package.
+<package>linux</package> source package.
 </para>
 </section>
 
 <section id="s-arch-indep"><title>Architecture-independent packages</title>
 <variablelist>
 <varlistentry>
-<term><literal>linux-source-<replaceable>version</replaceable></literal></term>
+<term><package>linux-source-<replaceable>version</replaceable></package></term>
 <listitem>
 <para>
 This package contains the Debian kernel source tarball.  The patchlevel of the
 source is determined by the Debian revision of the package, for example the
-version 4.2.5-1 of the package <literal>linux-source-4.2</literal> contains
+version 4.2.5-1 of the package <package>linux-source-4.2</package> contains
 the version 4.2.5 of the Debian kernel source patched to patchlevel 1.  Once
 the package is installed, the source tarball is available at
-<literal>/usr/src/linux-source-<replaceable>version</replaceable>.tar.xz</literal>.
+<filename>/usr/src/linux-source-<replaceable>version</replaceable>.tar.xz</filename>.
 </para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>linux-manual-<replaceable>version</replaceable></literal></term>
+<term><package>linux-manual-<replaceable>version</replaceable></package></term>
 <listitem>
 <para>
 This package contains the manual pages for the functions, constituting the
 kernel API.  These pages are installed into
-<literal>/usr/share/man/man9/</literal>, and are accessible with the standard
-<literal>man</literal> command.  Due to filename conflicts, only one
-<literal>linux-manual</literal> package may be installed at any given time.
+<filename>/usr/share/man/man9/</filename>, and are accessible with the standard
+<command>man</command> command.  Due to filename conflicts, only one
+<package>linux-manual</package> package may be installed at any given time.
 </para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>linux-doc-<replaceable>version</replaceable></literal></term>
+<term><package>linux-doc-<replaceable>version</replaceable></package></term>
 <listitem>
 <para>
 This package contains the rest of the kernel documentation in various formats.
 It is installed in
-<literal>/usr/share/doc/linux-doc-<replaceable>version</replaceable></literal>.
+<filename>/usr/share/doc/linux-doc-<replaceable>version</replaceable></filename>.
 </para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>linux-support-<replaceable>version</replaceable>-<replaceable>abiname</replaceable></literal></term>
+<term><package>linux-support-<replaceable>version</replaceable>-<replaceable>abiname</replaceable></package></term>
 <listitem>
 <para>
 This package contains the support files for building of out-of-tree modules for
@@ -106,17 +106,17 @@ together with a short description is given below.
 </para>
 <variablelist>
 <varlistentry>
-<term><literal>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</literal></term>
+<term><package>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</package></term>
 <listitem>
 <para>
 This package contains a common set of kernel headers for a particular
 featureset (or arch, if featureset is empty).  Together with the
-flavour-specific <literal>linux-headers</literal> package it provides a full
+flavour-specific <package>linux-headers</package> package it provides a full
 set of kernel headers, suitable for building of out-of-tree modules.  This
 package should not normally be installed directly, but only as a dependency of
 the flavour-specific headers package (see next description).  It unpacks into
 the
-<literal>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</literal>
+<filename>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</filename>
 directory.
 </para>
 </listitem>
@@ -124,15 +124,15 @@ directory.
 </variablelist>
 <variablelist>
 <varlistentry>
-<term><literal>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<term><package>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></package></term>
 <listitem>
 <para>
 This package provides flavour-specific header files.  It depends on the
 corresponding
-<literal>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</literal>
+<package>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</package>
 package, and sets up symbolic links into its directory tree in such a way that
 the directory
-<literal>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal>
+<filename>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></filename>
 appears to contain a full set of headers, required for building of out-of-tree
 kernel modules.  For more information on this check out <xref
 linkend="s-common-out-of-tree"/>.  A complete set of kernel headers matching the
@@ -144,18 +144,18 @@ apt-get install linux-headers-$(uname -r)
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>linux-image[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
-<term><literal>linux-headers[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<term><package>linux-image[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></package></term>
+<term><package>linux-headers[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></package></term>
 <listitem>
 <para>
 These virtual packages provide (via dependencies) the latest binary image and
 matching set of header files (respectively) for a particular flavour.  Example:
-<literal>linux-image-rt-686-pae</literal>
+<package>linux-image-rt-686-pae</package>
 </para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>linux-image-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<term><package>linux-image-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></package></term>
 <listitem>
 <para>
 This package contains the binary kernel image and pre-built binary modules for
@@ -165,7 +165,7 @@ files for the <literal>i386</literal> architecture are:
 </para>
 <variablelist>
 <varlistentry>
-<term><literal>/boot/vmlinuz-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<term><filename>/boot/vmlinuz-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></filename></term>
 <listitem>
 <para>
 The binary (compressed) kernel image.
@@ -173,7 +173,7 @@ The binary (compressed) kernel image.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>/boot/initrd.img-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<term><filename>/boot/initrd.img-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></filename></term>
 <listitem>
 <para>
 Initial RAM filesystem (initramfs) image.  Note, that this file is
@@ -184,7 +184,7 @@ linkend="ch-initramfs"/> for more details.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>/boot/config-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></literal></term>
+<term><filename>/boot/config-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></filename></term>
 <listitem>
 <para>
 The kernel configuration file used to build this particular kernel.  May be
@@ -193,7 +193,7 @@ used to rebuild the kernel from source, if necessary.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>/lib/modules/<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable>/</literal></term>
+<term><filename>/lib/modules/<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable>/</filename></term>
 <listitem>
 <para>
 Directory containing the pre-built binary kernel modules.
@@ -204,7 +204,7 @@ Directory containing the pre-built binary kernel modules.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><literal>linux-libc-dev</literal></term>
+<term><package>linux-libc-dev</package></term>
 <listitem>
 <para>
 This package provides Linux kernel headers for use by userspace programs, such

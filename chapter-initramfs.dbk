@@ -11,11 +11,11 @@ initramfs into memory, and passes the execution control to the kernel.  After
 basic initialization the kernel extracts the initramfs archive and mounts it as
 a temporary root filesystem.  initramfs contains kernel modules and userspace
 programs required to initialize the physical or logical device(s) containing
-the real root filesystem.  The <literal>init</literal> script on the initramfs
+the real root filesystem.  The <command>init</command> script on the initramfs
 loads modules and performs other neccessary initialization steps.  At the end
-of this stage <literal>run-init</literal> deletes the initramfs from memory,
+of this stage <command>run-init</command> deletes the initramfs from memory,
 mounts the real root filesystem and passes control to the
-<literal>/sbin/init</literal> program on it.
+<command>/sbin/init</command> program on it.
 </para>
 <para>
 Two major goals are achieved with such setup: the kernel size is kept under
@@ -31,24 +31,24 @@ Since initramfs usually needs to be customized for the particular
 hardware/device configuration and kernel version, they are not included as a
 part of any package, but are generated on the fly at kernel installation time.
 Currently there are two tools in Debian capable of generating an initramfs:
-<literal>update-initramfs</literal> provided by
-<literal>initramfs-tools</literal> (default) and
-<literal>dracut-update-initramfs</literal> provided by the
-<literal>dracut</literal> package (experimental).
+<command>update-initramfs</command> provided by
+<package>initramfs-tools</package> (default) and
+<command>dracut-update-initramfs</command> provided by the
+<package>dracut</package> package (experimental).
 </para>
 </section>
 
 <section id="s-initramfs-regen"><title>Regenerating the initramfs</title>
 <para>
-If changes are desired after the corresponding <literal>linux-image</literal>
+If changes are desired after the corresponding <package>linux-image</package>
 has been installed, the initramfs needs to be regenerated.  This is achieved by
 the command
 </para>
 <screen>
-# dpkg-reconfigure linux-image-3.2.0-2-686-pae
+<prompt>#</prompt> <userinput>dpkg-reconfigure linux-image-3.2.0-2-686-pae</userinput>
 </screen>
 <para>
-where <literal>linux-image-3.2.0-2-686-pae</literal> is the name of the kernel
+where <package>linux-image-3.2.0-2-686-pae</package> is the name of the kernel
 package for which the initramfs regeneration is requested.
 </para>
 </section>
@@ -60,17 +60,17 @@ problem or for educational purposes.  They are compressed
 <literal>cpio</literal> archives, which may be extracted using the command
 </para>
 <screen>
-$ zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i
+<prompt>$</prompt> <userinput>zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i</userinput>
 </screen>
 <para>
 It will unpack the contents of the initramfs into the current directory.
 </para>
 <para>
 It is also possible to list the contents of an initramfs using the
-<literal>cpio -t</literal> option or the command
+<command>cpio</command> <option>-t</option> option or the command
 </para>
 <screen>
-$ lsinitramfs /boot/initrd.img-3.2.0-2-686-pae
+<prompt>$</prompt> <userinput>lsinitramfs /boot/initrd.img-3.2.0-2-686-pae</userinput>
 </screen>
 </section>
 

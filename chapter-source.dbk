@@ -14,7 +14,7 @@ licensing restrictions, unclear license information, or failure to comply with
 the Debian Free Software Guidelines (DFSG), parts of the kernel are removed in
 order to distribute the source in the <literal>main</literal> section of the
 Debian archive.  Such removal produces
-<literal>linux_<replaceable>version</replaceable>.orig.tar.xz</literal> tarball,
+<filename>linux_<replaceable>version</replaceable>.orig.tar.xz</filename> tarball,
 which serves as the original upstream source.  <replaceable>version</replaceable> is
 the actual upstream version.
 </para>
@@ -38,7 +38,7 @@ url="https://wiki.debian.org/KernelFirmwareLicensing">KernelFirmwareLicensing</u
 <para>
 The source from which the Debian binary kernels are built is obtained by taking
 the source from
-<literal>linux_<replaceable>version</replaceable>.orig.tar.xz</literal> (that is,
+<filename>linux_<replaceable>version</replaceable>.orig.tar.xz</filename> (that is,
 pristine kernel source with problematic parts removed) and applying a set of
 Debian patches.  These patches typically implement essential fixes for serious
 bugs and security holes.  The Debian version of the kernel packages has the
@@ -46,7 +46,7 @@ form <replaceable>version</replaceable><literal>-</literal><replaceable>revision
 <replaceable>version</replaceable> is the upstream version of the
 kernel (like 3.2.20) and <replaceable>revision</replaceable>
 determines the patchlevel.  For example, the packages with version 3.2.20-1 are
-built from the <literal>linux_3.2.20.orig.tar.xz</literal> source, patched up
+built from the <filename>linux_3.2.20.orig.tar.xz</filename> source, patched up
 to patchlevel 1.  Certain packages include extra 'featuresets' not included in
 the upstream source, such as <literal>rt</literal>.
 </para>

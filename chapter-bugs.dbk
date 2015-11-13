@@ -299,7 +299,7 @@ url="https://wiki.debian.org/DebianKernelReportingBugs">https://wiki.debian.org/
 Debian kernel team keeps track of the kernel package bugs in the Debian Bug
 Tracking System (BTS).  For information on how to use the system see <ulink
 url="https://bugs.debian.org">https://bugs.debian.org</ulink>.  You can also
-submit the bugs by using the <literal>reportbug</literal> command from the
+submit the bugs by using the <command>reportbug</command> command from the
 package with the same name.  Please note that kernel bugs found in
 distributions derived from Debian (such as Knoppix, Mepis, Progeny, Ubuntu,
 Xandros, etc.) should <emphasis>not</emphasis> be reported to the Debian BTS
@@ -335,8 +335,8 @@ bug list</ulink> to see whether something similar has been reported already.
 with your report.  At a minimum, it should contain the exact version of the
 official Debian kernel package, where the bug is encountered, and steps to
 reproduce it.  Depending on the nature of the bug you are reporting, you might
-also want to include the output of <literal>dmesg</literal> (or portions
-thereof), output of the <literal>lspci -vn</literal>.
+also want to include the output of <command>dmesg</command> (or portions
+thereof), output of the <command>lspci -vn</command>.
 <command>reportbug</command> will do this automatically.  If applicable,
 include the information about the latest known kernel version where the bug is
 not present, and output of the above commands for the working kernel as well.
@@ -397,20 +397,20 @@ regression.
 To start, recreate the problem with a vanilla kernel:
 </para>
 <screen>
-# apt-get install git build-essential
-$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-$ cd linux
+<prompt>#</prompt> <userinput>apt-get install git build-essential</userinput>
+<prompt>$</prompt> <userinput>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>
+<prompt>$</prompt> <userinput>cd linux</userinput>
 </screen>
 <para>
 The above commands acquire a vanilla kernel.  Configure, build and test a
 binary package as explained in <xref linkend="s-common-building"/>:
 </para>
 <screen>
-$ make localmodconfig; # minimal configuration
-$ scripts/config --disable DEBUG_INFO; # to keep the build reasonably small
-$ make deb-pkg
-# dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb; # substitute package name from the previous command
-# reboot
+<prompt>$</prompt> <userinput>make localmodconfig</userinput>  <lineannotation># minimal configuration</lineannotation>
+<prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>  <lineannotation># to keep the build reasonably small</lineannotation>
+<prompt>$</prompt> <userinput>make deb-pkg</userinput>
+<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb</userinput>  <lineannotation># substitute package name from the previous command</lineannotation>
+<prompt>#</prompt> <userinput>reboot</userinput>
 </screen>
 <para>
 If the bug doesn't show up, try again with the official configuration file from
@@ -422,41 +422,41 @@ Initialize the bisection process by declaring which versions worked and did not
 work:
 </para>
 <screen>
-$ cd linux
-$ git bisect start
-$ git bisect good v3.0; # or whichever was known to be good
-$ git bisect bad; # current version is bad
+<prompt>$</prompt> <userinput>cd linux</userinput>
+<prompt>$</prompt> <userinput>git bisect start</userinput>
+<prompt>$</prompt> <userinput>git bisect good v3.0</userinput>  <lineannotation># or whichever was known to be good</lineannotation>
+<prompt>$</prompt> <userinput>git bisect bad</userinput>  <lineannotation># current version is bad</lineannotation>
 </screen>
 <para>
 Now git checks out a version half-way in between to test.  Build it, reusing
 the prepared configuration.
 </para>
 <screen>
-$ make silentoldconfig
-$ make deb-pkg
+<prompt>$</prompt> <userinput>make silentoldconfig</userinput>
+<prompt>$</prompt> <userinput>make deb-pkg</userinput>
 </screen>
 <para>
 Install the package, reboot, and test.
 </para>
 <screen>
-$ git bisect good; # if this version doesn't exhibit the bug
-$ git bisect bad; # if it does
-$ git bisect skip; # if some other bug makes it hard to test
+<prompt>$</prompt> <userinput>git bisect good</userinput>  <lineannotation># if this version doesn't exhibit the bug</lineannotation>
+<prompt>$</prompt> <userinput>git bisect bad</userinput>  <lineannotation># if it does</lineannotation>
+<prompt>$</prompt> <userinput>git bisect skip</userinput>  <lineannotation># if some other bug makes it hard to test</lineannotation>
 </screen>
 <para>
 And on to the next iteration:
 </para>
 <screen>
-$ make silentoldconfig
-$ make deb-pkg
+<prompt>$</prompt> <userinput>make silentoldconfig</userinput>
+<prompt>$</prompt> <userinput>make deb-pkg</userinput>
 </screen>
 <para>
 At the end of the process, the name of the "first bad commit" is printed, which
 is very useful for tracking down the bug.  Narrowing down the regression range
 with a few rounds is useful even if you don't get that far; in that case, run
-<literal>git bisect log</literal> to produce a log.  If you are the visual sort
-of person, <literal>git bisect visualize</literal> with the
-<literal>gitk</literal> package installed can show what is happening between
+<command>git bisect log</command> to produce a log.  If you are the visual sort
+of person, <command>git bisect visualize</command> with the
+<package>gitk</package> package installed can show what is happening between
 steps.
 </para>
 <para>

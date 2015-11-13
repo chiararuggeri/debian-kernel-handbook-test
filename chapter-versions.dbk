@@ -46,7 +46,7 @@ It is not changed for every new package version.  The
 </variablelist>
 <para>
 Many programs parse the kernel version string reported by the
-<literal>uname</literal> system call or command and expect to find at least 3
+<command>uname</command> system call or command and expect to find at least 3
 version components separated by dots.  For compatibility, the official kernel
 packages currently add '.0' to the upstream version.
 </para>
@@ -66,7 +66,7 @@ changed when the ABI between the kernel and modules changes.
 In official kernel packages, we change the <replaceable>abiname</replaceable>
 part of the kernel version to mark ABI changes that aren't due to a new
 upstream version.  This part comes from the <literal>abiname</literal> setting
-in <literal>debian/config/defines</literal>.  We use either a number or 'trunk'
+in <filename>debian/config/defines</filename>.  We use either a number or 'trunk'
 (for experimental), but for a custom package it should be some other string.
 </para>
 </section>
@@ -82,10 +82,10 @@ depend on that part of the ABI.
 <para>
 Bug fixes or configuration changes to the kernel may alter the ABI.  If an
 exported function is conditional on
-<literal>CONFIG_</literal><replaceable>FOO</replaceable>, or it uses a type
+<symbol>CONFIG_<replaceable>FOO</replaceable></symbol>, or it uses a type
 whose definition depends on
-<literal>CONFIG_</literal><replaceable>FOO</replaceable>, then turning
-<literal>CONFIG_</literal><replaceable>FOO</replaceable> on or off changes the
+<symbol>CONFIG_<replaceable>FOO</replaceable></symbol>, then turning
+<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> on or off changes the
 ABI of that function, and thus of the kernel as a whole.  Enabling or changing
 the configuration of a single driver usually doesn't change the ABI, because
 most drivers don't export anything.
@@ -99,17 +99,17 @@ set of symbol versions represents the kernel ABI.
 </para>
 <para>
 We collect the symbol versions for previously uploaded packages under the
-directory <literal>debian/abi</literal> and then compare the new kernel with
+directory <filename>debian/abi</filename> and then compare the new kernel with
 those.  If the ABI name is unchanged but the ABI itself is changed - except for
 additions, or changes that we have marked as acceptable - then the build is
 aborted.
 </para>
 <para>
 If the kernel ABI has changed you must then change the ABI name in
-<literal>debian/config/defines</literal>.  Then run the command
+<filename>debian/config/defines</filename>.  Then run the command
 </para>
 <screen>
-$ fakeroot debian/rules debian/control-real
+<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>
 </screen>
 <para>
 to regenerate the package definitions for this ABI name.

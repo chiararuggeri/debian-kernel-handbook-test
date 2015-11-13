@@ -11,48 +11,46 @@ any requirements for them.
 <section id="s-kernel-hooks"><title>Kernel hooks</title>
 <para>
 The maintainer scripts in Linux kernel packages must use
-<literal>run-parts</literal> to invoke hook scripts in the corresponding
-subdirectory of <literal>/etc/kernel</literal>, e.g.  the
+<command>run-parts</command> to invoke hook scripts in the corresponding
+subdirectory of <filename>/etc/kernel</filename>, e.g.  the
 <literal>postinst</literal> script must invoke scripts in
-<literal>/etc/kernel/postinst.d</literal>.
+<filename>/etc/kernel/postinst.d</filename>.
 </para>
 <para>
 The arguments given to all kernel hook scripts are the kernel ABI version (the
-string that <literal>uname -r</literal> reports) and, optionally, the absolute
+string that <command>uname -r</command> reports) and, optionally, the absolute
 path to the kernel image.  If the second argument is missing then the path is
-either <literal>/boot/vmlinuz-<replaceable>version</replaceable></literal> or
-<literal>/boot/vmlinux-<replaceable>version</replaceable></literal>, according to
+either <filename>/boot/vmlinuz-<replaceable>version</replaceable></filename> or
+<filename>/boot/vmlinux-<replaceable>version</replaceable></filename>, according to
 architecture convention.  The environment variable
-<literal>DEB_MAINT_PARAMS</literal> will contain the arguments given to the
+<envar>DEB_MAINT_PARAMS</envar> will contain the arguments given to the
 kernel maintainer script, possibly single-quoted.  In a shell script, this
 variable can be parsed using:
 </para>
-<screen>
-eval set -- "$DEB_MAINT_PARAMS"
-</screen>
+<literallayout class="monospaced">eval set -- "$DEB_MAINT_PARAMS"
+</literallayout>
 <para>
 Kernel hook scripts may be run under debconf.  In this case they must not use
 stdin and stdout, and should send all output to stderr (fd 2).  A shell script
 can ensure that it does this using:
 </para>
-<screen>
-exec &lt;/dev/null >&amp;2
-</screen>
+<literallayout class="monospaced">exec &lt;/dev/null >&amp;2
+</literallayout>
 </section>
 
 <section id="s-kernel-hooks-loader"><title>Kernel hooks required for boot loaders</title>
 <para>
 Packages for boot loaders that need to be updated whenever the files they load
 are modified (i.e.  those that store a block list) must install hook scripts in
-<literal>/etc/kernel/postinst.d</literal> and
-<literal>/etc/kernel/postrm.d</literal>.
+<filename>/etc/kernel/postinst.d</filename> and
+<filename>/etc/kernel/postrm.d</filename>.
 </para>
 <para>
 Since these boot loaders should be updated as the last step during
 installation/upgrade and removal, hook scripts for boot loaders must be named
 using the prefix <literal>zz-</literal> and no other packages may use this
 prefix or one that sorts later by the rules used by
-<literal>run-parts</literal>.  A postrm hook script should warn but exit with
+<command>run-parts</command>.  A postrm hook script should warn but exit with
 code 0 if the boot loader configuration file still refers to the kernel image
 that has been removed.
 </para>
@@ -73,8 +71,8 @@ install kernel hook scripts in order to update that menu.
 <para>
 Packages for boot loaders that need to be updated whenever the files they load
 are modified must also install hook scripts in
-<literal>/etc/initramfs/post-update.d</literal>.  Initramfs builders must call
-these scripts using <literal>run-parts</literal> after they create, update or
+<filename>/etc/initramfs/post-update.d</filename>.  Initramfs builders must call
+these scripts using <command>run-parts</command> after they create, update or
 delete an initramfs.  The arguments given to these hook scripts are the kernel
 ABI version and the absolute path to the initramfs image.
 </para>
@@ -88,8 +86,8 @@ must exit successfully.
 <section id="s-kernel-hooks-initramfs"><title>Kernel hooks required for initramfs builders</title>
 <para>
 Initramfs builders must install hook scripts in
-<literal>/etc/kernel/postinst.d</literal> and
-<literal>/etc/kernel/postrm.d</literal>, to create/update and delete the
+<filename>/etc/kernel/postinst.d</filename> and
+<filename>/etc/kernel/postrm.d</filename>, to create/update and delete the
 corresponding initramfs images.  The postinst hook script must complete its
 work before returning.
 </para>
@@ -104,24 +102,24 @@ hooks may be invoked (in this order):
 <listitem>
 <para>
 A <literal>postinst_hook</literal> or <literal>postrm_hook</literal> command
-set by the user or the installer in <literal>/etc/kernel-img.conf</literal>
+set by the user or the installer in <filename>/etc/kernel-img.conf</filename>
 </para>
 </listitem>
 <listitem>
 <para>
-A hook script in <literal>/etc/initramfs/post-update.d</literal>
+A hook script in <filename>/etc/initramfs/post-update.d</filename>
 </para>
 </listitem>
 <listitem>
 <para>
-A hook script in <literal>/etc/kernel/postinst.d</literal> or
-...<literal>/postrm.d</literal>
+A hook script in <filename>/etc/kernel/postinst.d</filename> or
+...<filename>/postrm.d</filename>
 </para>
 </listitem>
 </orderedlist>
 <para>
 To avoid unnecessary updates, the hooks invoked at steps 1 and 2 may check
-whether <literal>$DPKG_MAINTSCRIPT_PACKAGE</literal> begins with
+whether <envar>$DPKG_MAINTSCRIPT_PACKAGE</envar> begins with
 <literal>linux-image-</literal> and do nothing in this case.
 </para>
 </section>
@@ -129,10 +127,10 @@ whether <literal>$DPKG_MAINTSCRIPT_PACKAGE</literal> begins with
 <section id="s-deprecation"><title>Deprecated features</title>
 <para>
 Kernel packages must not invoke boot loaders or initramfs builders
-except via hooks.  If <literal>/etc/kernel-img.conf</literal> contains
+except via hooks.  If <filename>/etc/kernel-img.conf</filename> contains
 <literal>do_bootloader = yes</literal> or equivalent, maintainer
 scripts that previously acted on this must warn that they are ignoring
-it.  <literal>linux-base</literal> must also warn on upgrade that the
+it.  <package>linux-base</package> must also warn on upgrade that the
 default has changed.
 </para>
 </section>
@@ -141,7 +139,7 @@ default has changed.
 <para>
 The installer must not define <literal>do_bootloader</literal>,
 <literal>postinst_hook</literal> or <literal>postrm_hook</literal> in
-<literal>/etc/kernel-img.conf</literal>.
+<filename>/etc/kernel-img.conf</filename>.
 </para>
 </section>
 

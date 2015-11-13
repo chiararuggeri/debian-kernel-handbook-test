@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.16 VERSION\n"
-"POT-Creation-Date: 2015-11-14 01:02+0000\n"
-"PO-Revision-Date: 2015-11-14 01:05+0000\n"
+"POT-Creation-Date: 2015-11-14 02:07+0000\n"
+"PO-Revision-Date: 2015-11-14 02:12+0000\n"
 "Last-Translator: Yusuke YATSUO <yyatsuo@debian.or.jp>\n"
 "Language-Team: Debian JP Project\n"
 "Language: Japanese \n"
@@ -112,48 +112,48 @@ msgstr "Kernel フック"
 #. type: Content of: <chapter><section><para>
 #: chapter-update-hooks.dbk:13
 msgid ""
-"The maintainer scripts in Linux kernel packages must use <literal>run-parts</"
-"literal> to invoke hook scripts in the corresponding subdirectory of "
-"<literal>/etc/kernel</literal>, e.g.  the <literal>postinst</literal> script "
-"must invoke scripts in <literal>/etc/kernel/postinst.d</literal>."
+"The maintainer scripts in Linux kernel packages must use <command>run-parts</"
+"command> to invoke hook scripts in the corresponding subdirectory of "
+"<filename>/etc/kernel</filename>, e.g.  the <literal>postinst</literal> "
+"script must invoke scripts in <filename>/etc/kernel/postinst.d</filename>."
 msgstr ""
-"Linux カーネルパッケージ内のメンテナスクリプトは、 <literal>/etc/kernel</"
-"literal> の対応したサブディレクトリに配置されたフックスクリプトを起動する際"
-"に <literal>run-parts</literal> を使用しなければなりません。例えば、"
-"<literal>postinst</literal> スクリプトは <literal>/etc/kernel/postinst.d</"
-"literal> 内のスクリプトを起動します。"
+"Linux カーネルパッケージ内のメンテナスクリプトは、 <filename>/etc/kernel</"
+"filename> の対応したサブディレクトリに配置されたフックスクリプトを起動する際"
+"に <command>run-parts</command> を使用しなければなりません。例えば、"
+"<literal>postinst</literal> スクリプトは <filename>/etc/kernel/postinst.d</"
+"filename> 内のスクリプトを起動します。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-update-hooks.dbk:20
 msgid ""
 "The arguments given to all kernel hook scripts are the kernel ABI version "
-"(the string that <literal>uname -r</literal> reports) and, optionally, the "
+"(the string that <command>uname -r</command> reports) and, optionally, the "
 "absolute path to the kernel image.  If the second argument is missing then "
-"the path is either <literal>/boot/vmlinuz-<replaceable>version</"
-"replaceable></literal> or <literal>/boot/vmlinux-<replaceable>version</"
-"replaceable></literal>, according to architecture convention.  The "
-"environment variable <literal>DEB_MAINT_PARAMS</literal> will contain the "
+"the path is either <filename>/boot/vmlinuz-<replaceable>version</"
+"replaceable></filename> or <filename>/boot/vmlinux-<replaceable>version</"
+"replaceable></filename>, according to architecture convention.  The "
+"environment variable <envar>DEB_MAINT_PARAMS</envar> will contain the "
 "arguments given to the kernel maintainer script, possibly single-quoted.  In "
 "a shell script, this variable can be parsed using:"
 msgstr ""
 "全てのカーネルフックスクリプトには、カーネルの ABI バージョン "
-"(<literal>uname -r</literal> コマンドが応答する文字列) と、 必要であれば、"
+"(<command>uname -r</command> コマンドが応答する文字列) と、 必要であれば、"
 "カーネルイメージへの絶対パスを引数として渡します。2 つ目の引数が無い場合アー"
-"キテクチャの慣例に従い、パスは <literal>/boot/vmlinuz-<replaceable>version</"
-"replaceable></literal> か <literal>/boot/vmlinux-<replaceable>version</"
-"replaceable></literal> になります。カーネルのメンテナスクリプトに与えられる引"
-"数は、環境変数 <literal>DEB_MAINT_PARAMS</literal> に格納されます。これは、単"
-"一引用符で囲まれている場合があります。シェルスクリプト内では、この変数は次の"
-"ようにパースできます："
+"キテクチャの慣例に従い、パスは <filename>/boot/vmlinuz-<replaceable>version</"
+"replaceable></filename> か <filename>/boot/vmlinux-<replaceable>version</"
+"replaceable></filename> になります。カーネルのメンテナスクリプトに与えられる"
+"引数は、環境変数 <envar>DEB_MAINT_PARAMS</envar> に格納されます。これは、単一"
+"引用符で囲まれている場合があります。シェルスクリプト内では、この変数は次のよ"
+"うにパースできます："
 
-#. type: Content of: <chapter><section><screen>
-#: chapter-update-hooks.dbk:31
+#. type: Content of: <chapter><section><literallayout>
+#: chapter-update-hooks.dbk:30
 #, no-wrap
 msgid "eval set -- \"$DEB_MAINT_PARAMS\"\n"
 msgstr "eval set -- \"$DEB_MAINT_PARAMS\"\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:34
+#: chapter-update-hooks.dbk:33
 msgid ""
 "Kernel hook scripts may be run under debconf.  In this case they must not "
 "use stdin and stdout, and should send all output to stderr (fd 2).  A shell "
@@ -163,51 +163,52 @@ msgstr ""
 "stdin と stdout は使用せず、全て stderr (fd 2) に出力しなければなりません。"
 "シェルスクリプトで確実にそうするには、次のように書きます："
 
-#. type: Content of: <chapter><section><screen>
-#: chapter-update-hooks.dbk:39
+#. type: Content of: <chapter><section><literallayout>
+#: chapter-update-hooks.dbk:37
 #, no-wrap
 msgid "exec &lt;/dev/null >&amp;2\n"
 msgstr "exec &lt;/dev/null >&amp;2\n"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:43
+#: chapter-update-hooks.dbk:41
 msgid "Kernel hooks required for boot loaders"
 msgstr "ブートローダに必要なカーネルフック"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:45
+#: chapter-update-hooks.dbk:43
+#, fuzzy
 msgid ""
 "Packages for boot loaders that need to be updated whenever the files they "
 "load are modified (i.e.  those that store a block list) must install hook "
-"scripts in <literal>/etc/kernel/postinst.d</literal> and <literal>/etc/"
-"kernel/postrm.d</literal>."
+"scripts in <filename>/etc/kernel/postinst.d</filename> and <filename>/etc/"
+"kernel/postrm.d</filename>."
 msgstr ""
 "ブートローダがロードするファイルが変更された場合、必ず更新しなければならない"
 "ブートローダ用のパッケージ (ブロックリストを保存しているものなど) は "
-"<literal>/etc/kernel/postinst.d</literal> と <literal>/etc/kernel/postrm.d</"
-"literal> にフックスクリプトをインストールしなければなりません。"
+"<filename>/etc/kernel/postinst.d</filename> と <filename>/etc/kernel/postrm."
+"d</filename> にフックスクリプトをインストールしなければなりません。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:51
+#: chapter-update-hooks.dbk:49
 msgid ""
 "Since these boot loaders should be updated as the last step during "
 "installation/upgrade and removal, hook scripts for boot loaders must be "
 "named using the prefix <literal>zz-</literal> and no other packages may use "
-"this prefix or one that sorts later by the rules used by <literal>run-parts</"
-"literal>.  A postrm hook script should warn but exit with code 0 if the boot "
+"this prefix or one that sorts later by the rules used by <command>run-parts</"
+"command>.  A postrm hook script should warn but exit with code 0 if the boot "
 "loader configuration file still refers to the kernel image that has been "
 "removed."
 msgstr ""
 "これらのブートローダはインストール/アップグレード/削除の最終段階で更新される"
 "べきものです。したがって、ブートローダのフックスクリプトに <literal>zz-</"
 "literal> のプレフィックスを持たせて他のパッケージはこのプレフィックスを使わな"
-"いようにするか、後で<literal>run-parts</literal> で使用されるルールを使用して"
+"いようにするか、後で<command>run-parts</command> で使用されるルールを使用して"
 "並び替えなければなりません。ブートローダの設定ファイルが、削除されたカーネル"
 "イメージを参照している場合、postrm フックスクリプトは警告すべきですが、終了"
 "コードは 0 を返さなければなりません。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:60
+#: chapter-update-hooks.dbk:58
 msgid ""
 "These boot loader packages must be installable on the filesystem in a "
 "disabled state where they will not write to the boot sector or other special "
@@ -222,7 +223,7 @@ msgstr ""
 "ければなりません。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:67
+#: chapter-update-hooks.dbk:65
 msgid ""
 "Packages for boot loaders that can provide a menu of kernel versions should "
 "install kernel hook scripts in order to update that menu."
@@ -232,30 +233,30 @@ msgstr ""
 "す。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:72
+#: chapter-update-hooks.dbk:70
 msgid "Initramfs hooks"
 msgstr "Initramfs フック"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:74
+#: chapter-update-hooks.dbk:72
 msgid ""
 "Packages for boot loaders that need to be updated whenever the files they "
-"load are modified must also install hook scripts in <literal>/etc/initramfs/"
-"post-update.d</literal>.  Initramfs builders must call these scripts using "
-"<literal>run-parts</literal> after they create, update or delete an "
+"load are modified must also install hook scripts in <filename>/etc/initramfs/"
+"post-update.d</filename>.  Initramfs builders must call these scripts using "
+"<command>run-parts</command> after they create, update or delete an "
 "initramfs.  The arguments given to these hook scripts are the kernel ABI "
 "version and the absolute path to the initramfs image."
 msgstr ""
 "ブートローダがロードするファイルが変更された場合、必ず更新しなければならない"
-"ブートローダ用のパッケージは、<literal>/etc/initramfs/post-update.d</"
-"literal> にフックスクリプトをインストールしなければなりません。initramfs ビル"
-"ダーは initramfs を作成、更新、または削除した後にこのスクリプトを "
-"<literal>run-parts</literal> から呼び出します。これら のフックスクリプトに与"
+"ブートローダ用のパッケージは、<filename>/etc/initramfs/post-update.d</"
+"filename> にフックスクリプトをインストールしなければなりません。initramfs ビ"
+"ルダーは initramfs を作成、更新、または削除した後にこのスクリプトを "
+"<command>run-parts</command> から呼び出します。これら のフックスクリプトに与"
 "えられる引数は、カーネルの ABI バージョンと、initramfs イメージへの絶対パスで"
 "す。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:82
+#: chapter-update-hooks.dbk:80
 msgid ""
 "While a boot loader is disabled, any initramfs hook it includes must do "
 "nothing except (optionally) printing a warning that the boot loader is "
@@ -266,30 +267,30 @@ msgstr ""
 "りません。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:88
+#: chapter-update-hooks.dbk:86
 msgid "Kernel hooks required for initramfs builders"
 msgstr "Kernel フックに依存する initramfs ビルダー"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:90
+#: chapter-update-hooks.dbk:88
 msgid ""
-"Initramfs builders must install hook scripts in <literal>/etc/kernel/"
-"postinst.d</literal> and <literal>/etc/kernel/postrm.d</literal>, to create/"
-"update and delete the corresponding initramfs images.  The postinst hook "
-"script must complete its work before returning."
+"Initramfs builders must install hook scripts in <filename>/etc/kernel/"
+"postinst.d</filename> and <filename>/etc/kernel/postrm.d</filename>, to "
+"create/update and delete the corresponding initramfs images.  The postinst "
+"hook script must complete its work before returning."
 msgstr ""
 "Initramfs ビルダーは、対応する initramfs イメージを作成/更新/削除するために、"
-"<literal>/etc/kernel/postinst.d</literal> と <literal>/etc/kernel/postrm.d</"
-"literal> にフックスクリプトをインストールしなければなりません。postinst フッ"
-"クスクリプトは return する前にその処理を終えている必要があります。"
+"<filename>/etc/kernel/postinst.d</filename> と <filename>/etc/kernel/postrm."
+"d</filename> にフックスクリプトをインストールしなければなりません。postinst "
+"フックスクリプトは return する前にその処理を終えている必要があります。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:98
+#: chapter-update-hooks.dbk:96
 msgid "Optimising boot loader updates"
 msgstr "ブートローダの更新を最適化する"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:100
+#: chapter-update-hooks.dbk:98
 msgid ""
 "During a kernel package installation, upgrade or removal, various boot "
 "loader hooks may be invoked (in this order):"
@@ -298,48 +299,47 @@ msgstr ""
 "hook が (次の順で) 起動します:"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: chapter-update-hooks.dbk:106
+#: chapter-update-hooks.dbk:104
 msgid ""
 "A <literal>postinst_hook</literal> or <literal>postrm_hook</literal> command "
-"set by the user or the installer in <literal>/etc/kernel-img.conf</literal>"
+"set by the user or the installer in <filename>/etc/kernel-img.conf</filename>"
 msgstr ""
 "<literal>postinst_hook</literal> または <literal>postrm_hook</literal> ユーザ"
-"かインストーラによる <literal>/etc/kernel-img.conf</literal> 内のコマンドセッ"
-"ト"
+"かインストーラによる <filename>/etc/kernel-img.conf</filename> 内のコマンド"
+"セット"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: chapter-update-hooks.dbk:112
-msgid "A hook script in <literal>/etc/initramfs/post-update.d</literal>"
-msgstr "<literal>/etc/initramfs/post-update.d</literal>内のフックスクリプト"
+#: chapter-update-hooks.dbk:110
+msgid "A hook script in <filename>/etc/initramfs/post-update.d</filename>"
+msgstr "<filename>/etc/initramfs/post-update.d</filename>内のフックスクリプト"
 
 #. type: Content of: <chapter><section><orderedlist><listitem><para>
-#: chapter-update-hooks.dbk:117
+#: chapter-update-hooks.dbk:115
 msgid ""
-"A hook script in <literal>/etc/kernel/postinst.d</literal> or ...<literal>/"
-"postrm.d</literal>"
+"A hook script in <filename>/etc/kernel/postinst.d</filename> or ..."
+"<filename>/postrm.d</filename>"
 msgstr ""
-"<literal>/etc/kernel/postinst.d</literal> または <literal>/postrm.d</"
-"literal> 内のフックスクリプト"
+"<filename>/etc/kernel/postinst.d</filename> または <filename>/postrm.d</"
+"filename> 内のフックスクリプト"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:123
+#: chapter-update-hooks.dbk:121
 msgid ""
 "To avoid unnecessary updates, the hooks invoked at steps 1 and 2 may check "
-"whether <literal>$DPKG_MAINTSCRIPT_PACKAGE</literal> begins with "
-"<literal>linux-image-</literal> and do nothing in this case."
+"whether <envar>$DPKG_MAINTSCRIPT_PACKAGE</envar> begins with <literal>linux-"
+"image-</literal> and do nothing in this case."
 msgstr ""
 "不要な更新を避けるには、ステップ 1 と ステップ 2 で呼び出されるフックは、"
-"<literal>$DPKG_MAINTSCRIPT_PACKAGE</literal> が <literal>linux-image-</"
-"literal> で始まるかどうかをチェックし、その場合は何もしないようにすると良いで"
-"しょう。"
+"<envar>$DPKG_MAINTSCRIPT_PACKAGE</envar> が <literal>linux-image-</literal> "
+"で始まるかどうかをチェックし、その場合は何もしないようにすると良いでしょう。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:129
+#: chapter-update-hooks.dbk:127
 msgid "Deprecated features"
 msgstr "非推奨の機能"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:131
+#: chapter-update-hooks.dbk:129
 #, fuzzy
 #| msgid ""
 #| "Kernel packages must not invoke boot loaders except via hooks.  If "
@@ -350,33 +350,33 @@ msgstr "非推奨の機能"
 #| "'wheezy', this prohibition extends to initramfs builder packages."
 msgid ""
 "Kernel packages must not invoke boot loaders or initramfs builders except "
-"via hooks.  If <literal>/etc/kernel-img.conf</literal> contains "
+"via hooks.  If <filename>/etc/kernel-img.conf</filename> contains "
 "<literal>do_bootloader = yes</literal> or equivalent, maintainer scripts "
 "that previously acted on this must warn that they are ignoring it.  "
-"<literal>linux-base</literal> must also warn on upgrade that the default has "
+"<package>linux-base</package> must also warn on upgrade that the default has "
 "changed."
 msgstr ""
 "カーネルパッケージはフックを経由する以外の方法でブートローダを起動してはいけ"
-"ません。<literal>/etc/kernel-img.conf</literal> に <literal>do_bootloader = "
-"yes</literal>または同等のオプションが設定されている場合、以前これに作用したメ"
-"ンテナスクリプトはこのオプションを無視することを警告しなければなりません。"
-"<literal>linux-base</literal> もまた、アップデート時にデフォルトが変更された"
+"ません。<filename>/etc/kernel-img.conf</filename> に <literal>do_bootloader "
+"= yes</literal>または同等のオプションが設定されている場合、以前これに作用した"
+"メンテナスクリプトはこのオプションを無視することを警告しなければなりません。"
+"<package>linux-base</package> もまた、アップデート時にデフォルトが変更された"
 "ことを警告しなければなりません。Debian 7.0 'wheezy' では、この禁止条件は "
 "initramfs ビルダーパッケージにも拡張されます。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-update-hooks.dbk:140
+#: chapter-update-hooks.dbk:138
 msgid "Initial configuration by the installer"
 msgstr "インストーラによる初期設定"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-update-hooks.dbk:142
+#: chapter-update-hooks.dbk:140
 msgid ""
 "The installer must not define <literal>do_bootloader</literal>, "
 "<literal>postinst_hook</literal> or <literal>postrm_hook</literal> in "
-"<literal>/etc/kernel-img.conf</literal>."
+"<filename>/etc/kernel-img.conf</filename>."
 msgstr ""
-"インストーラは <literal>/etc/kernel-img.conf</literal> 内の"
+"インストーラは <filename>/etc/kernel-img.conf</filename> 内の"
 "<literal>do_bootloader</literal>、<literal>postinst_hook</literal> または "
 "<literal>postrm_hook</literal> オプションを設定してはいけません。"
 
@@ -395,11 +395,11 @@ msgid ""
 "After basic initialization the kernel extracts the initramfs archive and "
 "mounts it as a temporary root filesystem.  initramfs contains kernel modules "
 "and userspace programs required to initialize the physical or logical "
-"device(s) containing the real root filesystem.  The <literal>init</literal> "
+"device(s) containing the real root filesystem.  The <command>init</command> "
 "script on the initramfs loads modules and performs other neccessary "
-"initialization steps.  At the end of this stage <literal>run-init</literal> "
+"initialization steps.  At the end of this stage <command>run-init</command> "
 "deletes the initramfs from memory, mounts the real root filesystem and "
-"passes control to the <literal>/sbin/init</literal> program on it."
+"passes control to the <command>/sbin/init</command> program on it."
 msgstr ""
 "Debian の起動は、初期 RAM ファイルシステム (initramfs または 初期 RAM ディス"
 "ク の意で、initrd と呼ばれることもあります。）を含めて 2 段階のプロセスを踏み"
@@ -408,11 +408,11 @@ msgstr ""
 "ブを展開し、一時的なルートファイルシステムとしてマウントします。initramfs に"
 "はカーネルモジュールと、物理デバイス、または論理デバイスの初期化を必要とする"
 "ユーザ空間プログラムが含まれています。本物のルートファイルシステムもここに含"
-"まれます。initramfs の <literal>init</literal> スクリプトがモジュールをロード"
-"し、その他の初期化処理を行います。このステージの最後に、<literal>run-init</"
-"literal> が initramfs をメモリから消去し、本物のルートファイルシステムをロー"
-"ドします。そして本物のルートファイルシステム上の <literal>/sbin/init</"
-"literal> プログラムに制御を渡します。"
+"まれます。initramfs の <command>init</command> スクリプトがモジュールをロード"
+"し、その他の初期化処理を行います。このステージの最後に、<command>run-init</"
+"command> が initramfs をメモリから消去し、本物のルートファイルシステムをロー"
+"ドします。そして本物のルートファイルシステム上の <command>/sbin/init</"
+"command> プログラムに制御を渡します。"
 
 #. type: Content of: <chapter><para>
 #: chapter-initramfs.dbk:21
@@ -443,16 +443,16 @@ msgid ""
 "device configuration and kernel version, they are not included as a part of "
 "any package, but are generated on the fly at kernel installation time.  "
 "Currently there are two tools in Debian capable of generating an initramfs: "
-"<literal>update-initramfs</literal> provided by <literal>initramfs-tools</"
-"literal> (default) and <literal>dracut-update-initramfs</literal> provided "
-"by the <literal>dracut</literal> package (experimental)."
+"<command>update-initramfs</command> provided by <package>initramfs-tools</"
+"package> (default) and <command>dracut-update-initramfs</command> provided "
+"by the <package>dracut</package> package (experimental)."
 msgstr ""
 "通常 initramfs は特定のハードウェア/デバイス構成とカーネルのバージョン毎にカ"
 "スタマイズする必要があるので、パッケージの一部としては提供されず、カーネルの"
 "インストール時にその場で生成されます。今のところ Debian で initramfs を生成で"
-"きるツールは 2 つあります。<literal>initramfs-tools</literal> によって提供さ"
-"れる <literal>update-initramfs</literal> (標準) と <literal>dracut</literal> "
-"パッケージによって提供される <literal>dracut-update-initramfs</literal> (実験"
+"きるツールは 2 つあります。<package>initramfs-tools</package> によって提供さ"
+"れる <command>update-initramfs</command> (標準) と <package>dracut</package> "
+"パッケージによって提供される <command>dracut-update-initramfs</command> (実験"
 "的) です。"
 
 #. type: Content of: <chapter><section><title>
@@ -463,27 +463,27 @@ msgstr "initramfs の再生成"
 #. type: Content of: <chapter><section><para>
 #: chapter-initramfs.dbk:43
 msgid ""
-"If changes are desired after the corresponding <literal>linux-image</"
-"literal> has been installed, the initramfs needs to be regenerated.  This is "
+"If changes are desired after the corresponding <package>linux-image</"
+"package> has been installed, the initramfs needs to be regenerated.  This is "
 "achieved by the command"
 msgstr ""
-"適切な <literal>linux-image</literal> をインストールした後に、その変更をした"
+"適切な <package>linux-image</package> をインストールした後に、その変更をした"
 "い場合は initramfs を再生成しなければなりません。initramfs は次のコマンドに"
 "よってアーカイブ化されます。"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-initramfs.dbk:48
 #, no-wrap
-msgid "# dpkg-reconfigure linux-image-3.2.0-2-686-pae\n"
-msgstr "# dpkg-reconfigure linux-image-3.2.0-2-686-pae\n"
+msgid "<prompt>#</prompt> <userinput>dpkg-reconfigure linux-image-3.2.0-2-686-pae</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>dpkg-reconfigure linux-image-3.2.0-2-686-pae</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-initramfs.dbk:51
 msgid ""
-"where <literal>linux-image-3.2.0-2-686-pae</literal> is the name of the "
+"where <package>linux-image-3.2.0-2-686-pae</package> is the name of the "
 "kernel package for which the initramfs regeneration is requested."
 msgstr ""
-"<literal>linux-image-3.2.0-2-686-pae</literal> は initramfs の生成を必要とし"
+"<package>linux-image-3.2.0-2-686-pae</package> は initramfs の生成を必要とし"
 "ているカーネルパッケージの名前です。"
 
 #. type: Content of: <chapter><section><title>
@@ -505,8 +505,8 @@ msgstr ""
 #. type: Content of: <chapter><section><screen>
 #: chapter-initramfs.dbk:63
 #, no-wrap
-msgid "$ zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i\n"
-msgstr "$ zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i\n"
+msgid "<prompt>$</prompt> <userinput>zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>zcat /boot/initrd.img-3.2.0-2-686-pae | cpio -i</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-initramfs.dbk:66
@@ -520,16 +520,16 @@ msgstr ""
 #: chapter-initramfs.dbk:69
 msgid ""
 "It is also possible to list the contents of an initramfs using the "
-"<literal>cpio -t</literal> option or the command"
+"<command>cpio</command> <option>-t</option> option or the command"
 msgstr ""
-"initramfs の中身の一覧を取得するために、<literal>cpio -t</literal>オプション"
-"か、"
+"initramfs の中身の一覧を取得するために、<command>cpio</command> <option>-t</"
+"option>オプションか、"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-initramfs.dbk:73
 #, no-wrap
-msgid "$ lsinitramfs /boot/initrd.img-3.2.0-2-686-pae\n"
-msgstr "$ lsinitramfs /boot/initrd.img-3.2.0-2-686-pae"
+msgid "<prompt>$</prompt> <userinput>lsinitramfs /boot/initrd.img-3.2.0-2-686-pae</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>lsinitramfs /boot/initrd.img-3.2.0-2-686-pae</userinput>\n"
 
 #. type: Content of: <chapter><title>
 #: chapter-bugs.dbk:5
@@ -1016,7 +1016,7 @@ msgid ""
 "Debian kernel team keeps track of the kernel package bugs in the Debian Bug "
 "Tracking System (BTS).  For information on how to use the system see <ulink "
 "url=\"https://bugs.debian.org\">https://bugs.debian.org</ulink>.  You can "
-"also submit the bugs by using the <literal>reportbug</literal> command from "
+"also submit the bugs by using the <command>reportbug</command> command from "
 "the package with the same name.  Please note that kernel bugs found in "
 "distributions derived from Debian (such as Knoppix, Mepis, Progeny, Ubuntu, "
 "Xandros, etc.) should <emphasis>not</emphasis> be reported to the Debian BTS "
@@ -1028,7 +1028,7 @@ msgstr ""
 "Debian カーネルチームはカーネルパッケージのバグを Debian バグ追跡システム "
 "(BTS) で管理しています。このシステムの利用方法については、<ulink url="
 "\"https://bugs.debian.org\">https://bugs.debian.org</ulink> を参照してくださ"
-"い。バグは、<literal>reportbug</literal> という名前の、パッケージと同名のコマ"
+"い。バグは、<command>reportbug</command> という名前の、パッケージと同名のコマ"
 "ンドを使用して送信することができます。Debian から派生したディストリビューショ"
 "ン (Knoppix、Mepis、Progeny、Ubuntu、Xandros など) に関するバグは Debian BTS "
 "に報告し<emphasis>ない</emphasis>で下さい。(公式の Debian カーネルパッケージ"
@@ -1083,8 +1083,8 @@ msgid ""
 "information with your report.  At a minimum, it should contain the exact "
 "version of the official Debian kernel package, where the bug is encountered, "
 "and steps to reproduce it.  Depending on the nature of the bug you are "
-"reporting, you might also want to include the output of <literal>dmesg</"
-"literal> (or portions thereof), output of the <literal>lspci -vn</literal>.  "
+"reporting, you might also want to include the output of <command>dmesg</"
+"command> (or portions thereof), output of the <command>lspci -vn</command>.  "
 "<command>reportbug</command> will do this automatically.  If applicable, "
 "include the information about the latest known kernel version where the bug "
 "is not present, and output of the above commands for the working kernel as "
@@ -1094,8 +1094,8 @@ msgstr ""
 "<emphasis>情報を収集する</emphasis>: バグレポートには充分な情報を提供してくだ"
 "さい。レポートには最低限でも、バグに遭遇した Debian 公式カーネルパッケージの"
 "正確なバージョンと、再現方法を記載してください。あなたが報告するバグの性質に"
-"よっては、<literal>dmesg</literal> の出力 (または、その一部) と "
-"<literal>lspci -vn</literal> の出力も報告してください。<command>reportbug</"
+"よっては、<command>dmesg</command> の出力 (または、その一部) と "
+"<command>lspci -vn</command> の出力も報告してください。<command>reportbug</"
 "command> は、これを自動で行います。あてはまる場合には、知りうる限りバグが発生"
 "しない最新のカーネルバージョンと動作しているカーネルに対する上記のコマンド出"
 "力も報告してください。常識的に考えて問題の解決の手助けになると思う情報があれ"
@@ -1200,13 +1200,13 @@ msgstr "まずは vanilla カーネルで問題を再現させましょう:"
 #: chapter-bugs.dbk:400
 #, no-wrap
 msgid ""
-"# apt-get install git build-essential\n"
-"$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git\n"
-"$ cd linux\n"
+"<prompt>#</prompt> <userinput>apt-get install git build-essential</userinput>\n"
+"<prompt>$</prompt> <userinput>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>\n"
+"<prompt>$</prompt> <userinput>cd linux</userinput>\n"
 msgstr ""
-"# apt-get install git build-essential\n"
-"$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git\n"
-"$ cd linux\n"
+"<prompt>#</prompt> <userinput>apt-get install git build-essential</userinput>\n"
+"<prompt>$</prompt> <userinput>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>\n"
+"<prompt>$</prompt> <userinput>cd linux</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:405
@@ -1221,17 +1221,17 @@ msgstr ""
 #: chapter-bugs.dbk:409
 #, no-wrap
 msgid ""
-"$ make localmodconfig; # minimal configuration\n"
-"$ scripts/config --disable DEBUG_INFO; # to keep the build reasonably small\n"
-"$ make deb-pkg\n"
-"# dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb; # substitute package name from the previous command\n"
-"# reboot\n"
+"<prompt>$</prompt> <userinput>make localmodconfig</userinput>  <lineannotation># minimal configuration</lineannotation>\n"
+"<prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>  <lineannotation># to keep the build reasonably small</lineannotation>\n"
+"<prompt>$</prompt> <userinput>make deb-pkg</userinput>\n"
+"<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb</userinput>  <lineannotation># substitute package name from the previous command</lineannotation>\n"
+"<prompt>#</prompt> <userinput>reboot</userinput>\n"
 msgstr ""
-"$ make localmodconfig; #最低限の設定 \n"
-"$ scripts/config --disable DEBUG_INFO; #ビルドサイズを適度なサイズにおさえる \n"
-"$ make deb-pkg \n"
-"# dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb; #パッケージ名は適当なもに置き換える \n"
-"# reboot\n"
+"<prompt>$</prompt> <userinput>make localmodconfig</userinput>  <lineannotation>#最低限の設定</lineannotation>\n"
+"<prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>  <lineannotation>#ビルドサイズを適度なサイズにおさえる</lineannotation>\n"
+"<prompt>$</prompt> <userinput>make deb-pkg</userinput>\n"
+"<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb</userinput>  <lineannotation>#パッケージ名は適当なもに置き換える</lineannotation>\n"
+"<prompt>#</prompt> <userinput>reboot</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:416
@@ -1256,15 +1256,15 @@ msgstr ""
 #: chapter-bugs.dbk:425
 #, no-wrap
 msgid ""
-"$ cd linux\n"
-"$ git bisect start\n"
-"$ git bisect good v3.0; # or whichever was known to be good\n"
-"$ git bisect bad; # current version is bad\n"
+"<prompt>$</prompt> <userinput>cd linux</userinput>\n"
+"<prompt>$</prompt> <userinput>git bisect start</userinput>\n"
+"<prompt>$</prompt> <userinput>git bisect good v3.0</userinput>  <lineannotation># or whichever was known to be good</lineannotation>\n"
+"<prompt>$</prompt> <userinput>git bisect bad</userinput>  <lineannotation># current version is bad</lineannotation>\n"
 msgstr ""
-"$ cd linux\n"
-"$ git bisect start\n"
-"$ git bisect good v3.0; #問題ないことがわかっているバージョン (good)\n"
-"$ git bisect bad; #現在のバージョンは問題がある (bad)\n"
+"<prompt>$</prompt> <userinput>cd linux</userinput>\n"
+"<prompt>$</prompt> <userinput>git bisect start</userinput>\n"
+"<prompt>$</prompt> <userinput>git bisect good v3.0</userinput>  <lineannotation>#問題ないことがわかっているバージョン (good)</lineannotation>\n"
+"<prompt>$</prompt> <userinput>git bisect bad</userinput>  <lineannotation>#現在のバージョンは問題がある (bad)</lineannotation>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:431
@@ -1279,11 +1279,11 @@ msgstr ""
 #: chapter-bugs.dbk:435 chapter-bugs.dbk:450
 #, no-wrap
 msgid ""
-"$ make silentoldconfig\n"
-"$ make deb-pkg\n"
+"<prompt>$</prompt> <userinput>make silentoldconfig</userinput>\n"
+"<prompt>$</prompt> <userinput>make deb-pkg</userinput>\n"
 msgstr ""
-"$ make silentoldconfig\n"
-"$ make deb-pkg\n"
+"<prompt>$</prompt> <userinput>make silentoldconfig</userinput>\n"
+"<prompt>$</prompt> <userinput>make deb-pkg</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:439
@@ -1294,13 +1294,13 @@ msgstr "パッケージをインストールし、再起動させ、テストし
 #: chapter-bugs.dbk:442
 #, no-wrap
 msgid ""
-"$ git bisect good; # if this version doesn't exhibit the bug\n"
-"$ git bisect bad; # if it does\n"
-"$ git bisect skip; # if some other bug makes it hard to test\n"
+"<prompt>$</prompt> <userinput>git bisect good</userinput>  <lineannotation># if this version doesn't exhibit the bug</lineannotation>\n"
+"<prompt>$</prompt> <userinput>git bisect bad</userinput>  <lineannotation># if it does</lineannotation>\n"
+"<prompt>$</prompt> <userinput>git bisect skip</userinput>  <lineannotation># if some other bug makes it hard to test</lineannotation>\n"
 msgstr ""
-"$ git bisect good; #このバージョンではバグが無い \n"
-"$ git bisect bad;  #バグが存在する \n"
-"$ git bisect skip; #他のバグがあるためテストが難しい\n"
+"<prompt>$</prompt> <userinput>git bisect good</userinput>  <lineannotation>#このバージョンではバグが無い </lineannotation>\n"
+"<prompt>$</prompt> <userinput>git bisect bad</userinput>   <lineannotation>#バグが存在する </lineannotation>\n"
+"<prompt>$</prompt> <userinput>git bisect skip</userinput>  <lineannotation>#他のバグがあるためテストが難しい</lineannotation>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:447
@@ -1313,17 +1313,17 @@ msgid ""
 "At the end of the process, the name of the \"first bad commit\" is printed, "
 "which is very useful for tracking down the bug.  Narrowing down the "
 "regression range with a few rounds is useful even if you don't get that far; "
-"in that case, run <literal>git bisect log</literal> to produce a log.  If "
-"you are the visual sort of person, <literal>git bisect visualize</literal> "
-"with the <literal>gitk</literal> package installed can show what is "
+"in that case, run <command>git bisect log</command> to produce a log.  If "
+"you are the visual sort of person, <command>git bisect visualize</command> "
+"with the <package>gitk</package> package installed can show what is "
 "happening between steps."
 msgstr ""
 "プロセスの最後に、「first bad commit (問題が発生した最初のコミット)」 の名前"
 "が出力されます。これはバグを追うのに役立ちます。特定には至らなくても、何度か"
 "プロセスを繰り返しリグレッションの範囲を絞り込むことは有用です。その場合次の"
-"コマンドを実行しログを出力します。 <literal>git bisect log</literal> もし可視"
-"化したければ <literal>git bisect visualize</literal> を <literal>gitk</"
-"literal> パッケージをインストールした状態で使用することで、ステップ間で何が起"
+"コマンドを実行しログを出力します。 <command>git bisect log</command> もし可視"
+"化したければ <command>git bisect visualize</command> を <package>gitk</"
+"package> パッケージをインストールした状態で使用することで、ステップ間で何が起"
 "きたかを見ることができます。"
 
 #. type: Content of: <chapter><section><section><para>
@@ -1350,19 +1350,19 @@ msgstr "カーネルモジュールの管理"
 msgid ""
 "Linux device drivers come in the form of kernel modules - object files which "
 "may be loaded into the running kernel to extend its functionality.  The list "
-"of currently loaded kernel modules can be obtained using the <literal>lsmod</"
-"literal> command, modules may be loaded using <literal>modprobe</literal>, "
-"and removed using <literal>modprobe -r</literal>.  The <literal>depmod</"
-"literal> command may be used to regenerate the list of available modules "
+"of currently loaded kernel modules can be obtained using the <command>lsmod</"
+"command> command, modules may be loaded using <command>modprobe</command>, "
+"and removed using <command>modprobe -r</command>.  The <command>depmod</"
+"command> command may be used to regenerate the list of available modules "
 "(after installation of the new modules, for example), even though it is "
 "pretty unlikely that you will ever need to invoke it by hand."
 msgstr ""
 "Linux デバイスドライバはカーネルモジュール形式 - 機能拡張のために動作中のカー"
 "ネルにロード可能なオブジェクトファイル - で配布されます。現在カーネルにロード"
-"されているモジュールの一覧は <literal>lsmod</literal> コマンドで取得できま"
-"す。モジュールは <literal>modprobe</literal> コマンドでロードし、"
-"<literal>modprobe -r</literal> コマンドで取り外すことができます。"
-"<literal>depmod</literal> コマンドは、手動で起動する必要はほとんどありません"
+"されているモジュールの一覧は <command>lsmod</command> コマンドで取得できま"
+"す。モジュールは <command>modprobe</command> コマンドでロードし、"
+"<command>modprobe -r</command> コマンドで取り外すことができます。"
+"<command>depmod</command> コマンドは、手動で起動する必要はほとんどありません"
 "が、利用可能なモジュール一覧の再生成 (例えば新しいモジュールをインストールし"
 "た直後など) に使用することができます。"
 
@@ -1370,13 +1370,13 @@ msgstr ""
 #: chapter-modules.dbk:17
 msgid ""
 "Normally, the devices are detected and neccessary kernel modules are loaded "
-"by <literal>udev</literal> during boot time.  Occasionally, one may need "
+"by <command>udev</command> during boot time.  Occasionally, one may need "
 "finer control over the loading of kernel modules, for example to pass the "
 "additional parameters to the module, force loading of some modules on "
 "startup, or prevent certain module(s) from being loaded."
 msgstr ""
-"通常、起動時にデバイスが検出され必要なカーネルモジュールが <literal>udev</"
-"literal> によってロードされます。稀に、カーネルモジュールのロードをより細かく"
+"通常、起動時にデバイスが検出され必要なカーネルモジュールが <command>udev</"
+"command> によってロードされます。稀に、カーネルモジュールのロードをより細かく"
 "コントロールする必要のある人がいます。例えば、追加のパラメータをモジュールに"
 "渡したり、スタートアップ時にいくつかのモジュールをロードしたり、特定のモ"
 "ジュールがロードされないようにし たり、などです。"
@@ -1384,22 +1384,22 @@ msgstr ""
 #. type: Content of: <chapter><para>
 #: chapter-modules.dbk:24
 msgid ""
-"If some modules are not loaded automatically by <literal>udev</literal>, but "
+"If some modules are not loaded automatically by <command>udev</command>, but "
 "you would like them to be loaded during boot, it is possible to force it by "
-"listing the names of the modules in <literal>/etc/modules</literal>.  This "
+"listing the names of the modules in <filename>/etc/modules</filename>.  This "
 "will be scanned for the names of the modules (one name per line), which will "
-"then be loaded using <literal>modprobe</literal>.  For example, a typical "
-"<literal>/etc/modules</literal> might look like:"
+"then be loaded using <command>modprobe</command>.  For example, a typical "
+"<filename>/etc/modules</filename> might look like:"
 msgstr ""
-"もし、<literal>udev</literal> で自動的にロードされないモジュールを、起動時に"
-"ロードしたければ、そのモジュールを<literal>/etc/modules</literal>に列挙するこ"
-"とで、強制的にロードさせることも可能です。このファイルはライン毎にモジュール"
-"名をスキャンされ (各ラインに1 モジュール) 、そのモジュールは "
-"<literal>modprobe</literal> でロードされます。例えば、典型的な <literal>/"
-"etc/modules</literal> ファイルは以下のようになっています。"
+"もし、<command>udev</command> で自動的にロードされないモジュールを、起動時に"
+"ロードしたければ、そのモジュールを<filename>/etc/modules</filename>に列挙する"
+"ことで、強制的にロードさせることも可能です。このファイルはライン毎にモジュー"
+"ル名をスキャンされ (各ラインに1 モジュール) 、そのモジュールは "
+"<command>modprobe</command> でロードされます。例えば、典型的な <filename>/"
+"etc/modules</filename> ファイルは以下のようになっています。"
 
-#. type: Content of: <chapter><screen>
-#: chapter-modules.dbk:32
+#. type: Content of: <chapter><literallayout>
+#: chapter-modules.dbk:31
 #, no-wrap
 msgid ""
 "loop\n"
@@ -1409,20 +1409,20 @@ msgstr ""
 "sbp2\n"
 
 #. type: Content of: <chapter><para>
-#: chapter-modules.dbk:36
+#: chapter-modules.dbk:35
 msgid ""
 "To find out what parameters are accepted by a given module, you can use the "
-"<literal>modinfo</literal> command, for example:"
+"<command>modinfo</command> command, for example:"
 msgstr ""
 "与えられたモジュールに対して有効なパラメータを知りたい場合は、"
-"<literal>modinfo</literal> コマンドを使います。以下に例を示します。"
+"<command>modinfo</command> コマンドを使います。以下に例を示します。"
 
 #. type: Content of: <chapter><screen>
-#: chapter-modules.dbk:40
+#: chapter-modules.dbk:39
 #, no-wrap
 msgid ""
-"# modinfo loop\n"
-"filename:       /lib/modules/3.2.0-2-686-pae/kernel/drivers/block/loop.ko\n"
+"<prompt>#</prompt> <userinput>modinfo loop</userinput>\n"
+"<computeroutput>filename:       /lib/modules/3.2.0-2-686-pae/kernel/drivers/block/loop.ko\n"
 "alias:          devname:loop-control\n"
 "alias:          char-major-10-237\n"
 "alias:          block-major-7-*\n"
@@ -1431,10 +1431,10 @@ msgid ""
 "intree:         Y\n"
 "vermagic:       3.2.0-2-686-pae SMP mod_unload modversions 686\n"
 "parm:           max_loop:Maximum number of loop devices (int)\n"
-"parm:           max_part:Maximum number of partitions per loop device (int)\n"
+"parm:           max_part:Maximum number of partitions per loop device (int)</computeroutput>\n"
 msgstr ""
-"# modinfo loop\n"
-"filename:       /lib/modules/3.2.0-2-686-pae/kernel/drivers/block/loop.ko\n"
+"<prompt>#</prompt> <userinput>modinfo loop</userinput>\n"
+"<computeroutput>filename:       /lib/modules/3.2.0-2-686-pae/kernel/drivers/block/loop.ko\n"
 "alias:          devname:loop-control\n"
 "alias:          char-major-10-237\n"
 "alias:          block-major-7-*\n"
@@ -1443,33 +1443,33 @@ msgstr ""
 "intree:         Y\n"
 "vermagic:       3.2.0-2-686-pae SMP mod_unload modversions 686\n"
 "parm:           max_loop:Maximum number of loop devices (int)\n"
-"parm:           max_part:Maximum number of partitions per loop device (int)\n"
+"parm:           max_part:Maximum number of partitions per loop device (int)</computeroutput>\n"
 
 #. type: Content of: <chapter><para>
-#: chapter-modules.dbk:53
+#: chapter-modules.dbk:52
 msgid ""
-"To add custom arguments to the modules loaded by <literal>udev</literal> "
+"To add custom arguments to the modules loaded by <command>udev</command> "
 "early in the boot process, you need to create a custom configuration file "
-"for <literal>modprobe</literal>, which <literal>udev</literal> uses to load "
+"for <command>modprobe</command>, which <command>udev</command> uses to load "
 "the modules.  For example, to pass an <literal>atapi_enabled=1</literal> "
-"argument to the <literal>libata</literal> kernel module, create <literal>/"
-"etc/modprobe.d/local.conf</literal> file with the following line:"
+"argument to the <literal>libata</literal> kernel module, create <filename>/"
+"etc/modprobe.d/local.conf</filename> file with the following line:"
 msgstr ""
-"ブートプロセスの初期段階で<literal>udev</literal>によってロードされるモジュー"
-"ルに特別な引数を渡すには、<literal>udev</literal>がモジュールのロードに使用す"
-"る <literal>modprobe</literal> 用のカスタム設定ファイルを作らなければなりませ"
+"ブートプロセスの初期段階で<command>udev</command>によってロードされるモジュー"
+"ルに特別な引数を渡すには、<command>udev</command>がモジュールのロードに使用す"
+"る <command>modprobe</command> 用のカスタム設定ファイルを作らなければなりませ"
 "ん。例えば、引数 <literal>atapi_enabled=1</literal> を <literal>libata</"
-"literal> カーネルモジュールへ渡すには、次の行を含む<literal>/etc/modprobe.d/"
-"local.conf</literal>ファイルを作成します。"
+"literal> カーネルモジュールへ渡すには、次の行を含む<filename>/etc/modprobe.d/"
+"local.conf</filename>ファイルを作成します。"
 
-#. type: Content of: <chapter><screen>
-#: chapter-modules.dbk:61
+#. type: Content of: <chapter><literallayout>
+#: chapter-modules.dbk:59
 #, no-wrap
 msgid "options libata atapi_enabled=1\n"
 msgstr "options libata atapi_enabled=1\n"
 
 #. type: Content of: <chapter><para>
-#: chapter-modules.dbk:64
+#: chapter-modules.dbk:62
 #, fuzzy
 #| msgid ""
 #| "You can choose arbitrary names for the configuration files in <literal>/"
@@ -1477,14 +1477,14 @@ msgstr "options libata atapi_enabled=1\n"
 #| "lines in the same file."
 msgid ""
 "You can use any name ending in <literal>.conf</literal> for the "
-"configuration files in <literal>/etc/modprobe.d</literal> and put multiple "
+"configuration files in <filename>/etc/modprobe.d</filename> and put multiple "
 "<literal>options</literal> lines in the same file."
 msgstr ""
-"<literal>/etc/modprobe.d</literal> 内の設定ファイルには、任意の名前を使用で"
+"<filename>/etc/modprobe.d</filename> 内の設定ファイルには、任意の名前を使用で"
 "き、複数の <literal>options</literal> 行を同一ファイル内に記述できます。"
 
 #. type: Content of: <chapter><para>
-#: chapter-modules.dbk:69
+#: chapter-modules.dbk:67
 #, fuzzy
 #| msgid ""
 #| "Sometimes two different modules claim support for the same device, "
@@ -1497,35 +1497,35 @@ msgstr ""
 msgid ""
 "Sometimes two different modules claim support for the same device, usually "
 "because two slightly different versions of the device exist, requiring "
-"different kernel modules to operate.  In such situation <literal>udev</"
-"literal> loads both kernel modules, with unpredictable results.  To avoid "
+"different kernel modules to operate.  In such situation <command>udev</"
+"command> loads both kernel modules, with unpredictable results.  To avoid "
 "this problem, you can prevent any module (let's say, <literal>tulip</"
 "literal>) from loading by creating a file containing the line:"
 msgstr ""
 "時として、2 つの異なるモジュールが同じデバイスのサポートを宣言していることが"
 "あります。たいていの場合、2 つのやや異なるバージョンのデバイスが存在し、動作"
 "に異なるカーネルモジュールを要求していることが原因です。そのような状況では、"
-"<literal>udev</literal> が両方のカーネルモジュールをロードし、予期しない結果"
+"<command>udev</command> が両方のカーネルモジュールをロードし、予期しない結果"
 "になります。この問題を避けるため、任意のモジュール (例えば <literal>tulip</"
-"literal> だとしましょう) のロードを防ぐには、<literal>/etc/modprobe.d</"
-"literal> ディレクトリ内に"
+"literal> だとしましょう) のロードを防ぐには、<filename>/etc/modprobe.d</"
+"filename> ディレクトリ内に"
 
-#. type: Content of: <chapter><screen>
-#: chapter-modules.dbk:77
+#. type: Content of: <chapter><literallayout>
+#: chapter-modules.dbk:74
 #, no-wrap
 msgid "blacklist tulip\n"
 msgstr "blacklist tulip\n"
 
 #. type: Content of: <chapter><para>
-#: chapter-modules.dbk:80
+#: chapter-modules.dbk:77
 msgid ""
-"in <literal>/etc/modprobe.d</literal> directory.  See the <literal>modprobe</"
-"literal> manual page (<literal>man modprobe</literal>) for much more "
-"information on configuring and using modprobe."
+"in <filename>/etc/modprobe.d</filename> directory.  See the "
+"<command>modprobe</command> manual page (<command>man modprobe</command>) "
+"for much more information on configuring and using modprobe."
 msgstr ""
 "という行を記述した任意の名前のファイルを作成します。modprobe の使い方や設定方"
-"法に関するより詳しい情報は、<literal>modprobe</literal> のマニュアルページ "
-"(<literal>man modprob e</literal>) を参照してください。"
+"法に関するより詳しい情報は、<command>modprobe</command> のマニュアルページ "
+"(<command>man modprob e</command>) を参照してください。"
 
 #. type: Content of: <chapter><title>
 #: chapter-source.dbk:5
@@ -1548,9 +1548,9 @@ msgid ""
 "license information, or failure to comply with the Debian Free Software "
 "Guidelines (DFSG), parts of the kernel are removed in order to distribute "
 "the source in the <literal>main</literal> section of the Debian archive.  "
-"Such removal produces <literal>linux_<replaceable>version</replaceable>.orig."
-"tar.xz</literal> tarball, which serves as the original upstream source.  "
-"<replaceable>version</replaceable> is the actual upstream version."
+"Such removal produces <filename>linux_<replaceable>version</replaceable>."
+"orig.tar.xz</filename> tarball, which serves as the original upstream "
+"source.  <replaceable>version</replaceable> is the actual upstream version."
 msgstr ""
 "Debian のカーネルはバイナリ形式で配布されており、 Debian カーネルソースからビ"
 "ルドされます。Debian カーネルソースは <ulink url=\"https://www.kernel.org"
@@ -1560,7 +1560,7 @@ msgstr ""
 "センスの制約により、不明確なライセンス情報や Debian フリーソフトウェアガイド"
 "ライン (DFSG) に合致しないカーネルの一部は Debian アーカイブの "
 "<literal>main</literal> セクションから除外されます。除外のプロセスを経て "
-"<literal>linux_<replaceable>version</replaceable>.orig.tar.xz</literal> の "
+"<filename>linux_<replaceable>version</replaceable>.orig.tar.xz</filename> の "
 "tarball が作られす。これはオリジナルのアップストリームソースとして提供されま"
 "す。<replaceable>version</replaceable> は実際のアップストリームのバージョンで"
 "す。"
@@ -1619,8 +1619,8 @@ msgstr "Debian カーネルパッチ"
 #: chapter-source.dbk:39
 msgid ""
 "The source from which the Debian binary kernels are built is obtained by "
-"taking the source from <literal>linux_<replaceable>version</replaceable>."
-"orig.tar.xz</literal> (that is, pristine kernel source with problematic "
+"taking the source from <filename>linux_<replaceable>version</replaceable>."
+"orig.tar.xz</filename> (that is, pristine kernel source with problematic "
 "parts removed) and applying a set of Debian patches.  These patches "
 "typically implement essential fixes for serious bugs and security holes.  "
 "The Debian version of the kernel packages has the form <replaceable>version</"
@@ -1628,24 +1628,24 @@ msgid ""
 "<replaceable>version</replaceable> is the upstream version of the kernel "
 "(like 3.2.20) and <replaceable>revision</replaceable> determines the "
 "patchlevel.  For example, the packages with version 3.2.20-1 are built from "
-"the <literal>linux_3.2.20.orig.tar.xz</literal> source, patched up to "
+"the <filename>linux_3.2.20.orig.tar.xz</filename> source, patched up to "
 "patchlevel 1.  Certain packages include extra 'featuresets' not included in "
 "the upstream source, such as <literal>rt</literal>."
 msgstr ""
 "Debian のバイナリ形式のカーネルをビルドするためのソースは "
-"<literal>linux_<replaceable>version</replaceable>.orig.tar.xz</literal>から入"
-"手したソースに (素のカーネルソースから問題のある箇所を除去したソースです。) "
-"Debian パッチを適用することで入手できます。これらのパッチは深刻なバグやセキュ"
-"リティホールに対する必須の修正が実装されているものがほとんどです。Debian の "
-"カーネルパッケージは <literal><replaceable>version-revision</replaceable></"
-"literal> というフォーマットになっています。<literal><replaceable>version</"
-"replaceable></literal> はアップストリームのカーネルバージョン (例えば "
-"3.2.20) を、<literal><replaceable>revision</replaceable></literal> はパッチレ"
-"ベルをあらわします。たとえば、3.2.20-1 というバージョンナンバは "
-"<literal>linux_3.2.20.orig.tar.xz</literal> のソースにパッチレベル 1 のパッチ"
-"が適用されているという意味になります。特定のパッケージには、アップストリーム"
-"のソースには入っていない <literal>rt</literal> のようなオプション機能が組込ま"
-"れている場合があります。"
+"<filename>linux_<replaceable>version</replaceable>.orig.tar.xz</filename>から"
+"入手したソースに (素のカーネルソースから問題のある箇所を除去したソースで"
+"す。) Debian パッチを適用することで入手できます。これらのパッチは深刻なバグや"
+"セキュリティホールに対する必須の修正が実装されているものがほとんどです。"
+"Debian の カーネルパッケージは <literal><replaceable>version-revision</"
+"replaceable></literal> というフォーマットになっています。"
+"<literal><replaceable>version</replaceable></literal> はアップストリームの"
+"カーネルバージョン (例えば 3.2.20) を、<literal><replaceable>revision</"
+"replaceable></literal> はパッチレベルをあらわします。たとえば、3.2.20-1 とい"
+"うバージョンナンバは <filename>linux_3.2.20.orig.tar.xz</filename> のソースに"
+"パッチレベル 1 のパッチが適用されているという意味になります。特定のパッケージ"
+"には、アップストリームのソースには入っていない <literal>rt</literal> のような"
+"オプション機能が組込まれている場合があります。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-source.dbk:55
@@ -1687,10 +1687,10 @@ msgstr "Debian カーネルソースを取得する"
 #: chapter-common-tasks.dbk:8
 msgid ""
 "To get the Debian kernel source at the current maximum patchlevel, it is "
-"sufficient to install the latest <literal>linux-source-<replaceable>version</"
-"replaceable></literal> package and unpack the source, for example:"
+"sufficient to install the latest <package>linux-source-<replaceable>version</"
+"replaceable></package> package and unpack the source, for example:"
 msgstr ""
-"<literal>linux-source-<replaceable>version</replaceable></literal> パッケージ"
+"<package>linux-source-<replaceable>version</replaceable></package> パッケージ"
 "をインストールしてソースを展開するだけで Debian のカーネルソースを最新のパッ"
 "チレベルで取得することができます。例えば:"
 
@@ -1698,19 +1698,20 @@ msgstr ""
 #: chapter-common-tasks.dbk:14
 #, no-wrap
 msgid ""
-"# apt-get install linux-source-4.3\n"
-"$ tar xaf /usr/src/linux-source-4.3.tar.xz\n"
+"<prompt>#</prompt> <userinput>apt-get install linux-source-4.3</userinput>\n"
+"<prompt>$</prompt> <userinput>tar xaf /usr/src/linux-source-4.3.tar.xz</userinput>\n"
 msgstr ""
-"# apt-get install linux-source-4.3\n"
-"$ tar xaf /usr/src/linux-source-4.3.tar.xz\n"
+"<prompt>#</prompt> <userinput>apt-get install linux-source-4.3</userinput>\n"
+"<prompt>$</prompt> <userinput>tar xaf /usr/src/linux-source-4.3.tar.xz</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:18
 msgid ""
-"The unpacked source tree then will be available in <literal>linux-"
-"source-4.3</literal> directory."
+"The unpacked source tree then will be available in <filename>linux-"
+"source-4.3</filename> directory."
 msgstr ""
-"ソースツリーが<literal>linux-source-4.3</literal>ディレクトリに展開されます。"
+"ソースツリーが<filename>linux-source-4.3</filename>ディレクトリに展開されま"
+"す。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-common-tasks.dbk:23
@@ -1739,13 +1740,17 @@ msgstr "次のコマンドを実行します:"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:34
-msgid "<literal># apt-get install build-essential fakeroot</literal>"
-msgstr "<literal># apt-get install build-essential fakeroot</literal>"
+msgid ""
+"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</"
+"userinput>"
+msgstr ""
+"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</"
+"userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:35 chapter-common-tasks.dbk:221
-msgid "<literal># apt-get build-dep linux</literal>"
-msgstr "<literal># apt-get build-dep linux</literal>"
+msgid "<prompt>#</prompt> <userinput>apt-get build-dep linux</userinput>"
+msgstr "<prompt>#</prompt> <userinput>apt-get build-dep linux</userinput>"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:38
@@ -1754,28 +1759,32 @@ msgstr "カーネルのビルド時に要求されるビルド依存がインス
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:43
-msgid "<literal>$ apt-get source linux</literal>"
-msgstr "<literal>$ apt-get source linux</literal>"
+msgid "<prompt>$</prompt> <userinput>apt-get source linux</userinput>"
+msgstr "<prompt>$</prompt> <userinput>apt-get source linux</userinput>"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:46
 msgid ""
-"This will download and unpack the <literal>linux</literal> source package, "
-"making the tree available in the <literal>linux-<replaceable>version</"
-"replaceable></literal> directory.  As always, the revision part of the "
+"This will download and unpack the <package>linux</package> source package, "
+"making the tree available in the <filename>linux-<replaceable>version</"
+"replaceable></filename> directory.  As always, the revision part of the "
 "version of this package (for example, 1 in 3.2.19-1)  will determine its "
 "patchlevel with respect to the original upstream kernel source."
 msgstr ""
-"<literal>linux-<replaceable>version</replaceable></literal> ディレクトリに "
-"<literal>linux</literal> ソースパッケージがダウンロードされ、展開されます。こ"
+"<filename>linux-<replaceable>version</replaceable></filename> ディレクトリに "
+"<package>linux</package> ソースパッケージがダウンロードされ、展開されます。こ"
 "のパッケージのバージョン名のリビジョンの部分 (例えば、3.2.19-1 の 1 にあたる"
 "部分) は、常にオリジナルのアップストリームカーネルに対するパッチレベルをあら"
 "わしています。"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:56
-msgid "<literal>$ cd linux-<replaceable>version</replaceable></literal>"
-msgstr "<literal>$ cd linux-<replaceable>version</replaceable></literal>"
+msgid ""
+"<prompt>$</prompt> <userinput>cd linux-<replaceable>version</replaceable></"
+"userinput>"
+msgstr ""
+"<prompt>$</prompt> <userinput>cd linux-<replaceable>version</replaceable></"
+"userinput>"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:59
@@ -1794,28 +1803,28 @@ msgid ""
 "(currently true for the <literal>686-pae</literal>, <literal>amd64</"
 "literal>, <literal>rt-686-pae</literal>, <literal>rt-amd64</literal> and "
 "<literal>s390x</literal> configurations) requires up to 10 GB space in the "
-"package directory and 300 MB in <literal>/tmp</literal> (or <literal>"
-"$TMPDIR</literal>)."
+"package directory and 300 MB in <filename>/tmp</filename> (or <envar>"
+"$TMPDIR</envar>)."
 msgstr ""
 "1 つのカーネルフレーバをデバッグ情報を有効にした状態でビルドするには (現在、"
 "<literal>686-pae</literal>、<literal>amd64</literal>、<literal>rt-686-pae</"
 "literal>、<literal>rt-amd64</literal>、<literal>s390x</literal> の設定で "
 "true になっています) パッケージディレクトリに最大で 10 GB 程度以上、"
-"<literal>/tmp</literal> (または <literal>$TMPDIR</literal>) に 300 MB 程度以"
-"上の空き容量が必要です。"
+"<filename>/tmp</filename> (または <envar>$TMPDIR</envar>) に 300 MB 程度以上"
+"の空き容量が必要です。"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: chapter-common-tasks.dbk:74
 msgid ""
 "Building with debug info disabled requires about 2 GB and 25 MB "
 "respectively.  You can disable debug info by changing the value of "
-"<literal>debug-info</literal> to <literal>false</literal> in <literal>debian/"
-"config/</literal><replaceable>arch</replaceable><literal>/defines</literal>."
+"<literal>debug-info</literal> to <literal>false</literal> in "
+"<filename>debian/config/<replaceable>arch</replaceable>/defines</filename>."
 msgstr ""
 "デバッグ情報を無効にした場合は、それぞれ約 2GB と 25 MB 以上必要です。デバッ"
-"グ情報は <literal>debian/config/</literal><replaceable>arch</"
-"replaceable><literal>/defines</literal>の <literal>debug-info</literal>の値を"
-"<literal>false</literal>にすることで無効にできます。"
+"グ情報は <filename>debian/config/<replaceable>arch</replaceable>/defines</"
+"filename>の <literal>debug-info</literal>の値を<literal>false</literal>にする"
+"ことで無効にできます。"
 
 #. type: Content of: <chapter><section><section><section><para>
 #: chapter-common-tasks.dbk:80
@@ -1846,11 +1855,11 @@ msgstr ""
 #: chapter-common-tasks.dbk:94
 #, no-wrap
 msgid ""
-"# apt-get install devscripts\n"
-"$ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch\n"
+"<prompt>#</prompt> <userinput>apt-get install devscripts</userinput>\n"
+"<prompt>$</prompt> <userinput>bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch</userinput>\n"
 msgstr ""
-"# apt-get install devscripts\n"
-"$ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch\n"
+"<prompt>#</prompt> <userinput>apt-get install devscripts</userinput>\n"
+"<prompt>$</prompt> <userinput>bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:98
@@ -1864,8 +1873,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:102
 #, no-wrap
-msgid "$ bash debian/bin/test-patches\n"
-msgstr "$ bash debian/bin/test-patches\n"
+msgid "<prompt>$</prompt> <userinput>bash debian/bin/test-patches</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>bash debian/bin/test-patches</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:105
@@ -1876,8 +1885,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:108
 #, no-wrap
-msgid "$ fakeroot make -f debian/rules.real install-linux-base\n"
-msgstr "$ fakeroot make -f debian/rules.real install-linux-base\n"
+msgid "<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.real install-linux-base</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.real install-linux-base</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:111
@@ -1897,11 +1906,11 @@ msgstr "パッチの適用や設定の変更"
 #: chapter-common-tasks.dbk:118
 msgid ""
 "It is possible to apply extra patches to the source before starting the "
-"build.  In the <literal>linux</literal> source package, the default (non-"
+"build.  In the <package>linux</package> source package, the default (non-"
 "featureset)  patches are automatically applied in the top level directory."
 msgstr ""
 "ビルドを開始する前に追加のパッチをソースに適用することができます。"
-"<literal>linux</literal> ソースパッケージには、トップディレクトリにデフォル"
+"<package>linux</package> ソースパッケージには、トップディレクトリにデフォル"
 "ト (フィーチャセットが無い状態) のパッチが自動的に適用されます。"
 
 #. type: Content of: <chapter><section><section><para>
@@ -1931,19 +1940,21 @@ msgstr "フィーチャセットを含む linux ソース:"
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:138
 msgid ""
-"<literal>debian/build/source_<replaceable>featureset</replaceable></literal>"
+"<filename>debian/build/source_<replaceable>featureset</replaceable></"
+"filename>"
 msgstr ""
-"<literal>debian/build/source_<replaceable>featureset</replaceable></literal>"
+"<filename>debian/build/source_<replaceable>featureset</replaceable></"
+"filename>"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:144
 msgid ""
 "You should apply the extra patches in the appropriate directory.  In the "
-"<literal>linux</literal> source package you can use the <literal>quilt</"
-"literal> utility to do this."
+"<package>linux</package> source package you can use the <command>quilt</"
+"command> utility to do this."
 msgstr ""
-"追加のパッチは正しいディレクトリにそれぞれ適用して下さい。<literal>linux</"
-"literal> ソースパッケージでは、この作業に <literal>quilt</literal> を使用する"
+"追加のパッチは正しいディレクトリにそれぞれ適用して下さい。<package>linux</"
+"package> ソースパッケージでは、この作業に <command>quilt</command> を使用する"
 "ことができます。"
 
 #. type: Content of: <chapter><section><section><para>
@@ -1959,11 +1970,11 @@ msgstr ""
 #: chapter-common-tasks.dbk:153
 #, no-wrap
 msgid ""
-"$ fakeroot make -f debian/rules.gen setup_i386_none_686-pae\n"
-"$ make -C debian/build/build_i386_none_686-pae menuconfig\n"
+"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>\n"
+"<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae menuconfig</userinput>\n"
 msgstr ""
-"$ fakeroot make -f debian/rules.gen setup_i386_none_686-pae\n"
-"$ make -C debian/build/build_i386_none_686-pae menuconfig\n"
+"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>\n"
+"<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae menuconfig</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:157
@@ -1990,8 +2001,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:167
 #, no-wrap
-msgid "$ fakeroot debian/rules binary\n"
-msgstr "$ fakeroot debian/rules binary\n"
+msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:170
@@ -2003,8 +2014,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:173
 #, no-wrap
-msgid "$ fakeroot debian/rules binary-arch\n"
-msgstr "$ fakeroot debian/rules binary-arch\n"
+msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:176
@@ -2016,8 +2027,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:179
 #, no-wrap
-msgid "$ fakeroot debian/rules binary-indep\n"
-msgstr "$ fakeroot debian/rules binary-indep\n"
+msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>\n"
 
 #. type: Content of: <chapter><section><section><title>
 #: chapter-common-tasks.dbk:183
@@ -2037,11 +2048,11 @@ msgstr ""
 #: chapter-common-tasks.dbk:189
 #, no-wrap
 msgid ""
-"$ fakeroot debian/rules source\n"
-"$ fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae\n"
+"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>\n"
 msgstr ""
-"$ fakeroot debian/rules source\n"
-"$ fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae\n"
+"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:193
@@ -2052,8 +2063,8 @@ msgid ""
 "replaceable></literal>.  Replace the <literal><replaceable>featureset</"
 "replaceable></literal> with <literal>none</literal> if you do not want any "
 "of the extra featuresets.  This command will build the linux image and "
-"kernel headers packages.  You may also need the <literal>linux-headers-"
-"<replaceable>version</replaceable>-common</literal> binary package, which "
+"kernel headers packages.  You may also need the <package>linux-headers-"
+"<replaceable>version</replaceable>-common</package> binary package, which "
 "can be built using the commands:"
 msgstr ""
 "このコマンド内でのターゲットの指定方法は以下の書式で汎化されています: "
@@ -2062,19 +2073,19 @@ msgstr ""
 "replaceable></literal> 追加のフィーチャセットが不要な場合、"
 "<literal><replaceable>featureset</replaceable></literal> を <literal>none</"
 "literal> で置き変えます。このコマンドは linux イメージとカーネルヘッダパッ"
-"ケージをビルドします。場合によっては <literal>linux-headers-"
-"<replaceable>version</replaceable>-common</literal> バイナリパッケージが必要"
+"ケージをビルドします。場合によっては <package>linux-headers-"
+"<replaceable>version</replaceable>-common</package> バイナリパッケージが必要"
 "かもしれません。次のコマンドでビルドできます:"
 
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:202
 #, no-wrap
 msgid ""
-"$ fakeroot debian/rules source\n"
-"$ fakeroot make -f debian/rules.gen binary-arch_i386_none_real\n"
+"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>\n"
 msgstr ""
-"$ fakeroot debian/rules source \n"
-"$ fakeroot make -f debian/rules.gen binary-arch_i386_none_real\n"
+"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:206
@@ -2105,9 +2116,12 @@ msgstr ""
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:220
-msgid "<literal># apt-get install build-essential fakeroot rsync git</literal>"
+msgid ""
+"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync "
+"git</userinput>"
 msgstr ""
-"<literal># apt-get install build-essential fakeroot rsync git</literal>"
+"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync "
+"git</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:224
@@ -2121,9 +2135,11 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:230
 msgid ""
-"<literal>$ git clone -b <replaceable>dist</replaceable> --single-branch "
-"https://anonscm.debian.org/git/kernel/linux.git</literal>"
+"<prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --"
+"single-branch https://anonscm.debian.org/git/kernel/linux.git</userinput>"
 msgstr ""
+"<prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --"
+"single-branch https://anonscm.debian.org/git/kernel/linux.git</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:233
@@ -2149,32 +2165,32 @@ msgstr ""
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:242
-msgid "<literal>$ apt-get source -d linux</literal>"
-msgstr "<literal>$ apt-get source -d linux</literal>"
+msgid "<prompt>$</prompt> <userinput>apt-get source -d linux</userinput>"
+msgstr "<prompt>$</prompt> <userinput>apt-get source -d linux</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:245
 msgid ""
-"This will download the <literal>linux</literal> upstream source (and the "
+"This will download the <package>linux</package> upstream source (and the "
 "last released Debian patches).  Depending on which version you are trying to "
 "build, you might need to override APT's version selection or download a "
 "tarball from <ulink url=\"https://people.debian.org\">people.debian.org</"
 "ulink> instead."
 msgstr ""
-"<literal>linux</literal> のアップストリームのソース (と最新の Debian パッチ)"
+"<package>linux</package> のアップストリームのソース (と最新の Debian パッチ)"
 "をダウンロードします。ビルドしようとしているバージョンによって、APT のバー"
 "ジョン選択を上書きをしたり、変わりに <ulink url=\"https://people.debian.org"
 "\">people.debian.org</ulink> から tarball をダウンロードする必要があります。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:253
-msgid "<literal>$ cd linux</literal>"
-msgstr "<literal>$ cd linux</literal>"
+msgid "<prompt>$</prompt> <userinput>cd linux</userinput>"
+msgstr "<prompt>$</prompt> <userinput>cd linux</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:254
-msgid "<literal>$ debian/rules orig</literal>"
-msgstr "<literal>$ debian/rules orig</literal>"
+msgid "<prompt>$</prompt> <userinput>debian/rules orig</userinput>"
+msgstr "<prompt>$</prompt> <userinput>debian/rules orig</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:257
@@ -2184,8 +2200,8 @@ msgstr "アップストリームのソースを展開し、Debian のパッケ�
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:262
-msgid "<literal>$ debian/rules debian/control</literal>"
-msgstr "<literal>$ debian/rules debian/control</literal>"
+msgid "<prompt>$</prompt> <userinput>debian/rules debian/control</userinput>"
+msgstr "<prompt>$</prompt> <userinput>debian/rules debian/control</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:265
@@ -2199,9 +2215,11 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:271
 msgid ""
-"<literal>$ fakeroot debian/rules <replaceable>target</replaceable></literal>"
+"<prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</"
+"replaceable></userinput>"
 msgstr ""
-"<literal>$ fakeroot debian/rules <replaceable>target</replaceable></literal>"
+"<prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</"
+"replaceable></userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:274
@@ -2238,11 +2256,11 @@ msgstr ""
 #| "script. It takes either a tarball and optional patch from kernel.org, or "
 #| "a git repository. If you have a tarball, run a command such as:"
 msgid ""
-"The 'orig' tarball is generated by the <literal>genorig.py</literal> "
+"The 'orig' tarball is generated by the <command>genorig.py</command> "
 "script.  It takes either a tarball and optional patch from kernel.org, or a "
 "git repository.  First ensure you have the necessary tools installed:"
 msgstr ""
-"'orig' tarball は<literal>genorig.py</literal>スクリプトによって生成されま"
+"'orig' tarball は<command>genorig.py</command>スクリプトによって生成されま"
 "す。このスクリプトは tarball、オプションのパッチ、または kernel.org の git リ"
 "ポジトリへのパスを引数にとります。tarball が手元にある場合は次のようなコマン"
 "ドを実行します:"
@@ -2250,8 +2268,8 @@ msgstr ""
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:295
 #, no-wrap
-msgid "# apt-get install unifdef\n"
-msgstr "# apt-get install unifdef\n"
+msgid "<prompt>#</prompt> <userinput>apt-get install unifdef</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>apt-get install unifdef</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:298
@@ -2261,8 +2279,8 @@ msgstr ""
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:301
 #, no-wrap
-msgid "$ debian/bin/genorig.py ../linux-4.3.tar.xz ../patch-4.4-rc1.xz\n"
-msgstr "$ debian/bin/genorig.py ../linux-4.3.tar.xz ../patch-4.4-rc1.xz\n"
+msgid "<prompt>$</prompt> <userinput>debian/bin/genorig.py ../linux-4.3.tar.xz ../patch-4.4-rc1.xz</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>debian/bin/genorig.py ../linux-4.3.tar.xz ../patch-4.4-rc1.xz</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:304
@@ -2274,25 +2292,25 @@ msgstr "git リポジトリが手元にある場合は、そのディレクト�
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:307
 #, no-wrap
-msgid "$ debian/bin/genorig.py ~/src/linux\n"
-msgstr "$ debian/bin/genorig.py ~/src/linux\n"
+msgid "<prompt>$</prompt> <userinput>debian/bin/genorig.py ~/src/linux</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>debian/bin/genorig.py ~/src/linux</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:310
 msgid ""
-"Either of these will generate a file such as <literal>../orig/linux_3.5~rc1."
-"orig.tar.xz</literal>.  You can then combine this tarball with the Debian "
+"Either of these will generate a file such as <filename>../orig/linux_3.5~rc1."
+"orig.tar.xz</filename>.  You can then combine this tarball with the Debian "
 "packaging by running:"
 msgstr ""
-"どちらを実行した場合にも、<literal>../orig/linux_3.5~rc1.orig.tar.xz</"
-"literal>のようなファイルが生成されます。この tarball を次のコマンドで Debian "
-"パッケージに統合します："
+"どちらを実行した場合にも、<filename>../orig/linux_3.5~rc1.orig.tar.xz</"
+"filename>のようなファイルが生成されます。この tarball を次のコマンドで "
+"Debian パッケージに統合します："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:315
 #, no-wrap
-msgid "$ debian/rules orig\n"
-msgstr "$ debian/rules orig\n"
+msgid "<prompt>$</prompt> <userinput>debian/rules orig</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>debian/rules orig</userinput>\n"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-common-tasks.dbk:319
@@ -2318,25 +2336,25 @@ msgstr ""
 msgid ""
 "The easiest way to build a custom kernel (the kernel with the configuration "
 "different from the one used in the official packages) from the Debian kernel "
-"source is to use the <literal>linux-source</literal> package and the "
-"<literal>make deb-pkg</literal> target.  First, prepare the kernel tree:"
+"source is to use the <package>linux-source</package> package and the "
+"<command>make deb-pkg</command> target.  First, prepare the kernel tree:"
 msgstr ""
 "Debian カーネルのソースからカスタムカーネル (オフィシャルパッケージで使われて"
 "いる設定とは違う設定のカーネル) をビルドするための最も簡単な方法は "
-"<literal>linux-source</literal> パッケージと <literal>make deb-pkg</literal> "
+"<package>linux-source</package> パッケージと <command>make deb-pkg</command> "
 "ターゲットを使うことです。まず、カーネルツリーの準備をします。"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:334
 #, no-wrap
 msgid ""
-"# apt-get install linux-source-4.3\n"
-"$ tar xaf /usr/src/linux-source-4.3.tar.xz\n"
-"$ cd linux-source-4.3\n"
+"<prompt>#</prompt> <userinput>apt-get install linux-source-4.3</userinput>\n"
+"<prompt>$</prompt> <userinput>tar xaf /usr/src/linux-source-4.3.tar.xz</userinput>\n"
+"<prompt>$</prompt> <userinput>cd linux-source-4.3</userinput>\n"
 msgstr ""
-"# apt-get install linux-source-4.3\n"
-"$ tar xaf /usr/src/linux-source-4.3.tar.xz\n"
-"$ cd linux-source-4.3\n"
+"<prompt>#</prompt> <userinput>apt-get install linux-source-4.3</userinput>\n"
+"<prompt>$</prompt> <userinput>tar xaf /usr/src/linux-source-4.3.tar.xz</userinput>\n"
+"<prompt>$</prompt> <userinput>cd linux-source-4.3</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:339
@@ -2356,8 +2374,8 @@ msgstr ""
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:346
 #, no-wrap
-msgid "$ make menuconfig\n"
-msgstr "$ make menuconfig\n"
+msgid "<prompt>$</prompt> <userinput>make menuconfig</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>make menuconfig</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:349
@@ -2365,91 +2383,91 @@ msgid ""
 "Instead of <literal>menuconfig</literal> one can use <literal>config</"
 "literal> (text-based line-by-line configuration frontend) or "
 "<literal>xconfig</literal> (graphical configuration frontend).  It is also "
-"possible to reuse your old configuration file by placing it as a <literal>."
-"config</literal> file in the top-level directory and running one of the "
-"configuration targets (if you want to adjust something) or <literal>make "
-"oldconfig</literal> (to keep the same configuration).  Note that different "
+"possible to reuse your old configuration file by placing it as a <filename>."
+"config</filename> file in the top-level directory and running one of the "
+"configuration targets (if you want to adjust something) or <command>make "
+"oldconfig</command> (to keep the same configuration).  Note that different "
 "frontends may require different additional libraries and utilities to be "
 "installed to function properly.  For example, the <literal>menuconfig</"
 "literal> frontend requires the <literal>ncurses</literal> library, which at "
-"time of writing is provided by the <literal>libncurses5-dev</literal> "
+"time of writing is provided by the <package>libncurses5-dev</package> "
 "package."
 msgstr ""
 "<literal>menuconfig</literal> のかわりに <literal>config</literal> (テキスト"
 "ベースで 1 行毎に設定を行うフロントエンド) または <literal>xconfig</literal> "
 "(グラフィカルな設定フロントエンド) なども利用できます。古い設定ファイルは "
-"<literal>.config</literal> ファイルとしてトップディレクトリに配置し、設定する"
-"ターゲットの起動コマンドを実行するか (なにかを設定し直す場合)、<literal>make "
-"oldconfig</literal> コマンドを実行する (設定を保持する場合) ことで再利用でき"
-"ます。フロントエンドによっては、正常に動作するためにライブラリやユーティリ"
-"ティをインストールする必要があるかもしれないことに注意して下さい。例えば、"
-"<literal>menuconfig</literal>フロントエンドは執筆時点では "
-"<literal>libncurses5-dev</literal> パッケージとして提供されている "
+"<filename>.config</filename> ファイルとしてトップディレクトリに配置し、設定す"
+"るターゲットの起動コマンドを実行するか (なにかを設定し直す場合)、"
+"<command>make oldconfig</command> コマンドを実行する (設定を保持する場合) こ"
+"とで再利用できます。フロントエンドによっては、正常に動作するためにライブラリ"
+"やユーティリティをインストールする必要があるかもしれないことに注意して下さ"
+"い。例えば、<literal>menuconfig</literal>フロントエンドは執筆時点では "
+"<package>libncurses5-dev</package> パッケージとして提供されている "
 "<literal>ncurses</literal> ライブラリが必要です。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:362
 msgid ""
-"The build will use less disk space if the CONFIG_DEBUG_INFO option is "
-"disabled (see <xref linkend=\"s-common-size\"/>).  Debuginfo is only needed "
-"if you plan to use binary object tools like crash, kgdb, and SystemTap on "
-"the kernel."
+"The build will use less disk space if the <symbol>CONFIG_DEBUG_INFO</symbol> "
+"option is disabled (see <xref linkend=\"s-common-size\"/>).  Debuginfo is "
+"only needed if you plan to use binary object tools like crash, kgdb, and "
+"SystemTap on the kernel."
 msgstr ""
-"CONFIG_DEBUG_INFO オプションが無効化されている場合は (<xref linkend=\"s-"
-"common-size\"/> 参照) ビルドに必要な空きディスクスペースは少なく済みます。デ"
-"バッグ情報は、crash、kgbd、SystemTap のようなカーネル上のバイナリオブジェクト"
-"ツールを使わない場合は不要です。"
+"<symbol>CONFIG_DEBUG_INFO</symbol> オプションが無効化されている場合は (<xref "
+"linkend=\"s-common-size\"/> 参照) ビルドに必要な空きディスクスペースは少なく"
+"済みます。デバッグ情報は、crash、kgbd、SystemTap のようなカーネル上のバイナリ"
+"オブジェクトツールを使わない場合は不要です。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:367
+#: chapter-common-tasks.dbk:368
 #, no-wrap
-msgid "$ scripts/config --disable DEBUG_INFO\n"
-msgstr "$ scripts/config --disable DEBUG_INFO\n"
+msgid "<prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:370
+#: chapter-common-tasks.dbk:371
 msgid ""
 "After the configuration process is finished, the new or updated kernel "
-"configuration will be stored in <literal>.config</literal> file in the top-"
+"configuration will be stored in <filename>.config</filename> file in the top-"
 "level directory.  The build is started using the commands"
 msgstr ""
 "設定プロセスの終了後、変更または新規に作成されたカーネルの設定はトップレベル"
-"ディレクトリの <literal>.config</literal> ファイルとして保存されます。ビルド"
-"の開始には次のコマンドを使用します。"
+"ディレクトリの <filename>.config</filename> ファイルとして保存されます。ビル"
+"ドの開始には次のコマンドを使用します。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:375
+#: chapter-common-tasks.dbk:376
 #, no-wrap
 msgid ""
-"$ make clean\n"
-"$ make deb-pkg\n"
+"<prompt>$</prompt> <userinput>make clean</userinput>\n"
+"<prompt>$</prompt> <userinput>make deb-pkg</userinput>\n"
 msgstr ""
-"$ make clean\n"
-"$ make deb-pkg\n"
+"<prompt>$</prompt> <userinput>make clean</userinput>\n"
+"<prompt>$</prompt> <userinput>make deb-pkg</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:379
+#: chapter-common-tasks.dbk:380
 msgid ""
-"As a result of the build, a custom kernel package <literal>linux-"
-"image-3.2.19_3.2.19-1_i386.deb</literal> (name will reflect the version of "
+"As a result of the build, a custom kernel package <filename>linux-"
+"image-3.2.19_3.2.19-1_i386.deb</filename> (name will reflect the version of "
 "the kernel and build number) will be created in the directory one level "
-"above the top of the tree.  It may be installed using <literal>dpkg</"
-"literal> just as any other package:"
+"above the top of the tree.  It may be installed using <command>dpkg</"
+"command> just as any other package:"
 msgstr ""
-"生成されたカスタムカーネルパッケージ <literal>linux-"
-"image-3.2.19_3.2.19-1_i386.deb</literal> (ファイル名にはカーネルのバージョン"
+"生成されたカスタムカーネルパッケージ <filename>linux-"
+"image-3.2.19_3.2.19-1_i386.deb</filename> (ファイル名にはカーネルのバージョン"
 "とビルド番号が反映されます) がツリーのトップレベルの 1 つ上の階層に生成されま"
-"す。このファイルは他のパッケージと同様に、 <literal>dpkg</literal> コマンドで"
+"す。このファイルは他のパッケージと同様に、 <command>dpkg</command> コマンドで"
 "インストールできます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:387
+#: chapter-common-tasks.dbk:388
 #, no-wrap
-msgid "# dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb\n"
-msgstr "# dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb\n"
+msgid "<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:390
+#: chapter-common-tasks.dbk:391
 msgid ""
 "This command will unpack the kernel, generate the initrd if necessary (see "
 "<xref linkend=\"ch-initramfs\"/> for details), and configure the bootloader "
@@ -2462,41 +2480,41 @@ msgstr ""
 "ら"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:396
+#: chapter-common-tasks.dbk:397
 #, no-wrap
-msgid "# shutdown -r now\n"
-msgstr "# shutdown -r now\n"
+msgid "<prompt>#</prompt> <userinput>shutdown -r now</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>shutdown -r now</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:399
+#: chapter-common-tasks.dbk:400
 msgid "command to boot the new kernel."
 msgstr "コマンドで再起動すると新しいカーネルで起動します。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:402
+#: chapter-common-tasks.dbk:403
 msgid ""
 "For much more information about bootloaders and their configuration please "
 "check their documentation, which can be accessed using the commands "
-"<literal>man lilo</literal>, <literal>man lilo.conf</literal>, <literal>man "
-"grub</literal>, and so on.  You can also look for documentation in the "
-"<literal>/usr/share/doc/<replaceable>package</replaceable></literal> "
-"directories, with <literal><replaceable>package</replaceable></literal> "
-"being the name of the package involved."
+"<command>man lilo</command>, <command>man lilo.conf</command>, <command>man "
+"grub</command>, and so on.  You can also look for documentation in the "
+"<filename>/usr/share/doc/<replaceable>package</replaceable></filename> "
+"directories, with <replaceable>package</replaceable> being the name of the "
+"package involved."
 msgstr ""
-"ブートローダとその設定方法に関しての詳細は <literal>man lilo</literal>、"
-"<literal>man lilo.conf</literal>、<literal>man grub</literal>、などのコマンド"
-"でそれぞれのドキュメントを参照してください。ドキュメントは <literal>/usr/"
-"share/doc/<replaceable>package</replaceable></literal> ディレクトリから探すこ"
-"ともできます。 <literal><replaceable>package</replaceable></literal>には関連"
-"するパッケージ名を指定してください。"
+"ブートローダとその設定方法に関しての詳細は <command>man lilo</command>、"
+"<command>man lilo.conf</command>、<command>man grub</command>、などのコマンド"
+"でそれぞれのドキュメントを参照してください。ドキュメントは <filename>/usr/"
+"share/doc/<replaceable>package</replaceable></filename> ディレクトリから探す"
+"こともできます。 <replaceable>package</replaceable>には関連するパッケージ名を"
+"指定してください。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:412
+#: chapter-common-tasks.dbk:413
 msgid "Building a custom kernel from the \"pristine\" kernel source"
 msgstr "\"pristine\" なカーネルソースからカスタムカーネルをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:414
+#: chapter-common-tasks.dbk:415
 msgid ""
 "Building a kernel from the \"pristine\" (also sometimes called \"vanilla\") "
 "kernel source, distributed from <ulink url=\"https://www.kernel.org\">www."
@@ -2508,13 +2526,13 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:424
+#: chapter-common-tasks.dbk:425
 #, no-wrap
-msgid "$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz\n"
-msgstr "$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz\n"
+msgid "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:427
+#: chapter-common-tasks.dbk:428
 msgid ""
 "The integrity of the downloaded archive may be verified by fetching the "
 "corresponding cryptographic signature"
@@ -2522,151 +2540,153 @@ msgstr ""
 "アーカイブの整合性はそれぞれの暗号化シグネチャを検証することで確認できます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:432
+#: chapter-common-tasks.dbk:433
 #, no-wrap
-msgid "$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign\n"
-msgstr "$ wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign\n"
+msgid "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:435
+#: chapter-common-tasks.dbk:436
 msgid ""
-"and running this command (<literal>gnupg</literal> package must be "
+"and running this command (<package>gnupg</package> package must be "
 "installed):"
 msgstr ""
-"コマンドを実行し、次のコマンドを実行してください。(<literal>gnupg</literal> "
+"コマンドを実行し、次のコマンドを実行してください。(<package>gnupg</package> "
 "パッケージがインストールされていなければなりません)"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:438
+#: chapter-common-tasks.dbk:439
 #, no-wrap
-msgid "$ unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -\n"
-msgstr "$ unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -\n"
+msgid "<prompt>$</prompt> <userinput>unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:441
+#: chapter-common-tasks.dbk:442
 msgid "Successful verification results in output similar to the one below:"
 msgstr "検証に成功した場合、次に示すような出力を得ることができます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:444
+#: chapter-common-tasks.dbk:445
 #, no-wrap
 msgid ""
-"gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886\n"
+"<computeroutput>gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886\n"
 "gpg: Good signature from \"Linus Torvalds &lt;torvalds@linux-foundation.org&gt;\"\n"
 "gpg: WARNING: This key is not certified with a trusted signature!\n"
 "gpg:          There is no indication that the signature belongs to the owner.\n"
-"Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886\n"
+"Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886</computeroutput>\n"
 msgstr ""
-"gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886\n"
+"<computeroutput>gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886\n"
 "gpg: Good signature from \"Linus Torvalds &lt;torvalds@linux-foundation.org&gt;\"\n"
 "gpg: WARNING: This key is not certified with a trusted signature!\n"
 "gpg:          There is no indication that the signature belongs to the owner.\n"
-"Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886\n"
+"Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886</computeroutput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:451
+#: chapter-common-tasks.dbk:452
 msgid "After that the archive may be unpacked using"
 msgstr "検証が済んだら、次のコマンドでアーカイブを展開しましょう。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:454
+#: chapter-common-tasks.dbk:455
 #, no-wrap
 msgid ""
-"$ tar xaf linux-4.3.tar.xz\n"
-"$ cd linux-4.3\n"
+"<prompt>$</prompt> <userinput>tar xaf linux-4.3.tar.xz</userinput>\n"
+"<prompt>$</prompt> <userinput>cd linux-4.3</userinput>\n"
 msgstr ""
-"$ tar xaf linux-4.3.tar.xz\n"
-"$ cd linux-4.3\n"
+"<prompt>$</prompt> <userinput>tar xaf linux-4.3.tar.xz</userinput>\n"
+"<prompt>$</prompt> <userinput>cd linux-4.3</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:458
+#: chapter-common-tasks.dbk:459
 msgid ""
-"The unpacked kernel tree (in <literal>linux-4.3</literal> now has to be "
+"The unpacked kernel tree (in <filename>linux-4.3</filename> now has to be "
 "configured.  The existing configuration file may be used as a starting point"
 msgstr ""
-"展開されたカーネルツリー (<literal>linux-4.3</literal> ディレクトリ) の設定を"
-"する準備ができました。手始めに、すでにある設定ファイルを使うと良いでしょう。"
+"展開されたカーネルツリー (<filename>linux-4.3</filename> ディレクトリ) の設定"
+"をする準備ができました。手始めに、すでにある設定ファイルを使うと良いでしょ"
+"う。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:462
+#: chapter-common-tasks.dbk:463
 #, no-wrap
-msgid "$ cp /boot/config-3.2.0-2-686-pae ./.config\n"
-msgstr "$ cp /boot/config-3.2.0-2-686-pae ./.config\n"
+msgid "<prompt>$</prompt> <userinput>cp /boot/config-3.2.0-2-686-pae ./.config</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>cp /boot/config-3.2.0-2-686-pae ./.config</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:465
+#: chapter-common-tasks.dbk:466
 msgid ""
 "After the configuration with one of the configuration frontends (invoked by "
-"<literal>make oldconfig</literal>, <literal>make config</literal>, "
-"<literal>make menuconfig</literal>, etc) is completed, the build may be "
-"started using <literal>make deb-pkg</literal> target as described above."
+"<command>make oldconfig</command>, <command>make config</command>, "
+"<command>make menuconfig</command>, etc) is completed, the build may be "
+"started using <command>make deb-pkg</command> target as described above."
 msgstr ""
-"設定フロントエンドのどれかを使い (<literal>make oldconfig</literal>、"
-"<literal>make config</literal>、<literal>make menuconfig</literal>、などで起"
-"動します) 設定が完了したら、すでに説明した <literal>make deb-pkg</literal> "
+"設定フロントエンドのどれかを使い (<command>make oldconfig</command>、"
+"<command>make config</command>、<command>make menuconfig</command>、などで起"
+"動します) 設定が完了したら、すでに説明した <command>make deb-pkg</command> "
 "ターゲットを使い、ビルドを開始できます。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:472
+#: chapter-common-tasks.dbk:473
 msgid "Building out-of-tree kernel modules"
 msgstr "ツリーの外にあるカーネルモジュールをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:474
+#: chapter-common-tasks.dbk:475
 msgid ""
 "Some kernel modules are not included in the upstream or Debian kernel "
 "source, but are provided as third-party source packages.  For some of the "
 "most popular out-of-tree modules, the binary Debian packages with modules "
 "built against the stock Debian kernels are provided.  For example, if you "
 "are running stock Debian kernel <literal>3.2.0-2-686-pae</literal> (use the "
-"<literal>uname -r</literal> command to verify the version) from the "
-"<literal>linux-image-3.2.0-2-686-pae</literal> package, and would like to "
-"use the squash filesystem, all you need to do is install <literal>squashfs-"
-"modules-3.2.0-2-686-pae</literal> binary package, which provides the "
+"<command>uname -r</command> command to verify the version) from the "
+"<package>linux-image-3.2.0-2-686-pae</package> package, and would like to "
+"use the squash filesystem, all you need to do is install <package>squashfs-"
+"modules-3.2.0-2-686-pae</package> binary package, which provides the "
 "neccessary binary kernel modules."
 msgstr ""
 "カーネルモジュールのなかには、アップストリームや Debian カーネルソースには含"
 "まれずに、サードパーティのソースパッケージとして提供されているものがありま"
 "す。ツリー外のカーネルモジュールの中でも特に有名なものは、Debian カーネル用に"
 "ビルドしたモジュールの、バイナリの Debian パッケージが提供されている場合があ"
-"ります。例えば <literal>linux-image-3.2.0-2-686-pae</literal> パッケージから"
+"ります。例えば <package>linux-image-3.2.0-2-686-pae</package> パッケージから"
 "インストールした、Debian カーネル <literal>3.2.0-2-686-pae</literal> を使って"
-"いて (<literal>uname -r</literal> コマンドでバージョンの確認ができます) "
+"いて (<command>uname -r</command> コマンドでバージョンの確認ができます) "
 "squashファイルシステムを使いたくなった場合は、そのために必要なバイナリのカー"
-"ネルモジュールを提供している <literal>squashfs-modules-3.2.0-2-686-pae</"
-"literal> パッケージをインストールするだけで利用可能になります。"
+"ネルモジュールを提供している <package>squashfs-modules-3.2.0-2-686-pae</"
+"package> パッケージをインストールするだけで利用可能になります。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:486
+#: chapter-common-tasks.dbk:487
+#, fuzzy
 msgid ""
 "If you are not so lucky, and there are no binary module packages in the "
 "archive, there is a fair chance that the Debian archive contains the "
 "packaged <replaceable role=\"strong\">source</replaceable> for the kernel "
 "modules.  Names of such packages typically end in <literal>-source</"
-"literal>, for example <literal>squashfs-source</literal>, <literal>thinkpad-"
-"source</literal>, <literal>rt2x00-source</literal> and many others.  These "
+"literal>, for example <package>squashfs-source</package>, <package>thinkpad-"
+"source</package>, <package>rt2x00-source</package> and many others.  These "
 "packages contain debianized source code of the kernel modules, suitable for "
-"building using the <literal>module-assistant</literal> (or <literal>m-a</"
-"literal>) script from the <literal>module-assistant</literal> package.  "
+"building using the <command>module-assistant</command> (or <command>m-a</"
+"command>) script from the <package>module-assistant</package> package.  "
 "Typical sequence to build a custom binary module package, matching a kernel "
-"<literal>3.2.0-2-686-pae</literal> (as returned by <literal>uname -r</"
-"literal>)  from the debianized source consists of the following steps:"
+"<literal>3.2.0-2-686-pae</literal> (as returned by <command>uname -r</"
+"command>)  from the debianized source consists of the following steps:"
 msgstr ""
 "残念ながら使いたいモジュールのバイナリパッケージがアーカイブにない場合でも、"
 "カーネルモジュールの<emphasis role=\"strong\">ソース</emphasis>パッケージが "
 "Debian アーカイブにある可能性もあります。パッケージ名の最後に <literal>-"
 "source</literal> とついているパッケージは、このようなパッケージの典型例です。"
-"例えば <literal>squashfs-source</literal>、<literal>thinkpad-source</"
-"literal>、<literal>rt2x00-source</literal> などがありますが、他にも多数ありま"
+"例えば <package>squashfs-source</package>、<package>thinkpad-source</"
+"package>、<package>rt2x00-source</package> などがありますが、他にも多数ありま"
 "す。これらのパッケージには、Debian 化したカーネルモジュールのソースコードが含"
 "まれています。ビルドには <literal>module-assistant</literal> パッケージの"
-"<literal>module-assistant</literal> (または <literal>m-a</literal>) スクリプ"
+"<literal>module-assistant</literal> (または <command>m-a</command>) スクリプ"
 "トを使うと便利です。Debian 化したソースからカーネル <literal>3.2.0-2-686-"
-"pae</literal> (<literal>uname -r</literal>コマンドの返答値) 用のカスタムバイ"
+"pae</literal> (<command>uname -r</command>コマンドの返答値) 用のカスタムバイ"
 "ナリモジュールパッケージをビルドする場合の大まかな流れを説明します。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:500
+#: chapter-common-tasks.dbk:501
 msgid ""
 "Install a set of kernel headers, matching the kernel for which the modules "
 "are going to be built:"
@@ -2674,94 +2694,94 @@ msgstr ""
 "まず、ビルドしたいモジュールに適切なカーネルヘッダをインストールします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:504
+#: chapter-common-tasks.dbk:505
 #, no-wrap
-msgid "# apt-get install linux-headers-3.2.0-2-686-pae\n"
-msgstr "# apt-get install linux-headers-3.2.0-2-686-pae\n"
+msgid "<prompt>#</prompt> <userinput>apt-get install linux-headers-3.2.0-2-686-pae</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>apt-get install linux-headers-3.2.0-2-686-pae</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:507
+#: chapter-common-tasks.dbk:508
 msgid "Install the package containing the source:"
 msgstr "ソースを含んでいるパッケージをインストールします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:510
+#: chapter-common-tasks.dbk:511
 #, no-wrap
-msgid "# apt-get install squashfs-source\n"
-msgstr "# apt-get install squashfs-source\n"
+msgid "<prompt>#</prompt> <userinput>apt-get install squashfs-source</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>apt-get install squashfs-source</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:513
+#: chapter-common-tasks.dbk:514
 msgid ""
-"Invoke <literal>module-assistant</literal> (aka <literal>m-a</literal>) to "
+"Invoke <command>module-assistant</command> (aka <command>m-a</command>) to "
 "do the heavy lifting:"
 msgstr ""
-"<literal>module-assistant</literal> (または <literal>m-a</literal>) を実行"
+"<command>module-assistant</command> (または <command>m-a</command>) を実行"
 "し、ビルドをします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:517
+#: chapter-common-tasks.dbk:518
 #, no-wrap
-msgid "# m-a build squashfs\n"
-msgstr "# m-a build squashfs\n"
+msgid "<prompt>#</prompt> <userinput>m-a build squashfs</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>m-a build squashfs</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:520
+#: chapter-common-tasks.dbk:521
 msgid ""
-"As a result, a Debian package is going to be built and placed in <literal>/"
-"usr/src</literal>.  It can be installed the usual way, using <literal>dpkg -"
-"i</literal>.  Two last steps (building and installation) may be combined "
+"As a result, a Debian package is going to be built and placed in <filename>/"
+"usr/src</filename>.  It can be installed the usual way, using <command>dpkg -"
+"i</command>.  Two last steps (building and installation) may be combined "
 "using the invocation"
 msgstr ""
-"Debian パッケージがビルドされ、<literal>/usr/src</literal> に配置されます。い"
-"つも通り <literal>dpkg -i</literal> でインストールすることもできます。最後の "
-"2 つのステップ (ビルドとインストール) は、"
+"Debian パッケージがビルドされ、<filename>/usr/src</filename> に配置されます。"
+"いつも通り <command>dpkg -i</command> でインストールすることもできます。最後"
+"の 2 つのステップ (ビルドとインストール) は、"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:526
+#: chapter-common-tasks.dbk:527
 #, no-wrap
-msgid "# m-a auto-install squashfs\n"
-msgstr "# m-a auto-install squashfs\n"
+msgid "<prompt>#</prompt> <userinput>m-a auto-install squashfs</userinput>\n"
+msgstr "<prompt>#</prompt> <userinput>m-a auto-install squashfs</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:529
+#: chapter-common-tasks.dbk:530
 msgid ""
-"Check out the <literal>module-assistant</literal> documentation "
-"(<literal>man module-assistant</literal>) for other options and much more "
+"Check out the <command>module-assistant</command> documentation "
+"(<command>man module-assistant</command>) for other options and much more "
 "information on how to use it."
 msgstr ""
 "で 1 つにまとめることもできます。その他のオプションと使い方について、もっと詳"
-"しく知りたい場合は、<literal>module-assistant</literal> のドキュメント "
-"(<literal>man module-assistant</literal>) を参照してください。"
+"しく知りたい場合は、<command>module-assistant</command> のドキュメント "
+"(<command>man module-assistant</command>) を参照してください。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:534
+#: chapter-common-tasks.dbk:535
 msgid ""
 "Finally, in some rare circumstances, you might need to build the kernel "
 "modules from the upstream source packages.  In that case, follow the "
 "documentation included with the package to build the modules.  If the build "
 "process will require you to specify the directory with the kernel headers, "
 "matching the currently running kernel, for stock Debian kernels this "
-"directory is <literal>/usr/src/linux-headers-<replaceable>uname</"
-"replaceable></literal>, provided by the <literal>linux-headers-"
-"<replaceable>uname</replaceable></literal> package.  Here "
-"<literal><replaceable>uname</replaceable></literal> is the output of the "
-"<literal>uname -r</literal> command.  If you are building and running your "
-"own custom kernels, it is a good idea to keep the original build tree "
-"around, as it also can be used for out-of-tree module building."
+"directory is <filename>/usr/src/linux-headers-<replaceable>uname</"
+"replaceable></filename>, provided by the <package>linux-headers-"
+"<replaceable>uname</replaceable></package> package.  Here "
+"<replaceable>uname</replaceable> is the output of the <command>uname -r</"
+"command> command.  If you are building and running your own custom kernels, "
+"it is a good idea to keep the original build tree around, as it also can be "
+"used for out-of-tree module building."
 msgstr ""
 "とても稀なケースではありますが、カーネルモジュールのパッケージをアップスト"
 "リームのソースからビルドする必要があるかもしれません。その場合、モジュールを"
 "ビルドするためのパッケージに付属しているドキュメントの指示に従って下さい。も"
 "しビルドプロセスの途中で現在使用中のカーネルに合わせたカーネルヘッダを含む"
 "ディレクトリを指定しなければならない場合、Debian の 素のカーネルのディレクト"
-"リは <literal>/usr/src/linux-headers-<replaceable>uname</replaceable></"
-"literal> で、<literal>linux-headers-<replaceable>uname</replaceable></"
-"literal> パッケージによって提供されます。ここでの "
-"<literal><replaceable>uname</replaceable></literal> は <literal>uname -r</"
-"literal> コマンドの出力結果です。もし独自でカスタマイズしたカーネルを使ってい"
-"る場合は、オリジナルのビルドツリーを手元に置いておくと良いでしょう。ビルドツ"
-"リー外にあるモジュールをビルドする際にも役立ちます。"
+"リは <filename>/usr/src/linux-headers-<replaceable>uname</replaceable></"
+"filename> で、<package>linux-headers-<replaceable>uname</replaceable></"
+"package> パッケージによって提供されます。ここでの <replaceable>uname</"
+"replaceable> は <command>uname -r</command> コマンドの出力結果です。もし独自"
+"でカスタマイズしたカーネルを使っている場合は、オリジナルのビルドツリーを手元"
+"に置いておくと良いでしょう。ビルドツリー外にあるモジュールをビルドする際にも"
+"役立ちます。"
 
 #. type: Content of: <chapter><title>
 #: chapter-scope.dbk:5
@@ -2805,16 +2825,16 @@ msgstr ""
 msgid ""
 "Some of the commands mentioned in the text must be executed with superuser "
 "priviliges, either by becoming the <literal>root</literal> user or by using "
-"<literal>sudo</literal>.  To distinguish between commands which may be "
+"<command>sudo</command>.  To distinguish between commands which may be "
 "executed by an unprivileged user and those requiring superuser privileges, "
-"commands are prepended by <literal>$</literal> or <literal>#</literal> "
+"commands are prepended by <prompt>$</prompt> or <prompt>#</prompt> "
 "respectively.  This symbol is not a part of the command."
 msgstr ""
 "本書で説明するコマンドの実行にはスーパーユーザ権限が必要です。<literal>root</"
-"literal> ユーザになるか、<literal>sudo</literal> コマンドを使いましょう。非特"
-"権ユーザでも実行可能なコマンドは <literal>$</literal> を、スーパーユーザ権限"
-"を必要とするコマンドは <literal>#</literal> を、それぞれのコマンドの前に付記"
-"して区別します。これらの記号はコマンドの一部ではありません。"
+"literal> ユーザになるか、<command>sudo</command> コマンドを使いましょう。非特"
+"権ユーザでも実行可能なコマンドは <prompt>$</prompt> を、スーパーユーザ権限を"
+"必要とするコマンドは <prompt>#</prompt> を、それぞれのコマンドの前に付記して"
+"区別します。これらの記号はコマンドの一部ではありません。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-scope.dbk:26
@@ -2831,12 +2851,12 @@ msgid ""
 "gitweb/?p=kernel-handbook/kernel-handbook.git\">git repository</ulink>.  It "
 "is intended as a community project, thus all proposals for improvements and "
 "contributions are welcome.  The preferred way to submit a contribution is to "
-"send it to the <literal>kernel-handbook-general@lists.alioth.debian.org</"
-"literal> mailing list.  When submitting a contribution please clearly "
-"identify its copyright holder and include the licensing statement.  Note "
-"that to be accepted the contribution must be licensed under the same license "
-"as the rest of the document, namely GPL version 2 or later.  Below is the "
-"list of current contributors:"
+"send it to the <email>kernel-handbook-general@lists.alioth.debian.org</"
+"email> mailing list.  When submitting a contribution please clearly identify "
+"its copyright holder and include the licensing statement.  Note that to be "
+"accepted the contribution must be licensed under the same license as the "
+"rest of the document, namely GPL version 2 or later.  Below is the list of "
+"current contributors:"
 msgstr ""
 "このハンドブックは <ulink url=\"https://alioth.debian.org\">Alioth</ulink> 上"
 "の <ulink url=\"https://alioth.debian.org/projects/kernel-handbook\">kernel-"
@@ -2844,10 +2864,10 @@ msgstr ""
 "<ulink url=\"https://anonscm.debian.org/gitweb/?p=kernel-handbook/kernel-"
 "handbook.git\">git リポジトリ</ulink> からチェックアウトできます。このプロ"
 "ジェクトはコミュニティ・プロジェクトです。改善のための提案と協力は全て歓迎し"
-"ます。協力して下さる場合は、<literal>kernel-handbook-general@lists.alioth."
-"debian.org</literal> メーリングリスト宛に連絡をして下さい。寄稿をする場合は著"
-"作権保持者を明示しライセンスの宣言文を一緒に送って下さい。寄稿を本書に取り入"
-"れるためには他の文書と同じライセンスを宣言しなければなりません。具体的には、"
+"ます。協力して下さる場合は、<email>kernel-handbook-general@lists.alioth."
+"debian.org</email> メーリングリスト宛に連絡をして下さい。寄稿をする場合は著作"
+"権保持者を明示しライセンスの宣言文を一緒に送って下さい。寄稿を本書に取り入れ"
+"るためには他の文書と同じライセンスを宣言しなければなりません。具体的には、"
 "GPL version 2 or later になります。現在の貢献者リストです。 (敬称略)"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
@@ -2904,18 +2924,18 @@ msgid ""
 "and security fixes is available on as many architectures as possible, "
 "starting with 2.6.12 the kernel team introduced a new packaging scheme.  In "
 "it most of the kernel-related binary packages are built from a single source "
-"package <literal>linux</literal>.  The <literal>linux</literal> source "
+"package <package>linux</package>.  The <package>linux</package> source "
 "package supports building of kernel images and headers for all currently "
 "supported architectures.  Subsequent sections of this chapter document the "
-"naming and contents of the binary packages built from the <literal>linux</"
-"literal> source package."
+"naming and contents of the binary packages built from the <package>linux</"
+"package> source package."
 msgstr ""
 "バグやセキュリティフィックス等、必須の修正が入った最新のカーネルバージョンが"
 "可能な限り全てのアーキテクチャで利用可能であることを担保するために、カーネル"
 "チームは 2.6.12 から新しいパッケージング方法を採用しています。新しい方法で"
-"は、ほぼ全てのカーネル関連のバイナリパッケージは、<literal>linux</literal> "
-"(以前は <literal>linux-2.6</literal> でした) という唯一のソースパッケージから"
-"ビルドされます。<literal>linux</literal> ソースパッケージは、現在サポートして"
+"は、ほぼ全てのカーネル関連のバイナリパッケージは、<package>linux</package> "
+"(以前は <package>linux-2.6</package> でした) という唯一のソースパッケージから"
+"ビルドされます。<package>linux</package> ソースパッケージは、現在サポートして"
 "いる全てのアーキテクチャに対するカーネルイメージとカーネルヘッダのビルドを支"
 "援します。この章の次のセクションからは、<literal>linux</literal> ソースパッ"
 "ケージからビルドされるバイナリパッケージの命名規則とその内容について説明しま"
@@ -2928,72 +2948,72 @@ msgstr "アーキテクチャ非依存パッケージ"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:23
-msgid "<literal>linux-source-<replaceable>version</replaceable></literal>"
-msgstr "<literal>linux-source-<replaceable>version</replaceable></literal>"
+msgid "<package>linux-source-<replaceable>version</replaceable></package>"
+msgstr "<package>linux-source-<replaceable>version</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:26
 msgid ""
 "This package contains the Debian kernel source tarball.  The patchlevel of "
 "the source is determined by the Debian revision of the package, for example "
-"the version 4.2.5-1 of the package <literal>linux-source-4.2</literal> "
+"the version 4.2.5-1 of the package <package>linux-source-4.2</package> "
 "contains the version 4.2.5 of the Debian kernel source patched to patchlevel "
 "1.  Once the package is installed, the source tarball is available at "
-"<literal>/usr/src/linux-source-<replaceable>version</replaceable>.tar.xz</"
-"literal>."
+"<filename>/usr/src/linux-source-<replaceable>version</replaceable>.tar.xz</"
+"filename>."
 msgstr ""
 "このパッケージには Debian カーネルソースの tarball が含まれています。ソースの"
 "パッチレベルはパッケージの Debian リビジョンによって決定されます。例えば、"
-"4.2.5-1 というバージョンの <literal>linux-source-4.2</literal> パッケージに"
+"4.2.5-1 というバージョンの <package>linux-source-4.2</package> パッケージに"
 "は、パッチレベル 1 のパッチが適用されたバージョン 4.2.5 の Debian カーネル"
 "ソースが含まれています。パッケージがインストールされると、tarball 化された"
-"ソースが <literal>/usr/src/linux-source-<replaceable>version</replaceable>."
-"tar.xz</literal> に配置され利用可能になります。"
+"ソースが <filename>/usr/src/linux-source-<replaceable>version</replaceable>."
+"tar.xz</filename> に配置され利用可能になります。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:36
-msgid "<literal>linux-manual-<replaceable>version</replaceable></literal>"
-msgstr "<literal>linux-manual-<replaceable>version</replaceable></literal>"
+msgid "<package>linux-manual-<replaceable>version</replaceable></package>"
+msgstr "<package>linux-manual-<replaceable>version</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:39
 msgid ""
 "This package contains the manual pages for the functions, constituting the "
-"kernel API.  These pages are installed into <literal>/usr/share/man/man9/</"
-"literal>, and are accessible with the standard <literal>man</literal> "
-"command.  Due to filename conflicts, only one <literal>linux-manual</"
-"literal> package may be installed at any given time."
+"kernel API.  These pages are installed into <filename>/usr/share/man/man9/</"
+"filename>, and are accessible with the standard <command>man</command> "
+"command.  Due to filename conflicts, only one <package>linux-manual</"
+"package> package may be installed at any given time."
 msgstr ""
 "このパッケージはカーネルの API を含めた関数へのマニュアルページが含まれていま"
-"す。これらは、<literal>/usr/share/man/man9/</literal> にインストールされ、標"
-"準の <literal>man</literal> コマンドで参照できます。ファイル名が衝突してしま"
-"うため、<literal>linux-manual</literal> パッケージはどれか 1 つのバージョンし"
-"かインストールできません。"
+"す。これらは、<filename>/usr/share/man/man9/</filename> にインストールされ、"
+"標準の <command>man</command> コマンドで参照できます。ファイル名が衝突してし"
+"まうため、<package>linux-manual</package> パッケージはどれか 1 つのバージョン"
+"しかインストールできません。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:48
-msgid "<literal>linux-doc-<replaceable>version</replaceable></literal>"
-msgstr "<literal>linux-doc-<replaceable>version</replaceable></literal>"
+msgid "<package>linux-doc-<replaceable>version</replaceable></package>"
+msgstr "<package>linux-doc-<replaceable>version</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:51
 msgid ""
 "This package contains the rest of the kernel documentation in various "
-"formats.  It is installed in <literal>/usr/share/doc/linux-doc-"
-"<replaceable>version</replaceable></literal>."
+"formats.  It is installed in <filename>/usr/share/doc/linux-doc-"
+"<replaceable>version</replaceable></filename>."
 msgstr ""
 "このパッケージは、上記以外のカーネル関連のドキュメントを様々なフォーマットで"
-"収録しています。このパッケージは <literal>/usr/share/doc/linux-doc-"
-"<replaceable>version</replaceable></literal> にインストールされます。"
+"収録しています。このパッケージは <filename>/usr/share/doc/linux-doc-"
+"<replaceable>version</replaceable></filename> にインストールされます。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:58
 msgid ""
-"<literal>linux-support-<replaceable>version</replaceable>-"
-"<replaceable>abiname</replaceable></literal>"
+"<package>linux-support-<replaceable>version</replaceable>-"
+"<replaceable>abiname</replaceable></package>"
 msgstr ""
-"<literal>linux-support-<replaceable>version</replaceable>-"
-"<replaceable>abiname</replaceable></literal>"
+"<package>linux-support-<replaceable>version</replaceable>-"
+"<replaceable>abiname</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:61
@@ -3089,76 +3109,77 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:109
 msgid ""
-"<literal>linux-headers-<replaceable>version</replaceable>-"
+"<package>linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
-"replaceable>]</literal>"
+"replaceable>]</package>"
 msgstr ""
-"<literal>linux-headers-<replaceable>version</replaceable>-"
+"<package>linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
-"replaceable>]</literal>"
+"replaceable>]</package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:112
 msgid ""
 "This package contains a common set of kernel headers for a particular "
 "featureset (or arch, if featureset is empty).  Together with the flavour-"
-"specific <literal>linux-headers</literal> package it provides a full set of "
+"specific <package>linux-headers</package> package it provides a full set of "
 "kernel headers, suitable for building of out-of-tree modules.  This package "
 "should not normally be installed directly, but only as a dependency of the "
 "flavour-specific headers package (see next description).  It unpacks into "
-"the <literal>/usr/src/linux-headers-<replaceable>version</replaceable>-"
+"the <filename>/usr/src/linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
-"replaceable>]</literal> directory."
+"replaceable>]</filename> directory."
 msgstr ""
 "このパッケージは、特定のフィーチャセット (もしフィーチャセットが空の場合は"
 "アーキテクチャ) のための共通のカーネルヘッダが含まれています。フレーバ固有の "
-"<literal>linux-headers</literal> パッケージと合わせることでカーネルヘッダのフ"
+"<package>linux-headers</package> パッケージと合わせることでカーネルヘッダのフ"
 "ルセットとなるため、ツリー外のモジュールのビルドに最適です。このパッケージは"
 "直接インストールされるべきではないパッケージで、特定のフレーバ固有のヘッダ"
 "パッケージの依存パッケージとしてのみインストールできます。 (次の説明を読んで"
-"下さい。) <literal>/usr/src/linux-headers-<replaceable>version</replaceable>-"
-"<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
-"replaceable>]</literal> ディレクトリに展開されます。"
+"下さい。) <filename>/usr/src/linux-headers-<replaceable>version</"
+"replaceable>-<replaceable>abiname</replaceable>-common[-"
+"<replaceable>featureset</replaceable>]</filename> ディレクトリに展開されま"
+"す。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:127
 msgid ""
-"<literal>linux-headers-<replaceable>version</replaceable>-"
+"<package>linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></package>"
 msgstr ""
-"<literal>linux-headers-<replaceable>version</replaceable>-"
+"<package>linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:130
 msgid ""
 "This package provides flavour-specific header files.  It depends on the "
-"corresponding <literal>linux-headers-<replaceable>version</replaceable>-"
+"corresponding <package>linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
-"replaceable>]</literal> package, and sets up symbolic links into its "
-"directory tree in such a way that the directory <literal>/usr/src/linux-"
+"replaceable>]</package> package, and sets up symbolic links into its "
+"directory tree in such a way that the directory <filename>/usr/src/linux-"
 "headers-<replaceable>version</replaceable>-<replaceable>abiname</"
 "replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
-"replaceable></literal> appears to contain a full set of headers, required "
+"replaceable></filename> appears to contain a full set of headers, required "
 "for building of out-of-tree kernel modules.  For more information on this "
 "check out <xref linkend=\"s-common-out-of-tree\"/>.  A complete set of "
 "kernel headers matching the currently running official kernel may be "
 "installed with a command"
 msgstr ""
 "このパッケージはフレーバ固有のヘッダファイルを提供します。このパッケージに対"
-"応する <literal>linux-headers-<replaceable>version</replaceable>-"
+"応する <package>linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
-"replaceable>]</literal> パッケージに依存しており、シンボリックリンクをディレ"
-"クトリツリー中に設定します。そうすることによって、 <literal>/usr/src/linux-"
+"replaceable>]</package> パッケージに依存しており、シンボリックリンクをディレ"
+"クトリツリー中に設定します。そうすることによって、 <filename>/usr/src/linux-"
 "headers-<replaceable>version</replaceable>-<replaceable>abiname</"
 "replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
-"replaceable></literal> がツリー外のカーネルモジュールをビルドするために必要な"
-"フルセットのヘッダーを持っているように見えます。さらに詳しく知りたい場合は、"
-"<xref linkend=\"s-common-out-of-tree\"/> を参照して下さい。実行中の公式カーネ"
-"ルに対応したカーネルヘッダの完全なセットは次のコマンドでインストールすること"
-"ができます："
+"replaceable></filename> がツリー外のカーネルモジュールをビルドするために必要"
+"なフルセットのヘッダーを持っているように見えます。さらに詳しく知りたい場合"
+"は、<xref linkend=\"s-common-out-of-tree\"/> を参照して下さい。実行中の公式"
+"カーネルに対応したカーネルヘッダの完全なセットは次のコマンドでインストールす"
+"ることができます："
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><screen>
 #: chapter-packaging.dbk:142
@@ -3169,42 +3190,42 @@ msgstr "apt-get install linux-headers-$(uname -r)\n"
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:147
 msgid ""
-"<literal>linux-image[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<package>linux-image[-<replaceable>featureset</replaceable>]-"
+"<replaceable>flavour</replaceable></package>"
 msgstr ""
-"<literal>linux-image[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<package>linux-image[-<replaceable>featureset</replaceable>]-"
+"<replaceable>flavour</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:148
 msgid ""
-"<literal>linux-headers[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<package>linux-headers[-<replaceable>featureset</replaceable>]-"
+"<replaceable>flavour</replaceable></package>"
 msgstr ""
-"<literal>linux-headers[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<package>linux-headers[-<replaceable>featureset</replaceable>]-"
+"<replaceable>flavour</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:151
 msgid ""
 "These virtual packages provide (via dependencies) the latest binary image "
 "and matching set of header files (respectively) for a particular flavour.  "
-"Example: <literal>linux-image-rt-686-pae</literal>"
+"Example: <package>linux-image-rt-686-pae</package>"
 msgstr ""
 "これらの仮想パッケージは (依存関係を経由して)、 特定のフレーバ用の最新のバイ"
 "ナリイメージとそれに対応する (それぞれの) ヘッダファイルを提供します。例: "
-"<literal>linux-image-rt-686-pae</literal>"
+"<package>linux-image-rt-686-pae</package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:158
 msgid ""
-"<literal>linux-image-<replaceable>version</replaceable>-"
+"<package>linux-image-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></package>"
 msgstr ""
-"<literal>linux-image-<replaceable>version</replaceable>-"
+"<package>linux-image-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:161
@@ -3223,13 +3244,13 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:168
 msgid ""
-"<literal>/boot/vmlinuz-<replaceable>version</replaceable>-"
+"<filename>/boot/vmlinuz-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></filename>"
 msgstr ""
-"<literal>/boot/vmlinuz-<replaceable>version</replaceable>-"
+"<filename>/boot/vmlinuz-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></filename>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:171
@@ -3239,13 +3260,13 @@ msgstr "バイナリ (圧縮された) kernel イメージです。"
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:176
 msgid ""
-"<literal>/boot/initrd.img-<replaceable>version</replaceable>-"
+"<filename>/boot/initrd.img-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></filename>"
 msgstr ""
-"<literal>/boot/initrd.img-<replaceable>version</replaceable>-"
+"<filename>/boot/initrd.img-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></filename>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:179
@@ -3263,13 +3284,13 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:187
 msgid ""
-"<literal>/boot/config-<replaceable>version</replaceable>-"
+"<filename>/boot/config-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></filename>"
 msgstr ""
-"<literal>/boot/config-<replaceable>version</replaceable>-"
+"<filename>/boot/config-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable></literal>"
+"<replaceable>flavour</replaceable></filename>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:190
@@ -3283,13 +3304,13 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:196
 msgid ""
-"<literal>/lib/modules/<replaceable>version</replaceable>-"
+"<filename>/lib/modules/<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable>/</literal>"
+"<replaceable>flavour</replaceable>/</filename>"
 msgstr ""
-"<literal>/lib/modules/<replaceable>version</replaceable>-"
+"<filename>/lib/modules/<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-"
-"<replaceable>flavour</replaceable>/</literal>"
+"<replaceable>flavour</replaceable>/</filename>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:199
@@ -3299,8 +3320,8 @@ msgstr ""
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:207
-msgid "<literal>linux-libc-dev</literal>"
-msgstr "<literal>linux-libc-dev</literal>"
+msgid "<package>linux-libc-dev</package>"
+msgstr "<package>linux-libc-dev</package>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-packaging.dbk:210
@@ -3395,11 +3416,11 @@ msgstr ""
 #| "this will be dropped in wheezy+1."
 msgid ""
 "Many programs parse the kernel version string reported by the "
-"<literal>uname</literal> system call or command and expect to find at least "
+"<command>uname</command> system call or command and expect to find at least "
 "3 version components separated by dots.  For compatibility, the official "
 "kernel packages currently add '.0' to the upstream version."
 msgstr ""
-"多くのプログラムがカーネルバージョンを<literal>uname</literal>システムコール"
+"多くのプログラムがカーネルバージョンを<command>uname</command>システムコール"
 "かコマンドからパースしますが、最低でも 3 つのバージョンのパーツがドットで区切"
 "られていることが前提となっています。互換性のために、公式のカーネルパッケージ"
 "は現在アップストリームバージョンに「.0」を付けていますが、これは wheezy+1 (訳"
@@ -3440,16 +3461,16 @@ msgid ""
 "In official kernel packages, we change the <replaceable>abiname</"
 "replaceable> part of the kernel version to mark ABI changes that aren't due "
 "to a new upstream version.  This part comes from the <literal>abiname</"
-"literal> setting in <literal>debian/config/defines</literal>.  We use either "
-"a number or 'trunk' (for experimental), but for a custom package it should "
-"be some other string."
+"literal> setting in <filename>debian/config/defines</filename>.  We use "
+"either a number or 'trunk' (for experimental), but for a custom package it "
+"should be some other string."
 msgstr ""
 "公式のカーネルパッケージでは、私達はカーネルバージョン名の一部である "
 "<replaceable>abiname</replaceable> を変更します。これは、新しいアップストリー"
 "ムバージョンに起因しない ABI の変更をマークするためです。この部分は "
-"<literal>debian/config/defines</literal> 中の <literal>abiname</literal> の設"
-"定で管理されています。私達は、この部分に 「trunk」(experimental 用) か番号を"
-"使用しますが、カスタムパッケージにはそれ以外の文字列を使うべきです。"
+"<filename>debian/config/defines</filename> 中の <literal>abiname</literal> の"
+"設定で管理されています。私達は、この部分に 「trunk」(experimental 用) か番号"
+"を使用しますが、カスタムパッケージにはそれ以外の文字列を使うべきです。"
 
 #. type: Content of: <chapter><section><section><title>
 #: chapter-versions.dbk:74
@@ -3475,22 +3496,22 @@ msgstr ""
 #: chapter-versions.dbk:83
 msgid ""
 "Bug fixes or configuration changes to the kernel may alter the ABI.  If an "
-"exported function is conditional on <literal>CONFIG_</"
-"literal><replaceable>FOO</replaceable>, or it uses a type whose definition "
-"depends on <literal>CONFIG_</literal><replaceable>FOO</replaceable>, then "
-"turning <literal>CONFIG_</literal><replaceable>FOO</replaceable> on or off "
-"changes the ABI of that function, and thus of the kernel as a whole.  "
-"Enabling or changing the configuration of a single driver usually doesn't "
-"change the ABI, because most drivers don't export anything."
+"exported function is conditional on <symbol>CONFIG_<replaceable>FOO</"
+"replaceable></symbol>, or it uses a type whose definition depends on "
+"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol>, then turning "
+"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> on or off changes the "
+"ABI of that function, and thus of the kernel as a whole.  Enabling or "
+"changing the configuration of a single driver usually doesn't change the "
+"ABI, because most drivers don't export anything."
 msgstr ""
 "カーネルへのバグ修正や設定の変更は ABI の変更をともなう場合があります。もしエ"
-"クスポートされた関数が <literal>CONFIG_</literal><replaceable>FOO</"
-"replaceable> を条件としているか、もしくは型定義が <literal>CONFIG_</"
-"literal><replaceable>FOO</replaceable> に依存するものを使用している場合、"
-"<literal>CONFIG_</literal><replaceable>FOO</replaceable> の有効無効によってそ"
-"の関数の ABI、ひいてはカーネル全体の ABI が変更になります。1 つのドライバの設"
-"定を有効化したり変更したりする場合、たいてい ABI は変更しません。ほとんどのド"
-"ライバは何もエクスポートしないからです。"
+"クスポートされた関数が <symbol>CONFIG_<replaceable>FOO</replaceable></"
+"symbol> を条件としているか、もしくは型定義が "
+"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> に依存するものを使用し"
+"ている場合、<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> の有効無効"
+"によってその関数の ABI、ひいてはカーネル全体の ABI が変更になります。1 つのド"
+"ライバの設定を有効化したり変更したりする場合、たいてい ABI は変更しません。ほ"
+"とんどのドライバは何もエクスポートしないからです。"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-versions.dbk:94
@@ -3511,12 +3532,12 @@ msgstr ""
 #: chapter-versions.dbk:101
 msgid ""
 "We collect the symbol versions for previously uploaded packages under the "
-"directory <literal>debian/abi</literal> and then compare the new kernel with "
-"those.  If the ABI name is unchanged but the ABI itself is changed - except "
-"for additions, or changes that we have marked as acceptable - then the build "
-"is aborted."
+"directory <filename>debian/abi</filename> and then compare the new kernel "
+"with those.  If the ABI name is unchanged but the ABI itself is changed - "
+"except for additions, or changes that we have marked as acceptable - then "
+"the build is aborted."
 msgstr ""
-"私達は以前アップロードした <literal>debian/abi</literal> ディレクトリ以下の"
+"私達は以前アップロードした <filename>debian/abi</filename> ディレクトリ以下の"
 "パッケージのシンボルバージョンを修正し、新しいカーネルのものと比較します。も"
 "し ABI 名が変更さないにも関わらず ABI そのものに変更がある場合は、ビルドを中"
 "止します。"
@@ -3525,16 +3546,16 @@ msgstr ""
 #: chapter-versions.dbk:108
 msgid ""
 "If the kernel ABI has changed you must then change the ABI name in "
-"<literal>debian/config/defines</literal>.  Then run the command"
+"<filename>debian/config/defines</filename>.  Then run the command"
 msgstr ""
-"カーネル ABI が変更された場合は、<literal>debian/config/defines</literal> の "
-"ABI 名を変更しなければなりません。"
+"カーネル ABI が変更された場合は、<filename>debian/config/defines</filename> "
+"の ABI 名を変更しなければなりません。"
 
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-versions.dbk:112
 #, no-wrap
-msgid "$ fakeroot debian/rules debian/control-real\n"
-msgstr "$ fakeroot debian/rules debian/control-real\n"
+msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-versions.dbk:115
