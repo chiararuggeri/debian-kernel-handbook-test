@@ -11,12 +11,12 @@ sufficient to install the latest
 the source, for example:
 </para>
 <screen>
-# apt-get install linux-source-3.2
-$ tar jxf /usr/src/linux-source-3.2.tar.bz2
+# apt-get install linux-source-4.3
+$ tar xaf /usr/src/linux-source-4.3.tar.xz
 </screen>
 <para>
 The unpacked source tree then will be available in
-<literal>linux-source-3.2</literal> directory.
+<literal>linux-source-4.3</literal> directory.
 </para>
 </section>
 
@@ -298,7 +298,7 @@ repository.  First ensure you have the necessary tools installed:
 Then if you have a tarball, run a command such as:
 </para>
 <screen>
-$ debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2
+$ debian/bin/genorig.py ../linux-4.3.tar.xz ../patch-4.4-rc1.xz
 </screen>
 <para>
 Or if you have a git repository, pass the name of its directory:
@@ -331,9 +331,9 @@ source is to use the <literal>linux-source</literal> package and the
 <literal>make deb-pkg</literal> target.  First, prepare the kernel tree:
 </para>
 <screen>
-# apt-get install linux-source-3.2
-$ tar xjf /usr/src/linux-source-3.2.tar.bz2
-$ cd linux-source-3.2
+# apt-get install linux-source-4.3
+$ tar xaf /usr/src/linux-source-4.3.tar.xz
+$ cd linux-source-4.3
 </screen>
 <para>
 The kernel now needs to be configured, that is you have to set the kernel
@@ -421,7 +421,7 @@ source is downloaded using your favourite browser or using wget, as follows:
 </para>
 <screen>
  
-$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.bz2
+$ wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
 </screen>
 <para>
 The integrity of the downloaded archive may be verified by fetching the
@@ -429,13 +429,13 @@ corresponding cryptographic signature
 </para>
 <screen>
  
-$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.sign
+$ wget http://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign
 </screen>
 <para>
 and running this command (<literal>gnupg</literal> package must be installed):
 </para>
 <screen>
-$ bunzip2 -c linux-3.4.tar.bz2 | gpg --verify linux-3.4.tar.sign -
+$ unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -
 </screen>
 <para>
 Successful verification results in output similar to the one below:
@@ -451,11 +451,11 @@ Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886
 After that the archive may be unpacked using
 </para>
 <screen>
-$ tar xjf linux-3.4.tar.bz2
-$ cd linux-3.4
+$ tar xaf linux-4.3.tar.xz
+$ cd linux-4.3
 </screen>
 <para>
-The unpacked kernel tree (in <literal>linux-3.4</literal> now has to be
+The unpacked kernel tree (in <literal>linux-4.3</literal> now has to be
 configured.  The existing configuration file may be used as a starting point
 </para>
 <screen>
