@@ -39,10 +39,10 @@ msgstr "version &version;"
 #. type: Content of: <book><bookinfo>
 #: kernel-handbook.dbk:21
 msgid ""
-"<pubdate>&date;</pubdate> <copyright><year>2005-2012</year><holder>Debian "
+"<pubdate>&date;</pubdate> <copyright><year>2005-2015</year><holder>Debian "
 "Kernel Handbook Project</holder></copyright>"
 msgstr ""
-"<pubdate>&date;</pubdate> <copyright><year>2005-2012</year><holder>Debian "
+"<pubdate>&date;</pubdate> <copyright><year>2005-2015</year><holder>Debian "
 "Kernel Handbook Project</holder></copyright>"
 
 #. type: Content of: <book><bookinfo><legalnotice><para>
