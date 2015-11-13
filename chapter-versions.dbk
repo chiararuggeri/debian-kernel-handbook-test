@@ -11,9 +11,9 @@
 <para>
 The version that Linus or a stable series maintainer uses for a release.
 Currently Linus will use the version format:
-3.<replaceable>x</replaceable>[-rc<replaceable>y</replaceable>].  Stable series
+4.<replaceable>x</replaceable>[-rc<replaceable>y</replaceable>].  Stable series
 maintainers use the version format:
-3.<replaceable>x</replaceable>.<replaceable>y</replaceable>.
+4.<replaceable>x</replaceable>.<replaceable>y</replaceable>.
 </para>
 </listitem>
 </varlistentry>

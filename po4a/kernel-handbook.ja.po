@@ -3341,14 +3341,14 @@ msgstr "アップストリームバージョン"
 #: chapter-versions.dbk:12
 msgid ""
 "The version that Linus or a stable series maintainer uses for a release.  "
-"Currently Linus will use the version format: 3.<replaceable>x</replaceable>[-"
+"Currently Linus will use the version format: 4.<replaceable>x</replaceable>[-"
 "rc<replaceable>y</replaceable>].  Stable series maintainers use the version "
-"format: 3.<replaceable>x</replaceable>.<replaceable>y</replaceable>."
+"format: 4.<replaceable>x</replaceable>.<replaceable>y</replaceable>."
 msgstr ""
 "Linus や安定版のメンテナがリリースに使用するバージョンです。現在 Linus はバー"
-"ジョンナンバに 3.<replaceable>x</replaceable>[-rc<replaceable>y</"
+"ジョンナンバに 4.<replaceable>x</replaceable>[-rc<replaceable>y</"
 "replaceable>] というフォーマットを使用しています。安定版のメンテナはバージョ"
-"ンナンバに 3.<replaceable>x</replaceable>.<replaceable>y</replaceable>. とい"
+"ンナンバに 4.<replaceable>x</replaceable>.<replaceable>y</replaceable>. とい"
 "うフォーマットを使用しています。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
