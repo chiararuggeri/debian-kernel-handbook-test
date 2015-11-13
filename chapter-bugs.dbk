@@ -325,7 +325,7 @@ unlikely that you are the only person experiencing a particular problem, there
 is always a chance that it has been discussed elsewhere, and a possible
 solution, patch, or workaround has been proposed.  If such information exists,
 always include the references to it in your report.  Check the <ulink
-url="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux&amp;src=linux-2.6">current
+url="http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux">current
 bug list</ulink> to see whether something similar has been reported already.
 </para>
 </listitem>

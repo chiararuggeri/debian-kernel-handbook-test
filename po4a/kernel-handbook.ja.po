@@ -1065,9 +1065,9 @@ msgid ""
 "problem, there is always a chance that it has been discussed elsewhere, and "
 "a possible solution, patch, or workaround has been proposed.  If such "
 "information exists, always include the references to it in your report.  "
-"Check the <ulink url=\"http://bugs.debian.org/cgi-bin/pkgreport.cgi?"
-"src=linux&amp;src=linux-2.6\">current bug list</ulink> to see whether "
-"something similar has been reported already."
+"Check the <ulink url=\"http://bugs.debian.org/cgi-bin/pkgreport.cgi?src=linux"
+"\">current bug list</ulink> to see whether something similar has been "
+"reported already."
 msgstr ""
 "<emphasis>調査を行う</emphasis>: バグ報告を行う前に特定のエラーメッセージや症"
 "状に関して web 上で検索を行いましょう。あなただけがある問題に遭遇しているとい"
@@ -1709,43 +1709,33 @@ msgstr ""
 msgid "Preparation"
 msgstr "準備"
 
-#. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:30 chapter-common-tasks.dbk:240
-msgid ""
-"For Debian 6.0 (squeeze) and earlier versions, substitute the source package "
-"name <literal>linux-2.6</literal> for <literal>linux</literal>."
-msgstr ""
-"Debian 6.0 (squeeze) 以前のバージョンでは、ソースパッケージ名 "
-"<literal>linux</literal> を <literal>linux-2.6</literal> に読みかえてくださ"
-"い。"
-
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:34
+#: chapter-common-tasks.dbk:30
 msgid "Run the following commands:"
 msgstr "次のコマンドを実行します:"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:38
+#: chapter-common-tasks.dbk:34
 msgid "<literal># apt-get install build-essential fakeroot</literal>"
 msgstr "<literal># apt-get install build-essential fakeroot</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:39 chapter-common-tasks.dbk:250
+#: chapter-common-tasks.dbk:35 chapter-common-tasks.dbk:221
 msgid "<literal># apt-get build-dep linux</literal>"
 msgstr "<literal># apt-get build-dep linux</literal>"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:42
+#: chapter-common-tasks.dbk:38
 msgid "This will install the packages required by the kernel build process."
 msgstr "カーネルのビルド時に要求されるビルド依存がインストールされます。"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:47
+#: chapter-common-tasks.dbk:43
 msgid "<literal>$ apt-get source linux</literal>"
 msgstr "<literal>$ apt-get source linux</literal>"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:50
+#: chapter-common-tasks.dbk:46
 msgid ""
 "This will download and unpack the <literal>linux</literal> source package, "
 "making the tree available in the <literal>linux-<replaceable>version</"
@@ -1760,22 +1750,22 @@ msgstr ""
 "わしています。"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:60
+#: chapter-common-tasks.dbk:56
 msgid "<literal>$ cd linux-<replaceable>version</replaceable></literal>"
 msgstr "<literal>$ cd linux-<replaceable>version</replaceable></literal>"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:63
+#: chapter-common-tasks.dbk:59
 msgid "Enter the source directory."
 msgstr "ソースディレクトリに入ります。"
 
 #. type: Content of: <chapter><section><section><section><title>
-#: chapter-common-tasks.dbk:68
+#: chapter-common-tasks.dbk:64
 msgid "Disk space requirements"
 msgstr "必要なディスクの空きスペース"
 
 #. type: Content of: <chapter><section><section><section><para>
-#: chapter-common-tasks.dbk:70
+#: chapter-common-tasks.dbk:66
 msgid ""
 "Building binary packages for a single kernel flavour with debug info enabled "
 "(currently true for the <literal>686-pae</literal>, <literal>amd64</"
@@ -1792,7 +1782,7 @@ msgstr ""
 "上の空き容量が必要です。"
 
 #. type: Content of: <chapter><section><section><section><para>
-#: chapter-common-tasks.dbk:78
+#: chapter-common-tasks.dbk:74
 msgid ""
 "Building with debug info disabled requires about 2 GB and 25 MB "
 "respectively.  You can disable debug info by changing the value of "
@@ -1805,7 +1795,7 @@ msgstr ""
 "<literal>false</literal>にすることで無効にできます。"
 
 #. type: Content of: <chapter><section><section><section><para>
-#: chapter-common-tasks.dbk:84
+#: chapter-common-tasks.dbk:80
 msgid ""
 "Building all binary packages for i386 or amd64 currently requires about "
 "20 GB space in the package directory.  Other architectures with no debug "
@@ -1816,12 +1806,12 @@ msgstr ""
 "が少ない他のアーキテクチャに必要な空き容量はこれよりも少ないでしょう。"
 
 #. type: Content of: <chapter><section><section><title>
-#: chapter-common-tasks.dbk:92
+#: chapter-common-tasks.dbk:88
 msgid "Simple patching and building"
 msgstr "簡単なパッチ適用とビルド実行"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:94
+#: chapter-common-tasks.dbk:90
 msgid ""
 "The source package includes a script to simplify the process of building "
 "with extra patches.  You can use this by running commands such as:"
@@ -1830,7 +1820,7 @@ msgstr ""
 "のスクリプトが含まれます。このスクリプトは次のコマンドで実行します:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:98
+#: chapter-common-tasks.dbk:94
 #, no-wrap
 msgid ""
 "# apt-get install devscripts\n"
@@ -1840,7 +1830,7 @@ msgstr ""
 "$ bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:102
+#: chapter-common-tasks.dbk:98
 msgid ""
 "This script has options to control the flavour, featureset, etc.  For a "
 "summary of the options, run:"
@@ -1849,25 +1839,25 @@ msgstr ""
 "きます。オプションの概要を見るには、次のコマンドを実行して下さい:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:106
+#: chapter-common-tasks.dbk:102
 #, no-wrap
 msgid "$ bash debian/bin/test-patches\n"
 msgstr "$ bash debian/bin/test-patches\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:109
+#: chapter-common-tasks.dbk:105
 msgid "You may then need to build the linux-base package as well:"
 msgstr ""
 "場合によっては、linux-base パッケージもビルドする必要があるかもしれません:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:112
+#: chapter-common-tasks.dbk:108
 #, no-wrap
 msgid "$ fakeroot make -f debian/rules.real install-linux-base\n"
 msgstr "$ fakeroot make -f debian/rules.real install-linux-base\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:115
+#: chapter-common-tasks.dbk:111
 msgid ""
 "However, if you need to change the configuration or make other changes, you "
 "should not use this script and should follow the instructions below."
@@ -1876,87 +1866,54 @@ msgstr ""
 "に、次に説明する手順に従ってください。"
 
 #. type: Content of: <chapter><section><section><title>
-#: chapter-common-tasks.dbk:120
+#: chapter-common-tasks.dbk:116
 msgid "Applying patches or configuration changes"
 msgstr "パッチの適用や設定の変更"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:122
+#: chapter-common-tasks.dbk:118
 msgid ""
 "It is possible to apply extra patches to the source before starting the "
 "build.  In the <literal>linux</literal> source package, the default (non-"
-"featureset)  patches are automatically applied in the top level directory.  "
-"If you are building the <literal>linux-2.6</literal> source package or "
-"building with a featureset, you should first apply the existing patches by "
-"running:"
+"featureset)  patches are automatically applied in the top level directory."
 msgstr ""
 "ビルドを開始する前に追加のパッチをソースに適用することができます。"
 "<literal>linux</literal> ソースパッケージには、トップディレクトリにデフォル"
-"ト (フィーチャセットが無い状態) のパッチが自動的に適用されます。もし "
-"<literal>linux-2.6</literal> ソースパッケージをフィーチャセットつきでビルドす"
-"るには、まず今あるパッチを適用しましょう。"
-
-#. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:129
-#, no-wrap
-msgid "$ fakeroot debian/rules source\n"
-msgstr "$ fakeroot debian/rules source\n"
+"ト (フィーチャセットが無い状態) のパッチが自動的に適用されます。"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:132
+#: chapter-common-tasks.dbk:123
 msgid "The patched source appears in the following directories."
 msgstr "パッチを適用したソースは次のディレクトリに格納されます。"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:136
-msgid "linux default source:"
+#: chapter-common-tasks.dbk:127
+#, fuzzy
+#| msgid "linux default source:"
+msgid "default source:"
 msgstr "Linux デフォルトのソース:"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:139
+#: chapter-common-tasks.dbk:130
 msgid "top level"
 msgstr "最上位の階層"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:144
-msgid "linux source with featureset:"
+#: chapter-common-tasks.dbk:135
+#, fuzzy
+#| msgid "linux source with featureset:"
+msgid "source with featureset:"
 msgstr "フィーチャセットを含む linux ソース:"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:147
+#: chapter-common-tasks.dbk:138
 msgid ""
 "<literal>debian/build/source_<replaceable>featureset</replaceable></literal>"
 msgstr ""
 "<literal>debian/build/source_<replaceable>featureset</replaceable></literal>"
-
-#. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:152
-msgid "<literal>linux-2.6</literal> default source:"
-msgstr "<literal>linux-2.6</literal> デフォルトのソース:"
-
-#. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:155
-msgid ""
-"<literal>debian/build/source_<replaceable>arch</replaceable>_none</literal>"
-msgstr ""
-"<literal>debian/build/source_<replaceable>arch</replaceable>_none</literal>"
-
-#. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:160
-msgid "<literal>linux-2.6</literal> source with featureset:"
-msgstr "<literal>linux-2.6</literal> のフィーチャセットを含むソース:"
-
-#. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:163
-msgid ""
-"<literal>debian/build/source_<replaceable>arch</"
-"replaceable>_<replaceable>featureset</replaceable></literal>"
-msgstr ""
-"<literal>debian/build/source_<replaceable>arch</"
-"replaceable>_<replaceable>featureset</replaceable></literal>"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:169
+#: chapter-common-tasks.dbk:144
 msgid ""
 "You should apply the extra patches in the appropriate directory.  In the "
 "<literal>linux</literal> source package you can use the <literal>quilt</"
@@ -1967,7 +1924,7 @@ msgstr ""
 "ことができます。"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:174
+#: chapter-common-tasks.dbk:149
 msgid ""
 "To change the configuration before building, for example for the 686-pae "
 "flavour on i386, run the commands:"
@@ -1976,7 +1933,7 @@ msgstr ""
 "コマンドを実行します:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:178
+#: chapter-common-tasks.dbk:153
 #, no-wrap
 msgid ""
 "$ fakeroot make -f debian/rules.gen setup_i386_none_686-pae\n"
@@ -1986,7 +1943,7 @@ msgstr ""
 "$ make -C debian/build/build_i386_none_686-pae menuconfig\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:182
+#: chapter-common-tasks.dbk:157
 msgid ""
 "If the patches or configuration changes alter type definitions for the "
 "kernel, you may need to change the ABI name; see <xref linkend=\"s-abi-name"
@@ -1996,56 +1953,56 @@ msgstr ""
 "必要があるかもしれません。<xref linkend=\"s-abi-name\"/>を参照して下さい。"
 
 #. type: Content of: <chapter><section><section><title>
-#: chapter-common-tasks.dbk:187
+#: chapter-common-tasks.dbk:162
 msgid "Building many packages"
 msgstr "パッケージを一度にビルドする"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:189
+#: chapter-common-tasks.dbk:164
 msgid "To build all possible packages for this architecture, run:"
 msgstr ""
 "可能な全てのアーキテクチャ用にパッケージをビルドする場合は次のコマンドを実行"
 "して下さい:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:192
+#: chapter-common-tasks.dbk:167
 #, no-wrap
 msgid "$ fakeroot debian/rules binary\n"
 msgstr "$ fakeroot debian/rules binary\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:195
+#: chapter-common-tasks.dbk:170
 msgid "To build all architecture-dependent packages, run:"
 msgstr ""
 "アーキテクチャ依存の全てのパッケージをビルドする場合は次のコマンドを実行して"
 "下さい:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:198
+#: chapter-common-tasks.dbk:173
 #, no-wrap
 msgid "$ fakeroot debian/rules binary-arch\n"
 msgstr "$ fakeroot debian/rules binary-arch\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:201
+#: chapter-common-tasks.dbk:176
 msgid "To build all architecture-independent packages, run:"
 msgstr ""
 "全てのアーキテクチャ非依存のパッケージをビルドする場合は次のコマンドを実行し"
 "て下さい:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:204
+#: chapter-common-tasks.dbk:179
 #, no-wrap
 msgid "$ fakeroot debian/rules binary-indep\n"
 msgstr "$ fakeroot debian/rules binary-indep\n"
 
 #. type: Content of: <chapter><section><section><title>
-#: chapter-common-tasks.dbk:208
+#: chapter-common-tasks.dbk:183
 msgid "Building packages for one flavour"
 msgstr "特定のフレーバのためにパッケージをビルドする"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:210
+#: chapter-common-tasks.dbk:185
 msgid ""
 "For example, to build only the binary packages for 686-pae flavour on i386 "
 "architecture, use the following commands:"
@@ -2054,7 +2011,7 @@ msgstr ""
 "ドする場合は次のコマンドを実行して下さい:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:214
+#: chapter-common-tasks.dbk:189
 #, no-wrap
 msgid ""
 "$ fakeroot debian/rules source\n"
@@ -2064,7 +2021,7 @@ msgstr ""
 "$ fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:218
+#: chapter-common-tasks.dbk:193
 msgid ""
 "The target in this command has the general form of "
 "<literal><replaceable>target</replaceable>_<replaceable>arch</"
@@ -2087,7 +2044,7 @@ msgstr ""
 "かもしれません。次のコマンドでビルドできます:"
 
 #. type: Content of: <chapter><section><section><screen>
-#: chapter-common-tasks.dbk:227
+#: chapter-common-tasks.dbk:202
 #, no-wrap
 msgid ""
 "$ fakeroot debian/rules source\n"
@@ -2097,7 +2054,7 @@ msgstr ""
 "$ fakeroot make -f debian/rules.gen binary-arch_i386_none_real\n"
 
 #. type: Content of: <chapter><section><section><para>
-#: chapter-common-tasks.dbk:231
+#: chapter-common-tasks.dbk:206
 msgid ""
 "The target in this command has the general form of "
 "<literal><replaceable>target</replaceable>_<replaceable>arch</"
@@ -2110,12 +2067,12 @@ msgstr ""
 "replaceable></literal>"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:238
+#: chapter-common-tasks.dbk:213
 msgid "Building a development version of the Debian kernel package"
 msgstr "Debian カーネルパッケージの開発用バージョンをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:244
+#: chapter-common-tasks.dbk:215
 msgid ""
 "To build a kernel image based on the kernel team's unreleased development "
 "version:"
@@ -2124,14 +2081,14 @@ msgstr ""
 "ドするには、次のコマンドを実行します:"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:249
+#: chapter-common-tasks.dbk:220
 #, fuzzy
 msgid "<literal># apt-get install build-essential fakeroot rsync git</literal>"
 msgstr ""
 "<literal># apt-get install build-essential fakeroot rsync svn</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:253
+#: chapter-common-tasks.dbk:224
 msgid ""
 "The last two commands will install the build dependencies required by the "
 "kernel build process."
@@ -2140,14 +2097,14 @@ msgstr ""
 "トールします。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:259
+#: chapter-common-tasks.dbk:230
 msgid ""
 "<literal>$ git clone -b <replaceable>dist</replaceable> --single-branch "
 "https://anonscm.debian.org/git/kernel/linux.git</literal>"
 msgstr ""
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:262
+#: chapter-common-tasks.dbk:233
 #, fuzzy
 #| msgid ""
 #| "This will check out the Debian packaging. <replaceable>dist</replaceable> "
@@ -2169,12 +2126,12 @@ msgstr ""
 "らチェックアウトして下さい。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:271
+#: chapter-common-tasks.dbk:242
 msgid "<literal>$ apt-get source -d linux</literal>"
 msgstr "<literal>$ apt-get source -d linux</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:274
+#: chapter-common-tasks.dbk:245
 msgid ""
 "This will download the <literal>linux</literal> upstream source (and the "
 "last released Debian patches).  Depending on which version you are trying to "
@@ -2188,28 +2145,28 @@ msgstr ""
 "\">people.debian.org</ulink> から tarball をダウンロードする必要があります。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:282
+#: chapter-common-tasks.dbk:253
 msgid "<literal>$ cd linux</literal>"
 msgstr "<literal>$ cd linux</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:283
+#: chapter-common-tasks.dbk:254
 msgid "<literal>$ debian/rules orig</literal>"
 msgstr "<literal>$ debian/rules orig</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:286
+#: chapter-common-tasks.dbk:257
 msgid ""
 "This unpacks the upstream source and merges it with the Debian packaging."
 msgstr "アップストリームのソースを展開し、Debian のパッケージとマージします。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:291
+#: chapter-common-tasks.dbk:262
 msgid "<literal>$ debian/rules debian/control</literal>"
 msgstr "<literal>$ debian/rules debian/control</literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:294
+#: chapter-common-tasks.dbk:265
 msgid ""
 "This generates a Debian package control file based on the current "
 "definitions of the various kernel flavours which can be built."
@@ -2218,14 +2175,14 @@ msgstr ""
 "パッケージの control ファイルを生成します。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-common-tasks.dbk:300
+#: chapter-common-tasks.dbk:271
 msgid ""
 "<literal>$ fakeroot debian/rules <replaceable>target</replaceable></literal>"
 msgstr ""
 "<literal>$ fakeroot debian/rules <replaceable>target</replaceable></literal>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-common-tasks.dbk:303
+#: chapter-common-tasks.dbk:274
 msgid ""
 "Finally, build binary packages as explained in <xref linkend=\"s-common-"
 "official\"/>."
@@ -2234,12 +2191,12 @@ msgstr ""
 "ます。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:311
+#: chapter-common-tasks.dbk:282
 msgid "Generating orig tarball from newer upstream"
 msgstr "orig tarball をより新しいアップストリームの tarball から生成する"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:313
+#: chapter-common-tasks.dbk:284
 msgid ""
 "First you must add a changelog entry for the new upstream version.  If the "
 "new version is a release candidate, change the string <literal>-rc</literal> "
@@ -2252,7 +2209,7 @@ msgstr ""
 "ス<literal>~</literal>がプレリリース用に使われています)"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:319
+#: chapter-common-tasks.dbk:290
 #, fuzzy
 #| msgid ""
 #| "The 'orig' tarball is generated by the <literal>genorig.py</literal> "
@@ -2269,38 +2226,38 @@ msgstr ""
 "ドを実行します:"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:324
+#: chapter-common-tasks.dbk:295
 #, fuzzy, no-wrap
 #| msgid "# apt-get install squashfs-source"
 msgid "# apt-get install unifdef\n"
 msgstr "# apt-get install squashfs-source"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:327
+#: chapter-common-tasks.dbk:298
 msgid "Then if you have a tarball, run a command such as:"
 msgstr ""
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:330
+#: chapter-common-tasks.dbk:301
 #, no-wrap
 msgid "$ debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2\n"
 msgstr "$ debian/bin/genorig.py ../linux-3.4.tar.bz2 ../patch-3.5-rc1.bz2\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:333
+#: chapter-common-tasks.dbk:304
 #, fuzzy
 #| msgid "If you have a git repository, pass the name of its directory:"
 msgid "Or if you have a git repository, pass the name of its directory:"
 msgstr "git リポジトリが手元にある場合は、そのディレクトリ名を引数に渡します:"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:336
+#: chapter-common-tasks.dbk:307
 #, no-wrap
 msgid "$ debian/bin/genorig.py ~/src/linux\n"
 msgstr "$ debian/bin/genorig.py ~/src/linux\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:339
+#: chapter-common-tasks.dbk:310
 msgid ""
 "Either of these will generate a file such as <literal>../orig/linux_3.5~rc1."
 "orig.tar.xz</literal>.  You can then combine this tarball with the Debian "
@@ -2311,18 +2268,18 @@ msgstr ""
 "パッケージに統合します："
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:344
+#: chapter-common-tasks.dbk:315
 #, no-wrap
 msgid "$ debian/rules orig\n"
 msgstr "$ debian/rules orig\n"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:348
+#: chapter-common-tasks.dbk:319
 msgid "Building a custom kernel from Debian kernel source"
 msgstr "Debian カーネルソースからカスタムカーネルをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:350
+#: chapter-common-tasks.dbk:321
 msgid ""
 "This section describes the simplest possible procedure to build a custom "
 "kernel the \"Debian way\".  It is assumed that user is somewhat familiar "
@@ -2336,7 +2293,7 @@ msgstr ""
 "ンと素晴らしいオンラインのリソースに目を通しましょう。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:357
+#: chapter-common-tasks.dbk:328
 msgid ""
 "The easiest way to build a custom kernel (the kernel with the configuration "
 "different from the one used in the official packages) from the Debian kernel "
@@ -2349,7 +2306,7 @@ msgstr ""
 "ターゲットを使うことです。まず、カーネルツリーの準備をします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:363
+#: chapter-common-tasks.dbk:334
 #, no-wrap
 msgid ""
 "# apt-get install linux-source-3.2\n"
@@ -2361,7 +2318,7 @@ msgstr ""
 "$ cd linux-source-3.2\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:368
+#: chapter-common-tasks.dbk:339
 msgid ""
 "The kernel now needs to be configured, that is you have to set the kernel "
 "options and select the drivers which are going to be included, either as "
@@ -2376,13 +2333,13 @@ msgstr ""
 "メニュー形式の設定画面は次のコマンドで起動できます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:375
+#: chapter-common-tasks.dbk:346
 #, no-wrap
 msgid "$ make menuconfig\n"
 msgstr "$ make menuconfig\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:378
+#: chapter-common-tasks.dbk:349
 msgid ""
 "Instead of <literal>menuconfig</literal> one can use <literal>config</"
 "literal> (text-based line-by-line configuration frontend) or "
@@ -2410,7 +2367,7 @@ msgstr ""
 "<literal>ncurses</literal> ライブラリが必要です。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:391
+#: chapter-common-tasks.dbk:362
 msgid ""
 "The build will use less disk space if the CONFIG_DEBUG_INFO option is "
 "disabled (see <xref linkend=\"s-common-size\"/>).  Debuginfo is only needed "
@@ -2423,13 +2380,13 @@ msgstr ""
 "ツールを使わない場合は不要です。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:396
+#: chapter-common-tasks.dbk:367
 #, no-wrap
 msgid "$ scripts/config --disable DEBUG_INFO\n"
 msgstr "$ scripts/config --disable DEBUG_INFO\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:399
+#: chapter-common-tasks.dbk:370
 msgid ""
 "After the configuration process is finished, the new or updated kernel "
 "configuration will be stored in <literal>.config</literal> file in the top-"
@@ -2440,7 +2397,7 @@ msgstr ""
 "の開始には次のコマンドを使用します。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:404
+#: chapter-common-tasks.dbk:375
 #, no-wrap
 msgid ""
 "$ make clean\n"
@@ -2450,7 +2407,7 @@ msgstr ""
 "$ make deb-pkg\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:408
+#: chapter-common-tasks.dbk:379
 msgid ""
 "As a result of the build, a custom kernel package <literal>linux-"
 "image-3.2.19_3.2.19-1_i386.deb</literal> (name will reflect the version of "
@@ -2465,13 +2422,13 @@ msgstr ""
 "インストールできます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:416
+#: chapter-common-tasks.dbk:387
 #, no-wrap
 msgid "# dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb\n"
 msgstr "# dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:419
+#: chapter-common-tasks.dbk:390
 msgid ""
 "This command will unpack the kernel, generate the initrd if necessary (see "
 "<xref linkend=\"ch-initramfs\"/> for details), and configure the bootloader "
@@ -2484,18 +2441,18 @@ msgstr ""
 "ら"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:425
+#: chapter-common-tasks.dbk:396
 #, no-wrap
 msgid "# shutdown -r now\n"
 msgstr "# shutdown -r now\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:428
+#: chapter-common-tasks.dbk:399
 msgid "command to boot the new kernel."
 msgstr "コマンドで再起動すると新しいカーネルで起動します。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:431
+#: chapter-common-tasks.dbk:402
 msgid ""
 "For much more information about bootloaders and their configuration please "
 "check their documentation, which can be accessed using the commands "
@@ -2513,12 +2470,12 @@ msgstr ""
 "するパッケージ名を指定してください。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:441
+#: chapter-common-tasks.dbk:412
 msgid "Building a custom kernel from the \"pristine\" kernel source"
 msgstr "\"pristine\" なカーネルソースからカスタムカーネルをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:443
+#: chapter-common-tasks.dbk:414
 msgid ""
 "Building a kernel from the \"pristine\" (also sometimes called \"vanilla\") "
 "kernel source, distributed from <ulink url=\"http://www.kernel.org\">www."
@@ -2530,13 +2487,13 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:453
+#: chapter-common-tasks.dbk:424
 #, no-wrap
 msgid "$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.bz2\n"
 msgstr "$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.bz2\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:456
+#: chapter-common-tasks.dbk:427
 msgid ""
 "The integrity of the downloaded archive may be verified by fetching the "
 "corresponding cryptographic signature"
@@ -2544,13 +2501,13 @@ msgstr ""
 "アーカイブの整合性はそれぞれの暗号化シグネチャを検証することで確認できます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:461
+#: chapter-common-tasks.dbk:432
 #, no-wrap
 msgid "$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.sign\n"
 msgstr "$ wget http://kernel.org/pub/linux/kernel/v3.x/linux-3.4.tar.sign\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:464
+#: chapter-common-tasks.dbk:435
 msgid ""
 "and running this command (<literal>gnupg</literal> package must be "
 "installed):"
@@ -2559,18 +2516,18 @@ msgstr ""
 "パッケージがインストールされていなければなりません)"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:467
+#: chapter-common-tasks.dbk:438
 #, no-wrap
 msgid "$ bunzip2 -c linux-3.4.tar.bz2 | gpg --verify linux-3.4.tar.sign -\n"
 msgstr "$ bunzip2 -c linux-3.4.tar.bz2 | gpg --verify linux-3.4.tar.sign -\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:470
+#: chapter-common-tasks.dbk:441
 msgid "Successful verification results in output similar to the one below:"
 msgstr "検証に成功した場合、次に示すような出力を得ることができます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:473
+#: chapter-common-tasks.dbk:444
 #, no-wrap
 msgid ""
 "gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886\n"
@@ -2586,12 +2543,12 @@ msgstr ""
 "Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:480
+#: chapter-common-tasks.dbk:451
 msgid "After that the archive may be unpacked using"
 msgstr "検証が済んだら、次のコマンドでアーカイブを展開しましょう。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:483
+#: chapter-common-tasks.dbk:454
 #, no-wrap
 msgid ""
 "$ tar xjf linux-3.4.tar.bz2\n"
@@ -2601,7 +2558,7 @@ msgstr ""
 "$ cd linux-3.4\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:487
+#: chapter-common-tasks.dbk:458
 msgid ""
 "The unpacked kernel tree (in <literal>linux-3.4</literal> now has to be "
 "configured.  The existing configuration file may be used as a starting point"
@@ -2610,13 +2567,13 @@ msgstr ""
 "する準備ができました。手始めに、すでにある設定ファイルを使うと良いでしょう。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:491
+#: chapter-common-tasks.dbk:462
 #, no-wrap
 msgid "$ cp /boot/config-3.2.0-2-686-pae ./.config\n"
 msgstr "$ cp /boot/config-3.2.0-2-686-pae ./.config\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:494
+#: chapter-common-tasks.dbk:465
 msgid ""
 "After the configuration with one of the configuration frontends (invoked by "
 "<literal>make oldconfig</literal>, <literal>make config</literal>, "
@@ -2629,12 +2586,12 @@ msgstr ""
 "ターゲットを使い、ビルドを開始できます。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:501
+#: chapter-common-tasks.dbk:472
 msgid "Building out-of-tree kernel modules"
 msgstr "ツリーの外にあるカーネルモジュールをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:503
+#: chapter-common-tasks.dbk:474
 msgid ""
 "Some kernel modules are not included in the upstream or Debian kernel "
 "source, but are provided as third-party source packages.  For some of the "
@@ -2659,7 +2616,7 @@ msgstr ""
 "literal> パッケージをインストールするだけで利用可能になります。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:515
+#: chapter-common-tasks.dbk:486
 msgid ""
 "If you are not so lucky, and there are no binary module packages in the "
 "archive, there is a fair chance that the Debian archive contains the "
@@ -2688,7 +2645,7 @@ msgstr ""
 "ナリモジュールパッケージをビルドする場合の大まかな流れを説明します。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:529
+#: chapter-common-tasks.dbk:500
 msgid ""
 "Install a set of kernel headers, matching the kernel for which the modules "
 "are going to be built:"
@@ -2696,24 +2653,24 @@ msgstr ""
 "まず、ビルドしたいモジュールに適切なカーネルヘッダをインストールします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:533
+#: chapter-common-tasks.dbk:504
 #, no-wrap
 msgid "# apt-get install linux-headers-3.2.0-2-686-pae\n"
 msgstr "# apt-get install linux-headers-3.2.0-2-686-pae\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:536
+#: chapter-common-tasks.dbk:507
 msgid "Install the package containing the source:"
 msgstr "ソースを含んでいるパッケージをインストールします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:539
+#: chapter-common-tasks.dbk:510
 #, no-wrap
 msgid "# apt-get install squashfs-source\n"
 msgstr "# apt-get install squashfs-source\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:542
+#: chapter-common-tasks.dbk:513
 msgid ""
 "Invoke <literal>module-assistant</literal> (aka <literal>m-a</literal>) to "
 "do the heavy lifting:"
@@ -2722,13 +2679,13 @@ msgstr ""
 "し、ビルドをします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:546
+#: chapter-common-tasks.dbk:517
 #, no-wrap
 msgid "# m-a build squashfs\n"
 msgstr "# m-a build squashfs\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:549
+#: chapter-common-tasks.dbk:520
 msgid ""
 "As a result, a Debian package is going to be built and placed in <literal>/"
 "usr/src</literal>.  It can be installed the usual way, using <literal>dpkg -"
@@ -2740,13 +2697,13 @@ msgstr ""
 "2 つのステップ (ビルドとインストール) は、"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:555
+#: chapter-common-tasks.dbk:526
 #, no-wrap
 msgid "# m-a auto-install squashfs\n"
 msgstr "# m-a auto-install squashfs\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:558
+#: chapter-common-tasks.dbk:529
 msgid ""
 "Check out the <literal>module-assistant</literal> documentation "
 "(<literal>man module-assistant</literal>) for other options and much more "
@@ -2757,7 +2714,7 @@ msgstr ""
 "(<literal>man module-assistant</literal>) を参照してください。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:563
+#: chapter-common-tasks.dbk:534
 msgid ""
 "Finally, in some rare circumstances, you might need to build the kernel "
 "modules from the upstream source packages.  In that case, follow the "
@@ -2899,16 +2856,28 @@ msgstr "ソースパッケージ"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-packaging.dbk:8
+#, fuzzy
+#| msgid ""
+#| "To ensure that the latest kernel version, containing all the essential "
+#| "bug and security fixes is available on as many architectures as possible, "
+#| "starting with 2.6.12 the kernel team introduced a new packaging scheme.  "
+#| "In it most of the kernel-related binary packages are built from a single "
+#| "source package <literal>linux</literal> (previously <literal>linux-2.6</"
+#| "literal>).  The <literal>linux</literal> source package supports building "
+#| "of kernel images and headers for all currently supported architectures.  "
+#| "Subsequent sections of this chapter document the naming and contents of "
+#| "the binary packages built from the <literal>linux</literal> source "
+#| "package."
 msgid ""
 "To ensure that the latest kernel version, containing all the essential bug "
 "and security fixes is available on as many architectures as possible, "
 "starting with 2.6.12 the kernel team introduced a new packaging scheme.  In "
 "it most of the kernel-related binary packages are built from a single source "
-"package <literal>linux</literal> (previously <literal>linux-2.6</literal>).  "
-"The <literal>linux</literal> source package supports building of kernel "
-"images and headers for all currently supported architectures.  Subsequent "
-"sections of this chapter document the naming and contents of the binary "
-"packages built from the <literal>linux</literal> source package."
+"package <literal>linux</literal>.  The <literal>linux</literal> source "
+"package supports building of kernel images and headers for all currently "
+"supported architectures.  Subsequent sections of this chapter document the "
+"naming and contents of the binary packages built from the <literal>linux</"
+"literal> source package."
 msgstr ""
 "バグやセキュリティフィックス等、必須の修正が入った最新のカーネルバージョンが"
 "可能な限り全てのアーキテクチャで利用可能であることを担保するために、カーネル"

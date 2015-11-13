@@ -10,6 +10,7 @@ kernel-handbook (1.0.17) UNRELEASED; urgency=medium
     - Update Japanese translation for the format conversion
   * Remove statement that the final '.0' will be removed from upstream versions
   * Update 'Linus version format' to begin with 4
+  * Remove references to linux-2.6 source package
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 30 Aug 2015 13:21:25 +0100
 

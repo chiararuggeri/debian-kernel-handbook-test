@@ -27,10 +27,6 @@ You may be asked to do this in order to test a potential bug fix.
 </para>
 <section id="s4.2.1"><title>Preparation</title>
 <para>
-For Debian 6.0 (squeeze) and earlier versions, substitute the source package
-name <literal>linux-2.6</literal> for <literal>linux</literal>.
-</para>
-<para>
 Run the following commands:
 </para>
 <variablelist>
@@ -121,19 +117,14 @@ should not use this script and should follow the instructions below.
 <para>
 It is possible to apply extra patches to the source before starting the build.
 In the <literal>linux</literal> source package, the default (non-featureset)
-patches are automatically applied in the top level directory.  If you are
-building the <literal>linux-2.6</literal> source package or building with a
-featureset, you should first apply the existing patches by running:
+patches are automatically applied in the top level directory.
 </para>
-<screen>
-$ fakeroot debian/rules source
-</screen>
 <para>
 The patched source appears in the following directories.
 </para>
 <variablelist>
 <varlistentry>
-<term>linux default source:</term>
+<term>default source:</term>
 <listitem>
 <para>
 top level
@@ -141,26 +132,10 @@ top level
 </listitem>
 </varlistentry>
 <varlistentry>
-<term>linux source with featureset:</term>
+<term>source with featureset:</term>
 <listitem>
 <para>
 <literal>debian/build/source_<replaceable>featureset</replaceable></literal>
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><literal>linux-2.6</literal> default source:</term>
-<listitem>
-<para>
-<literal>debian/build/source_<replaceable>arch</replaceable>_none</literal>
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><literal>linux-2.6</literal> source with featureset:</term>
-<listitem>
-<para>
-<literal>debian/build/source_<replaceable>arch</replaceable>_<replaceable>featureset</replaceable></literal>
 </para>
 </listitem>
 </varlistentry>
@@ -236,10 +211,6 @@ The target in this command has the general form of
 </section>
 
 <section id="s-common-official-vcs"><title>Building a development version of the Debian kernel package</title>
-<para>
-For Debian 6.0 (squeeze) and earlier versions, substitute the source package
-name <literal>linux-2.6</literal> for <literal>linux</literal>.
-</para>
 <para>
 To build a kernel image based on the kernel team's unreleased development
 version:
