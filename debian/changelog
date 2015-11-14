@@ -19,6 +19,7 @@ kernel-handbook (1.0.17) UNRELEASED; urgency=medium
   * Update scope to say we're describing Debian 7 onward
   * Update copyright dates
   * Update description of modprobe configuration files
+  * Suggest 'make nconfig' for configuring upstream source
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 30 Aug 2015 13:21:25 +0100
 

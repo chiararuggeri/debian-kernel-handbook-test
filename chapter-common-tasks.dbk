@@ -151,7 +151,7 @@ flavour on i386, run the commands:
 </para>
 <screen>
 <prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>
-<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae menuconfig</userinput>
+<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae nconfig</userinput>
 </screen>
 <para>
 If the patches or configuration changes alter type definitions for the kernel,
@@ -343,10 +343,10 @@ number of targets, which invoke different configuration frontends.  For
 example, one can use console-based menu configuration by invoking the command
 </para>
 <screen>
-<prompt>$</prompt> <userinput>make menuconfig</userinput>
+<prompt>$</prompt> <userinput>make nconfig</userinput>
 </screen>
 <para>
-Instead of <literal>menuconfig</literal> one can use <literal>config</literal>
+Instead of <literal>nconfig</literal> one can use <literal>config</literal>
 (text-based line-by-line configuration frontend) or <literal>xconfig</literal>
 (graphical configuration frontend).  It is also possible to reuse your old
 configuration file by placing it as a <filename>.config</filename> file in the
@@ -354,7 +354,7 @@ top-level directory and running one of the configuration targets (if you want
 to adjust something) or <command>make oldconfig</command> (to keep the same
 configuration).  Note that different frontends may require different additional
 libraries and utilities to be installed to function properly.  For example, the
-<literal>menuconfig</literal> frontend requires the <literal>ncurses</literal>
+<literal>nconfig</literal> frontend requires the <literal>ncurses</literal>
 library, which at time of writing is provided by the
 <package>libncurses5-dev</package> package.
 </para>
@@ -465,7 +465,7 @@ configured.  The existing configuration file may be used as a starting point
 <para>
 After the configuration with one of the configuration frontends (invoked by
 <command>make oldconfig</command>, <command>make config</command>,
-<command>make menuconfig</command>, etc) is completed, the build may be started
+<command>make nconfig</command>, etc) is completed, the build may be started
 using <command>make deb-pkg</command> target as described above.
 </para>
 </section>
