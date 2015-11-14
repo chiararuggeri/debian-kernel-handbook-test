@@ -25,12 +25,11 @@ If some modules are not loaded automatically by <literal>udev</literal>, but
 you would like them to be loaded during boot, it is possible to force it by
 listing the names of the modules in <literal>/etc/modules</literal>.  This will
 be scanned for the names of the modules (one name per line), which will then be
-loaded using <literal>modprobe</literal>.  You can also specify the arguments
-for the modules.  For example, a typical <literal>/etc/modules</literal> might
-look like that
+loaded using <literal>modprobe</literal>.  For example, a typical
+<literal>/etc/modules</literal> might look like:
 </para>
 <screen>
-loop max_int=32
+loop
 sbp2
 </screen>
 <para>
@@ -56,15 +55,15 @@ in the boot process, you need to create a custom configuration file for
 <literal>modprobe</literal>, which <literal>udev</literal> uses to load the
 modules.  For example, to pass an <literal>atapi_enabled=1</literal> argument
 to the <literal>libata</literal> kernel module, create
-<literal>/etc/modprobe.d/local</literal> file with a following line:
+<literal>/etc/modprobe.d/local.conf</literal> file with the following line:
 </para>
 <screen>
 options libata atapi_enabled=1
 </screen>
 <para>
-You can choose arbitrary names for the configuration files in
-<literal>/etc/modprobe.d</literal> and put multiple <literal>options</literal>
-lines in the same file.
+You can use any name ending in <literal>.conf</literal> for the
+configuration files in <literal>/etc/modprobe.d</literal> and put
+multiple <literal>options</literal> lines in the same file.
 </para>
 <para>
 Sometimes two different modules claim support for the same device, usually
@@ -72,7 +71,7 @@ because two slightly different versions of the device exist, requiring
 different kernel modules to operate.  In such situation <literal>udev</literal>
 loads both kernel modules, with unpredictable results.  To avoid this problem,
 you can prevent any module (let's say, <literal>tulip</literal>) from loading
-by creating an arbitrarily named file, containing a line
+by creating a file containing the line:
 </para>
 <screen>
 blacklist tulip
