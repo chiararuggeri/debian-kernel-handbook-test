@@ -384,7 +384,6 @@ level above the top of the tree.  It may be installed using
 <command>dpkg</command> just as any other package:
 </para>
 <screen>
- 
 <prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb</userinput>
 </screen>
 <para>
@@ -421,7 +420,6 @@ instead of unpacking the kernel source from Debian packages, the "pristine"
 source is downloaded using your favourite browser or using wget, as follows:
 </para>
 <screen>
- 
 <prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz</userinput>
 </screen>
 <para>
@@ -429,7 +427,6 @@ The integrity of the downloaded archive may be verified by fetching the
 corresponding cryptographic signature
 </para>
 <screen>
- 
 <prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign</userinput>
 </screen>
 <para>

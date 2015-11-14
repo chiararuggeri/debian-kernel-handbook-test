@@ -2460,13 +2460,13 @@ msgstr ""
 "インストールできます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:388
+#: chapter-common-tasks.dbk:387
 #, no-wrap
 msgid "<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb</userinput>\n"
 msgstr "<prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.2.19_3.2.19-1_i386.deb</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:391
+#: chapter-common-tasks.dbk:390
 msgid ""
 "This command will unpack the kernel, generate the initrd if necessary (see "
 "<xref linkend=\"ch-initramfs\"/> for details), and configure the bootloader "
@@ -2479,18 +2479,18 @@ msgstr ""
 "ら"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:397
+#: chapter-common-tasks.dbk:396
 #, no-wrap
 msgid "<prompt>#</prompt> <userinput>shutdown -r now</userinput>\n"
 msgstr "<prompt>#</prompt> <userinput>shutdown -r now</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:400
+#: chapter-common-tasks.dbk:399
 msgid "command to boot the new kernel."
 msgstr "コマンドで再起動すると新しいカーネルで起動します。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:403
+#: chapter-common-tasks.dbk:402
 msgid ""
 "For much more information about bootloaders and their configuration please "
 "check their documentation, which can be accessed using the commands "
@@ -2508,12 +2508,12 @@ msgstr ""
 "指定してください。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:413
+#: chapter-common-tasks.dbk:412
 msgid "Building a custom kernel from the \"pristine\" kernel source"
 msgstr "\"pristine\" なカーネルソースからカスタムカーネルをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:415
+#: chapter-common-tasks.dbk:414
 msgid ""
 "Building a kernel from the \"pristine\" (also sometimes called \"vanilla\") "
 "kernel source, distributed from <ulink url=\"https://www.kernel.org\">www."
@@ -2525,13 +2525,13 @@ msgid ""
 msgstr ""
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:425
+#: chapter-common-tasks.dbk:423
 #, no-wrap
 msgid "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz</userinput>\n"
 msgstr "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:428
+#: chapter-common-tasks.dbk:426
 msgid ""
 "The integrity of the downloaded archive may be verified by fetching the "
 "corresponding cryptographic signature"
@@ -2539,13 +2539,13 @@ msgstr ""
 "アーカイブの整合性はそれぞれの暗号化シグネチャを検証することで確認できます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:433
+#: chapter-common-tasks.dbk:430
 #, no-wrap
 msgid "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign</userinput>\n"
 msgstr "<prompt>$</prompt> <userinput>wget https://kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.sign</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:436
+#: chapter-common-tasks.dbk:433
 msgid ""
 "and running this command (<package>gnupg</package> package must be "
 "installed):"
@@ -2554,18 +2554,18 @@ msgstr ""
 "パッケージがインストールされていなければなりません)"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:439
+#: chapter-common-tasks.dbk:436
 #, no-wrap
 msgid "<prompt>$</prompt> <userinput>unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -</userinput>\n"
 msgstr "<prompt>$</prompt> <userinput>unxz -c linux-4.3.tar.xz | gpg --verify linux-4.3.tar.sign -</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:442
+#: chapter-common-tasks.dbk:439
 msgid "Successful verification results in output similar to the one below:"
 msgstr "検証に成功した場合、次に示すような出力を得ることができます。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:445
+#: chapter-common-tasks.dbk:442
 #, no-wrap
 msgid ""
 "<computeroutput>gpg: Signature made Mon 21 May 2012 01:48:14 AM CEST using RSA key ID 00411886\n"
@@ -2581,12 +2581,12 @@ msgstr ""
 "Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886</computeroutput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:452
+#: chapter-common-tasks.dbk:449
 msgid "After that the archive may be unpacked using"
 msgstr "検証が済んだら、次のコマンドでアーカイブを展開しましょう。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:455
+#: chapter-common-tasks.dbk:452
 #, no-wrap
 msgid ""
 "<prompt>$</prompt> <userinput>tar xaf linux-4.3.tar.xz</userinput>\n"
@@ -2596,7 +2596,7 @@ msgstr ""
 "<prompt>$</prompt> <userinput>cd linux-4.3</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:459
+#: chapter-common-tasks.dbk:456
 msgid ""
 "The unpacked kernel tree (in <filename>linux-4.3</filename> now has to be "
 "configured.  The existing configuration file may be used as a starting point"
@@ -2606,13 +2606,13 @@ msgstr ""
 "う。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:463
+#: chapter-common-tasks.dbk:460
 #, no-wrap
 msgid "<prompt>$</prompt> <userinput>cp /boot/config-3.2.0-2-686-pae ./.config</userinput>\n"
 msgstr "<prompt>$</prompt> <userinput>cp /boot/config-3.2.0-2-686-pae ./.config</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:466
+#: chapter-common-tasks.dbk:463
 msgid ""
 "After the configuration with one of the configuration frontends (invoked by "
 "<command>make oldconfig</command>, <command>make config</command>, "
@@ -2625,12 +2625,12 @@ msgstr ""
 "ゲットを使い、ビルドを開始できます。"
 
 #. type: Content of: <chapter><section><title>
-#: chapter-common-tasks.dbk:473
+#: chapter-common-tasks.dbk:470
 msgid "Building out-of-tree kernel modules"
 msgstr "ツリーの外にあるカーネルモジュールをビルドする"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:475
+#: chapter-common-tasks.dbk:472
 msgid ""
 "Some kernel modules are not included in the upstream or Debian kernel "
 "source, but are provided as third-party source packages.  For some of the "
@@ -2655,7 +2655,7 @@ msgstr ""
 "package> パッケージをインストールするだけで利用可能になります。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:487
+#: chapter-common-tasks.dbk:484
 #, fuzzy
 msgid ""
 "If you are not so lucky, and there are no binary module packages in the "
@@ -2685,7 +2685,7 @@ msgstr ""
 "ナリモジュールパッケージをビルドする場合の大まかな流れを説明します。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:501
+#: chapter-common-tasks.dbk:498
 msgid ""
 "Install a set of kernel headers, matching the kernel for which the modules "
 "are going to be built:"
@@ -2693,24 +2693,24 @@ msgstr ""
 "まず、ビルドしたいモジュールに適切なカーネルヘッダをインストールします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:505
+#: chapter-common-tasks.dbk:502
 #, no-wrap
 msgid "<prompt>#</prompt> <userinput>apt-get install linux-headers-3.2.0-2-686-pae</userinput>\n"
 msgstr "<prompt>#</prompt> <userinput>apt-get install linux-headers-3.2.0-2-686-pae</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:508
+#: chapter-common-tasks.dbk:505
 msgid "Install the package containing the source:"
 msgstr "ソースを含んでいるパッケージをインストールします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:511
+#: chapter-common-tasks.dbk:508
 #, no-wrap
 msgid "<prompt>#</prompt> <userinput>apt-get install squashfs-source</userinput>\n"
 msgstr "<prompt>#</prompt> <userinput>apt-get install squashfs-source</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:514
+#: chapter-common-tasks.dbk:511
 msgid ""
 "Invoke <command>module-assistant</command> (aka <command>m-a</command>) to "
 "do the heavy lifting:"
@@ -2719,13 +2719,13 @@ msgstr ""
 "し、ビルドをします。"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:518
+#: chapter-common-tasks.dbk:515
 #, no-wrap
 msgid "<prompt>#</prompt> <userinput>m-a build squashfs</userinput>\n"
 msgstr "<prompt>#</prompt> <userinput>m-a build squashfs</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:521
+#: chapter-common-tasks.dbk:518
 msgid ""
 "As a result, a Debian package is going to be built and placed in <filename>/"
 "usr/src</filename>.  It can be installed the usual way, using <command>dpkg -"
@@ -2737,13 +2737,13 @@ msgstr ""
 "の 2 つのステップ (ビルドとインストール) は、"
 
 #. type: Content of: <chapter><section><screen>
-#: chapter-common-tasks.dbk:527
+#: chapter-common-tasks.dbk:524
 #, no-wrap
 msgid "<prompt>#</prompt> <userinput>m-a auto-install squashfs</userinput>\n"
 msgstr "<prompt>#</prompt> <userinput>m-a auto-install squashfs</userinput>\n"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:530
+#: chapter-common-tasks.dbk:527
 msgid ""
 "Check out the <command>module-assistant</command> documentation "
 "(<command>man module-assistant</command>) for other options and much more "
@@ -2754,7 +2754,7 @@ msgstr ""
 "(<command>man module-assistant</command>) を参照してください。"
 
 #. type: Content of: <chapter><section><para>
-#: chapter-common-tasks.dbk:535
+#: chapter-common-tasks.dbk:532
 msgid ""
 "Finally, in some rare circumstances, you might need to build the kernel "
 "modules from the upstream source packages.  In that case, follow the "
