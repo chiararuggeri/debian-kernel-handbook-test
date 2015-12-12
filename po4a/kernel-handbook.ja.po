@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.16 VERSION\n"
-"POT-Creation-Date: 2015-11-14 02:17+0000\n"
-"PO-Revision-Date: 2015-11-14 02:17+0000\n"
+"POT-Creation-Date: 2015-11-29 20:26+0900\n"
+"PO-Revision-Date: 2015-12-11 00:47+0900\n"
 "Last-Translator: Yusuke YATSUO <yyatsuo@debian.or.jp>\n"
 "Language-Team: Debian JP Project\n"
-"Language: Japanese \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #. type: Attribute 'lang' of: <book>
 #: kernel-handbook.dbk:8
@@ -53,7 +53,8 @@ msgid ""
 "Software Foundation; either version 2, or (at your option) any later version."
 msgstr ""
 "このハンドブックはフリーソフトウェアです。フリーソフトウェア財団発行の GNU 一"
-"般公有使用許諾書 (GPL) バージョン 2 "
+"般公有使用許諾書 (GPL) バージョン 2 かそれ以降が規定する条件の下で使用できま"
+"す。"
 
 #. type: Content of: <book><bookinfo><legalnotice><para>
 #: kernel-handbook.dbk:32
@@ -63,8 +64,9 @@ msgid ""
 "of merchantability or fitness for a particular purpose.  See the GNU General "
 "Public License for more details."
 msgstr ""
-"この文書は有用であるという期待の下に配布されていますが、<emphasis>無保証です"
-"</emphasis>。 "
+"この文章は有用であるという期待の下に配布されていますが、<emphasis>無保証</"
+"emphasis>です。販売に、あるいは特定の目的に適するという保証は、明示されている"
+"か否かを問わず一切存在しません。詳しくは GNU 一般公有使用許諾書をご覧下さい。"
 
 #. type: Content of: <book><bookinfo><legalnotice><para>
 #: kernel-handbook.dbk:38
@@ -76,33 +78,28 @@ msgid ""
 "writing to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, "
 "Boston, MA 02111-1307, USA."
 msgstr ""
-"GNU 一般公有使用許諾書のコピーは、Debian GNU/Linux ディストリビューションで"
-"は <filename>/usr/share/common-licenses/GPL</filename> として、World Wide "
-"Web 上では <ulink url=\"https://www.gnu.org/copyleft/gpl.html\">the GNU "
-"General Public Licence</ulink> として入手可能です。また、Free Software "
-"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA. に"
-"請求しても手に入ります。"
+"GNU一般公有使用許諾書のコピーは、Debian GNU/Linux ディストリビューションでは "
+"<filename>/usr/share/common-licenses/GPL</filename> として、World Wide Web で"
+"は <ulink url=\"http://www.gnu.org/copyleft/gpl.html\"> the GNU General "
+"Public Licence </ulink>として入手可能です。また、 Free Software Foundation, "
+"Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA. に請求しても手"
+"に入ります。"
 
 #. type: Content of: <chapter><title>
 #: chapter-update-hooks.dbk:5
 msgid "Package maintainer scripts and hooks"
-msgstr "コマンドを利用することもできます。"
+msgstr "メンテナスクリプトとフック"
 
 #. type: Content of: <chapter><para>
 #: chapter-update-hooks.dbk:7
-#, fuzzy
-#| msgid ""
-#| "The following policy applies to Debian GNU/Linux 6.0 'squeeze' and later "
-#| "releases.  Some parts may be applicable to kernels other than Linux, but "
-#| "this policy does not set any requirements for them."
 msgid ""
 "The following policy applies to Debian GNU/Linux.  Some parts may be "
 "applicable to kernels other than Linux, but this policy does not set any "
 "requirements for them."
 msgstr ""
-"以下のポリシーは GNU/Linux 6.0 'squeeze' と、それ以降のリリースに関し適用され"
-"ます。これらのなかには、 Linux 以外のカーネルに対して適用可能なものもあります"
-"が、このポリシーにはそれらのための要件を設定していません。"
+"以下のポリシーが Debian GNU/Linux に適用されます。これらのなかには、 Linux 以"
+"外のカーネルに対して適用可能なものもありますが、このポリシーにはそれらのため"
+"の要件を設定していません。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-update-hooks.dbk:11
@@ -139,7 +136,7 @@ msgstr ""
 "全てのカーネルフックスクリプトには、カーネルの ABI バージョン "
 "(<command>uname -r</command> コマンドが応答する文字列) と、 必要であれば、"
 "カーネルイメージへの絶対パスを引数として渡します。2 つ目の引数が無い場合アー"
-"キテクチャの慣例に従い、パスは <filename>/boot/vmlinuz-<replaceable>version</"
+"キテクチャの慣例に従い、パスは<filename>/boot/vmlinuz-<replaceable>version</"
 "replaceable></filename> か <filename>/boot/vmlinux-<replaceable>version</"
 "replaceable></filename> になります。カーネルのメンテナスクリプトに与えられる"
 "引数は、環境変数 <envar>DEB_MAINT_PARAMS</envar> に格納されます。これは、単一"
@@ -176,7 +173,6 @@ msgstr "ブートローダに必要なカーネルフック"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-update-hooks.dbk:43
-#, fuzzy
 msgid ""
 "Packages for boot loaders that need to be updated whenever the files they "
 "load are modified (i.e.  those that store a block list) must install hook "
@@ -202,9 +198,9 @@ msgstr ""
 "これらのブートローダはインストール/アップグレード/削除の最終段階で更新される"
 "べきものです。したがって、ブートローダのフックスクリプトに <literal>zz-</"
 "literal> のプレフィックスを持たせて他のパッケージはこのプレフィックスを使わな"
-"いようにするか、後で<command>run-parts</command> で使用されるルールを使用して"
-"並び替えなければなりません。ブートローダの設定ファイルが、削除されたカーネル"
-"イメージを参照している場合、postrm フックスクリプトは警告すべきですが、終了"
+"いようにするか、後で <command>run-parts</command> で使用されるルールを使用し"
+"て並び替えなければなりません。ブートローダの設定ファイルが、削除されたカーネ"
+"ルイメージを参照している場合、postrm フックスクリプトは警告すべきですが、終了"
 "コードは 0 を返さなければなりません。"
 
 #. type: Content of: <chapter><section><para>
@@ -251,8 +247,8 @@ msgstr ""
 "ブートローダ用のパッケージは、<filename>/etc/initramfs/post-update.d</"
 "filename> にフックスクリプトをインストールしなければなりません。initramfs ビ"
 "ルダーは initramfs を作成、更新、または削除した後にこのスクリプトを "
-"<command>run-parts</command> から呼び出します。これら のフックスクリプトに与"
-"えられる引数は、カーネルの ABI バージョンと、initramfs イメージへの絶対パスで"
+"<command>run-parts</command> から呼び出します。これらのフックスクリプトに与え"
+"られる引数は、カーネルの ABI バージョンと、initramfs イメージへの絶対パスで"
 "す。"
 
 #. type: Content of: <chapter><section><para>
@@ -269,7 +265,7 @@ msgstr ""
 #. type: Content of: <chapter><section><title>
 #: chapter-update-hooks.dbk:86
 msgid "Kernel hooks required for initramfs builders"
-msgstr "Kernel フックに依存する initramfs ビルダー"
+msgstr "initramfs ビルダーは Kernel フックに依存します。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-update-hooks.dbk:88
@@ -340,14 +336,6 @@ msgstr "非推奨の機能"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-update-hooks.dbk:129
-#, fuzzy
-#| msgid ""
-#| "Kernel packages must not invoke boot loaders except via hooks.  If "
-#| "<literal>/etc/kernel-img.conf</literal> contains <literal>do_bootloader = "
-#| "yes</literal> or equivalent, maintainer scripts that previously acted on "
-#| "this must warn that they are ignoring it.  <literal>linux-base</literal> "
-#| "must also warn on upgrade that the default has changed.  In Debian 7.0 "
-#| "'wheezy', this prohibition extends to initramfs builder packages."
 msgid ""
 "Kernel packages must not invoke boot loaders or initramfs builders except "
 "via hooks.  If <filename>/etc/kernel-img.conf</filename> contains "
@@ -356,13 +344,12 @@ msgid ""
 "<package>linux-base</package> must also warn on upgrade that the default has "
 "changed."
 msgstr ""
-"カーネルパッケージはフックを経由する以外の方法でブートローダを起動してはいけ"
-"ません。<filename>/etc/kernel-img.conf</filename> に <literal>do_bootloader "
-"= yes</literal>または同等のオプションが設定されている場合、以前これに作用した"
-"メンテナスクリプトはこのオプションを無視することを警告しなければなりません。"
-"<package>linux-base</package> もまた、アップデート時にデフォルトが変更された"
-"ことを警告しなければなりません。Debian 7.0 'wheezy' では、この禁止条件は "
-"initramfs ビルダーパッケージにも拡張されます。"
+"カーネルパッケージはブートローダまたはinitramfsをフックを経由する以外の方法で"
+"起動してはいけません。もし、<filename>/etc/kernel-img.conf</filename> に "
+"<literal>do_bootloader = yes</literal> または同等のオプションが設定されている"
+"場合、以前これに作用したメンテナスクリプトはこのオプションを無視することを警"
+"告しなければなりません。<package>linux-base</package> もまた、アップデート時"
+"にデフォルトが変更されたことを警告しなければなりません。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-update-hooks.dbk:138
@@ -406,12 +393,12 @@ msgstr ""
 "ます。まず、ブートローダがカーネルと initramfs をメモリに読み込み、実行制御を"
 "カーネルに渡します。基本的な初期化が終了すると、カーネルが initramfs アーカイ"
 "ブを展開し、一時的なルートファイルシステムとしてマウントします。initramfs に"
-"はカーネルモジュールと、物理デバイス、または論理デバイスの初期化を必要とする"
+"はカーネルモジュールと、物理デバイスまたは論理デバイスの初期化を必要とする"
 "ユーザ空間プログラムが含まれています。本物のルートファイルシステムもここに含"
 "まれます。initramfs の <command>init</command> スクリプトがモジュールをロード"
 "し、その他の初期化処理を行います。このステージの最後に、<command>run-init</"
 "command> が initramfs をメモリから消去し、本物のルートファイルシステムをロー"
-"ドします。そして本物のルートファイルシステム上の <command>/sbin/init</"
+"ドします。そして本物のルートファイルシステム上の<command>/sbin/init</"
 "command> プログラムに制御を渡します。"
 
 #. type: Content of: <chapter><para>
@@ -424,17 +411,17 @@ msgid ""
 "require initialization which cannot be done in-kernel, but is performed by "
 "userspace utilities."
 msgstr ""
-"この仕組みを採用することによって、 2 つの大きな目的を達成しています。まず、ド"
-"ライバをモジュールとしてコンパイルすることでカーネルのサイズを抑えること。 "
+" この仕組みを採用することによって、 2 つの大きな目的を達成しています。まず、"
+"ドライバをモジュールとしてコンパイルすることでカーネルのサイズを抑えること。 "
 "(initramfs がない場合、ルートデバイスを起動し初期化するために必要なドライバ"
-"は、あらかじめカーネルに組込まれていなければなりません。） そして、カーネルで"
-"行うことができないユーザ空間のユーティリティで実行される初期化が必要な設定の"
-"実行を可能にすることです。"
+"は、 あらかじめカーネルに組込まれていなければなりません。） そして、カーネル"
+"で行うことができないユーザ空間のユーティリティで実行される初期化が必要な設定"
+"の実行を可能にすることです。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-initramfs.dbk:28
 msgid "Initramfs generation tools"
-msgstr "Initramfs 生成ツール"
+msgstr "initramfs 生成ツール"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-initramfs.dbk:30
@@ -447,13 +434,13 @@ msgid ""
 "package> (default) and <command>dracut-update-initramfs</command> provided "
 "by the <package>dracut</package> package (experimental)."
 msgstr ""
-"通常 initramfs は特定のハードウェア/デバイス構成とカーネルのバージョン毎にカ"
+"通常、initramfs は特定のハードウェア/デバイス構成とカーネルのバージョン毎にカ"
 "スタマイズする必要があるので、パッケージの一部としては提供されず、カーネルの"
-"インストール時にその場で生成されます。今のところ Debian で initramfs を生成で"
-"きるツールは 2 つあります。<package>initramfs-tools</package> によって提供さ"
-"れる <command>update-initramfs</command> (標準) と <package>dracut</package> "
-"パッケージによって提供される <command>dracut-update-initramfs</command> (実験"
-"的) です。"
+"インストール時にその場で生成されます。今のところ、 Debian で initramfs を生成"
+"できるツールは 2 つあります。<package>initramfs-tools</package> によって提供"
+"される <command>update-initramfs</command> (デフォルト) と <package>dracut</"
+"package> パッケージによって提供される <package>dracut-update-initramfs</"
+"package> (実験的) です。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-initramfs.dbk:41
@@ -468,8 +455,8 @@ msgid ""
 "achieved by the command"
 msgstr ""
 "適切な <package>linux-image</package> をインストールした後に、その変更をした"
-"い場合は initramfs を再生成しなければなりません。initramfs は次のコマンドに"
-"よってアーカイブ化されます。"
+"い場合は initramfs を再生成しなければなりません。これは次のコマンドにより実現"
+"可能です："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-initramfs.dbk:48
@@ -498,7 +485,7 @@ msgid ""
 "problem or for educational purposes.  They are compressed <literal>cpio</"
 "literal> archives, which may be extracted using the command"
 msgstr ""
-"学習のためや、問題を分析するために initramfs の中身を調べることが時として役に"
+"学習のためや、問題を分析するために initramfs の中身を調べることが時として訳に"
 "立ちます。initramfs は <literal>cpio</literal> アーカイブとして圧縮されてお"
 "り、展開には"
 
@@ -558,10 +545,10 @@ msgid ""
 msgstr ""
 "報告者は問題のあるカーネルバージョンの環境下で <command>reportbug</command> "
 "か、それ以外の <systemitem role=\"package\">bug</systemitem> スクリプトを実行"
-"するツールを使用することを求められます。この情報のない報告に対する回答として "
-"<command>reportbug</command> を使用するよう、フォローアップリクエストが行われ"
-"ます。リクエストがあってから 1 ヶ月以内に必要な情報を私たちが受け取らなかった"
-"場合、バグは閉じられる場合があります。"
+"するツールを使用することを期待されます。この情報のない報告に対する回答は、"
+"<command>reportbug</command> を使用したフォローアップの要求でなくてはなりませ"
+"ん。要求があってから 1 ヶ月以内にこれらの情報を私達が受け取らなかった場合、バ"
+"グは閉じられる場合がります。"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:16
@@ -585,11 +572,6 @@ msgstr ""
 
 #. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:30
-#, fuzzy
-#| msgid ""
-#| "If the report is relaying information about a bug acknowledged upstream, "
-#| "we do not need system information but we do need specific references or "
-#| "<prgn>git</prgn> commit id)."
 msgid ""
 "If the report is relaying information about a bug acknowledged upstream, we "
 "do not need system information but we do need specific references (<ulink "
@@ -598,7 +580,7 @@ msgid ""
 msgstr ""
 "もし報告がアップストリームの認識しているバグに関するものであればシステムに関"
 "する情報は必要ありませんが、参照先を明確にしてください。(<ulink url="
-"\"bugzilla.kernel.org\">bugzilla.kernel.org</ulink> や <command>git</"
+"\"https://bugzilla.kernel.org\">bugzilla.kernel.org</ulink> や <command>git</"
 "command> のコミット ID など。)"
 
 #. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
@@ -630,8 +612,8 @@ msgid ""
 "Many submitters report bugs with the wrong severity.  We interpret the "
 "criteria as follows and will adjust severity as appropriate:"
 msgstr ""
-"多くの報告者が深刻度合いを間違えてバグ報告をします。私たちは次のように基準を"
-"解釈し、必要に応じて深刻度を調整しています。"
+"多くの報告者がバグの深刻度合いを間違えてバグ報告をします。私たちは次のように"
+"基準を解釈し、必要に応じて深刻度を調整しています。"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-bugs.dbk:58
@@ -675,9 +657,9 @@ msgid ""
 "We exclude loss of data in memory due to a crash.  Only corruption of data "
 "in storage or communication, or silent failure to write data, qualifies."
 msgstr ""
-"クラッシュすることでメモリ内のデータが失われる場合を除きます。ストレージ内の"
-"データ破損や、通信中のデータ損失、またはデータ書き込み時のサイレント障害のみ"
-"があてはまります。"
+"クラッシュすることでメモリ内のデータが失われる場合を除きます。ストレージ内"
+"や、通信中のデータロス、またはデータ書き込み時のサイレント障害があてはまりま"
+"す。"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-bugs.dbk:85
@@ -704,9 +686,9 @@ msgid ""
 "the standard tags and <literal>forwarded</literal> field defined by the "
 "BTS.  In particular:"
 msgstr ""
-"私たちはユーザタグを使用しません。バグのトリアージ (選別、優先割り当て) を支"
-"援するために、私たちは BTS で定義された標準のタグと、<literal>forwarded</"
-"literal> フィールドを使用するべきです。具体的には:"
+"私達はユーザタグを使用しません。バグのトリアージを支援するために、私達は BTS "
+"で定義された標準のタグと、<literal>forwarded</literal> フィールドを使用するべ"
+"きです。とりわけ："
 
 #. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:104
@@ -736,8 +718,8 @@ msgid ""
 "Generally we should not expect to be able to reproduce bugs without having "
 "similar hardware.  We should consider:"
 msgstr ""
-"ほとんどの場合、よく似たハードウェアを所有していない限りバグの再現はあまり期"
-"待できません。以下の点を考慮してください:"
+"一般的には、よく似たハードウェアを所有していない限りバグの再現はあまり期待で"
+"きません。次のことを考慮すべきです："
 
 #. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:125
@@ -811,7 +793,7 @@ msgstr ""
 #. type: Content of: <chapter><section><section><title>
 #: chapter-bugs.dbk:181
 msgid "Testing by submitter"
-msgstr "報告者による検証"
+msgstr "報告者によるテスト"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:183
@@ -887,13 +869,13 @@ msgid ""
 "status."
 msgstr ""
 "特定の製品やコンポーネントで、アップストリームにとっての現行または以前の "
-"stable リリースでバグが発生し、私たちには修正できない場合は、報告者に <ulink "
-"url=\"https://bugzilla.kernel.org\">bugzilla.kernel.org</ulink> でアップスト"
-"リームにバグを報告し、私たちにアップストリームのバグ番号を報告するようお願い"
-"します。私たちがバグを直接報告することはありません。アップストリームからの"
-"フォローアップの質問は私たちではなく、報告者に対して行われるべきだからです。"
-"アップストリームのバグ番号の報告をもって、私たちはバグを forwarded としてマー"
-"クします。そして <command>bts-link</command> がステータスを更新します。"
+"stable リリースでバグが発生し、わたしたちには修正できない場合は、報告者に"
+"<ulink url=\"https://bugzilla.kernel.org\">bugzilla.kernel.org</ulink>でアッ"
+"プストリームにバグを報告し、わたしたちにアップストリームのバグ番号を報告する"
+"ようお願いします。わたしたちがバグを直接報告することはありません。アップスト"
+"リームからのフォローアップの質問はわたしたちではなく、報告者に行くべきだから"
+"です。アップストリームのバグ番号の報告をもって、わたしたちはバグを forwarded "
+"としてマークします。<command>bts-link</command> とそのステータスの更新"
 
 #. type: Content of: <chapter><section><section><title>
 #: chapter-bugs.dbk:235
@@ -909,9 +891,9 @@ msgid ""
 "using a different driver from the original submitter."
 msgstr ""
 "多くのバグ報告者が特徴的なエラーメッセージを探し出し、これを特定のバグである"
-"かのように扱います。これは多くの 「ぶら下がり報告」 の原因になっています。例"
-"えば、ドライバのバグを示すメッセージに対して、他のドライバを使用している報告"
-"者がこれにぶら下がり報告をするケースなどです。"
+"かのように扱います。これは多くの 'me too' follow-ups の原因になっています。例"
+"えば、ドライバのバグを示すメッセージがある場合、2番目の報告者が別のドライバを"
+"使用しているようなケースです。"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:243
@@ -953,8 +935,8 @@ msgid ""
 "Where the original report describes more than one bug ('...and other "
 "thing...'), we should clone it and deal with each separately."
 msgstr ""
-"オリジナルのバグ報告が 複数のバグについて説明している場合は('...and other "
-"thing...')、報告をクローンしてそれぞれ個別に対応すべきです。"
+"オリジナルのバグ報告に 1 つよりも多くのバグについて説明されている場合は('..."
+"and other thing...' )、クローンしてそれぞれ個別に対応すべきです。"
 
 #. type: Content of: <chapter><section><section><title>
 #: chapter-bugs.dbk:272
@@ -988,11 +970,11 @@ msgid ""
 "and 'please' make a big difference in tone."
 msgstr ""
 "報告者に対しては常に丁寧に対応すべきです。これは、<ulink url=\"https://www."
-"debian.org/social_contract\">社会契約</ulink> で示唆されているだけではなく、"
-"バグを迅速に解決することにもつながる場合があります。報告者が深刻度を過剰にし"
-"てしまった場合は、静かにダウングレードしましょう。報告者が何か愚かなことをし"
-"てしまった場合は、それを取り消して報告し直すよう要求しましょう。「Sorry」 と "
-"「please」 を付けるだけで与える印象が大きく変わります。"
+"debian.org/social_contract\">社会契約</ulink>で示唆されているだけではなく、バ"
+"グを迅速に解決することにも繋がる場合があります。報告者が深刻度を過剰にしてし"
+"まった場合は、静かにダウングレードしましょう。報告者が何か愚かなことをしてし"
+"まった場合は、それを取り消して報告し直すよう要求しましょう。'Sorry' と "
+"'please' を付けるだけで、印象が大きく変わります。"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:290
@@ -1025,14 +1007,14 @@ msgid ""
 "procedures regarding kernel packaging, so the bugs found in them should be "
 "reported directly to their bug tracking systems or mailing lists."
 msgstr ""
-"Debian カーネルチームはカーネルパッケージのバグを Debian バグ追跡システム "
-"(BTS) で管理しています。このシステムの利用方法については、<ulink url="
-"\"https://bugs.debian.org\">https://bugs.debian.org</ulink> を参照してくださ"
-"い。バグは、<command>reportbug</command> という名前の、パッケージと同名のコマ"
-"ンドを使用して送信することができます。Debian から派生したディストリビューショ"
-"ン (Knoppix、Mepis、Progeny、Ubuntu、Xandros など) に関するバグは Debian BTS "
-"に報告し<emphasis>ない</emphasis>で下さい。(公式の Debian カーネルパッケージ"
-"を利用して Debian システム上で再現可能である場合を除きます)。派生ディストリ"
+"Debian kernel チームはカーネルパッケージのバグを Debian Bug Tracking System "
+"(BTS) で管理しています。このシステムの利用方法については、 <ulink url="
+"\"https://bugs.debian.org\"> http://bugs.debian.org</ulink> を参照してくださ"
+"い。バグは、<command>reportbug</command>というパッケージと同名のコマンドを使"
+"用して送信することができます。Debian から派生したディストリビューション "
+"(Knoppix、Mepis、Progeny、Ubuntu、Xandros など) に関するバグは Debian BTS に"
+"報告し<emphasis>ない</emphasis>で下さい。(公式の Debian カーネルパッケージを"
+"利用して、Debian システム上で再現可能である場合を除きます。)派生ディストリ"
 "ビューションにはカーネルのパッケージングに関して独自のポリシーと手順がありま"
 "す。そこで発見されたバグは、彼らのバグ追跡システムやメーリングリストに直接報"
 "告されるべきです。"
@@ -1048,9 +1030,9 @@ msgid ""
 "following guidelines when preparing to file the bug against kernel packages:"
 msgstr ""
 "この章の内容は、あなたが Debian カーネルパッケージに対してバグ報告を行うこと"
-"をためらわせることを意図したものではありません。しかし Debian カーネルチーム"
-"のリソースが限られていることは覚えておいてください。バグに効率的に反応できる"
-"かどうかは、バグ報告の情報の品質に左右されています。カーネルパッケージに対し"
+"を避けることを意図したものではありません。しかし、Debian カーネルチームのリ"
+"ソースが限られていることは覚えておいてください。 バグに効率的に反応できるかど"
+"うかは、バグレポートの情報の品質に左右されています。カーネルパッケージに対し"
 "てバグ報告する場合は次のガイドラインを参考にして、私たちがより良い作業ができ"
 "るよう手助けしてください。"
 
@@ -1067,14 +1049,14 @@ msgid ""
 "src=linux\">current bug list</ulink> to see whether something similar has "
 "been reported already."
 msgstr ""
-"<emphasis>調査を行う</emphasis>: バグ報告を行う前に特定のエラーメッセージや症"
-"状に関して web 上で検索を行いましょう。あなただけがある問題に遭遇しているとい"
-"うのは極めて稀なケースです。常にすでにどこかで議論されており、解決策や回避策"
-"やパッチが既に提示されている可能性が高いと考えるべきです。もしそのような情報"
+"<emphasis>調査する</emphasis> バグ報告を行う前に特定のエラーメッセージや症状"
+"に関して web 上で検索を行いましょうあなただけがある問題に遭遇しているというの"
+"は極めて稀なケースです。常に、すでにどこかで議論されており、解決策や回避策や"
+"パッチが既に提示されている可能性が高いと考えるべきです。もし、そのような情報"
 "が存在する場合は、常にバグレポート内に参照先を示すようにしましょう。すでに同"
 "様の報告がされているかどうかについては、<ulink url=\"https://bugs.debian.org/"
-"cgi-bin/pkgreport.cgi?src=linux&amp;src=linux-2.6\">現在のバグ一覧</ulink>を"
-"確認してください。"
+"cgi-bin/pkgreport.cgi?src=linux\">current bug list</ulink> を確認してくださ"
+"い。"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:334
@@ -1091,15 +1073,15 @@ msgid ""
 "well.  Use common sense and include other relevant information, if you think "
 "that it might help in solving the problem."
 msgstr ""
-"<emphasis>情報を収集する</emphasis>: バグレポートには充分な情報を提供してくだ"
-"さい。レポートには最低限でも、バグに遭遇した Debian 公式カーネルパッケージの"
-"正確なバージョンと、再現方法を記載してください。あなたが報告するバグの性質に"
-"よっては、<command>dmesg</command> の出力 (または、その一部) と "
-"<command>lspci -vn</command> の出力も報告してください。<command>reportbug</"
-"command> は、これを自動で行います。あてはまる場合には、知りうる限りバグが発生"
-"しない最新のカーネルバージョンと動作しているカーネルに対する上記のコマンド出"
-"力も報告してください。常識的に考えて問題の解決の手助けになると思う情報があれ"
-"ばそれを付加してください。"
+"<emphasis>情報を収集する</emphasis> バグレポートには充分な情報を提供してくだ"
+"さい。レポートには最低限でも、バグに遭遇したDebian 公式カーネルパッケージの"
+"バージョンと、再現方法を記載してください。あなたが報告するバグの性質によって"
+"は、<command>dmesg</command> の出力(または、その一部) と <command>lspci -vn</"
+"command> の出力も報告してください。<command>reportbug</command> は、これを自"
+"動で行います。あてはまる場合には、知りうる限りバグが発生しない最新のカーネル"
+"バージョンと、動作しているカーネルに対する上記のコマンド出力も報告してくださ"
+"い。common sense を使って、あなたが問題の解決の手助けになると思う情報を付加し"
+"てください。"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:349
@@ -1118,19 +1100,19 @@ msgid ""
 "it is an upstream problem, you can also report your bug there (but submit it "
 "to Debian BTS anyway, so that we can track it properly)."
 msgstr ""
-"<emphasis> \"vanilla\" カーネルで再現させる</emphasis>: 機会があれ"
+"<emphasis> \"vanilla\" カーネルで再現させる</emphasis> 機会があれ"
 "ば、\"vanilla\" カーネルからビルドした バイナリカーネルイメージで再現できるか"
-"試してみてください。vanilla カーネルのソースは<ulink url=\"https://www."
+"試してみてください。vanilla カーネルのソースは <ulink url=\"https://www."
 "kernel.org\">https://www.kernel.org</ulink> か、そのミラーから入手することが"
-"できます。Debian の stock カーネルと同じ設定を使用してください。これをどのよ"
-"うに実施するか、さらに詳しい情報は、<xref linkend=\"s-common-building\"/>を参"
-"照して下さい。もしバグがカーネルに対して行なわれた Debian 特有の変更が原因で"
-"あるという説得力のある証拠があれば、バグはカーネルチームによってより高い優先"
-"度をつけられます。もしバグが Debian 特有のものでない場合は、すでにアップスト"
-"リームで報告済みでないか<ulink url=\"https://bugzilla.kernel.org\">カーネルバ"
-"グデータベース</ulink>を確認してください。 アップストリームの問題であることが"
-"明確な場合は、そちらにもバグ報告をすることができます。(いずれにせよ、その問題"
-"を適切に追跡できるように Debian BTS には報告してください。)"
+"できます。Debian の stock カーネルと同じ設定を使用してください。このやり方に"
+"ついての詳しい情報は、<xref linkend=\"s-common-building\"/> を参照して下さ"
+"い。もしバグがカーネルに対して行なわれた Debian 特有の変更が原因であるという"
+"説得力のある証拠があれば、バグはカーネルチームによってより高い優先度をつけら"
+"れます。もしバグが Debian 特有のものでない場合は、すでにアップストリームで報"
+"告済みでないか <ulink url=\"http://bugzilla.kernel.org\">kernel bug "
+"database</ulink>を確認してください。 アップストリームの問題であることが明確な"
+"場合は、そちらにもバグ報告をすることができます。(いずれにせよ、その問題を追跡"
+"できるように Debian BTS には報告してください。)"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:366
@@ -1162,21 +1144,21 @@ msgid ""
 "modules, there is not much the kernel community can do about it and it "
 "should be reported directly to their authors."
 msgstr ""
-"<emphasis>tainted カーネルに関連するバグ</emphasis>: カーネルがクラッシュした"
+"<emphasis>tainted カーネルに関連するバグ</emphasis> カーネルがクラッシュした"
 "場合、通常はデバッグ情報を出力します。これには、動作中だったカーネルが taint "
-"(汚染) だったかも含まれています。クラッシュ時にサードパーティ製のバイナリモ"
+"(汚染) されたかも含まれています。クラッシュ時にサードパーティ製のバイナリモ"
 "ジュールがロードされていたカーネルは tainted (汚染された) と表現されます。"
 "カーネル開発者がソースコードを見ることができないので、そのようなモジュールが"
 "絡んだ問題はデバッグが非常に困難になります。そのような事情から、(例えばバイナ"
 "リモジュールをロードしないようにするなどして) untainted (汚染されていない) "
 "カーネルで再現できるか試してみることを強くおすすめします。問題がそのようなモ"
-"ジュールの存在に起因するものであれば、カーネルコミュニティができることはあま"
+"ジュールの内部に起因するものであれば、カーネルコミュニティができることはあま"
 "りありませんので、直接モジュールの作成者に報告すると良いでしょう。"
 
 #. type: Content of: <chapter><section><section><title>
 #: chapter-bugs.dbk:389
 msgid "Bisecting (finding the upstream version that introduced a bug)"
-msgstr "二分探索 (バグを作り込んだアップストリームのバージョンを特定する)"
+msgstr "Bisecting (バグを作り込んだアップストリームのバージョンを特定する)"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:391
@@ -1215,7 +1197,8 @@ msgid ""
 "binary package as explained in <xref linkend=\"s-common-building\"/>:"
 msgstr ""
 "上記のコマンドで vanilla カーネルを取得します。<xref linkend=\"s-common-"
-"building\"/>で説明したバイナリパッケージの設定、ビルド、テストを行います:"
+"building\"/>で説明されている、バイナリパッケージの設定、ビルド、テストを行いま"
+"す:"
 
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-bugs.dbk:409
@@ -1318,13 +1301,12 @@ msgid ""
 "with the <package>gitk</package> package installed can show what is "
 "happening between steps."
 msgstr ""
-"プロセスの最後に、「first bad commit (問題が発生した最初のコミット)」 の名前"
-"が出力されます。これはバグを追うのに役立ちます。特定には至らなくても、何度か"
-"プロセスを繰り返しリグレッションの範囲を絞り込むことは有用です。その場合次の"
-"コマンドを実行しログを出力します。 <command>git bisect log</command> もし可視"
-"化したければ <command>git bisect visualize</command> を <package>gitk</"
-"package> パッケージをインストールした状態で使用することで、ステップ間で何が起"
-"きたかを見ることができます。"
+"プロセスの最後に、\"first bad commit\" の名前が出力されます。これはバグを追う"
+"のに役立ちます。特定には至らなくても、何度かプロセスを繰り返しリグレッション"
+"の範囲を絞り込むことは有用です。その場合、<command>git bisect log</command> "
+"コマンドを実行し、ログを出力します。 もし可視化したければ、<command>git "
+"bisect visualize</command> を <package>gitk</package> パッケージをインストー"
+"ルした状態で使用することで、ステップ間で何が起きたかを見ることができます。"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-bugs.dbk:463
@@ -1379,7 +1361,7 @@ msgstr ""
 "command> によってロードされます。稀に、カーネルモジュールのロードをより細かく"
 "コントロールする必要のある人がいます。例えば、追加のパラメータをモジュールに"
 "渡したり、スタートアップ時にいくつかのモジュールをロードしたり、特定のモ"
-"ジュールがロードされないようにし たり、などです。"
+"ジュールがロードされないようにしたり、などです。"
 
 #. type: Content of: <chapter><para>
 #: chapter-modules.dbk:24
@@ -1393,10 +1375,10 @@ msgid ""
 msgstr ""
 "もし、<command>udev</command> で自動的にロードされないモジュールを、起動時に"
 "ロードしたければ、そのモジュールを<filename>/etc/modules</filename>に列挙する"
-"ことで、強制的にロードさせることも可能です。このファイルはライン毎にモジュー"
-"ル名をスキャンされ (各ラインに1 モジュール) 、そのモジュールは "
-"<command>modprobe</command> でロードされます。例えば、典型的な <filename>/"
-"etc/modules</filename> ファイルは以下のようになっています。"
+"ことで、強制的にロードさせることも可能です。このファイルの各行ごとにモジュー"
+"ル名をスキャンし (各行に 1 モジュール) 、 <command>modprobe</command> でその"
+"モジュールがロードされます。例えば、典型的な <filename>/etc/modules</"
+"filename> は次のように書かれています。"
 
 #. type: Content of: <chapter><literallayout>
 #: chapter-modules.dbk:31
@@ -1459,8 +1441,8 @@ msgstr ""
 "ルに特別な引数を渡すには、<command>udev</command>がモジュールのロードに使用す"
 "る <command>modprobe</command> 用のカスタム設定ファイルを作らなければなりませ"
 "ん。例えば、引数 <literal>atapi_enabled=1</literal> を <literal>libata</"
-"literal> カーネルモジュールへ渡すには、次の行を含む<filename>/etc/modprobe.d/"
-"local.conf</filename>ファイルを作成します。"
+"literal> カーネルモジュールへ渡すには、以下の行を含む<filename>/etc/modprobe."
+"d/local</filename>ファイルを作成します。"
 
 #. type: Content of: <chapter><literallayout>
 #: chapter-modules.dbk:59
@@ -1470,11 +1452,6 @@ msgstr "options libata atapi_enabled=1\n"
 
 #. type: Content of: <chapter><para>
 #: chapter-modules.dbk:62
-#, fuzzy
-#| msgid ""
-#| "You can choose arbitrary names for the configuration files in <literal>/"
-#| "etc/modprobe.d</literal> and put multiple <literal>options</literal> "
-#| "lines in the same file."
 msgid ""
 "You can use any name ending in <literal>.conf</literal> for the "
 "configuration files in <filename>/etc/modprobe.d</filename> and put multiple "
@@ -1485,15 +1462,6 @@ msgstr ""
 
 #. type: Content of: <chapter><para>
 #: chapter-modules.dbk:67
-#, fuzzy
-#| msgid ""
-#| "Sometimes two different modules claim support for the same device, "
-#| "usually because two slightly different versions of the device exist, "
-#| "requiring different kernel modules to operate.  In such situation "
-#| "<literal>udev</literal> loads both kernel modules, with unpredictable "
-#| "results.  To avoid this problem, you can prevent any module (let's say, "
-#| "<literal>tulip</literal>) from loading by creating an arbitrarily named "
-#| "file, containing a line"
 msgid ""
 "Sometimes two different modules claim support for the same device, usually "
 "because two slightly different versions of the device exist, requiring "
@@ -1507,8 +1475,7 @@ msgstr ""
 "に異なるカーネルモジュールを要求していることが原因です。そのような状況では、"
 "<command>udev</command> が両方のカーネルモジュールをロードし、予期しない結果"
 "になります。この問題を避けるため、任意のモジュール (例えば <literal>tulip</"
-"literal> だとしましょう) のロードを防ぐには、<filename>/etc/modprobe.d</"
-"filename> ディレクトリ内に"
+"literal> だとしましょう) のロードを防ぐには、任意のファイルを作成し、"
 
 #. type: Content of: <chapter><literallayout>
 #: chapter-modules.dbk:74
@@ -1523,14 +1490,238 @@ msgid ""
 "<command>modprobe</command> manual page (<command>man modprobe</command>) "
 "for much more information on configuring and using modprobe."
 msgstr ""
-"という行を記述した任意の名前のファイルを作成します。modprobe の使い方や設定方"
-"法に関するより詳しい情報は、<command>modprobe</command> のマニュアルページ "
-"(<command>man modprob e</command>) を参照してください。"
+"と書いて、<filename>/etc/modprobe.d</filename> ディレクトリに配置します。"
+"modprobe の使い方や設定方法に関するより詳しい情報は、<command>modprobe</"
+"command> のマニュアルページ (<command>man modprobe</command>) を参照してくだ"
+"さい。"
+
+#. type: Content of: <chapter><title>
+#: chapter-versions.dbk:5
+msgid "Version numbers and ABIs"
+msgstr "バージョン番号と ABI"
+
+#. type: Content of: <chapter><section><title>
+#: chapter-versions.dbk:6
+msgid "The different types of version"
+msgstr "異なるバージョンのタイプ"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><term>
+#: chapter-versions.dbk:9
+msgid "Upstream version"
+msgstr "アップストリームバージョン"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
+#: chapter-versions.dbk:12
+msgid ""
+"The version that Linus or a stable series maintainer uses for a release.  "
+"Currently Linus will use the version format: 4.<replaceable>x</replaceable>[-"
+"rc<replaceable>y</replaceable>].  Stable series maintainers use the version "
+"format: 4.<replaceable>x</replaceable>.<replaceable>y</replaceable>."
+msgstr ""
+"Linus や安定版のメンテナがリリースに使用するバージョンです。現在 Linus はバー"
+"ジョンナンバに 4.<replaceable>x</replaceable>[-rc<replaceable>y</"
+"replaceable>] というフォーマットを使用しています。安定版のメンテナはバージョ"
+"ンナンバに 4.<replaceable>x</replaceable>.<replaceable>y</replaceable> という"
+"フォーマットを使用しています。"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><term>
+#: chapter-versions.dbk:21
+msgid "Package version"
+msgstr "パッケージバージョン"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
+#: chapter-versions.dbk:24
+msgid ""
+"The version used in a Debian package.  Following Debian policy, it should "
+"follow the format <replaceable>upstreamversion</replaceable>-"
+"<replaceable>debianrevision</replaceable>.  However, for an upstream release "
+"candidate, the string '-rc' must be replaced with '~rc' so that it will be "
+"recognised as an earlier version than the following release."
+msgstr ""
+"Debian パッケージで使用されるバージョンナンバDebian ポリシーによると、"
+"<replaceable>アップストリームのバージョン</replaceable>-<replaceable>Debian "
+"のリビジョン</replaceable> というフォーマットに従う必要がります。しかし、アッ"
+"プストリームのリリース候補版で使用される 「-rc」 は 「~rc」 で置き換える必要"
+"があります。これ以降にリリースされるバージョンよりも前のバージョンであると認"
+"識させるためです。"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><term>
+#: chapter-versions.dbk:34
+msgid "Kernel version"
+msgstr "カーネルバージョン"
+
+#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
+#: chapter-versions.dbk:37
+msgid ""
+"This is the version that appears in kernel messages, filenames, package "
+"names and the output of 'uname -r'.  In official kernel packages it follows "
+"the format <replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
+"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
+"replaceable>.  It is not changed for every new package version.  The "
+"<replaceable>abiname</replaceable> is changed as explained below."
+msgstr ""
+"カーネルメッセージ、ファイル名、パッケージ名、「uname -r」 コマンドで出力され"
+"るバージョンナンバです。公式のカーネルパッケージでは"
+"<replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
+"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
+"replaceable> というフォーマットに従います。これは全ての新しいパッケージバー"
+"ジョンで変わるものではありません。<replaceable>abiname</replaceable>は以下の"
+"ルールに従い変更されます。"
+
+#. type: Content of: <chapter><section><para>
+#: chapter-versions.dbk:48
+msgid ""
+"Many programs parse the kernel version string reported by the "
+"<command>uname</command> system call or command and expect to find at least "
+"3 version components separated by dots.  For compatibility, the official "
+"kernel packages currently add '.0' to the upstream version."
+msgstr ""
+"多くのプログラムがカーネルバージョンを<command>uname</command>システムコール"
+"かコマンドからパースしますが、最低でも 3 つのバージョンの部位がドットで区切ら"
+"れていることが前提となっています。互換性のために、公式のカーネルパッケージは"
+"現在アップストリームバージョンに「.0」を付けています。"
+
+#. type: Content of: <chapter><section><title>
+#: chapter-versions.dbk:55
+msgid "The kernel ABI"
+msgstr "カーネルの ABI"
+
+#. type: Content of: <chapter><section><para>
+#: chapter-versions.dbk:57
+msgid ""
+"An ABI (Application Binary Interface) is an interface between two software "
+"components, considered at the level of register allocation and memory "
+"layout.  The ABI between the kernel and user-space is generally maintained "
+"carefully, and is not a concern here.  However, the ABI between the kernel "
+"and its modules is not.  In order to support out-of-tree modules, the kernel "
+"version should be changed when the ABI between the kernel and modules "
+"changes."
+msgstr ""
+"ABI (Application Binary Interface) はレジスタの割り当てやメモリのレイアウトの"
+"レベルで考慮されているソフトウェアコンポーネント間のインタフェースです。カー"
+"ネルとユーザ空間の間の ABI は定常的に注意深くメンテナンスされているため、ここ"
+"では考慮する必要はありません。しかし、カーネルとカーネルモジュール間の ABI は"
+"その限りではありません。ツリー外のモジュールをサポートするためには、 カーネル"
+"とモジュール間の ABI に変更があるたびにカーネルバージョンを変更しなければなり"
+"ません。"
+
+#. type: Content of: <chapter><section><section><title>
+#: chapter-versions.dbk:64
+msgid "The ABI name"
+msgstr "ABI 名"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:66
+msgid ""
+"In official kernel packages, we change the <replaceable>abiname</"
+"replaceable> part of the kernel version to mark ABI changes that aren't due "
+"to a new upstream version.  This part comes from the <literal>abiname</"
+"literal> setting in <filename>debian/config/defines</filename>.  We use "
+"either a number or 'trunk' (for experimental), but for a custom package it "
+"should be some other string."
+msgstr ""
+"公式のカーネルパッケージでは、私達はカーネルバージョン名の一部である"
+"<replaceable>abiname</replaceable>を変更します。これは、新しいアップストリー"
+"ムバージョンに起因しない ABI の変更をマークするためです。この部分は "
+"<filename>debian/config/defines</filename> 中の <literal>abiname</literal> の"
+"設定で管理されています。私達は、この部分に 「trunk」(experimental 用) か番号"
+"を使用しますが、カスタムパッケージにはそれ以外の文字列を使うべきです。"
+
+#. type: Content of: <chapter><section><section><title>
+#: chapter-versions.dbk:74
+msgid "Maintaining and updating the ABI"
+msgstr "ABI の管理と更新"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:76
+msgid ""
+"In order to avoid the need for users to rebuild out-of-tree modules "
+"frequently, we try to avoid changing the kernel ABI during updates to a "
+"Debian stable or oldstable release.  Most importantly, we avoid making such "
+"changes without changing the ABI name, except where it appears that out-of-"
+"tree modules do not depend on that part of the ABI."
+msgstr ""
+"私達は、ユーザがツリー外のモジュールを頻繁にビルドする必要が無いよう、Debian "
+"安定版や旧安定版に対するアップデートでは、カーネルの ABI を変更しません。最も"
+"重要なことは、ツリー外のモジュールが ABI のある部分に依存していないと思われる"
+"場合を除き、ABI 名を変更せずにそのような変更を行うことを避けるということで"
+"す。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:83
+msgid ""
+"Bug fixes or configuration changes to the kernel may alter the ABI.  If an "
+"exported function is conditional on <symbol>CONFIG_<replaceable>FOO</"
+"replaceable></symbol>, or it uses a type whose definition depends on "
+"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol>, then turning "
+"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> on or off changes the "
+"ABI of that function, and thus of the kernel as a whole.  Enabling or "
+"changing the configuration of a single driver usually doesn't change the "
+"ABI, because most drivers don't export anything."
+msgstr ""
+"カーネルへのバグ修正や設定の変更は ABI の変更をともなう場合があります。もしエ"
+"クスポートされた関数が <symbol>CONFIG_<replaceable>FOO</replaceable></"
+"symbol> を条件としているか、もしくは型定義が "
+"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> に依存するものを使用し"
+"ている場合、<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> の有効無効"
+"によってその関数の ABI、ひいてはカーネル全体の ABI が変更になります。1 つのド"
+"ライバの設定を有効化したり、変更したりする場合、たいてい ABI は変更しません。"
+"ほとんどのドライバは何もエクスポートしないからです。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:94
+msgid ""
+"The kernel build process generates a 'symbol version' for each exported "
+"function or variable.  This is a hash of the definitions that it depends on, "
+"and should change whenever the function's ABI changes.  The kernel module "
+"loader detects incompatible modules by comparing symbol versions.  The whole "
+"set of symbol versions represents the kernel ABI."
+msgstr ""
+"カーネルのビルドプロセスによって 、それぞれのエクスポートされた関数や変数用に"
+"「シンボルバージョン」が生成されます。これは自身が依存している定義のハッシュ"
+"で、関数の ABI が変更された場合は必ず変更しなければなりません。シンボルバー"
+"ジョンを比較することで、カーネルモジュールローダは非互換のモジュールを検出し"
+"ます。シンボルバージョンの完全なセットはカーネル ABI で表現されます。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:101
+msgid ""
+"We collect the symbol versions for previously uploaded packages under the "
+"directory <filename>debian/abi</filename> and then compare the new kernel "
+"with those.  If the ABI name is unchanged but the ABI itself is changed - "
+"except for additions, or changes that we have marked as acceptable - then "
+"the build is aborted."
+msgstr ""
+"私達は以前アップロードした<filename>debian/abi</filename>ディレクトリ以下の"
+"パッケージのシンボルバージョンを修正し、新しいカーネルのものと比較します。も"
+"し ABI 名が変更さないにも関わらず ABI そのものに変更がある場合は、ビルドを中"
+"止します。"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:108
+msgid ""
+"If the kernel ABI has changed you must then change the ABI name in "
+"<filename>debian/config/defines</filename>.  Then run the command"
+msgstr ""
+"カーネル ABI が変更された場合は、<filename>debian/config/defines</filename> "
+"の ABI 名を変更しなければなりません。そして次のコマンドを実行します："
+
+#. type: Content of: <chapter><section><section><screen>
+#: chapter-versions.dbk:112
+#, no-wrap
+msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
+
+#. type: Content of: <chapter><section><section><para>
+#: chapter-versions.dbk:115
+msgid "to regenerate the package definitions for this ABI name."
+msgstr ""
+"このコマンドで ABI に対応したパッケージ定義を再生成することができます。"
 
 #. type: Content of: <chapter><title>
 #: chapter-source.dbk:5
 msgid "Debian kernel source"
-msgstr "Debian kernel source"
+msgstr "Debian カーネルソース"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-source.dbk:6
@@ -1553,36 +1744,19 @@ msgid ""
 "source.  <replaceable>version</replaceable> is the actual upstream version."
 msgstr ""
 "Debian のカーネルはバイナリ形式で配布されており、 Debian カーネルソースからビ"
-"ルドされます。Debian カーネルソースは <ulink url=\"https://www.kernel.org"
-"\">www.kernel.org</ulink> とそのミラーで配布されているアップストリームのカー"
-"ネルソース (これを素のカーネルソースとも呼びます) とは異なっているかもしれな"
-"いということを認識しておきましょう。(ほぼ全てのケースで異なっています。) ライ"
-"センスの制約により、不明確なライセンス情報や Debian フリーソフトウェアガイド"
-"ライン (DFSG) に合致しないカーネルの一部は Debian アーカイブの "
-"<literal>main</literal> セクションから除外されます。除外のプロセスを経て "
-"<filename>linux_<replaceable>version</replaceable>.orig.tar.xz</filename> の "
-"tarball が作られす。これはオリジナルのアップストリームソースとして提供されま"
-"す。<replaceable>version</replaceable> は実際のアップストリームのバージョンで"
-"す。"
+"ルドされます。Debian カーネルソースは （大抵の場合）<ulink url=\"https://www."
+"kernel.org\">www.kernel.org</ulink>とそのミラーで配布されているアップストリー"
+"ムの (または \"素\" の) カーネルソースとは異なる可能性があるということを認識"
+"しておきましょう。ライセンスの制約により、不明確なライセンス情報や Debian フ"
+"リーソフトウェアガイドライン (DFSG) に合致しないカーネルのパーツは Debian "
+"アーカイブの <literal>main</literal> セクションから除外されます。この除外プロ"
+"セスを経て <filename>linux_<replaceable>version</replaceable>.orig.tar.xz</"
+"filename> の tarball ができます。これはオリジナルのアップストリームソースとし"
+"て提供されます。<replaceable>version</replaceable> は実際のアップストリームの"
+"バージョンです。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-source.dbk:22
-#, fuzzy
-#| msgid ""
-#| "The guidelines for firmware removal were set by the <ulink url=\"https://"
-#| "www.debian.org/vote/2006/vote_007\">Handling source-less firmware in the "
-#| "Linux kernel</ulink> General Resolution and the <ulink url=\"https://"
-#| "lists.debian.org/debian-kernel/2006/10/msg00541.html\">position "
-#| "statement</ulink> by the release managers.  Even though these documents "
-#| "originally applied to the Etch release, there were no significant changes "
-#| "in the removal policy, so they were in effect for the Lenny release as "
-#| "well.  As of version 2.6.31-1, all known sourceless firmware has been "
-#| "removed from the Debian package, but much of it is included in the <ulink "
-#| "url=\"https://packages.debian.org/source/firmware-nonfree\">firmware-"
-#| "nonfree</ulink> package.  Additional information about firmware licensing "
-#| "and removals may be found at the <ulink url=\"https://wiki.debian.org"
-#| "\">Debian Wiki</ulink> page <ulink url=\"https://wiki.debian.org/"
-#| "KernelFirmwareLicensing\">KernelFirmwareLicensing</ulink>."
 msgid ""
 "The guidelines for firmware removal were set by the <ulink url=\"https://www."
 "debian.org/vote/2006/vote_007\">Handling source-less firmware in the Linux "
@@ -1597,18 +1771,16 @@ msgid ""
 "KernelFirmwareLicensing\">KernelFirmwareLicensing</ulink>."
 msgstr ""
 "ファームウェアを除外するガイドラインが一般決議: <ulink url=\"https://www."
-"debian.org/vote/2006/vote_007\">Linux カーネルにおけるソースの無いファーム"
-"ウェアの扱いについて</ulink> によって採択され、リリースマネージャによって "
-"<ulink url=\"https://lists.debian.org/debian-kernel/2006/10/msg00541.html\">"
-"ポジションステートメント</ulink> が宣言されました。これらの決議はもともとは "
-"Etch のリリースに対して適用されたものですが、除外ポリシーに目立った変更がない"
-"ため Lenny のリリース に対しても有効です。バージョン 2.6.31-1 以降、ソースが"
-"無いファームウェアは全て Debian パッケージから削除されましたが、その多くは "
-"<ulink url=\"https://packages.debian.org/source/firmware-nonfree\">firmware-"
-"nonfree</ulink> パッケージに収録されています。ファームウェアのライセンス情報"
-"と、削除に関連した追加の情報は <ulink url=\"https://wiki.debian.org\">Debian "
-"Wiki</ulink> の <ulink url=\"https://wiki.debian.org/KernelFirmwareLicensing"
-"\">KernelFirmwareLicensing</ulink> を参照して下さい。"
+"debian.org/vote/2006/vote_007\">\"Linux Kernel のソースが無いファームウェアの"
+"扱いについて</ulink>  で採択され、 リリースマネージャによって <ulink url="
+"\"http://lists.debian.org/debian-kernel/2006/10/msg00541.html\">基本方針表明"
+"</ulink> が行われました。バージョン 2.6.31-1 以降、ソースが無いファームウェア"
+"は全て Debian パッケージから削除されましたが、多くは <ulink url=\"https://"
+"packages.debian.org/source/firmware-nonfree\">firmware-nonfree</ulink> パッ"
+"ケージに収録されています。ファームウェアのライセンス情報と、削除に関連した追"
+"加の情報は <ulink url=\"https://wiki.debian.org\">Debian Wiki</ulink> の "
+"<ulink url=\"http://wiki.debian.org/KernelFirmwareLicensing\">"
+"KernelFirmwareLicensing</ulink> の項目を参照して下さい。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-source.dbk:37
@@ -1632,20 +1804,20 @@ msgid ""
 "patchlevel 1.  Certain packages include extra 'featuresets' not included in "
 "the upstream source, such as <literal>rt</literal>."
 msgstr ""
-"Debian のバイナリ形式のカーネルをビルドするためのソースは "
+"Debian のバイナリ形式のカーネルをビルドするためのソースは"
 "<filename>linux_<replaceable>version</replaceable>.orig.tar.xz</filename>から"
-"入手したソースに (素のカーネルソースから問題のある箇所を除去したソースで"
-"す。) Debian パッチを適用することで入手できます。これらのパッチは深刻なバグや"
-"セキュリティホールに対する必須の修正が実装されているものがほとんどです。"
-"Debian の カーネルパッケージは <literal><replaceable>version-revision</"
-"replaceable></literal> というフォーマットになっています。"
-"<literal><replaceable>version</replaceable></literal> はアップストリームの"
-"カーネルバージョン (例えば 3.2.20) を、<literal><replaceable>revision</"
-"replaceable></literal> はパッチレベルをあらわします。たとえば、3.2.20-1 とい"
-"うバージョンナンバは <filename>linux_3.2.20.orig.tar.xz</filename> のソースに"
-"パッチレベル 1 のパッチが適用されているという意味になります。特定のパッケージ"
-"には、アップストリームのソースには入っていない <literal>rt</literal> のような"
-"オプション機能が組込まれている場合があります。"
+"入手したソース (このソースは問題のある箇所を除外した素のカーネルソースです) "
+"にDebian パッチを当てることで手に入ります。  これらのパッチは深刻なバグやセ"
+"キュリティホールに対する必須の修正が実装されているものがほとんどです。Debian "
+"の カーネルパッケージは <replaceable>version</replaceable><literal>-</"
+"literal><replaceable>revision</replaceable> というフォーマットになっており、"
+"この<replaceable>version</replaceable>はアップストリームのカーネルバージョン "
+"(例えば 3.2.20等) を、<replaceable>revision</replaceable>はパッチレベルをあら"
+"わします。たとえば、3.2.20-1 というバージョンナンバは <filename>linux_3.2.20."
+"orig.tar.xz</filename> のソースにパッチレベル 1 のパッチが当たっているという"
+"意味になります。特定のパッケージには、アップストリームのソースには入っていな"
+"い <literal>rt</literal> のようなオプション機能が組込まれている場合がありま"
+"す。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-source.dbk:55
@@ -1664,14 +1836,14 @@ msgid ""
 "recommended procedure for inclusion of patches introducing optional features "
 "is to submit to the upstream maintainer."
 msgstr ""
-"Debian カーネルチームの基本となるポリシーは、\"パッチはバグを修正するものか"
-"ハードウェアのサポートを追加するものでなければならない\" ことと、アップスト"
-"リームのカーネルメンテナによってすでに受入れられた変更にもとづいていなければ"
-"ならないことです。ただし、この変更はアップストリームのリリースに含まれている"
-"必要はありません。このポリシーにより、次のアップストリームバージョンへ移行す"
-"る際に、増え続ける Debian 特有のパッチをメンテナンスし続けることなく、ほとん"
-"どのパッチを捨てることができます。オプション機能を提供するパッチを取込んでも"
-"らうためには、まずアップトリームのメンテナにパッチを投げてみましょう。"
+"Debian カーネルチームの基本となるポリシーは、パッチはバグを修正するものかハー"
+"ドウェアのサポートを追加するものでなければならないことと、アップストリームの"
+"カーネルメンテナによってすでに受入れられた変更にもとづいていなければならない"
+"ことです。ただし、この変更はアップストリームのリリースに含まれている必要はあ"
+"りません。このポリシーにより、次のアップストリームバージョンへ移行する際に、"
+"増え続ける Debian 特有のパッチをメンテナンスし続けることなく、ほとんどのパッ"
+"チを捨てることができます。オプション機能を提供するパッチを取込んでもらうため"
+"には、まずアップトリームのメンテナにパッチを投げてみましょう。"
 
 #. type: Content of: <chapter><title>
 #: chapter-common-tasks.dbk:5
@@ -1771,11 +1943,11 @@ msgid ""
 "version of this package (for example, 1 in 3.2.19-1)  will determine its "
 "patchlevel with respect to the original upstream kernel source."
 msgstr ""
-"<filename>linux-<replaceable>version</replaceable></filename> ディレクトリに "
-"<package>linux</package> ソースパッケージがダウンロードされ、展開されます。こ"
-"のパッケージのバージョン名のリビジョンの部分 (例えば、3.2.19-1 の 1 にあたる"
-"部分) は、常にオリジナルのアップストリームカーネルに対するパッチレベルをあら"
-"わしています。"
+"<package>linux</package> ソースパッケージをダウンロードし、<filename>linux-"
+"<replaceable>version</replaceable></filename>ディレクトリにツリー展開します。"
+"このパッケージのバージョン名のリビジョンの部分 (例えば、3.2.19-1 の 1 にあた"
+"る部分) は、常にオリジナルのアップストリームカーネルに対するパッチレベルをあ"
+"らわしています。"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:56
@@ -1849,7 +2021,7 @@ msgid ""
 "with extra patches.  You can use this by running commands such as:"
 msgstr ""
 "ソースパッケージには、追加のパッチを適用してビルドのプロセスを簡略化するため"
-"のスクリプトが含まれます。このスクリプトは次のコマンドで実行します:"
+"のスクリプトが含まれます。このスクリプトは次のコマンドで実行します："
 
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:94
@@ -1920,10 +2092,8 @@ msgstr "パッチを適用したソースは次のディレクトリに格納さ
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:127
-#, fuzzy
-#| msgid "linux default source:"
 msgid "default source:"
-msgstr "Linux デフォルトのソース:"
+msgstr "デフォルトのソース:"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:130
@@ -1932,10 +2102,8 @@ msgstr "最上位の階層"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:135
-#, fuzzy
-#| msgid "linux source with featureset:"
 msgid "source with featureset:"
-msgstr "フィーチャセットを含む linux ソース:"
+msgstr "フィーチャセットを含むソース:"
 
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:138
@@ -1953,7 +2121,7 @@ msgid ""
 "<package>linux</package> source package you can use the <command>quilt</"
 "command> utility to do this."
 msgstr ""
-"追加のパッチは正しいディレクトリにそれぞれ適用して下さい。<package>linux</"
+"追加のパッチは適切なディレクトリにそれぞれ適用してください。<package>linux</"
 "package> ソースパッケージでは、この作業に <command>quilt</command> を使用する"
 "ことができます。"
 
@@ -2067,15 +2235,15 @@ msgid ""
 "<replaceable>version</replaceable>-common</package> binary package, which "
 "can be built using the commands:"
 msgstr ""
-"このコマンド内でのターゲットの指定方法は以下の書式で汎化されています: "
+"このコマンドのターゲットは次の書式で汎化されています: "
 "<literal><replaceable>target</replaceable>_<replaceable>arch</"
-"replaceable>_<replaceable>featureset</replaceable>_<replaceable>flavour</"
-"replaceable></literal> 追加のフィーチャセットが不要な場合、"
+"replaceable>_<replaceable>featureset</replaceable>_<replaceable>real</"
+"replaceable></literal>フィーチャセットが不要な場合、"
 "<literal><replaceable>featureset</replaceable></literal> を <literal>none</"
-"literal> で置き変えます。このコマンドは linux イメージとカーネルヘッダパッ"
+"literal> に置き換えます。このコマンドは linux イメージとカーネルヘッダパッ"
 "ケージをビルドします。場合によっては <package>linux-headers-"
-"<replaceable>version</replaceable>-common</package> バイナリパッケージが必要"
-"かもしれません。次のコマンドでビルドできます:"
+"<replaceable>version</replaceable>-common</package> バイナリパッケージも必要"
+"かもしれません。次のコマンドでビルドできます："
 
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:202
@@ -2143,13 +2311,6 @@ msgstr ""
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:233
-#, fuzzy
-#| msgid ""
-#| "This will check out the Debian packaging. <replaceable>dist</replaceable> "
-#| "is normally the distribution codename such as <literal>wheezy</literal> "
-#| "or <literal>sid</literal> (unstable). For the very latest version, "
-#| "usually based on an upstream release candidate, use <literal>trunk</"
-#| "literal>."
 msgid ""
 "This will check out the Debian packaging.  <replaceable>dist</replaceable> "
 "is normally the distribution codename such as <literal>wheezy</literal> or "
@@ -2157,11 +2318,12 @@ msgid ""
 "based on an upstream release candidate, use <literal>master</literal>.  Note "
 "that this will download several hundred megabytes of data."
 msgstr ""
-"Debian のパッケージをチェックアウトします。<replaceable>dist</replaceable> に"
+"Debian パッケージをチェックアウトします。<replaceable>dist</replaceable> に"
 "は、<literal>wheezy</literal> や <literal>sid</literal> (unstable) などのディ"
 "ストリビューションのコードネームが入ります。アップストリームのリリース候補版"
-"をベースにした最新のバージョンを入手したい場合は <literal>trunk</literal> か"
-"らチェックアウトして下さい。"
+"をベースにした最新のバージョンを入手したい場合は<literal>trunk</literal>から"
+"チェックアウトして下さい。数百メガバイトのデータをダウンロードするのでご注意"
+"ください。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:242
@@ -2177,10 +2339,10 @@ msgid ""
 "tarball from <ulink url=\"https://people.debian.org\">people.debian.org</"
 "ulink> instead."
 msgstr ""
-"<package>linux</package> のアップストリームのソース (と最新の Debian パッチ)"
-"をダウンロードします。ビルドしようとしているバージョンによって、APT のバー"
-"ジョン選択を上書きをしたり、変わりに <ulink url=\"https://people.debian.org"
-"\">people.debian.org</ulink> から tarball をダウンロードする必要があります。"
+"<package>linux</package> のアップストリームのソース (と最新の Debian パッチ) "
+"をダウンロードします。ビルドしようとしているバージョンによって APT のバージョ"
+"ン選択を上書きするか、かわりに<ulink url=\"https://people.debian.org"
+"\">people.debian.org</ulink>から tarball をダウンロードする必要があります。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:253
@@ -2233,7 +2395,7 @@ msgstr ""
 #. type: Content of: <chapter><section><title>
 #: chapter-common-tasks.dbk:282
 msgid "Generating orig tarball from newer upstream"
-msgstr "orig tarball をより新しいアップストリームの tarball から生成する"
+msgstr "orig tarball をより新しいアップストリームの tarball からビルドする"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:284
@@ -2246,24 +2408,19 @@ msgstr ""
 "まず、新しいアップストリームバージョンの変更履歴を追加します。新しいバージョ"
 "ンがリリース候補版なら、バージョン文字列の <literal>-rc</literal> を "
 "<literal>~rc</literal> に変更して下さい。(Debian のパッケージでは、サフィック"
-"ス<literal>~</literal>がプレリリース用に使われています)"
+"ス<literal>~</literal>がプレリリース用に使われています )"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:290
-#, fuzzy
-#| msgid ""
-#| "The 'orig' tarball is generated by the <literal>genorig.py</literal> "
-#| "script. It takes either a tarball and optional patch from kernel.org, or "
-#| "a git repository. If you have a tarball, run a command such as:"
 msgid ""
 "The 'orig' tarball is generated by the <command>genorig.py</command> "
 "script.  It takes either a tarball and optional patch from kernel.org, or a "
 "git repository.  First ensure you have the necessary tools installed:"
 msgstr ""
-"'orig' tarball は<command>genorig.py</command>スクリプトによって生成されま"
+"'orig'  tarball は<command>genorig.py</command>スクリプトによって生成されま"
 "す。このスクリプトは tarball、オプションのパッチ、または kernel.org の git リ"
-"ポジトリへのパスを引数にとります。tarball が手元にある場合は次のようなコマン"
-"ドを実行します:"
+"ポジトリへのパスを引数にとります。まず、必要なツールがインストールされている"
+"か確認します："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:295
@@ -2274,7 +2431,7 @@ msgstr "<prompt>#</prompt> <userinput>apt-get install unifdef</userinput>\n"
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:298
 msgid "Then if you have a tarball, run a command such as:"
-msgstr ""
+msgstr "tarball が手元にある場合は次のようなコマンドを実行します:"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:301
@@ -2284,8 +2441,6 @@ msgstr "<prompt>$</prompt> <userinput>debian/bin/genorig.py ../linux-4.3.tar.xz 
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:304
-#, fuzzy
-#| msgid "If you have a git repository, pass the name of its directory:"
 msgid "Or if you have a git repository, pass the name of its directory:"
 msgstr "git リポジトリが手元にある場合は、そのディレクトリ名を引数に渡します:"
 
@@ -2302,9 +2457,9 @@ msgid ""
 "orig.tar.xz</filename>.  You can then combine this tarball with the Debian "
 "packaging by running:"
 msgstr ""
-"どちらを実行した場合にも、<filename>../orig/linux_3.5~rc1.orig.tar.xz</"
-"filename>のようなファイルが生成されます。この tarball を次のコマンドで "
-"Debian パッケージに統合します："
+"どちらを実行した場合も、<filename>../orig/linux_3.5~rc1.orig.tar.xz</filename> のよう"
+"なファイルが生成されるでしょう。この tarball を次のコマンドで Debian パッケー"
+"ジに統合にします："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:315
@@ -2342,7 +2497,7 @@ msgstr ""
 "Debian カーネルのソースからカスタムカーネル (オフィシャルパッケージで使われて"
 "いる設定とは違う設定のカーネル) をビルドするための最も簡単な方法は "
 "<package>linux-source</package> パッケージと <command>make deb-pkg</command> "
-"ターゲットを使うことです。まず、カーネルツリーの準備をします。"
+"ターゲットを使うことです。まず、カーネルツリーを準備します："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:334
@@ -2366,10 +2521,10 @@ msgid ""
 "example, one can use console-based menu configuration by invoking the command"
 msgstr ""
 "次に、カーネルの設定が必要になります。つまり、カーネルのオプションを設定しど"
-"のドライバーを含めるか、ビルトインにするか外部モジュールにするか、などを決め"
-"なければなりません。カーネルのビルド機構は多くのターゲットに対応しており、異"
-"なる設定用フロントエンドを起動することができます。たとえばコンソールベースの"
-"メニュー形式の設定画面は次のコマンドで起動できます。"
+"のドライバを含めるか、ビルトインにするか外部モジュールにするか、などを決めな"
+"ければなりません。カーネルのビルド機構は多くのターゲットに対応しており、異な"
+"る設定用フロントエンドを起動することができます。たとえばコンソールベースのメ"
+"ニュー形式の設定画面は、次のコマンドで起動でます："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:346
@@ -2393,16 +2548,16 @@ msgid ""
 "the <package>libncurses5-dev</package> package."
 msgstr ""
 "<literal>nconfig</literal> のかわりに <literal>config</literal> (テキストベー"
-"スで 1 行毎に設定を行うフロントエンド) または <literal>xconfig</literal> (グ"
-"ラフィカルな設定フロントエンド) なども利用できます。古い設定ファイルは "
+"スの 1 行ずつ設定を行うフロントエンド) や、 <literal>xconfig</literal> (グラ"
+"フィカルな設定フロントエンド) なども利用できます。古い設定ファイルは "
 "<filename>.config</filename> ファイルとしてトップディレクトリに配置し、設定す"
 "るターゲットの起動コマンドを実行するか (なにかを設定し直す場合)、"
 "<command>make oldconfig</command> コマンドを実行する (設定を保持する場合) こ"
 "とで再利用できます。フロントエンドによっては、正常に動作するためにライブラリ"
 "やユーティリティをインストールする必要があるかもしれないことに注意して下さ"
-"い。例えば、<literal>nconfig</literal>フロントエンドは執筆時点では "
+"い。例えば、<literal>menuconfig</literal>フロントエンドは執筆時点では "
 "<package>libncurses5-dev</package> パッケージとして提供されている "
-"<literal>ncurses</literal> ライブラリが必要です。"
+"<literal>ncurses</literal> ライブラリが必要です。 "
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:362
@@ -2430,9 +2585,9 @@ msgid ""
 "configuration will be stored in <filename>.config</filename> file in the top-"
 "level directory.  The build is started using the commands"
 msgstr ""
-"設定プロセスの終了後、変更または新規に作成されたカーネルの設定はトップレベル"
+"設定プロセスの終了後、変更または新規に作成されたカーネルの設定は トップレベル"
 "ディレクトリの <filename>.config</filename> ファイルとして保存されます。ビル"
-"ドの開始には次のコマンドを使用します。"
+"ドは次のコマンドで開始します："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:376
@@ -2457,7 +2612,7 @@ msgstr ""
 "image-3.2.19_3.2.19-1_i386.deb</filename> (ファイル名にはカーネルのバージョン"
 "とビルド番号が反映されます) がツリーのトップレベルの 1 つ上の階層に生成されま"
 "す。このファイルは他のパッケージと同様に、 <command>dpkg</command> コマンドで"
-"インストールできます。"
+"インストールできます："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:387
@@ -2474,9 +2629,9 @@ msgid ""
 "completed without any problems, you can reboot using the"
 msgstr ""
 "このコマンドはカーネルを展開し、もし必要であれば initrd を生成し (詳細は "
-"<xref linkend=\"ch-initramfs\"/> を参照) 新規でインストールしたカーネルがデ"
-"フォルトとなるようにブートローダを設定します。このコマンドが問題無く完了した"
-"ら"
+"<xref linkend=\"ch-initramfs\"/> を参照)、 新規でインストールしたカーネルが"
+"デフォルトとなるようにブートローダを設定します。このコマンドが問題無く完了し"
+"たら、"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:396
@@ -2504,13 +2659,13 @@ msgstr ""
 "<command>man lilo.conf</command>、<command>man grub</command>、などのコマンド"
 "でそれぞれのドキュメントを参照してください。ドキュメントは <filename>/usr/"
 "share/doc/<replaceable>package</replaceable></filename> ディレクトリから探す"
-"こともできます。 <replaceable>package</replaceable>には関連するパッケージ名を"
+"こともできます。<replaceable>package</replaceable>には関連するパッケージ名を"
 "指定してください。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-common-tasks.dbk:412
 msgid "Building a custom kernel from the \"pristine\" kernel source"
-msgstr "\"pristine\" なカーネルソースからカスタムカーネルをビルドする"
+msgstr "素のカーネルソースからカスタムカーネルをビルドする"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:414
@@ -2523,6 +2678,13 @@ msgid ""
 "source from Debian packages, the \"pristine\" source is downloaded using "
 "your favourite browser or using wget, as follows:"
 msgstr ""
+"<ulink url=\"https://www.kernel.org\">www.kernel.org</ulink>とそのミラーで配"
+"布されている 素 (\"pristine\" = 訳注: 原始の、汚されていない、の意) "
+"(\"vanilla\" と呼ばれることもあります) のカーネルソースからビルドすることは、"
+"デバッグやより新しいカーネルのバージョンが必要な場面で役に立ちます。その方法"
+"は、カーネルソースの入手方法のみが違います。Debian パッケージからカーネルソー"
+"スを入手するかわりに、素のカーネルソースをブラウザでダウンロードしてくるか、"
+"wget で次のように取得します： follows:"
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:423
@@ -2601,7 +2763,7 @@ msgid ""
 "The unpacked kernel tree (in <filename>linux-4.3</filename> now has to be "
 "configured.  The existing configuration file may be used as a starting point"
 msgstr ""
-"展開されたカーネルツリー (<filename>linux-4.3</filename> ディレクトリ) の設定"
+"展開されたカーネルツリー (<filename>linux-3.4</filename>ディレクトリ) の設定"
 "をする準備ができました。手始めに、すでにある設定ファイルを使うと良いでしょ"
 "う。"
 
@@ -2656,7 +2818,6 @@ msgstr ""
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:484
-#, fuzzy
 msgid ""
 "If you are not so lucky, and there are no binary module packages in the "
 "archive, there is a fair chance that the Debian archive contains the "
@@ -2671,18 +2832,19 @@ msgid ""
 "<literal>3.2.0-2-686-pae</literal> (as returned by <command>uname -r</"
 "command>)  from the debianized source consists of the following steps:"
 msgstr ""
-"残念ながら使いたいモジュールのバイナリパッケージがアーカイブにない場合でも、"
-"カーネルモジュールの<emphasis role=\"strong\">ソース</emphasis>パッケージが "
-"Debian アーカイブにある可能性もあります。パッケージ名の最後に <literal>-"
-"source</literal> とついているパッケージは、このようなパッケージの典型例です。"
-"例えば <package>squashfs-source</package>、<package>thinkpad-source</"
-"package>、<package>rt2x00-source</package> などがありますが、他にも多数ありま"
-"す。これらのパッケージには、Debian 化したカーネルモジュールのソースコードが含"
-"まれています。ビルドには <literal>module-assistant</literal> パッケージの"
-"<literal>module-assistant</literal> (または <command>m-a</command>) スクリプ"
-"トを使うと便利です。Debian 化したソースからカーネル <literal>3.2.0-2-686-"
-"pae</literal> (<command>uname -r</command>コマンドの返答値) 用のカスタムバイ"
-"ナリモジュールパッケージをビルドする場合の大まかな流れを説明します。"
+"残念ながら使いたいモジュールのバイナリパッケージがアーカイブにない場合でも、 "
+"カーネルモジュールの<replaceable role=\"strong\">ソース</replaceable>パッケー"
+"ジが Debian アーカイブにある可能性もあります。 パッケージ名の最後に "
+"<literal>-source</literal> とついているパッケージは、このようなパッケージの典"
+"型例です。例えば<package>squashfs-source</package>、<package>thinkpad-"
+"source</package>、<package>rt2x00-source</package>などがありますが、他にも多"
+"数あります。これらのパッケージには、 Debian 化したカーネルモジュールのソース"
+"コードが含まれています。ビルドには <package>module-assistant</package> パッ"
+"ケージの<command>module-assistant</command> (または <package>m-a</package>) "
+"スクリプトを使うと便利です。Debian 化したソースからカーネル "
+"<literal>3.2.0-2-686-pae</literal> (<command>uname -r</command>コマンドの返答"
+"値) 用のカスタムバイナリモジュールパッケージをビルドする場合の大まかな流れを"
+"説明します。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-common-tasks.dbk:498
@@ -2732,9 +2894,10 @@ msgid ""
 "i</command>.  Two last steps (building and installation) may be combined "
 "using the invocation"
 msgstr ""
-"Debian パッケージがビルドされ、<filename>/usr/src</filename> に配置されます。"
-"いつも通り <command>dpkg -i</command> でインストールすることもできます。最後"
-"の 2 つのステップ (ビルドとインストール) は、"
+"その結果、Debian パッケージがビルドされ、<filename>/usr/src</filename> に配置"
+"されます。いつも通り <command>dpkg -i</command> でインストールすることもでき"
+"ます。最後の 2 つのステップ (ビルドとインストール) は次のコマンドで 1 つにま"
+"とめることもできます："
 
 #. type: Content of: <chapter><section><screen>
 #: chapter-common-tasks.dbk:524
@@ -2794,15 +2957,6 @@ msgstr "扱う範囲"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-scope.dbk:8
-#, fuzzy
-#| msgid ""
-#| "The main goal of this handbook is to serve as a single access point to "
-#| "all kernel-related documentation.  It contains the information about the "
-#| "Debian packaging of Linux kernel for Debian 7.0 (wheezy).  The latest "
-#| "released version is always available from <ulink url=\"https://kernel-"
-#| "handbook.alioth.debian.org\">https://kernel-handbook.alioth.debian.org</"
-#| "ulink>.  Note that this is a work in progress, and some information is "
-#| "inaccurate."
 msgid ""
 "The main goal of this handbook is to serve as a single access point to all "
 "kernel-related documentation.  It contains the information about the Debian "
@@ -2813,11 +2967,12 @@ msgid ""
 "and some information is inaccurate."
 msgstr ""
 "このハンドブックの主な目標は、カーネル関係の全ドキュメントに対する唯一のポイ"
-"ンタとなることです。この文書には、Debian 7.0 (wheezy) の Linux カーネルパッ"
-"ケージの作り方に関する情報が含まれています。最新のリリースバージョンは常に、"
-"<ulink url=\"https://kernel-handbook.alioth.debian.org\">https://kernel-"
-"handbook.alioth.debian.org</ulink> から入手できます。本書はまだ作業段階のもの"
-"であり、ここに書かれていることが必ずしも正しいとは限りません。"
+"ンタとなることです。この文書には、Debian 7(wheezy)、8(jessie)、9(開発中の"
+"stretch) の Linux カーネルパッケージの作り方に関する情報が含まれています。最"
+"新のリリースバージョンは常に <ulink url=\"https://kernel-handbook.alioth."
+"debian.org\">https://kernel-handbook.alioth.debian.org</ulink> から入手できま"
+"す。本書はまだ作業段階のものであり、ここに書かれていることが必ずしも正しいと"
+"は限りません。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-scope.dbk:17
@@ -2830,10 +2985,10 @@ msgid ""
 "respectively.  This symbol is not a part of the command."
 msgstr ""
 "本書で説明するコマンドの実行にはスーパーユーザ権限が必要です。<literal>root</"
-"literal> ユーザになるか、<command>sudo</command> コマンドを使いましょう。非特"
-"権ユーザでも実行可能なコマンドは <prompt>$</prompt> を、スーパーユーザ権限を"
-"必要とするコマンドは <prompt>#</prompt> を、それぞれのコマンドの前に付記して"
-"区別します。これらの記号はコマンドの一部ではありません。"
+"literal> ユーザになるか <command>sudo</command> コマンドを使いましょう。非特"
+"権ユーザでも実行可能なコマンドは <prompt>$</prompt> を、特権ユーザ権限を必要"
+"とするコマンドは <prompt>#</prompt> を、それぞれのコマンドの前に付記して区別"
+"します。これらの記号はコマンドの一部ではありません。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-scope.dbk:26
@@ -2857,17 +3012,17 @@ msgid ""
 "rest of the document, namely GPL version 2 or later.  Below is the list of "
 "current contributors:"
 msgstr ""
-"このハンドブックは <ulink url=\"https://alioth.debian.org\">Alioth</ulink> 上"
+"このハンドブックは<ulink url=\"https://alioth.debian.org\">Alioth</ulink>上"
 "の <ulink url=\"https://alioth.debian.org/projects/kernel-handbook\">kernel-"
 "handbook</ulink> でメンテナンスされています。SGML ファイルのソースは Debian "
 "<ulink url=\"https://anonscm.debian.org/gitweb/?p=kernel-handbook/kernel-"
-"handbook.git\">git リポジトリ</ulink> からチェックアウトできます。このプロ"
-"ジェクトはコミュニティ・プロジェクトです。改善のための提案と協力は全て歓迎し"
-"ます。協力して下さる場合は、<email>kernel-handbook-general@lists.alioth."
-"debian.org</email> メーリングリスト宛に連絡をして下さい。寄稿をする場合は著作"
-"権保持者を明示しライセンスの宣言文を一緒に送って下さい。寄稿を本書に取り入れ"
-"るためには他の文書と同じライセンスを宣言しなければなりません。具体的には、"
-"GPL version 2 or later になります。現在の貢献者リストです。 (敬称略)"
+"handbook.git\">git リポジトリ</ulink>からチェックアウトできます。このプロジェ"
+"クトはコミュニティ・プロジェクトです。改善のための提案と協力は全て歓迎しま"
+"す。協力いただける場合は、<email>kernel-handbook-general@lists.alioth.debian."
+"org</email> のメーリングリスト宛に連絡して下さい。寄稿をする場合は著作権保持"
+"者を明示しライセンスの宣言文を一緒に送って下さい。寄稿を本書に取り入れるため"
+"には他の文書と同じライセンスを宣言しなければなりません。具体的には、GPL "
+"version 2 or later になります。以下は現在の貢献者の一覧です。(敬称略)"
 
 #. type: Content of: <chapter><section><itemizedlist><listitem><para>
 #: chapter-scope.dbk:46
@@ -2906,18 +3061,6 @@ msgstr "ソースパッケージ"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-packaging.dbk:8
-#, fuzzy
-#| msgid ""
-#| "To ensure that the latest kernel version, containing all the essential "
-#| "bug and security fixes is available on as many architectures as possible, "
-#| "starting with 2.6.12 the kernel team introduced a new packaging scheme.  "
-#| "In it most of the kernel-related binary packages are built from a single "
-#| "source package <literal>linux</literal> (previously <literal>linux-2.6</"
-#| "literal>).  The <literal>linux</literal> source package supports building "
-#| "of kernel images and headers for all currently supported architectures.  "
-#| "Subsequent sections of this chapter document the naming and contents of "
-#| "the binary packages built from the <literal>linux</literal> source "
-#| "package."
 msgid ""
 "To ensure that the latest kernel version, containing all the essential bug "
 "and security fixes is available on as many architectures as possible, "
@@ -2931,14 +3074,13 @@ msgid ""
 msgstr ""
 "バグやセキュリティフィックス等、必須の修正が入った最新のカーネルバージョンが"
 "可能な限り全てのアーキテクチャで利用可能であることを担保するために、カーネル"
-"チームは 2.6.12 から新しいパッケージング方法を採用しています。新しい方法で"
-"は、ほぼ全てのカーネル関連のバイナリパッケージは、<package>linux</package> "
-"(以前は <package>linux-2.6</package> でした) という唯一のソースパッケージから"
-"ビルドされます。<package>linux</package> ソースパッケージは、現在サポートして"
-"いる全てのアーキテクチャに対するカーネルイメージとカーネルヘッダのビルドを支"
-"援します。この章の次のセクションからは、<literal>linux</literal> ソースパッ"
-"ケージからビルドされるバイナリパッケージの命名規則とその内容について説明しま"
-"す。"
+"チームは 2.6.12 から新しいパッケージング方法を採用しています。 新しい方法で"
+"は、ほぼ全てのカーネル関連のバイナリパッケージは、<package>linux</package>と"
+"いう唯一のソースパッケージからビルドされます。<package>linux</package> ソース"
+"パッケージは、現在サポートしている全てのアーキテクチャに対するカーネルイメー"
+"ジとカーネルヘッダのビルドを支援します。この章の次のセクションからは、"
+"<package>linux</package> ソースパッケージからビルドされるバイナリパッケージの"
+"命名規則とその内容について説明します。"
 
 #. type: Content of: <chapter><section><title>
 #: chapter-packaging.dbk:20
@@ -2962,12 +3104,12 @@ msgid ""
 "filename>."
 msgstr ""
 "このパッケージには Debian カーネルソースの tarball が含まれています。ソースの"
-"パッチレベルはパッケージの Debian リビジョンによって決定されます。例えば、"
-"4.2.5-1 というバージョンの <package>linux-source-4.2</package> パッケージに"
-"は、パッチレベル 1 のパッチが適用されたバージョン 4.2.5 の Debian カーネル"
-"ソースが含まれています。パッケージがインストールされると、tarball 化された"
-"ソースが <filename>/usr/src/linux-source-<replaceable>version</replaceable>."
-"tar.xz</filename> に配置され利用可能になります。"
+"パッチレベルは、パッケージの Debian リビジョンによって決定されます。例えば、"
+"4.2.5-1 というバージョンの <package>linux-source-4.2</package> パッケージ"
+"は、 パッチレベル 1 のパッチが適用されたバージョン 4.2.5 の Debian カーネル"
+"ソースを含んでいます。パッケージがインストールされると、tarball 化されたソー"
+"スが <filename>/usr/src/linux-source-<replaceable>version</replaceable>.tar."
+"xz</filename> に配置され利用可能になります。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:36
@@ -2983,11 +3125,11 @@ msgid ""
 "command.  Due to filename conflicts, only one <package>linux-manual</"
 "package> package may be installed at any given time."
 msgstr ""
-"このパッケージはカーネルの API を含めた関数へのマニュアルページが含まれていま"
-"す。これらは、<filename>/usr/share/man/man9/</filename> にインストールされ、"
-"標準の <command>man</command> コマンドで参照できます。ファイル名が衝突してし"
-"まうため、<package>linux-manual</package> パッケージはどれか 1 つのバージョン"
-"しかインストールできません。"
+"このパッケージにはカーネルの API を含めた関数へのマニュアルページが含まれてい"
+"ます。これらは、<filename>/usr/share/man/man9/</filename> にインストールさ"
+"れ、 標準の <command>man</command> コマンドで参照できます。ファイル名が衝突し"
+"てしまうため、インストール可能な <package>linux-manual</package> パッケージ"
+"は どれか 1 つに限定されます。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:48
@@ -3002,8 +3144,8 @@ msgid ""
 "<replaceable>version</replaceable></filename>."
 msgstr ""
 "このパッケージは、上記以外のカーネル関連のドキュメントを様々なフォーマットで"
-"収録しています。このパッケージは <filename>/usr/share/doc/linux-doc-"
-"<replaceable>version</replaceable></filename> にインストールされます。"
+"収録しています。<filename>/usr/share/doc/linux-doc-<replaceable>version</"
+"replaceable></filename> にインストールされます。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:58
@@ -3041,15 +3183,15 @@ msgid ""
 "files, used to build the binary images from the <emphasis role=\"strong"
 "\">same</emphasis> kernel tree."
 msgstr ""
-"あるカーネルパッケージが特定のハードウェア向けに構成されている場合、ターゲッ"
-"トとなるハードウェアの種類は、<emphasis>アーキテクチャ</emphasis>、<emphasis>"
-"フィーチャセット</emphasis>、<emphasis>フレーバ</emphasis>で一意に識別するこ"
-"とができます。全てのアーキテクチャ向けのカーネルは、同一の Debian カーネル"
-"ソースツリーからビルドすることができ、そのソースツリーは <xref linkend=\"ch-"
-"source\"/> で説明した方法で入手できます。各アーキテクチャには大抵、複数のフ"
-"レーバのバイナリカーネルイメージがあります。異なるフレーバは<emphasis role="
-"\"strong\">同一の</emphasis>カーネルツリーからビルドされますが、バイナリイ"
-"メージをビルドする際に使用されるカーネルの設定ファイルが異なります。"
+"あるカーネルパッケージを特定のハードウェア向けにデザインしたものは、"
+"<emphasis>アーキテクチャ</emphasis>、<emphasis>フィーチャセット</emphasis>、 "
+"<emphasis>フレーバ</emphasis>で、一意に識別されます。全てのアーキテクチャ向け"
+"のカーネルは、<xref linkend=\"ch-source\"/> で説明されている手順で取得した、同"
+"一の Debian カーネルソースツリーからビルドされます。それぞれのアーキテクチャ"
+"には普通、複数のフレーバのバイナリカーネルイメージがあります。異なるフレーバ"
+"は<emphasis role=\"strong\">同一の</emphasis>カーネルツリーからビルドされます"
+"が、バイナリイメージをビルドする際に使用されるカーネルの設定ファイルが異なり"
+"ます。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-packaging.dbk:82
@@ -3071,22 +3213,22 @@ msgid ""
 "does not have any featuresets, the featureset part is omitted from the name, "
 "as indicated by the square brackets below."
 msgstr ""
-"アップストリームで提供されていない任意のフィーチャセットが動作するカーネルを"
+"アップストリームで提供されていない追加のフィーチャセットが動作するカーネルを"
 "ビルドするには、Debian カーネルソースに追加の設定をする必要があります。この場"
-"合もやはり、複数のフレーバのバイナリイメージがフィーチャセットツリーからビル"
-"ドできます。例えば <literal>i386</literal> アーキテクチャには、 共通の "
-"Debian カーネルソースからビルドされた <literal>486</literal>、<literal>686-"
-"pae</literal>、<literal>amd64</literal> などの複数の異なるフレーバがありま"
-"す。また <literal>i386</literal> アーキテクチャは <literal>rt</literal> "
-"フィーチャセットも含んでいます。これらのフィーチャセットが動作するカーネルを"
-"ビルドするためのソースツリーは、Debian カーネルソースに追加のパッチを当てるこ"
-"とで取得できます。このソースツリーは例えば <literal>rt-686-pae</literal> バイ"
-"ナリイメージフレーバをビルドするのに使われます。Debian バイナリパッケージの名"
-"前にはフレーバと、必要であればフィーチャセットの名前が含まれています。(アーキ"
-"テクチャ名については気にする必要がありません。Debian tools は\"正しい”アーキ"
-"テクチャのパッケージしかインストールを許可しないからです。）もしアーキテク"
-"チャに何もフィーチャセットが無い場合は、以下の説明にある、角かっこ( [ ] )内の"
-"フィーチャセットの部分がパッケージ名から省略されます。"
+"合もやはり、複数のフレーバのバイナリイメージがフィーチャセットのツリーからビ"
+"ルドできます。例えば <literal>i386</literal> アーキテクチャには、共通の "
+"Debian カーネルソースからビルドされた<literal>486</literal>、<literal>686-"
+"pae</literal>、 <literal>amd64</literal>などの複数の異なるフレーバがありま"
+"す。また、<literal>rt</literal> フィーチャセットも含んでいます。これらの"
+"フィーチャセットが動作するカーネルをビルドするためのソースツリーは、Debian "
+"カーネルソースに追加のパッチを当てることで取得できます。このソースツリーは例"
+"えば <literal>rt-686-pae</literal> バイナリイメージフレーバをビルドするのに使"
+"われます。Debian バイナリパッケージの名前にはフレーバと、必要であればフィー"
+"チャセットの名前が含まれています。 (アーキテクチャ名については気にする必要が"
+"ありません。Debian tools は \"正しい” アーキテクチャのパッケージしかインス"
+"トールを許可しないからです。）もしアーキテクチャに何もフィーチャセットが無い"
+"場合は、以下の説明にある、角かっこ( [ ] )内のフィーチャセットの部分が名前から"
+"省略されます。"
 
 #. type: Content of: <chapter><section><para>
 #: chapter-packaging.dbk:100
@@ -3130,14 +3272,14 @@ msgid ""
 "replaceable>]</filename> directory."
 msgstr ""
 "このパッケージは、特定のフィーチャセット (もしフィーチャセットが空の場合は"
-"アーキテクチャ) のための共通のカーネルヘッダが含まれています。フレーバ固有の "
-"<package>linux-headers</package> パッケージと合わせることでカーネルヘッダのフ"
-"ルセットとなるため、ツリー外のモジュールのビルドに最適です。このパッケージは"
-"直接インストールされるべきではないパッケージで、特定のフレーバ固有のヘッダ"
-"パッケージの依存パッケージとしてのみインストールできます。 (次の説明を読んで"
-"下さい。) <filename>/usr/src/linux-headers-<replaceable>version</"
+"アーキテクチャ） のための共通のカーネルヘッダが含まれています。フレーバ固有"
+"の <package>linux-headers</package> パッケージと合わせることでカーネルヘッダ"
+"のフルセットとなるため、ツリーの外のモジュールのビルドに最適です。このパッ"
+"ケージは通常の場合直接インストールができないパッケージで、あるフレーバ固有の"
+"ヘッダパッケージの依存パッケージとしてのみインストールできます。（次の説明を"
+"読んで下さい。）<filename>/usr/src/linux-headers-<replaceable>version</"
 "replaceable>-<replaceable>abiname</replaceable>-common[-"
-"<replaceable>featureset</replaceable>]</filename> ディレクトリに展開されま"
+"<replaceable>featureset</replaceable>]</filename> ディレクトリに配置されま"
 "す。"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
@@ -3167,18 +3309,17 @@ msgid ""
 "kernel headers matching the currently running official kernel may be "
 "installed with a command"
 msgstr ""
-"このパッケージはフレーバ固有のヘッダファイルを提供します。このパッケージに対"
-"応する <package>linux-headers-<replaceable>version</replaceable>-"
+"このパッケージはフレーバ固有のヘッダファイルを提供します。これは対応する "
+"<package>linux-headers-<replaceable>version</replaceable>-"
 "<replaceable>abiname</replaceable>-common[-<replaceable>featureset</"
 "replaceable>]</package> パッケージに依存しており、シンボリックリンクをディレ"
-"クトリツリー中に設定します。そうすることによって、 <filename>/usr/src/linux-"
-"headers-<replaceable>version</replaceable>-<replaceable>abiname</"
-"replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
-"replaceable></filename> がツリー外のカーネルモジュールをビルドするために必要"
-"なフルセットのヘッダーを持っているように見えます。さらに詳しく知りたい場合"
-"は、<xref linkend=\"s-common-out-of-tree\"/> を参照して下さい。実行中の公式"
-"カーネルに対応したカーネルヘッダの完全なセットは次のコマンドでインストールす"
-"ることができます："
+"クトリツリー中に設定します。そうすることで、<filename>/usr/src/linux-headers-"
+"<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-"
+"<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></"
+"filename> がツリー外のモジュールをビルドするために必要なフルセットのヘッダー"
+"を持っているように見えます。さらに詳しく知りたい場合は、<xref linkend=\"s-"
+"common-out-of-tree\"/> を参照して下さい。現在実行中の公式カーネルに対応した"
+"カーネルヘッダの完全なセットは次のコマンドでインストールすることができます:"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><screen>
 #: chapter-packaging.dbk:142
@@ -3234,11 +3375,11 @@ msgid ""
 "installed by this package are architecture-dependent.  Typical locations of "
 "essential files for the <literal>i386</literal> architecture are:"
 msgstr ""
-"このパッケージには、特定の アーキテクチャ/フィーチャセット/フレーバを組み合わ"
-"せたバイナリの kernel イメージとビルド済みのバイナリモジュールが含まれていま"
-"す。このパッケージによってインストールされたファイルの名前は、アーキテクチャ"
-"に依存します。<literal>i386</literal> アーキテクチャに必須のファイルは以下の"
-"ディレクトリが典型的な配置場所です:"
+"このパッケージには、特定の アーキテクチャ/フィーチャセット/フレーバ を組み合"
+"わせたバイナリ の kernel イメージとビルド済みのバイナリモジュールが含まれてい"
+"ます。このパッケージによってインストールされたファイルの名前は、アーキテク"
+"チャに依存します。<literal>i386</literal> アーキテクチャに必須のファイルは、"
+"典型的に以下のディレクトリに配置されています："
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><variablelist><varlistentry><term>
 #: chapter-packaging.dbk:168
@@ -3330,234 +3471,3 @@ msgid ""
 msgstr ""
 "このパッケージは GNU glibc や、その他のシステムライブラリなどのユーザ空間プロ"
 "グラムによって使用される Linux カーネルヘッダを提供します。"
-
-#. type: Content of: <chapter><title>
-#: chapter-versions.dbk:5
-msgid "Version numbers and ABIs"
-msgstr "バージョン番号と ABI"
-
-#. type: Content of: <chapter><section><title>
-#: chapter-versions.dbk:6
-msgid "The different types of version"
-msgstr "異なるバージョンのタイプ"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-versions.dbk:9
-msgid "Upstream version"
-msgstr "アップストリームバージョン"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-versions.dbk:12
-msgid ""
-"The version that Linus or a stable series maintainer uses for a release.  "
-"Currently Linus will use the version format: 4.<replaceable>x</replaceable>[-"
-"rc<replaceable>y</replaceable>].  Stable series maintainers use the version "
-"format: 4.<replaceable>x</replaceable>.<replaceable>y</replaceable>."
-msgstr ""
-"Linus や安定版のメンテナがリリースに使用するバージョンです。現在 Linus はバー"
-"ジョンナンバに 4.<replaceable>x</replaceable>[-rc<replaceable>y</"
-"replaceable>] というフォーマットを使用しています。安定版のメンテナはバージョ"
-"ンナンバに 4.<replaceable>x</replaceable>.<replaceable>y</replaceable>. とい"
-"うフォーマットを使用しています。"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-versions.dbk:21
-msgid "Package version"
-msgstr "パッケージバージョン"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-versions.dbk:24
-msgid ""
-"The version used in a Debian package.  Following Debian policy, it should "
-"follow the format <replaceable>upstreamversion</replaceable>-"
-"<replaceable>debianrevision</replaceable>.  However, for an upstream release "
-"candidate, the string '-rc' must be replaced with '~rc' so that it will be "
-"recognised as an earlier version than the following release."
-msgstr ""
-"Debian パッケージで使用されるバージョンナンバDebian ポリシーによると、"
-"<replaceable>アップストリームのバージョン</replaceable>-<replaceable>Debian "
-"のリビジョン</replaceable>というフォーマットに従う必要がります。しかし、アッ"
-"プストリームのリリース候補版で使用される 「-rc」 は 「~rc」 で置き換える必要"
-"があります。これ以降にリリースされるバージョンよりも前のバージョンであると認"
-"識させるためです。"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><term>
-#: chapter-versions.dbk:34
-msgid "Kernel version"
-msgstr "カーネルバージョン"
-
-#. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
-#: chapter-versions.dbk:37
-msgid ""
-"This is the version that appears in kernel messages, filenames, package "
-"names and the output of 'uname -r'.  In official kernel packages it follows "
-"the format <replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
-"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
-"replaceable>.  It is not changed for every new package version.  The "
-"<replaceable>abiname</replaceable> is changed as explained below."
-msgstr ""
-"これはカーネルメッセージ、ファイル名、パッケージ名、「uname -r」 コマンドで出"
-"力されるバージョンナンバです。公式のカーネルパッケージでは "
-"<replaceable>upstreamversion</replaceable>[-<replaceable>abiname</"
-"replaceable>][-<replaceable>featureset</replaceable>]-<replaceable>flavour</"
-"replaceable> というフォーマットに従います。これは全ての新しいパッケージバー"
-"ジョンで変わるものではありません。<replaceable>abiname</replaceable>は以下の"
-"ルールに従い変更されます。"
-
-#. type: Content of: <chapter><section><para>
-#: chapter-versions.dbk:48
-#, fuzzy
-#| msgid ""
-#| "Many programs parse the kernel version string reported by the "
-#| "<literal>uname</literal> system call or command and expect to find at "
-#| "least 3 version components separated by dots.  For compatibility, the "
-#| "official kernel packages currently add '.0' to the upstream version, but "
-#| "this will be dropped in wheezy+1."
-msgid ""
-"Many programs parse the kernel version string reported by the "
-"<command>uname</command> system call or command and expect to find at least "
-"3 version components separated by dots.  For compatibility, the official "
-"kernel packages currently add '.0' to the upstream version."
-msgstr ""
-"多くのプログラムがカーネルバージョンを<command>uname</command>システムコール"
-"かコマンドからパースしますが、最低でも 3 つのバージョンのパーツがドットで区切"
-"られていることが前提となっています。互換性のために、公式のカーネルパッケージ"
-"は現在アップストリームバージョンに「.0」を付けていますが、これは wheezy+1 (訳"
-"注：Wheezy の 次のバージョン Jessie) で廃止される予定です。"
-
-#. type: Content of: <chapter><section><title>
-#: chapter-versions.dbk:55
-msgid "The kernel ABI"
-msgstr "カーネルの ABI"
-
-#. type: Content of: <chapter><section><para>
-#: chapter-versions.dbk:57
-msgid ""
-"An ABI (Application Binary Interface) is an interface between two software "
-"components, considered at the level of register allocation and memory "
-"layout.  The ABI between the kernel and user-space is generally maintained "
-"carefully, and is not a concern here.  However, the ABI between the kernel "
-"and its modules is not.  In order to support out-of-tree modules, the kernel "
-"version should be changed when the ABI between the kernel and modules "
-"changes."
-msgstr ""
-"ABI (Application Binary Interface) はレジスタの割り当てやメモリのレイアウトの"
-"レベルで考慮されているソフトウェアコンポーネント間のインタフェースです。カー"
-"ネルとユーザ空間の間の ABI は定常的に注意深くメンテナンスされているため、ここ"
-"では考慮する必要はありません。しかし、カーネルとカーネルモジュール間の ABI は"
-"その限りではありません。ツリー外のモジュールをサポートするためには、カーネル"
-"とモジュール間の ABI に変更があるたびにカーネルバージョンを変更しなければなり"
-"ません。"
-
-#. type: Content of: <chapter><section><section><title>
-#: chapter-versions.dbk:64
-msgid "The ABI name"
-msgstr "ABI 名"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:66
-msgid ""
-"In official kernel packages, we change the <replaceable>abiname</"
-"replaceable> part of the kernel version to mark ABI changes that aren't due "
-"to a new upstream version.  This part comes from the <literal>abiname</"
-"literal> setting in <filename>debian/config/defines</filename>.  We use "
-"either a number or 'trunk' (for experimental), but for a custom package it "
-"should be some other string."
-msgstr ""
-"公式のカーネルパッケージでは、私達はカーネルバージョン名の一部である "
-"<replaceable>abiname</replaceable> を変更します。これは、新しいアップストリー"
-"ムバージョンに起因しない ABI の変更をマークするためです。この部分は "
-"<filename>debian/config/defines</filename> 中の <literal>abiname</literal> の"
-"設定で管理されています。私達は、この部分に 「trunk」(experimental 用) か番号"
-"を使用しますが、カスタムパッケージにはそれ以外の文字列を使うべきです。"
-
-#. type: Content of: <chapter><section><section><title>
-#: chapter-versions.dbk:74
-msgid "Maintaining and updating the ABI"
-msgstr "ABI の管理と更新"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:76
-msgid ""
-"In order to avoid the need for users to rebuild out-of-tree modules "
-"frequently, we try to avoid changing the kernel ABI during updates to a "
-"Debian stable or oldstable release.  Most importantly, we avoid making such "
-"changes without changing the ABI name, except where it appears that out-of-"
-"tree modules do not depend on that part of the ABI."
-msgstr ""
-"私達は、ユーザがツリー外のモジュールを頻繁にビルドする必要が無いよう、Debian "
-"安定版や旧安定版に対するアップデートでは、カーネルの ABI を変更しません。最も"
-"重要なことは、ツリー外のモジュールが ABI のある部分に依存していないと思われる"
-"場合を除き、ABI 名を変更せずにそのような変更を行うことを避けるということで"
-"す。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:83
-msgid ""
-"Bug fixes or configuration changes to the kernel may alter the ABI.  If an "
-"exported function is conditional on <symbol>CONFIG_<replaceable>FOO</"
-"replaceable></symbol>, or it uses a type whose definition depends on "
-"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol>, then turning "
-"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> on or off changes the "
-"ABI of that function, and thus of the kernel as a whole.  Enabling or "
-"changing the configuration of a single driver usually doesn't change the "
-"ABI, because most drivers don't export anything."
-msgstr ""
-"カーネルへのバグ修正や設定の変更は ABI の変更をともなう場合があります。もしエ"
-"クスポートされた関数が <symbol>CONFIG_<replaceable>FOO</replaceable></"
-"symbol> を条件としているか、もしくは型定義が "
-"<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> に依存するものを使用し"
-"ている場合、<symbol>CONFIG_<replaceable>FOO</replaceable></symbol> の有効無効"
-"によってその関数の ABI、ひいてはカーネル全体の ABI が変更になります。1 つのド"
-"ライバの設定を有効化したり変更したりする場合、たいてい ABI は変更しません。ほ"
-"とんどのドライバは何もエクスポートしないからです。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:94
-msgid ""
-"The kernel build process generates a 'symbol version' for each exported "
-"function or variable.  This is a hash of the definitions that it depends on, "
-"and should change whenever the function's ABI changes.  The kernel module "
-"loader detects incompatible modules by comparing symbol versions.  The whole "
-"set of symbol versions represents the kernel ABI."
-msgstr ""
-"カーネルのビルドプロセスによって 、それぞれのエクスポートされた関数や変数用に"
-"「シンボルバージョン」が生成されます。これは自身が依存している定義のハッシュ"
-"で、関数の ABI が変更された場合は必ず変更しなければなりません。シンボルバー"
-"ジョンを比較することで、カーネルモジュールローダは非互換のモジュールを検出し"
-"ます。シンボルバージョンの完全なセットはカーネル ABI で表現されます。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:101
-msgid ""
-"We collect the symbol versions for previously uploaded packages under the "
-"directory <filename>debian/abi</filename> and then compare the new kernel "
-"with those.  If the ABI name is unchanged but the ABI itself is changed - "
-"except for additions, or changes that we have marked as acceptable - then "
-"the build is aborted."
-msgstr ""
-"私達は以前アップロードした <filename>debian/abi</filename> ディレクトリ以下の"
-"パッケージのシンボルバージョンを修正し、新しいカーネルのものと比較します。も"
-"し ABI 名が変更さないにも関わらず ABI そのものに変更がある場合は、ビルドを中"
-"止します。"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:108
-msgid ""
-"If the kernel ABI has changed you must then change the ABI name in "
-"<filename>debian/config/defines</filename>.  Then run the command"
-msgstr ""
-"カーネル ABI が変更された場合は、<filename>debian/config/defines</filename> "
-"の ABI 名を変更しなければなりません。"
-
-#. type: Content of: <chapter><section><section><screen>
-#: chapter-versions.dbk:112
-#, no-wrap
-msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
-msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
-
-#. type: Content of: <chapter><section><section><para>
-#: chapter-versions.dbk:115
-msgid "to regenerate the package definitions for this ABI name."
-msgstr ""
-"このコマンドで ABI に対応したパッケージ定義を再生成することができます。"
