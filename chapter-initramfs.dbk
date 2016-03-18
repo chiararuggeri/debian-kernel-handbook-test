@@ -12,7 +12,7 @@ basic initialization the kernel extracts the initramfs archive and mounts it as
 a temporary root filesystem.  initramfs contains kernel modules and userspace
 programs required to initialize the physical or logical device(s) containing
 the real root filesystem.  The <command>init</command> script on the initramfs
-loads modules and performs other neccessary initialization steps.  At the end
+loads modules and performs other necessary initialization steps.  At the end
 of this stage <command>run-init</command> deletes the initramfs from memory,
 mounts the real root filesystem and passes control to the
 <command>/sbin/init</command> program on it.
@@ -20,7 +20,7 @@ mounts the real root filesystem and passes control to the
 <para>
 Two major goals are achieved with such setup: the kernel size is kept under
 control by allowing most of the drivers to be compiled as modules (in a
-initramfs-less setup the drivers neccessary for the boot-time initialization of
+initramfs-less setup the drivers necessary for the boot-time initialization of
 the root device must be compiled into it) and allow the setups which require
 initialization which cannot be done in-kernel, but is performed by userspace
 utilities.

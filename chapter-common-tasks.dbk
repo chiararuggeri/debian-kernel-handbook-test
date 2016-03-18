@@ -478,7 +478,7 @@ Debian kernel <literal>3.2.0-2-686-pae</literal> (use the <command>uname
 <package>linux-image-3.2.0-2-686-pae</package> package, and would like to use
 the squash filesystem, all you need to do is install
 <package>squashfs-modules-3.2.0-2-686-pae</package> binary package, which
-provides the neccessary binary kernel modules.
+provides the necessary binary kernel modules.
 </para>
 <para>
 If you are not so lucky, and there are no binary module packages in the

@@ -14,7 +14,7 @@ available modules (after installation of the new modules, for example), even
 though it is pretty unlikely that you will ever need to invoke it by hand.
 </para>
 <para>
-Normally, the devices are detected and neccessary kernel modules are loaded by
+Normally, the devices are detected and necessary kernel modules are loaded by
 <command>udev</command> during boot time.  Occasionally, one may need finer
 control over the loading of kernel modules, for example to pass the additional
 parameters to the module, force loading of some modules on startup, or prevent

@@ -15,7 +15,7 @@ Note that this is a work in progress, and some information is inaccurate.
 </para>
 <para>
 Some of the commands mentioned in the text must be executed with superuser
-priviliges, either by becoming the <literal>root</literal> user or by using
+privileges, either by becoming the <literal>root</literal> user or by using
 <command>sudo</command>.  To distinguish between commands which may be executed
 by an unprivileged user and those requiring superuser privileges, commands are
 prepended by <prompt>$</prompt> or <prompt>#</prompt> respectively.  This
