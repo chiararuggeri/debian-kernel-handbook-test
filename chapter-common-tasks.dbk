@@ -102,12 +102,6 @@ of the options, run:
 <prompt>$</prompt> <userinput>bash debian/bin/test-patches</userinput>
 </screen>
 <para>
-You may then need to build the linux-base package as well:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.real install-linux-base</userinput>
-</screen>
-<para>
 However, if you need to change the configuration or make other changes, you
 should not use this script and should follow the instructions below.
 </para>
