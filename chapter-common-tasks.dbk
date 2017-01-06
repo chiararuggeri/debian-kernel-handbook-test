@@ -63,12 +63,9 @@ Enter the source directory.
 </variablelist>
 <section id="s-common-size"><title>Disk space requirements</title>
 <para>
-Building binary packages for a single kernel flavour with debug info enabled
-(currently true for the <literal>686-pae</literal>, <literal>amd64</literal>,
-<literal>rt-686-pae</literal>, <literal>rt-amd64</literal> and
-<literal>s390x</literal> configurations) requires up to 10 GB space in the
-package directory and 300 MB in <filename>/tmp</filename> (or
-<envar>$TMPDIR</envar>).
+Building binary packages for a single kernel flavour requires up to
+10 GB space in the package directory and 300 MB in
+<filename>/tmp</filename> (or <envar>$TMPDIR</envar>).
 </para>
 <para>
 Building with debug info disabled requires about 2 GB and 25 MB respectively.
