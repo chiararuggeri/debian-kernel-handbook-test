@@ -9,6 +9,8 @@ The <package>linux</package> source package supports building of
 kernel images and headers for all currently supported architectures.
 The <package>linux-latest</package> source package supports building of
 meta-packages that depend on them.
+The <package>linux-signed</package> source package supports building
+of signed kernel images and modules for some architectures.
 Subsequent sections of this chapter document the naming and contents
 of the binary packages built from these source packages.
 </para>
@@ -198,6 +200,17 @@ Directory containing the pre-built binary kernel modules.
 </listitem>
 </varlistentry>
 </variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><package>linux-image-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable>-unsigned</package></term>
+<listitem>
+<para>
+This package contains the binary kernel image and pre-built binary modules for
+a particular arch/featureset/flavour combination, that are meant to be signed
+and copied into a package without the <package>-unsigned</package> suffix.
+There is normally no need to install these packages.
+</para>
 </listitem>
 </varlistentry>
 <varlistentry>
