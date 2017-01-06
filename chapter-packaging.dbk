@@ -57,8 +57,9 @@ It is installed in
 <term><package>linux-support-<replaceable>version</replaceable>-<replaceable>abiname</replaceable></package></term>
 <listitem>
 <para>
-This package contains the support files for building of out-of-tree modules for
-given version and abiname.
+This package contains metadata from the <package>linux</package>
+source package that is needed to prepare and build the other source
+packages.
 </para>
 </listitem>
 </varlistentry>

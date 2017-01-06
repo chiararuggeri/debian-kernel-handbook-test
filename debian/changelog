@@ -10,6 +10,7 @@ kernel-handbook (1.0.18) UNRELEASED; urgency=medium
   * Add linux-signed and linux-image-*-unsigned to "Debian kernel packages"
     chapter
   * Update a list of i386 flavours
+  * Correct the description of linux-support packages
 
  -- Ben Hutchings <ben@decadent.org.uk>  Fri, 18 Mar 2016 18:10:04 +0000
 
