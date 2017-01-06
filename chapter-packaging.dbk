@@ -82,8 +82,8 @@ In order to build a working kernel with an extra featureset not provided by the
 upstream source, additional changes to the Debian kernel source are required.
 Again, multiple flavours of binary images may be built from the featureset
 tree.  For example, the <literal>i386</literal> architecture has a number of
-different flavours, such as <literal>486</literal>, <literal>686-pae</literal>
-and <literal>amd64</literal>, built from the common Debian kernel source.  It
+different flavours, such as <literal>686</literal> and
+<literal>686-pae</literal>, built from the common Debian kernel source.  It
 also contains the <literal>rt</literal> featureset.  The source tree for
 building the kernels for each of these featuresets is obtained by applying
 additional patches to the Debian kernel source.  It may be used to build the
