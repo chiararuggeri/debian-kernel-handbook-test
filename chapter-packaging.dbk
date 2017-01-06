@@ -63,6 +63,23 @@ packages.
 </para>
 </listitem>
 </varlistentry>
+<varlistentry>
+<term><package>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</package></term>
+<listitem>
+<para>
+This package contains a common set of kernel headers for a particular
+featureset (or no featureset).  Together with the flavour-specific
+<package>linux-headers</package> package it provides a full set of
+kernel headers, suitable for building of out-of-tree modules.  This
+package should not normally be installed directly, but only as a
+dependency of the flavour-specific headers package (see below).  It
+unpacks into the
+<filename>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</filename>
+directory.  Before version 4.9 these packages were
+architecture-dependent.
+</para>
+</listitem>
+</varlistentry>
 </variablelist>
 </section>
 
@@ -104,24 +121,6 @@ different abiname will most likely require recompilation of third-party binary
 modules against the new kernel.  The list of architecture-dependent packages
 together with a short description is given below.
 </para>
-<variablelist>
-<varlistentry>
-<term><package>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</package></term>
-<listitem>
-<para>
-This package contains a common set of kernel headers for a particular
-featureset (or arch, if featureset is empty).  Together with the
-flavour-specific <package>linux-headers</package> package it provides a full
-set of kernel headers, suitable for building of out-of-tree modules.  This
-package should not normally be installed directly, but only as a dependency of
-the flavour-specific headers package (see next description).  It unpacks into
-the
-<filename>/usr/src/linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>-common[-<replaceable>featureset</replaceable>]</filename>
-directory.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
 <variablelist>
 <varlistentry>
 <term><package>linux-headers-<replaceable>version</replaceable>-<replaceable>abiname</replaceable>[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></package></term>
