@@ -3,13 +3,14 @@
 <chapter id="ch-packaging">
 <?dbhtml filename="ch-packaging.html" ?>
 <title>Debian kernel packages</title>
-<section id="s-source-pkg"><title>Source package</title>
+<section id="s-source-pkg"><title>Source packages</title>
 <para>
 The <package>linux</package> source package supports building of
 kernel images and headers for all currently supported architectures.
+The <package>linux-latest</package> source package supports building of
+meta-packages that depend on them.
 Subsequent sections of this chapter document the naming and contents
-of the binary packages built from the <package>linux</package> source
-package.
+of the binary packages built from these source packages.
 </para>
 </section>
 
@@ -144,7 +145,7 @@ apt-get install linux-headers-$(uname -r)
 <term><package>linux-headers[-<replaceable>featureset</replaceable>]-<replaceable>flavour</replaceable></package></term>
 <listitem>
 <para>
-These virtual packages provide (via dependencies) the latest binary image and
+These meta-packages provide (via dependencies) the latest binary image and
 matching set of header files (respectively) for a particular flavour.  Example:
 <package>linux-image-rt-686-pae</package>
 </para>
