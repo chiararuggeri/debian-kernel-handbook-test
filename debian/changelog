@@ -13,6 +13,7 @@ kernel-handbook (1.0.18) UNRELEASED; urgency=medium
   * Correct the description of linux-support packages
   * Describe linux-headers-*-common* as architecture-independent
   * Disable po4a-translate's check for minimum translation percentage
+  * Use debhelper compatibility level 9
 
  -- Ben Hutchings <ben@decadent.org.uk>  Fri, 18 Mar 2016 18:10:04 +0000
 
