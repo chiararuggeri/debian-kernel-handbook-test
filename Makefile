@@ -20,7 +20,7 @@ ja:
 	mkdir -p kernel-handbook.ja.dbk
 	ln -sf ../version.ent kernel-handbook.ja.dbk/
 	for src in $(SOURCES); do \
-		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.ja.po -l kernel-handbook.ja.dbk/"$$src" || exit; \
+		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.ja.po -k 0 -l kernel-handbook.ja.dbk/"$$src" || exit; \
 	done
 	xmlto -o kernel-handbook.ja.html -m stylesheet.xsl html kernel-handbook.ja.dbk/kernel-handbook.dbk
 
