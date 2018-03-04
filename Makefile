@@ -41,15 +41,6 @@ version.ent: FORCE
 	fi
 
 sync:
-	git diff --quiet HEAD ||					\
-	{ echo >&2 "E: Working tree has uncommitted changes"; exit 1; }
-	status="$$(git status -b --porcelain)";				\
-	[ "$${status%\?\? *}" = "$$status" ] ||				\
-	{ echo >&2 "E: Working tree has files that are untracked and not ignored"; exit 1; }; \
-	head="$${status#\#\# }";						\
-	[ "$${head%...*}" = master ] || 					\
-	{ echo >&2 "E: You should only sync from the master branch"; exit 1; }
-	git checkout -B pages
 	mkdir -p pub
 	rm -f pub/*
 	cp htaccess pub/.htaccess
@@ -59,10 +50,9 @@ sync:
 	done; \
 	echo 'AddLanguage $(lng) .$(lng)' >>pub/.htaccess; \
 	)
-	git add -f pub
-	git commit -m "Add HTML output"
-	git push -f origin pages
-	git checkout master
+	rsync -v -e ssh --chmod=a+rX --times --omit-dir-times --recursive \
+		--copy-links --delete pub/ \
+		alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
 
 po-update:
 	$(foreach lng,$(LANG_PO), \
