@@ -63,15 +63,8 @@ sync: all
 	[ "$${head%...*}" = master ] || 					\
 	{ echo >&2 "E: You should only sync from the master branch"; exit 1; }
 	git checkout -B pages
-	mkdir -p public
-	rm -f public/*
-	cp htaccess public/.htaccess
-	$(foreach lng,$(LANGS), \
-	for html in kernel-handbook$(subst .en,,.$(lng)).html/*.html; do \
-		cp ../$$html public/$$(basename $$html).$(lng); \
-	done; \
-	echo 'AddLanguage $(lng) .$(lng)' >>public/.htaccess; \
-	)
+	rm -rf public
+	cp -R kernel-handbook.html public
 	git add -f public
 	git commit -m "Add HTML output"
 	git push -f origin pages
