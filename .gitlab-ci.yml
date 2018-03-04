@@ -7,6 +7,6 @@ pages:
   - "true"
   artifacts:
     paths:
-    - pub
+    - public
   only:
   - pages
