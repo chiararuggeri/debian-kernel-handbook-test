@@ -33,7 +33,7 @@ url="https://salsa.debian.org/kernel-team/kernel-handbook.git">git
 repository</ulink>.  It is intended as a community project, thus all proposals
 for improvements and contributions are welcome.  The preferred way to submit a
 contribution is to send it to the
-<email>kernel-handbook-general@lists.alioth.debian.org</email> mailing
+<email>debian-kernel@lists.debian.org</email> mailing
 list.  When submitting a contribution please clearly identify its copyright
 holder and include the licensing statement.  Note that to be accepted the
 contribution must be licensed under the same license as the rest of the
