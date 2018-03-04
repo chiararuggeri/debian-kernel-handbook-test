@@ -46,11 +46,12 @@ sync:
 	cp htaccess pub/.htaccess
 	$(foreach lng,$(LANGS), \
 	for html in kernel-handbook$(subst .en,,.$(lng)).html/*.html; do \
-		ln -s ../$$html pub/$$(basename $$html).$(lng); \
+		cp $$html pub/$$(basename $$html).$(lng); \
 	done; \
 	echo 'AddLanguage $(lng) .$(lng)' >>pub/.htaccess; \
 	)
-	rsync -v -e ssh --chmod=a+rX --times --omit-dir-times --recursive \
+	chmod -R a+rX pub
+	rsync -v -e ssh --perms --times --omit-dir-times --recursive \
 		--copy-links --delete pub/ \
 		alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
 
