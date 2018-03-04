@@ -53,7 +53,7 @@ sync:
 	chmod -R a+rX pub
 	rsync -v -e ssh --perms --times --omit-dir-times --recursive \
 		--copy-links --delete pub/ \
-		alioth.debian.org:/var/lib/gforge/chroot/home/groups/kernel-handbook/htdocs/
+		shadbolt.decadent.org.uk:/usr/local/website/debian-kernel-handbook/
 
 po-update:
 	$(foreach lng,$(LANG_PO), \
