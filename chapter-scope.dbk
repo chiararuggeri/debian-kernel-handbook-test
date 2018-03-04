@@ -10,7 +10,7 @@ all kernel-related documentation.  It contains the information about
 the Debian packaging of Linux kernel for Debian 7 (wheezy), 8
 (jessie), and 9 (stretch, under development).  The latest released
 version is always available from <ulink
-url="https://kernel-handbook.alioth.debian.org">https://kernel-handbook.alioth.debian.org</ulink>.
+url="https://kernel-team.pages.debian.net/kernel-handbook/">https://kernel-team.pages.debian.net/kernel-handbook/</ulink>.
 Note that this is a work in progress, and some information is inaccurate.
 </para>
 <para>

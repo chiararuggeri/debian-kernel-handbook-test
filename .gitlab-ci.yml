@@ -1,0 +1,12 @@
+# Salsa doesn't yet support page generators, so we commit generated pages
+# on a special branch.
+
+pages:
+  stage: deploy
+  script:
+  - true
+  artifacts:
+    paths:
+    - pub
+  only:
+  - pages
