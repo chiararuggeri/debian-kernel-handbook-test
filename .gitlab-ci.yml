@@ -4,7 +4,7 @@
 pages:
   stage: deploy
   script:
-  - true
+  - "true"
   artifacts:
     paths:
     - pub
