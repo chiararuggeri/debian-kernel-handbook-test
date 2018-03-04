@@ -68,7 +68,7 @@ sync: all
 	cp htaccess public/.htaccess
 	$(foreach lng,$(LANGS), \
 	for html in kernel-handbook$(subst .en,,.$(lng)).html/*.html; do \
-		ln -s ../$$html public/$$(basename $$html).$(lng); \
+		cp ../$$html public/$$(basename $$html).$(lng); \
 	done; \
 	echo 'AddLanguage $(lng) .$(lng)' >>public/.htaccess; \
 	)
