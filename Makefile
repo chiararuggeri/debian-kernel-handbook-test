@@ -12,21 +12,22 @@ LANG_PO := ja
 LANG_EN := en
 LANGS := $(LANG_EN) $(LANG_PO)
 
-SOURCES := kernel-handbook.dbk $(wildcard chapter-*.dbk)
+DOCBOOK_SOURCES := kernel-handbook.dbk $(wildcard chapter-*.dbk)
+SOURCES := $(DOCBOOK_SOURCES) stylesheet.xsl version.ent
 
 # Ensure xmlto uses UTF-8 and not numbered entities
 unexport LC_ALL
 export LC_CTYPE=C.UTF-8
 
-all: version.ent $(LANGS)
+all: $(LANGS)
 
-en:
+en: $(SOURCES)
 	xmlto -o kernel-handbook.html -m stylesheet.xsl html kernel-handbook.dbk
 
-ja:
+ja: $(SOURCES) po4a/kernel-handbook.ja.po
 	mkdir -p kernel-handbook.ja.dbk
 	ln -sf ../version.ent kernel-handbook.ja.dbk/
-	for src in $(SOURCES); do \
+	for src in $(DOCBOOK_SOURCES); do \
 		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.ja.po -k 0 -l kernel-handbook.ja.dbk/"$$src" || exit; \
 	done
 	xmlto -o kernel-handbook.ja.html -m stylesheet.xsl html kernel-handbook.ja.dbk/kernel-handbook.dbk
@@ -48,7 +49,7 @@ version.ent: FORCE
 		echo "<!ENTITY date    \"$(date)\">"    >> $@;		   \
 	fi
 
-sync:
+sync: all
 	mkdir -p pub
 	rm -f pub/*
 	cp htaccess pub/.htaccess
@@ -65,7 +66,7 @@ sync:
 
 po-update:
 	$(foreach lng,$(LANG_PO), \
-	po4a-updatepo -f docbook $(patsubst %,-m %,$(SOURCES)) -p po4a/kernel-handbook.$(lng).po; \
+	po4a-updatepo -f docbook $(patsubst %,-m %,$(DOCBOOK_SOURCES)) -p po4a/kernel-handbook.$(lng).po; \
 	)
 
 .PHONY: all clean po-update sync FORCE

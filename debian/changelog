@@ -12,6 +12,7 @@ kernel-handbook (1.0.19) UNRELEASED; urgency=medium
     regenerated
   * Makefile: Use git commit metadata when building from an unreleased version
   * Makefile: Mark clean and po-update as phony targets
+  * Makefile: Add missing dependencies to sync and language targets
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 04 Mar 2018 16:02:37 +0000
 
