@@ -8,6 +8,8 @@ kernel-handbook (1.0.19) UNRELEASED; urgency=medium
   * Update URL in "Building a development version of the Debian kernel package"
     to point to Salsa
   * Makefile: Always use UTC in document date
+  * Remove version.ent from version control, since it can always be
+    regenerated
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 04 Mar 2018 16:02:37 +0000
 

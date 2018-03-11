@@ -31,6 +31,7 @@ clean:
 		rm -rf kernel-handbook.$(lng).dbk; \
 	)
 	rm -rf pub
+	rm -f version.ent
 
 version.ent: FORCE
 	if [ "$(date)" !=						   \
