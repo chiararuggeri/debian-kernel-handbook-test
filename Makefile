@@ -1,5 +1,12 @@
+ifneq ($(shell dpkg-parsechangelog -SDistribution),UNRELEASED)
+# Use changelog version and date for a release
 version := $(shell dpkg-parsechangelog -SVersion)
 date    := $(shell date -u -d "$$(dpkg-parsechangelog -SDate)")
+else
+# Use git commit description and date otherwise
+version := $(shell git describe)
+date    := $(shell date -u -d "@$$(git log --pretty='%cd' --date=unix HEAD -1)")
+endif
 
 LANG_PO := ja
 LANG_EN := en
@@ -34,8 +41,8 @@ clean:
 	rm -f version.ent
 
 version.ent: FORCE
-	if [ "$(date)" !=						   \
-	     "$$(sed 's/<!ENTITY date *"\(.*\)">/\1/; t; d' $@)" ]; then   \
+	if [ "$(version)" !=						   \
+	     "$$(sed 's/<!ENTITY version *"\(.*\)">/\1/; t; d' $@)" ]; then \
 		rm -f $@ &&						   \
 		echo "<!ENTITY version \"$(version)\">"	>> $@ &&	   \
 		echo "<!ENTITY date    \"$(date)\">"    >> $@;		   \
