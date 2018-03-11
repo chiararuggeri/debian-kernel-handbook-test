@@ -218,7 +218,7 @@ kernel build process.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --single-branch https://anonscm.debian.org/git/kernel/linux.git</userinput></term>
+<term><prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --single-branch https://salsa.debian.org/kernel-team/linux.git</userinput></term>
 <listitem>
 <para>
 This will check out the Debian packaging.  <replaceable>dist</replaceable> is

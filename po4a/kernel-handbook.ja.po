@@ -2304,10 +2304,10 @@ msgstr ""
 #: chapter-common-tasks.dbk:230
 msgid ""
 "<prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --"
-"single-branch https://anonscm.debian.org/git/kernel/linux.git</userinput>"
+"single-branch https://salsa.debian.org/kernel-team/linux.git</userinput>"
 msgstr ""
 "<prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --"
-"single-branch https://anonscm.debian.org/git/kernel/linux.git</userinput>"
+"single-branch https://salsa.debian.org/kernel-team/linux.git</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
 #: chapter-common-tasks.dbk:233
