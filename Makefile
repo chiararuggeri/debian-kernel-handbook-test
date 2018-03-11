@@ -19,18 +19,22 @@ SOURCES := $(DOCBOOK_SOURCES) stylesheet.xsl version.ent
 unexport LC_ALL
 export LC_CTYPE=C.UTF-8
 
-all: $(LANGS)
+all: $(patsubst %,stamps/build-%,$(LANGS))
 
-en: $(SOURCES)
+stamps/build-en: $(SOURCES)
 	xmlto -o kernel-handbook.html -m stylesheet.xsl html kernel-handbook.dbk
+	mkdir -p $(@D)
+	touch $@
 
-ja: $(SOURCES) po4a/kernel-handbook.ja.po
+stamps/build-ja: $(SOURCES) po4a/kernel-handbook.ja.po
 	mkdir -p kernel-handbook.ja.dbk
 	ln -sf ../version.ent kernel-handbook.ja.dbk/
 	for src in $(DOCBOOK_SOURCES); do \
 		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.ja.po -k 0 -l kernel-handbook.ja.dbk/"$$src" || exit; \
 	done
 	xmlto -o kernel-handbook.ja.html -m stylesheet.xsl html kernel-handbook.ja.dbk/kernel-handbook.dbk
+	mkdir -p $(@D)
+	touch $@
 
 clean:
 	rm -rf kernel-handbook.html
@@ -38,7 +42,7 @@ clean:
 		rm -rf kernel-handbook.$(lng).html; \
 		rm -rf kernel-handbook.$(lng).dbk; \
 	)
-	rm -rf pub
+	rm -rf pub stamps
 	rm -f version.ent
 
 version.ent: FORCE
