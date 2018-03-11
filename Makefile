@@ -68,4 +68,4 @@ po-update:
 	po4a-updatepo -f docbook $(patsubst %,-m %,$(SOURCES)) -p po4a/kernel-handbook.$(lng).po; \
 	)
 
-.PHONY: all sync FORCE
+.PHONY: all clean po-update sync FORCE
