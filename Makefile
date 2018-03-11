@@ -1,5 +1,5 @@
 version := $(shell dpkg-parsechangelog -SVersion)
-date    := $(shell date -d "$$(dpkg-parsechangelog -SDate)")
+date    := $(shell date -u -d "$$(dpkg-parsechangelog -SDate)")
 
 LANG_PO := ja
 LANG_EN := en
