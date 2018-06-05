@@ -2,9 +2,7 @@ kernel-handbook (1.0.19) UNRELEASED; urgency=medium
 
   * Point all project/Vcs URLs to Salsa
   * Direct contributions to the debian-kernel mailing list
-  * Makefile: Really set permissions in "sync" rule
-  * Move the web site to http://kernel-handbook.debian.net (Salsa is not
-    ready to host static sites)
+  * Move web site to Gitlab Pages
   * Update URL in "Building a development version of the Debian kernel package"
     to point to Salsa
   * Makefile: Always use UTC in document date

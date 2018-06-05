@@ -54,19 +54,28 @@ version.ent: FORCE
 	fi
 
 sync: all
+	git diff --quiet HEAD ||					\
+	{ echo >&2 "E: Working tree has uncommitted changes"; exit 1; }
+	status="$$(git status -b --porcelain)";				\
+	[ "$${status%\?\? *}" = "$$status" ] ||				\
+	{ echo >&2 "E: Working tree has files that are untracked and not ignored"; exit 1; }; \
+	head="$${status#\#\# }";						\
+	[ "$${head%...*}" = master ] || 					\
+	{ echo >&2 "E: You should only sync from the master branch"; exit 1; }
+	git checkout -B pages
 	mkdir -p pub
 	rm -f pub/*
 	cp htaccess pub/.htaccess
 	$(foreach lng,$(LANGS), \
 	for html in kernel-handbook$(subst .en,,.$(lng)).html/*.html; do \
-		cp $$html pub/$$(basename $$html).$(lng); \
+		ln -s ../$$html pub/$$(basename $$html).$(lng); \
 	done; \
 	echo 'AddLanguage $(lng) .$(lng)' >>pub/.htaccess; \
 	)
-	chmod -R a+rX pub
-	rsync -v -e ssh --perms --times --omit-dir-times --recursive \
-		--copy-links --delete pub/ \
-		shadbolt.decadent.org.uk:/usr/local/website/debian-kernel-handbook/
+	git add -f pub
+	git commit -m "Add HTML output"
+	git push -f origin pages
+	git checkout master
 
 po-update:
 	$(foreach lng,$(LANG_PO), \
