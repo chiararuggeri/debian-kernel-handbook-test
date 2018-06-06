@@ -329,21 +329,28 @@ source is to use the <package>linux-source</package> package and the
 <para>
 The kernel now needs to be configured, that is you have to set the kernel
 options and select the drivers which are going to be included, either as
-built-in, or as external modules.  The kernel build infrastructure offers a
-number of targets, which invoke different configuration frontends.  For
-example, one can use console-based menu configuration by invoking the command
+built-in, or as external modules.
+</para>
+<para>
+It is possible to reuse an old configuration file by placing it as a
+<filename>.config</filename> file in the top-level directory.
+Alternately, you can use the default configuration for the
+architecture (<command>make defconfig</command>) or generate a
+configuration based on the running kernel and the currently loaded
+modules (<command>make localmodconfig</command>).
+</para>
+<para>
+The kernel build infrastructure offers a number of targets, which
+invoke different configuration frontends.  For example, one can use
+console-based menu configuration by invoking the command
 </para>
 <screen>
 <prompt>$</prompt> <userinput>make nconfig</userinput>
 </screen>
 <para>
-Instead of <literal>nconfig</literal> one can use <literal>config</literal>
+Instead of <literal>nconfig</literal> one can use <literal>oldconfig</literal>
 (text-based line-by-line configuration frontend) or <literal>xconfig</literal>
-(graphical configuration frontend).  It is also possible to reuse your old
-configuration file by placing it as a <filename>.config</filename> file in the
-top-level directory and running one of the configuration targets (if you want
-to adjust something) or <command>make oldconfig</command> (to keep the same
-configuration).  Note that different frontends may require different additional
+(graphical configuration frontend).  Note that different frontends may require different additional
 libraries and utilities to be installed to function properly.  For example, the
 <literal>nconfig</literal> frontend requires the <literal>ncurses</literal>
 library, which at time of writing is provided by the
