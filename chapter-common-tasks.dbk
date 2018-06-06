@@ -340,6 +340,17 @@ configuration based on the running kernel and the currently loaded
 modules (<command>make localmodconfig</command>).
 </para>
 <para>
+If you reuse a Debian kernel config file, you may need to disable
+module signing (<command>scripts/config --disable
+MODULE_SIG</command>) or enable signing with an ephemeral key
+(<command>scripts/config --set-str MODULE_SIG_KEY
+certs/signing_key.pem</command>).  The build will use less time and
+disk space (see <xref linkend="s-common-size"/>) if debug information
+is disabled (<command>scripts/config --disable DEBUG_INFO</command>).
+Debuginfo is only needed if you plan to use binary object tools like
+crash, kgdb, and SystemTap on the kernel.
+</para>
+<para>
 The kernel build infrastructure offers a number of targets, which
 invoke different configuration frontends.  For example, one can use
 console-based menu configuration by invoking the command
@@ -356,15 +367,6 @@ libraries and utilities to be installed to function properly.  For example, the
 library, which at time of writing is provided by the
 <package>libncurses5-dev</package> package.
 </para>
-<para>
-The build will use less disk space if the
-<symbol>CONFIG_DEBUG_INFO</symbol> option is disabled (see <xref
-linkend="s-common-size"/>).  Debuginfo is only needed if you plan to
-use binary object tools like crash, kgdb, and SystemTap on the kernel.
-</para>
-<screen>
-<prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>
-</screen>
 <para>
 After the configuration process is finished, the new or updated kernel
 configuration will be stored in <filename>.config</filename> file in the
