@@ -444,20 +444,10 @@ After that the archive may be unpacked using
 <prompt>$</prompt> <userinput>cd linux-4.3</userinput>
 </screen>
 <para>
-The unpacked kernel tree (in <filename>linux-4.3</filename> now has to be
-configured.  The existing configuration file may be used as a starting point
-</para>
-<screen>
-<prompt>$</prompt> <userinput>cp /boot/config-3.2.0-2-686-pae ./.config</userinput>
-</screen>
-<para>
-After the configuration with one of the configuration frontends (invoked by
-<command>make oldconfig</command>, <command>make config</command>,
-<command>make nconfig</command>, etc) is completed, the build may be started
-using <command>make deb-pkg</command> target as described above.
+The unpacked kernel tree (in <filename>linux-4.3</filename>) can now be
+configured and built, in the same way described in the previous section.
 </para>
 </section>
-
 <section id="s-common-out-of-tree"><title>Building out-of-tree kernel modules</title>
 <para>
 Some kernel modules are not included in the upstream or Debian kernel source,
