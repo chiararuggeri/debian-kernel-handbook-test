@@ -21,6 +21,8 @@ kernel-handbook (1.0.19) UNRELEASED; urgency=medium
   * Update disk space requirements for rebuilding official Debian kernel
     packages
   * debian/copyright: Convert to machine-readable copyright format 1.0
+  * Makefile: Fix locale in document date to make it reproducible,
+    thanks to Eduard Sanou (Closes: #830922)
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 04 Mar 2018 16:02:37 +0000
 

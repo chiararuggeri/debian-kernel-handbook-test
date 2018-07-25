@@ -1,11 +1,11 @@
 ifneq ($(shell dpkg-parsechangelog -SDistribution),UNRELEASED)
 # Use changelog version and date for a release
 version := $(shell dpkg-parsechangelog -SVersion)
-date    := $(shell date -u -d "$$(dpkg-parsechangelog -SDate)")
+date    := $(shell LC_ALL=C date -u -d "$$(dpkg-parsechangelog -SDate)")
 else
 # Use git commit description and date otherwise
 version := $(shell git describe)
-date    := $(shell date -u -d "@$$(git log --pretty='%cd' --date=unix HEAD -1)")
+date    := $(shell LC_ALL=C date -u -d "@$$(git log --pretty='%cd' --date=unix HEAD -1)")
 endif
 
 LANG_PO := ja
