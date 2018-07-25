@@ -23,6 +23,9 @@ kernel-handbook (1.0.19) UNRELEASED; urgency=medium
   * debian/copyright: Convert to machine-readable copyright format 1.0
   * Makefile: Fix locale in document date to make it reproducible,
     thanks to Eduard Sanou (Closes: #830922)
+  * debian/control: Update Standards-Version to 4.1.5:
+    - Set Priority: optional
+    - Set Rules-Requires-Root: no
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 04 Mar 2018 16:02:37 +0000
 
