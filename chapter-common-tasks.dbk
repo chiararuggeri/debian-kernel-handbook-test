@@ -64,7 +64,7 @@ Enter the source directory.
 <section id="s-common-size"><title>Disk space requirements</title>
 <para>
 Building binary packages for a single kernel flavour requires up to
-10 GB space in the package directory and 300 MB in
+15 GB space in the package directory and 300 MB in
 <filename>/tmp</filename> (or <envar>$TMPDIR</envar>).
 </para>
 <para>
@@ -74,8 +74,8 @@ You can disable debug info by changing the value of
 <filename>debian/config/<replaceable>arch</replaceable>/defines</filename>.
 </para>
 <para>
-Building all binary packages for i386 or amd64 currently requires about 20 GB
-space in the package directory.  Other architectures with no debug info or
+Building all binary packages for i386 or amd64 currently requires
+about 50 GB space in the package directory.  Other architectures with
 fewer drivers will require less space.
 </para>
 </section>
