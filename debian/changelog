@@ -28,6 +28,7 @@ kernel-handbook (1.0.19) UNRELEASED; urgency=medium
     - Set Rules-Requires-Root: no
   * Update the filename where debug-info is enabled in the linux package
     (Closes: #874635)
+  * Use debhelper compatibility level 11
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sun, 04 Mar 2018 16:02:37 +0000
 
