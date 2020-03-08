@@ -42,7 +42,7 @@ clean:
 		rm -rf kernel-handbook.$(lng).html; \
 		rm -rf kernel-handbook.$(lng).dbk; \
 	)
-	rm -rf pub stamps
+	rm -rf public stamps
 	rm -f version.ent
 
 version.ent: FORCE
