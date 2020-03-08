@@ -2,6 +2,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
 
   * Update link to serial console documentation on www.kernel.org
   * Correct the filenames where debug-info is enabled in the linux package
+  * Link to lore.kernel.org as preferred mail archive
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sat, 01 Dec 2018 18:37:14 +0000
 
