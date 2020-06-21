@@ -3,7 +3,7 @@ Section: doc
 Priority: optional
 Maintainer: Debian kernel team <debian-kernel@lists.debian.org>
 Uploaders: Ben Hutchings <ben@decadent.org.uk>, maximilian attems <maks@debian.org>
-Build-Depends: debhelper (>= 12~), xmlto, po4a
+Build-Depends: debhelper-compat (= 12), xmlto, po4a
 Rules-Requires-Root: no
 Standards-Version: 4.1.5
 Vcs-Browser: https://salsa.debian.org/kernel-team/kernel-handbook
