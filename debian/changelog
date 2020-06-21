@@ -8,6 +8,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
+  * Bump debhelper from old 11 to 12.
 
  -- Ben Hutchings <ben@decadent.org.uk>  Sat, 01 Dec 2018 18:37:14 +0000
 
