@@ -9,3 +9,19 @@ variables:
   SALSA_CI_DISABLE_BUILD_PACKAGE_I386: 'true'
   SALSA_CI_DISABLE_BUILD_PACKAGE_ANY: 'true'
   SALSA_CI_DISABLE_CROSSBUILD_ARM64: 'true'
+
+pages:
+  stage: publish
+  image: $SALSA_CI_IMAGES_BASE
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  script:
+    - |
+      dpkg-deb -x ${WORKING_DIR}/debian-kernel-handbook_*_all.deb .
+    - mv usr/share/doc/debian-kernel-handbook/kernel-handbook.html public
+  needs:
+    - job: build
+      artifacts: true
+  artifacts:
+    paths:
+      - public

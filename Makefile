@@ -45,7 +45,7 @@ clean:
 		rm -rf kernel-handbook.$(lng).html; \
 		rm -rf kernel-handbook.$(lng).dbk; \
 	)
-	rm -rf public stamps
+	rm -rf stamps
 	rm -f version.ent
 
 version.ent: FORCE
@@ -56,26 +56,9 @@ version.ent: FORCE
 		echo "<!ENTITY date    \"$(date)\">"    >> $@;		   \
 	fi
 
-sync: all
-	git diff --quiet HEAD ||					\
-	{ echo >&2 "E: Working tree has uncommitted changes"; exit 1; }
-	status="$$(git status -b --porcelain)";				\
-	[ "$${status%\?\? *}" = "$$status" ] ||				\
-	{ echo >&2 "E: Working tree has files that are untracked and not ignored"; exit 1; }; \
-	head="$${status#\#\# }";						\
-	[ "$${head%...*}" = master ] || 					\
-	{ echo >&2 "E: You should only sync from the master branch"; exit 1; }
-	git checkout -B pages
-	rm -rf public
-	cp -R kernel-handbook.html public
-	git add -f public
-	git commit -m "Add HTML output"
-	git push -f origin pages
-	git checkout master
-
 po-update:
 	$(foreach lng,$(LANG_PO), \
 	po4a-updatepo -f docbook $(patsubst %,-m %,$(DOCBOOK_SOURCES)) -p po4a/kernel-handbook.$(lng).po; \
 	)
 
-.PHONY: all clean po-update sync FORCE
+.PHONY: all clean po-update FORCE
