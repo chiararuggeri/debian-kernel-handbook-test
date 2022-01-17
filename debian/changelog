@@ -6,6 +6,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Link to lore.kernel.org as preferred mail archive
   * Makefile: Update name of public pages directory in clean rule
   * Makefile: Generate git version in a way that works with GitLab CI variables
+  * d/salsa-ci.yml: Add CI configuration for salsa.debian.org
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
