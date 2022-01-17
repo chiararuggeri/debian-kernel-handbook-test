@@ -5,6 +5,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Correct the filenames where debug-info is enabled in the linux package
   * Link to lore.kernel.org as preferred mail archive
   * Makefile: Update name of public pages directory in clean rule
+  * Makefile: Generate git version in a way that works with GitLab CI variables
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
