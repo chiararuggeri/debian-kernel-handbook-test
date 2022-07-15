@@ -13,6 +13,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Change bisection instructions to include verifying upstream git tags
     (Closes: #958559)
   * Change custom package building examples to use the bindeb-pkg target
+  * Remove documentation of genorig.py's obsolete, insecure tarball support
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
