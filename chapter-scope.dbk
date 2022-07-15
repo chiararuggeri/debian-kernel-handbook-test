@@ -29,7 +29,7 @@ This handbook is maintained within the <ulink
 url="https://salsa.debian.org/kernel-team/kernel-handbook">kernel-handbook</ulink>
 project on <ulink url="https://salsa.debian.org">Salsa</ulink>.  The SGML
 source of the book may be checked out from the Debian <ulink
-url="https://salsa.debian.org/kernel-team/kernel-handbook.git">git
+url="https://salsa.debian.org/kernel-team/kernel-handbook.git">Git
 repository</ulink>.  It is intended as a community project, thus all proposals
 for improvements and contributions are welcome.  The preferred way to submit a
 contribution is to send it to the

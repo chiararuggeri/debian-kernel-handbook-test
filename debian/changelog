@@ -8,17 +8,18 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Correct the filenames where debug-info is enabled in the linux package
   * Link to lore.kernel.org as preferred mail archive
   * Makefile: Update name of public pages directory in clean rule
-  * Makefile: Generate git version in a way that works with GitLab CI variables
+  * Makefile: Generate Git version in a way that works with GitLab CI variables
   * d/salsa-ci.yml: Add CI configuration for salsa.debian.org
   * Makefile, d/salsa-ci.yml: Move pages update to CI
-  * Change URL for kernel git repository to use HTTP-S
+  * Change URL for kernel Git repository to use HTTP-S
   * Fix a plaintext HTTP URL in the Japanese translation
-  * Change bisection instructions to include verifying upstream git tags
+  * Change bisection instructions to include verifying upstream Git tags
     (Closes: #958559)
   * Change custom package building examples to use the bindeb-pkg target
   * Remove documentation of genorig.py's obsolete, insecure tarball support
   * Add new build-dependencies to bisection instructions
   * Refer to libncurses-dev instead of the now-transitional libncurses5-dev
+  * Capitalise "Git" outside of command and package names
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
