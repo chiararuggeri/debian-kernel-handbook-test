@@ -165,11 +165,6 @@ since
 </listitem>
 <listitem>
 <para>
-Searching kerneloops.org for similar oopses
-</para>
-</listitem>
-<listitem>
-<para>
 Matching the machine code and registers in an 'oops' against the source and
 deducing how the impossible happened (this doesn't work that often but when it
 does you look like a genius ;-)

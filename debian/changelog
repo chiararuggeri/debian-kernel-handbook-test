@@ -17,6 +17,8 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Add new build-dependencies to bisection instructions
   * Refer to libncurses-dev instead of the now-transitional libncurses5-dev
   * Capitalise "Git" outside of command and package names
+  * Revise the bug handling policy:
+    - Remove reference to defunct kerneloops.org site
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
