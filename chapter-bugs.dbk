@@ -394,18 +394,35 @@ compile and test a few versions to narrow down what changes introduced the
 regression.
 </para>
 <para>
-To start, recreate the problem with a vanilla kernel:
+To start, fetch the Debian linux source package and the upstream source:
 </para>
 <screen>
-<prompt>#</prompt> <userinput>apt-get install git build-essential</userinput>
-<prompt>$</prompt> <userinput>git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>
-<prompt>$</prompt> <userinput>cd linux</userinput>
+<prompt>#</prompt> <userinput>apt-get install git build-essential gpg gpgv</userinput>
+<prompt>$</prompt> <userinput>apt-get source linux</userinput>  <lineannotation># this creates a directory linux-<replaceable>debian-version</replaceable></lineannotation>
+<prompt>$</prompt> <userinput>git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git linux-upstream</userinput>
 </screen>
 <para>
-The above commands acquire a vanilla kernel.  Configure, build and test a
-binary package as explained in <xref linkend="s-common-building"/>:
+Verify the tags for the old and new versions you want to test
+(usually, the last version you know works and the first version you
+know is broken):
 </para>
 <screen>
+<prompt>$</prompt> <userinput>cd linux-upstream</userinput>
+<prompt>$</prompt> <userinput>git -c gpg.program=../linux-<replaceable>debian-version</replaceable>/debian/bin/git-tag-gpg-wrapper tag -v v<replaceable>old-version</replaceable></userinput>
+<prompt>$</prompt> <userinput>git -c gpg.program=../linux-<replaceable>debian-version</replaceable>/debian/bin/git-tag-gpg-wrapper tag -v v<replaceable>new-version</replaceable></userinput>
+</screen>
+<para>
+Each command should show:
+</para>
+<screen>
+gpgv: Good signature from "Linus Torvalds &lt;torvalds@linux-foundation.org&gt;"
+</screen>
+<para>
+Check out the new version, then configure, build and test a binary
+package as explained in <xref linkend="s-common-building"/>:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>git checkout v<replaceable>new-version</replaceable></userinput>
 <prompt>$</prompt> <userinput>make localmodconfig</userinput>  <lineannotation># minimal configuration</lineannotation>
 <prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>  <lineannotation># to keep the build reasonably small</lineannotation>
 <prompt>$</prompt> <userinput>make deb-pkg</userinput>
@@ -422,10 +439,8 @@ Initialize the bisection process by declaring which versions worked and did not
 work:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>cd linux</userinput>
-<prompt>$</prompt> <userinput>git bisect start</userinput>
-<prompt>$</prompt> <userinput>git bisect good v3.0</userinput>  <lineannotation># or whichever was known to be good</lineannotation>
-<prompt>$</prompt> <userinput>git bisect bad</userinput>  <lineannotation># current version is bad</lineannotation>
+<prompt>$</prompt> <userinput>cd linux-upstream</userinput>
+<prompt>$</prompt> <userinput>git bisect start v<replaceable>new-version</replaceable> v<replaceable>old-version</replaceable></userinput>
 </screen>
 <para>
 Now git checks out a version half-way in between to test.  Build it, reusing

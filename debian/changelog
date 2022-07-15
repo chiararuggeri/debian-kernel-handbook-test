@@ -10,6 +10,8 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Makefile, d/salsa-ci.yml: Move pages update to CI
   * Change URL for kernel git repository to use HTTP-S
   * Fix a plaintext HTTP URL in the Japanese translation
+  * Change bisection instructions to include verifying upstream git tags
+    (Closes: #958559)
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
