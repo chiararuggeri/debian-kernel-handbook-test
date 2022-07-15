@@ -29,8 +29,8 @@ console</ulink>, or a photograph.
 <para>
 If the report is relaying information about a bug acknowledged upstream, we do
 not need system information but we do need specific references (<ulink
-url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink> or
-<command>git</command> commit id).
+url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink> or Git commit
+id).
 </para>
 </listitem>
 <listitem>
@@ -147,7 +147,7 @@ url="https://patchwork.kernel.org">patchwork.kernel.org</ulink>
 </listitem>
 <listitem>
 <para>
-Viewing git commit logs for relevant source files
+Viewing Git commit logs for relevant source files
 </para>
 <itemizedlist>
 <listitem>
@@ -448,7 +448,7 @@ work:
 <prompt>$</prompt> <userinput>git bisect start v<replaceable>new-version</replaceable> v<replaceable>old-version</replaceable></userinput>
 </screen>
 <para>
-Now git checks out a version half-way in between to test.  Build it, reusing
+Now Git checks out a version half-way in between to test.  Build it, reusing
 the prepared configuration.
 </para>
 <screen>
