@@ -394,10 +394,15 @@ compile and test a few versions to narrow down what changes introduced the
 regression.
 </para>
 <para>
-To start, fetch the Debian linux source package and the upstream source:
+You'll need to install some packages:
 </para>
 <screen>
-<prompt>#</prompt> <userinput>apt-get install git build-essential gpg gpgv</userinput>
+<prompt>#</prompt> <userinput>apt-get install git gpg gpgv build-essential bc rsync kmod cpio bison flex libelf-dev libssl-dev</userinput>
+</screen>
+<para>
+Next, fetch the Debian linux source package and the upstream source:
+</para>
+<screen>
 <prompt>$</prompt> <userinput>apt-get source linux</userinput>  <lineannotation># this creates a directory linux-<replaceable>debian-version</replaceable></lineannotation>
 <prompt>$</prompt> <userinput>git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git linux-upstream</userinput>
 </screen>
