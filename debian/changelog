@@ -22,6 +22,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
     - Remove mention of maintainers analysing oopses
     - Refer to bug trackers generally, not specifically bugzilla.kernel.org
     - Mention mail archives as possible existing upstream references
+    - Document when and where a maintainer or submitter should report upstream
 
   [ Debian Janitor ]
   * Trim trailing whitespace.

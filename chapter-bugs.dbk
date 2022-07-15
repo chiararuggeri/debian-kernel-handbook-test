@@ -113,7 +113,7 @@ hardware-dependent
 </itemizedlist>
 </section>
 
-<section id="s9.1.4"><title>Analysis by maintainers</title>
+<section id="s9.1.4"><title>Responsibility of the maintainer</title>
 <para>
 Generally we should not expect to be able to reproduce bugs without having
 similar hardware.  We should consider:
@@ -162,9 +162,16 @@ since
 </itemizedlist>
 </listitem>
 </itemizedlist>
+<para>
+If the bug is in upstream code and should be reported to an upstream
+mailing list (see <xref linkend="s9.1.9"/>), forward the relevant
+message(s) there, keeping the submitter in the cc list.  Mark the bug
+as forwarded, with a reference to the thread archive on <ulink
+url="https://lore.kernel.org">lore.kernel.org</ulink>.
+</para>
 </section>
 
-<section id="s9.1.5"><title>Testing by submitter</title>
+<section id="s9.1.5"><title>Responsibility of the submitter</title>
 <para>
 Depending on the technical sophistication of the submitter and the service
 requirements of the system in question (e.g.  whether it's a production server)
@@ -208,12 +215,12 @@ introduced the bug
 </listitem>
 </itemizedlist>
 <para>
-When a bug occurs in what upstream considers the current or previous stable
-release, and we cannot fix it, we ask the submitter to report it in the
-upstream bug tracker in a specific category and to tell us the URL.  We do
-not report bugs directly because follow-up questions from upstream need to go
-to the submitter, not to us.  Given the upstream URL, we mark the bug as
-forwarded.  <command>bts-link</command> then updates its status.
+If the bug is in upstream code and should be reported to a bug tracker
+(see <xref linkend="s9.1.9"/>), we ask the submitter to report it
+there in a specific category and to tell us the URL.  We do not report
+the bug directly because follow-up questions from upstream need to go
+to the submitter, not to us.  Given the upstream URL, we mark the bug
+as forwarded.  <command>bts-link</command> then updates its status.
 </para>
 </section>
 
@@ -274,6 +281,31 @@ something stupid, request that they undo that and report back.  'Sorry' and
 <para>
 We will maintain general advice to submitters at <ulink
 url="https://wiki.debian.org/DebianKernelReportingBugs">https://wiki.debian.org/DebianKernelReportingBugs</ulink>.
+</para>
+</section>
+
+<section id="s9.1.9"><title>Reporting bugs upstream</title>
+<para>
+When a bug occurs in what upstream considers the current or previous
+stable release, or the latest release candidate, it should be reported
+to the upstream mailing list or bug tracker of the affected kernel
+component.  In the relevant section of the current
+<filename>MAINTAINERS</filename> file, there may be a
+<literal>B:</literal> entry identifying where this is.  Otherwise,
+there should be an <literal>L:</literal> entry referring to a general
+mailing list that can be used for bug reporting.
+</para>
+<para>
+When the bug is in a stable/longterm branch that is still maintained,
+bugs should be reported to the <email>stable@vger.kernel.org</email>
+mailing list.
+</para>
+<para>
+Any regressions in mainline or stable branches should additionally be
+reported to the <email>regressions@lists.linux.dev</email> mailing
+list.  The kernel documentation has more information about <ulink
+url="https://www.kernel.org/doc/html/latest/admin-guide/reporting-regressions.html">
+reporting regressions</ulink>.
 </para>
 </section>
 
