@@ -425,7 +425,7 @@ package as explained in <xref linkend="s-common-building"/>:
 <prompt>$</prompt> <userinput>git checkout v<replaceable>new-version</replaceable></userinput>
 <prompt>$</prompt> <userinput>make localmodconfig</userinput>  <lineannotation># minimal configuration</lineannotation>
 <prompt>$</prompt> <userinput>scripts/config --disable DEBUG_INFO</userinput>  <lineannotation># to keep the build reasonably small</lineannotation>
-<prompt>$</prompt> <userinput>make deb-pkg</userinput>
+<prompt>$</prompt> <userinput>make bindeb-pkg</userinput>
 <prompt>#</prompt> <userinput>dpkg -i ../linux-image-3.5.0_3.5.0-1_i386.deb</userinput>  <lineannotation># substitute package name from the previous command</lineannotation>
 <prompt>#</prompt> <userinput>reboot</userinput>
 </screen>
@@ -448,7 +448,7 @@ the prepared configuration.
 </para>
 <screen>
 <prompt>$</prompt> <userinput>make silentoldconfig</userinput>
-<prompt>$</prompt> <userinput>make deb-pkg</userinput>
+<prompt>$</prompt> <userinput>make bindeb-pkg</userinput>
 </screen>
 <para>
 Install the package, reboot, and test.
@@ -463,7 +463,7 @@ And on to the next iteration:
 </para>
 <screen>
 <prompt>$</prompt> <userinput>make silentoldconfig</userinput>
-<prompt>$</prompt> <userinput>make deb-pkg</userinput>
+<prompt>$</prompt> <userinput>make bindeb-pkg</userinput>
 </screen>
 <para>
 At the end of the process, the name of the "first bad commit" is printed, which

@@ -321,7 +321,7 @@ to it.
 The easiest way to build a custom kernel (the kernel with the configuration
 different from the one used in the official packages) from the Debian kernel
 source is to use the <package>linux-source</package> package and the
-<command>make deb-pkg</command> target.  First, prepare the kernel tree:
+<command>make bindeb-pkg</command> target.  First, prepare the kernel tree:
 </para>
 <screen>
 <prompt>#</prompt> <userinput>apt-get install linux-source-4.3</userinput>
@@ -376,7 +376,7 @@ top-level directory.  The build is started using the commands
 </para>
 <screen>
 <prompt>$</prompt> <userinput>make clean</userinput>
-<prompt>$</prompt> <userinput>make deb-pkg</userinput>
+<prompt>$</prompt> <userinput>make bindeb-pkg</userinput>
 </screen>
 <para>
 As a result of the build, a custom kernel package

@@ -12,6 +12,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Fix a plaintext HTTP URL in the Japanese translation
   * Change bisection instructions to include verifying upstream git tags
     (Closes: #958559)
+  * Change custom package building examples to use the bindeb-pkg target
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
