@@ -355,8 +355,7 @@ Instead of <literal>nconfig</literal> one can use <literal>oldconfig</literal>
 (graphical configuration frontend).  Note that different frontends may require different additional
 libraries and utilities to be installed to function properly.  For example, the
 <literal>nconfig</literal> frontend requires the <literal>ncurses</literal>
-library, which at time of writing is provided by the
-<package>libncurses5-dev</package> package.
+library, which is provided by the <package>libncurses-dev</package> package.
 </para>
 <para>
 After the configuration process is finished, the new or updated kernel

@@ -15,6 +15,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Change custom package building examples to use the bindeb-pkg target
   * Remove documentation of genorig.py's obsolete, insecure tarball support
   * Add new build-dependencies to bisection instructions
+  * Refer to libncurses-dev instead of the now-transitional libncurses5-dev
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
