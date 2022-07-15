@@ -28,9 +28,8 @@ console</ulink>, or a photograph.
 <listitem>
 <para>
 If the report is relaying information about a bug acknowledged upstream, we do
-not need system information but we do need specific references (<ulink
-url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink> or Git commit
-id).
+not need system information but we do need specific references (bug tracker URL
+or Git commit id).
 </para>
 </listitem>
 <listitem>
@@ -122,8 +121,7 @@ similar hardware.  We should consider:
 <itemizedlist>
 <listitem>
 <para>
-Searching <ulink url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink>
-(including closed bugs) or other relevant bug tracker
+Searching the relevant bug tracker (including closed bugs)
 </para>
 </listitem>
 <listitem>
@@ -211,11 +209,10 @@ introduced the bug
 </itemizedlist>
 <para>
 When a bug occurs in what upstream considers the current or previous stable
-release, and we cannot fix it, we ask the submitter to report it upstream at
-<ulink url="https://bugzilla.kernel.org">bugzilla.kernel.org</ulink> under a
-specific Product and Component, and to tell us the upstream bug number.  We do
+release, and we cannot fix it, we ask the submitter to report it in the
+upstream bug tracker in a specific category and to tell us the URL.  We do
 not report bugs directly because follow-up questions from upstream need to go
-to the submitter, not to us.  Given the upstream bug number, we mark the bug as
+to the submitter, not to us.  Given the upstream URL, we mark the bug as
 forwarded.  <command>bts-link</command> then updates its status.
 </para>
 </section>
