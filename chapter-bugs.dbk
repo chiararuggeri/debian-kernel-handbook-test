@@ -27,9 +27,9 @@ console</ulink>, or a photograph.
 </listitem>
 <listitem>
 <para>
-If the report is relaying information about a bug acknowledged upstream, we do
-not need system information but we do need specific references (bug tracker URL
-or Git commit id).
+If the report is relaying information about a bug acknowledged
+upstream, we do not need system information but we do need specific
+references (mail archive or bug tracker URL, or Git commit id).
 </para>
 </listitem>
 <listitem>

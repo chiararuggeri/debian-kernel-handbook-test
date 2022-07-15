@@ -21,6 +21,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
     - Remove reference to defunct kerneloops.org site
     - Remove mention of maintainers analysing oopses
     - Refer to bug trackers generally, not specifically bugzilla.kernel.org
+    - Mention mail archives as possible existing upstream references
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
