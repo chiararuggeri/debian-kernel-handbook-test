@@ -1183,11 +1183,11 @@ msgstr "まずは vanilla カーネルで問題を再現させましょう:"
 #, no-wrap
 msgid ""
 "<prompt>#</prompt> <userinput>apt-get install git build-essential</userinput>\n"
-"<prompt>$</prompt> <userinput>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>\n"
+"<prompt>$</prompt> <userinput>git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>\n"
 "<prompt>$</prompt> <userinput>cd linux</userinput>\n"
 msgstr ""
 "<prompt>#</prompt> <userinput>apt-get install git build-essential</userinput>\n"
-"<prompt>$</prompt> <userinput>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>\n"
+"<prompt>$</prompt> <userinput>git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>\n"
 "<prompt>$</prompt> <userinput>cd linux</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>

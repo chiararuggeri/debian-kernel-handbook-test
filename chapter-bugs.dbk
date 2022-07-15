@@ -398,7 +398,7 @@ To start, recreate the problem with a vanilla kernel:
 </para>
 <screen>
 <prompt>#</prompt> <userinput>apt-get install git build-essential</userinput>
-<prompt>$</prompt> <userinput>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>
+<prompt>$</prompt> <userinput>git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</userinput>
 <prompt>$</prompt> <userinput>cd linux</userinput>
 </screen>
 <para>
