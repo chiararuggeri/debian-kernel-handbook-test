@@ -20,7 +20,7 @@ Exceptions:
 <para>
 If the kernel does not boot or is very unstable, instead of the usual system
 information we need the console messages via <ulink
-url="https://www.kernel.org/doc/Documentation/networking/netconsole.txt">netconsole</ulink>,
+url="https://www.kernel.org/doc/html/latest/networking/netconsole.html">netconsole</ulink>,
 <ulink url="https://www.kernel.org/doc/html/latest/admin-guide/serial-console.html">serial
 console</ulink>, or a photograph.
 </para>

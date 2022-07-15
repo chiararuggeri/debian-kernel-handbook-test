@@ -4,7 +4,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Update Debian version in scope to 10
 
   [ Ben Hutchings ]
-  * Update link to serial console documentation on www.kernel.org
+  * Update links to {net,serial} console documentation on www.kernel.org
   * Correct the filenames where debug-info is enabled in the linux package
   * Link to lore.kernel.org as preferred mail archive
   * Makefile: Update name of public pages directory in clean rule
