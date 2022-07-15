@@ -9,6 +9,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * d/salsa-ci.yml: Add CI configuration for salsa.debian.org
   * Makefile, d/salsa-ci.yml: Move pages update to CI
   * Change URL for kernel git repository to use HTTP-S
+  * Fix a plaintext HTTP URL in the Japanese translation
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
