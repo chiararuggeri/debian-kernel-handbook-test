@@ -7,8 +7,8 @@
 <para>
 The main goal of this handbook is to serve as a single access point to
 all kernel-related documentation.  It contains the information about
-the Debian packaging of Linux kernel for Debian 7 (wheezy), 8
-(jessie), and 9 (stretch, under development).  The latest released
+the Debian packaging of Linux kernel for versions of Debian from 10 (buster)
+onwards. The latest released
 version (in English) is always available from <ulink
 url="https://kernel-team.pages.debian.net/kernel-handbook/">https://kernel-team.pages.debian.net/kernel-handbook/</ulink>.
 Note that this is a work in progress, and some information is inaccurate.
@@ -64,6 +64,11 @@ Maximilian Attems
 <listitem>
 <para>
 Ben Hutchings
+</para>
+</listitem>
+<listitem>
+<para>
+Tomasz Warniełło
 </para>
 </listitem>
 </itemizedlist>
