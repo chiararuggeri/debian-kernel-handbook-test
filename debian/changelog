@@ -24,6 +24,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Fix reference to GRUB documentation, and drop reference to LILO
   * Remove long-outdated reference to binary module packages in the archive
   * Replace the long explanation of using module-assistant with just "m-a a-i"
+  * Document explicitly how to install module-assistant
 
   [ Debian Janitor ]
   * Trim trailing whitespace.

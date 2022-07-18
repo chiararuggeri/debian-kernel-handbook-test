@@ -460,6 +460,12 @@ debianized source code of the kernel modules, suitable for building using the
 <package>module-assistant</package> package.
 </para>
 <para>
+First, install module-assistant:
+</para>
+<screen>
+<prompt>#</prompt> <userinput>apt-get install module-assistant</userinput>
+</screen>
+<para>
 To build a custom binary module package for the currently running
 kernel:
 </para>
