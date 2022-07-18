@@ -390,9 +390,8 @@ command to boot the new kernel.
 </para>
 <para>
 For much more information about bootloaders and their configuration please
-check their documentation, which can be accessed using the commands
-<command>man lilo</command>, <command>man lilo.conf</command>, <command>man
-grub</command>, and so on.  You can also look for documentation in the
+check their documentation.  For GRUB this can be accessed using the command
+<command>info grub</command>.  You can also look for documentation in the
 <filename>/usr/share/doc/<replaceable>package</replaceable></filename> directories,
 with <replaceable>package</replaceable> being the name of the
 package involved.

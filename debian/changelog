@@ -21,6 +21,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Refer to libncurses-dev instead of the now-transitional libncurses5-dev
   * Capitalise "Git" outside of command and package names
   * Update copyright dates
+  * Fix reference to GRUB documentation, and drop reference to LILO
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
