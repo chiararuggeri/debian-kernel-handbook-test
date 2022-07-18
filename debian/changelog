@@ -1,5 +1,8 @@
 kernel-handbook (1.0.20) UNRELEASED; urgency=medium
 
+  [ Tomasz Warniełło ]
+  * Update Debian version in scope to 10
+
   [ Ben Hutchings ]
   * Update link to serial console documentation on www.kernel.org
   * Correct the filenames where debug-info is enabled in the linux package
