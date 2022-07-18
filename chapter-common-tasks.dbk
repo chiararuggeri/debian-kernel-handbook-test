@@ -450,15 +450,34 @@ configured and built, in the same way described in the previous section.
 <para>
 Some kernel modules are not included in the upstream or Debian kernel source,
 but are provided as third-party source packages.
-There is a fair chance that the Debian archive contains the packaged
-<replaceable role="strong">source</replaceable> for the kernel modules.  Names of
-such packages typically end in <literal>-source</literal>, for example
-<package>squashfs-source</package>, <package>thinkpad-source</package>,
-<package>rt2x00-source</package> and many others.  These packages contain
-debianized source code of the kernel modules, suitable for building using the
-<command>module-assistant</command> (or <command>m-a</command>) script from the
-<package>module-assistant</package> package.
+There is a fair chance that the Debian archive contains the
+<emphasis>source</emphasis> for the kernel modules, packaged for use
+with the Dynamic Kernel Module System (DKMS), with a package name
+ending with <literal>-dkms</literal>.  Alternatively, it might be
+packaged for use with Debian's module-assistant (m-a), with a package
+name ending with <literal>-source</literal>.
 </para>
+
+<section id="s-common-out-of-tree-dkms"><title>Building modules with DKMS</title>
+<para>
+Check the current kernel release by running <command>uname
+-r</command>.  If it shows, for example,
+<literal>5.10.0-16-amd64</literal>, you need the package
+<package>linux-headers-5.10.0-16-amd64</package>.  However, usually
+you should not install this directly.  Instead, note the "flavour"
+name that appears after the four numbers, which in this case is
+<literal>amd64</literal>.  You can then run:
+</para>
+<screen>
+<prompt>#</prompt> <userinput>apt-get install linux-headers-<replaceable>flavour</replaceable> <replaceable>module-name</replaceable>-dkms</userinput>
+</screen>
+<para>
+The installation of these packages will automatically invoke DKMS to
+build and install the module(s) for the current kernel release.
+Future kernel package upgrades will also automatically invoke DKMS to
+rebuild and install the module(s).
+</para>
+</section>
 
 <section id="s-common-out-of-tree-m-a"><title>Building modules with module-assistant</title>
 <para>

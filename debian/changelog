@@ -26,6 +26,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Replace the long explanation of using module-assistant with just "m-a a-i"
   * Document explicitly how to install module-assistant
   * Introduce subsections for OOT builds with and without module-assistant
+  * Document DKMS as the preferred method for OOT module builds
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
