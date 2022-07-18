@@ -449,19 +449,8 @@ configured and built, in the same way described in the previous section.
 <section id="s-common-out-of-tree"><title>Building out-of-tree kernel modules</title>
 <para>
 Some kernel modules are not included in the upstream or Debian kernel source,
-but are provided as third-party source packages.  For some of the most popular
-out-of-tree modules, the binary Debian packages with modules built against the
-stock Debian kernels are provided.  For example, if you are running stock
-Debian kernel <literal>3.2.0-2-686-pae</literal> (use the <command>uname
--r</command> command to verify the version) from the
-<package>linux-image-3.2.0-2-686-pae</package> package, and would like to use
-the squash filesystem, all you need to do is install
-<package>squashfs-modules-3.2.0-2-686-pae</package> binary package, which
-provides the necessary binary kernel modules.
-</para>
-<para>
-If you are not so lucky, and there are no binary module packages in the
-archive, there is a fair chance that the Debian archive contains the packaged
+but are provided as third-party source packages.
+There is a fair chance that the Debian archive contains the packaged
 <replaceable role="strong">source</replaceable> for the kernel modules.  Names of
 such packages typically end in <literal>-source</literal>, for example
 <package>squashfs-source</package>, <package>thinkpad-source</package>,
