@@ -457,39 +457,14 @@ such packages typically end in <literal>-source</literal>, for example
 <package>rt2x00-source</package> and many others.  These packages contain
 debianized source code of the kernel modules, suitable for building using the
 <command>module-assistant</command> (or <command>m-a</command>) script from the
-<package>module-assistant</package> package.  Typical sequence to build a
-custom binary module package, matching a kernel
-<literal>3.2.0-2-686-pae</literal> (as returned by <command>uname -r</command>)
-from the debianized source consists of the following steps:
+<package>module-assistant</package> package.
 </para>
 <para>
-Install a set of kernel headers, matching the kernel for which the modules are
-going to be built:
+To build a custom binary module package for the currently running
+kernel:
 </para>
 <screen>
-<prompt>#</prompt> <userinput>apt-get install linux-headers-3.2.0-2-686-pae</userinput>
-</screen>
-<para>
-Install the package containing the source:
-</para>
-<screen>
-<prompt>#</prompt> <userinput>apt-get install squashfs-source</userinput>
-</screen>
-<para>
-Invoke <command>module-assistant</command> (aka <command>m-a</command>) to do
-the heavy lifting:
-</para>
-<screen>
-<prompt>#</prompt> <userinput>m-a build squashfs</userinput>
-</screen>
-<para>
-As a result, a Debian package is going to be built and placed in
-<filename>/usr/src</filename>.  It can be installed the usual way, using
-<command>dpkg -i</command>.  Two last steps (building and installation) may be
-combined using the invocation
-</para>
-<screen>
-<prompt>#</prompt> <userinput>m-a auto-install squashfs</userinput>
+<prompt>#</prompt> <userinput>m-a a-i <replaceable>module-name</replaceable>-source</userinput>
 </screen>
 <para>
 Check out the <command>module-assistant</command> documentation (<command>man
