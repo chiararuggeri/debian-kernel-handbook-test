@@ -446,7 +446,7 @@ The unpacked kernel tree (in <filename>linux-4.3</filename>) can now be
 configured and built, in the same way described in the previous section.
 </para>
 </section>
-<section id="s-common-out-of-tree"><title>Building out-of-tree kernel modules</title>
+<section id="s-common-out-of-tree"><title>Out-of-tree kernel modules</title>
 <para>
 Some kernel modules are not included in the upstream or Debian kernel source,
 but are provided as third-party source packages.
@@ -502,7 +502,7 @@ to use it.
 
 <section id="s-common-out-of-tree-unpackaged"><title>Building unpackaged modules</title>
 <para>
-Finally, in some rare circumstances, you might need to build the kernel modules
+In some rare circumstances, you might need to build the kernel modules
 from the upstream source packages.  In that case, follow the documentation
 included with the package to build the modules.  If the build process will
 require you to specify the directory with the kernel headers, matching the
@@ -513,6 +513,34 @@ Here <replaceable>uname</replaceable> is the output of the
 <command>uname -r</command> command.  If you are building and running your own
 custom kernels, it is a good idea to keep the original build tree around, as it
 also can be used for out-of-tree module building.
+</para>
+</section>
+
+<section id="s-common-out-of-tree-signing"><title>Out-of-tree modules and Secure Boot</title>
+<para>
+In case your computer has UEFI Secure Boot enabled, the Debian
+packaged kernel will normally only allow modules signed by a trusted
+key to be loaded.  In order to load the modules you build, you need
+to either:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+Generate a signing key, add it to the trust list of your computer, and
+use it to sign all out-of-tree modules; or
+</para>
+</listitem>
+<listitem>
+<para>
+Disable Secure Boot enforcement
+</para>
+</listitem>
+</itemizedlist>
+<para>
+Both options are documented on the Debian wiki's
+<ulink
+url="https://wiki.debian.org/SecureBoot#MOK_-_Machine_Owner_Key">SecureBoot
+page, under "MOK - Machine Owner Key"</ulink>.
 </para>
 </section>
 

@@ -27,6 +27,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Document explicitly how to install module-assistant
   * Introduce subsections for OOT builds with and without module-assistant
   * Document DKMS as the preferred method for OOT module builds
+  * Briefly document interaction of Secure Boot with OOT modules
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
