@@ -459,6 +459,8 @@ debianized source code of the kernel modules, suitable for building using the
 <command>module-assistant</command> (or <command>m-a</command>) script from the
 <package>module-assistant</package> package.
 </para>
+
+<section id="s-common-out-of-tree-m-a"><title>Building modules with module-assistant</title>
 <para>
 First, install module-assistant:
 </para>
@@ -477,6 +479,9 @@ Check out the <command>module-assistant</command> documentation (<command>man
 module-assistant</command>) for other options and much more information on how
 to use it.
 </para>
+</section>
+
+<section id="s-common-out-of-tree-unpackaged"><title>Building unpackaged modules</title>
 <para>
 Finally, in some rare circumstances, you might need to build the kernel modules
 from the upstream source packages.  In that case, follow the documentation
@@ -490,6 +495,8 @@ Here <replaceable>uname</replaceable> is the output of the
 custom kernels, it is a good idea to keep the original build tree around, as it
 also can be used for out-of-tree module building.
 </para>
+</section>
+
 </section>
 
 </chapter>
