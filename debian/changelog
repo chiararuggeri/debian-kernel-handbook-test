@@ -29,6 +29,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Document DKMS as the preferred method for OOT module builds
   * Briefly document interaction of Secure Boot with OOT modules
   * State that Salsa merge requests are now the preferred way to contribute
+  * Include all authors in the contributor list
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
