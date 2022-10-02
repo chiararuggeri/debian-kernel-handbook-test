@@ -29,13 +29,13 @@ stamps/build-en: $(SOURCES)
 	mkdir -p $(@D)
 	touch $@
 
-stamps/build-ja: $(SOURCES) po4a/kernel-handbook.ja.po
-	mkdir -p kernel-handbook.ja.dbk
-	ln -sf ../version.ent kernel-handbook.ja.dbk/
+stamps/build-%: $(SOURCES) po4a/kernel-handbook.%.po
+	mkdir -p kernel-handbook.$*.dbk
+	ln -sf ../version.ent kernel-handbook.$*.dbk/
 	for src in $(DOCBOOK_SOURCES); do \
-		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.ja.po -k 0 -l kernel-handbook.ja.dbk/"$$src" || exit; \
+		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.$*.po -k 0 -l kernel-handbook.$*.dbk/"$$src" || exit; \
 	done
-	xmlto -o kernel-handbook.ja.html -m stylesheet.xsl html kernel-handbook.ja.dbk/kernel-handbook.dbk
+	xmlto -o kernel-handbook.$*.html -m stylesheet.xsl html kernel-handbook.$*.dbk/kernel-handbook.dbk
 	mkdir -p $(@D)
 	touch $@
 
