@@ -1,4 +1,4 @@
-kernel-handbook (1.0.20) UNRELEASED; urgency=medium
+kernel-handbook (1.0.20) unstable; urgency=medium
 
   [ Tomasz Warniełło ]
   * Update Debian version in scope to 10
@@ -44,7 +44,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Bump debhelper from old 11 to 12.
   * Set debhelper-compat version in Build-Depends.
 
- -- Ben Hutchings <ben@decadent.org.uk>  Sat, 01 Dec 2018 18:37:14 +0000
+ -- Ben Hutchings <benh@debian.org>  Mon, 03 Oct 2022 01:56:35 +0200
 
 kernel-handbook (1.0.19) unstable; urgency=medium
 
