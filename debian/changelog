@@ -30,6 +30,12 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
   * Briefly document interaction of Secure Boot with OOT modules
   * State that Salsa merge requests are now the preferred way to contribute
   * Include all authors in the contributor list
+  * Revise the bug handling policy:
+    - Remove reference to defunct kerneloops.org site
+    - Remove mention of maintainers analysing oopses
+    - Refer to bug trackers generally, not specifically bugzilla.kernel.org
+    - Mention mail archives as possible existing upstream references
+    - Document when and where a maintainer or submitter should report upstream
 
   [ Debian Janitor ]
   * Trim trailing whitespace.

@@ -775,11 +775,6 @@ msgstr ""
 "ンから最新のバージョンを調べましょう"
 
 #. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
-#: chapter-bugs.dbk:168
-msgid "Searching kerneloops.org for similar oopses"
-msgstr "kerneloops.org の類似した 「oops」 を調べる"
-
-#. type: Content of: <chapter><section><section><itemizedlist><listitem><para>
 #: chapter-bugs.dbk:173
 msgid ""
 "Matching the machine code and registers in an 'oops' against the source and "
