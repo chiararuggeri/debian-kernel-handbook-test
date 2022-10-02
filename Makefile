@@ -11,7 +11,8 @@ endif
 # Convert date to fixed format
 date    := $(shell LC_ALL=C date -u -d '$(date)')
 
-LANG_PO := ja
+#LANG_PO := ja
+LANG_PO :=
 LANG_EN := en
 LANGS := $(LANG_EN) $(LANG_PO)
 

@@ -37,6 +37,7 @@ kernel-handbook (1.0.20) UNRELEASED; urgency=medium
     - Mention mail archives as possible existing upstream references
     - Document when and where a maintainer or submitter should report upstream
   * Makefile: Generalise translated build target
+  * Disable building of Japanese translation since it is now very incomplete
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
