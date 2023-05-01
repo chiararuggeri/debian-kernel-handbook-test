@@ -335,14 +335,14 @@ extra patches.  You can use this by running commands such as:
 </para>
 <screen>
 <prompt>#</prompt> <userinput>apt-get install devscripts</userinput>
-<prompt>$</prompt> <userinput>bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch</userinput>
+<prompt>$</prompt> <userinput>debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch</userinput>
 </screen>
 <para>
 This script has options to control the flavour, featureset, etc.  For a summary
 of the options, run:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>bash debian/bin/test-patches</userinput>
+<prompt>$</prompt> <userinput>debian/bin/test-patches</userinput>
 </screen>
 <para>
 However, if you need to change the configuration or make other changes, you
