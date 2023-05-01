@@ -278,7 +278,7 @@ Run the following commands:
 </para>
 <variablelist>
 <varlistentry>
-<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</userinput></term>
+<term><prompt>#</prompt> <userinput>apt-get install build-essential</userinput></term>
 <term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
 <listitem>
 <para>
@@ -437,7 +437,7 @@ To change the configuration before building, for example for the 686-pae
 flavour on i386, run the commands:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>
+<prompt>$</prompt> <userinput>make -f debian/rules.gen setup_i386_none_686-pae</userinput>
 <prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae nconfig</userinput>
 </screen>
 </section>
@@ -447,19 +447,19 @@ flavour on i386, run the commands:
 To build all possible packages for this architecture, run:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>
+<prompt>$</prompt> <userinput>dpkg-buildpackage -b -nc -uc</userinput>
 </screen>
 <para>
 To build all architecture-dependent packages, run:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>
+<prompt>$</prompt> <userinput>dpkg-buildpackage -B -nc -uc</userinput>
 </screen>
 <para>
 To build all architecture-independent packages, run:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>
+<prompt>$</prompt> <userinput>dpkg-buildpackage -A -nc -uc</userinput>
 </screen>
 </section>
 
@@ -469,8 +469,8 @@ For example, to build only the binary packages for 686-pae flavour on i386
 architecture, use the following commands:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
-<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>
+<prompt>$</prompt> <userinput>debian/rules source</userinput>
+<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>
 </screen>
 <para>
 The target in this command has the general form of
@@ -482,8 +482,8 @@ need the <package>linux-headers-<replaceable>version</replaceable>-common</packa
 binary package, which can be built using the commands:
 </para>
 <screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
-<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>
+<prompt>$</prompt> <userinput>debian/rules source</userinput>
+<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-arch_i386_none_real</userinput>
 </screen>
 <para>
 The target in this command has the general form of
@@ -500,7 +500,7 @@ version:
 </para>
 <variablelist>
 <varlistentry>
-<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync git</userinput></term>
+<term><prompt>#</prompt> <userinput>apt-get install build-essential rsync git</userinput></term>
 <term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
 <listitem>
 <para>
@@ -551,7 +551,7 @@ of the various kernel flavours which can be built.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</replaceable></userinput></term>
+<term><prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no debian/rules <replaceable>target</replaceable></userinput></term>
 <listitem>
 <para>
 Finally, build binary packages as explained in <xref

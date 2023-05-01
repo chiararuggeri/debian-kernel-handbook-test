@@ -120,7 +120,7 @@ If the kernel ABI has changed you must then change the ABI name in
 <filename>debian/config/defines</filename>.  Then run the command
 </para>
 <screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>
+<prompt>$</prompt> <userinput>debian/rules debian/control-real</userinput>
 </screen>
 <para>
 to regenerate the package definitions for this ABI name.

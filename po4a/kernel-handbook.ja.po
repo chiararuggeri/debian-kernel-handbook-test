@@ -1704,8 +1704,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-versions.dbk:112
 #, no-wrap
-msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
-msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules debian/control-real</userinput>\n"
+msgid "<prompt>$</prompt> <userinput>debian/rules debian/control-real</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>debian/rules debian/control-real</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-versions.dbk:115
@@ -1908,11 +1908,9 @@ msgstr "次のコマンドを実行します:"
 #. type: Content of: <chapter><section><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:34
 msgid ""
-"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</"
-"userinput>"
+"<prompt>#</prompt> <userinput>apt-get install build-essential</userinput>"
 msgstr ""
-"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</"
-"userinput>"
+"<prompt>#</prompt> <userinput>apt-get install build-essential</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:35 chapter-common-tasks.dbk:221
@@ -2133,10 +2131,10 @@ msgstr ""
 #: chapter-common-tasks.dbk:153
 #, no-wrap
 msgid ""
-"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>\n"
+"<prompt>$</prompt> <userinput>make -f debian/rules.gen setup_i386_none_686-pae</userinput>\n"
 "<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae nconfig</userinput>\n"
 msgstr ""
-"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>\n"
+"<prompt>$</prompt> <userinput>make -f debian/rules.gen setup_i386_none_686-pae</userinput>\n"
 "<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae nconfig</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
@@ -2164,8 +2162,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:167
 #, no-wrap
-msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>\n"
-msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>\n"
+msgid "<prompt>$</prompt> <userinput>dpkg-buildpackage -b -nc -uc</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>dpkg-buildpackage -b -nc -uc</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:170
@@ -2177,8 +2175,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:173
 #, no-wrap
-msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>\n"
-msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>\n"
+msgid "<prompt>$</prompt> <userinput>dpkg-buildpackage -B -nc -uc</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>dpkg-buildpackage -B -nc -uc</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:176
@@ -2190,8 +2188,8 @@ msgstr ""
 #. type: Content of: <chapter><section><section><screen>
 #: chapter-common-tasks.dbk:179
 #, no-wrap
-msgid "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>\n"
-msgstr "<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>\n"
+msgid "<prompt>$</prompt> <userinput>dpkg-buildpackage -A -nc -uc</userinput>\n"
+msgstr "<prompt>$</prompt> <userinput>dpkg-buildpackage -A -nc -uc</userinput>\n"
 
 #. type: Content of: <chapter><section><section><title>
 #: chapter-common-tasks.dbk:183
@@ -2211,11 +2209,11 @@ msgstr ""
 #: chapter-common-tasks.dbk:189
 #, no-wrap
 msgid ""
-"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
-"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>\n"
+"<prompt>$</prompt> <userinput>debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>\n"
 msgstr ""
-"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
-"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>\n"
+"<prompt>$</prompt> <userinput>debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:193
@@ -2244,11 +2242,11 @@ msgstr ""
 #: chapter-common-tasks.dbk:202
 #, no-wrap
 msgid ""
-"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
-"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>\n"
+"<prompt>$</prompt> <userinput>debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-arch_i386_none_real</userinput>\n"
 msgstr ""
-"<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>\n"
-"<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>\n"
+"<prompt>$</prompt> <userinput>debian/rules source</userinput>\n"
+"<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-arch_i386_none_real</userinput>\n"
 
 #. type: Content of: <chapter><section><section><para>
 #: chapter-common-tasks.dbk:206
@@ -2280,10 +2278,10 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:220
 msgid ""
-"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync "
+"<prompt>#</prompt> <userinput>apt-get install build-essential rsync "
 "git</userinput>"
 msgstr ""
-"<prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync "
+"<prompt>#</prompt> <userinput>apt-get install build-essential rsync "
 "git</userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
@@ -2372,10 +2370,10 @@ msgstr ""
 #. type: Content of: <chapter><section><variablelist><varlistentry><term>
 #: chapter-common-tasks.dbk:271
 msgid ""
-"<prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</"
+"<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no debian/rules <replaceable>target</"
 "replaceable></userinput>"
 msgstr ""
-"<prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</"
+"<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no debian/rules <replaceable>target</"
 "replaceable></userinput>"
 
 #. type: Content of: <chapter><section><variablelist><varlistentry><listitem><para>
