@@ -20,284 +20,6 @@ The unpacked source tree then will be available in
 </para>
 </section>
 
-<section id="s-common-official"><title>Rebuilding official Debian kernel packages</title>
-<para>
-You can build all or selected kernel packages by following these instructions.
-You may be asked to do this in order to test a potential bug fix.
-</para>
-<section id="s4.2.1"><title>Preparation</title>
-<para>
-Run the following commands:
-</para>
-<variablelist>
-<varlistentry>
-<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</userinput></term>
-<term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
-<listitem>
-<para>
-This will install the packages required by the kernel build process.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><prompt>$</prompt> <userinput>apt-get source linux</userinput></term>
-<listitem>
-<para>
-This will download and unpack the <package>linux</package> source package,
-making the tree available in the
-<filename>linux-<replaceable>version</replaceable></filename> directory.  As always,
-the revision part of the version of this package (for example, 1 in 3.2.19-1)
-will determine its patchlevel with respect to the original upstream kernel
-source.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><prompt>$</prompt> <userinput>cd linux-<replaceable>version</replaceable></userinput></term>
-<listitem>
-<para>
-Enter the source directory.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
-<section id="s-common-size"><title>Disk space requirements</title>
-<para>
-Building binary packages for a single kernel flavour requires up to
-15 GB space in the package directory and 300 MB in
-<filename>/tmp</filename> (or <envar>$TMPDIR</envar>).
-</para>
-<para>
-Building with debug info disabled requires about 2 GB and 25 MB respectively.
-You can disable debug info by changing the value of
-<literal>debug-info</literal> to <literal>false</literal> in
-<filename>debian/config/<replaceable>arch</replaceable>/defines</filename>,
-if it's set there, or in
-<filename>debian/config/defines</filename> otherwise.
-</para>
-<para>
-Building all binary packages for i386 or amd64 currently requires
-about 50 GB space in the package directory.  Other architectures with
-fewer drivers will require less space.
-</para>
-</section>
-
-</section>
-
-<section id="s4.2.2"><title>Simple patching and building</title>
-<para>
-The source package includes a script to simplify the process of building with
-extra patches.  You can use this by running commands such as:
-</para>
-<screen>
-<prompt>#</prompt> <userinput>apt-get install devscripts</userinput>
-<prompt>$</prompt> <userinput>bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch</userinput>
-</screen>
-<para>
-This script has options to control the flavour, featureset, etc.  For a summary
-of the options, run:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>bash debian/bin/test-patches</userinput>
-</screen>
-<para>
-However, if you need to change the configuration or make other changes, you
-should not use this script and should follow the instructions below.
-</para>
-</section>
-
-<section id="s4.2.3"><title>Applying patches or configuration changes</title>
-<para>
-It is possible to apply extra patches to the source before starting the build.
-In the <package>linux</package> source package, the default (non-featureset)
-patches are automatically applied in the top level directory.
-</para>
-<para>
-The patched source appears in the following directories.
-</para>
-<variablelist>
-<varlistentry>
-<term>default source:</term>
-<listitem>
-<para>
-top level
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>source with featureset:</term>
-<listitem>
-<para>
-<filename>debian/build/source_<replaceable>featureset</replaceable></filename>
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
-<para>
-You should apply the extra patches in the appropriate directory.  In the
-<package>linux</package> source package you can use the
-<command>quilt</command> utility to do this.
-</para>
-<para>
-To change the configuration before building, for example for the 686-pae
-flavour on i386, run the commands:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>
-<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae nconfig</userinput>
-</screen>
-<para>
-If the patches or configuration changes alter type definitions for the kernel,
-you may need to change the ABI name; see <xref linkend="s-abi-name"/>.
-</para>
-</section>
-
-<section id="s4.2.4"><title>Building many packages</title>
-<para>
-To build all possible packages for this architecture, run:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>
-</screen>
-<para>
-To build all architecture-dependent packages, run:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>
-</screen>
-<para>
-To build all architecture-independent packages, run:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>
-</screen>
-</section>
-
-<section id="s4.2.5"><title>Building packages for one flavour</title>
-<para>
-For example, to build only the binary packages for 686-pae flavour on i386
-architecture, use the following commands:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
-<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>
-</screen>
-<para>
-The target in this command has the general form of
-<literal><replaceable>target</replaceable>_<replaceable>arch</replaceable>_<replaceable>featureset</replaceable>_<replaceable>flavour</replaceable></literal>.
-Replace the <literal><replaceable>featureset</replaceable></literal> with
-<literal>none</literal> if you do not want any of the extra featuresets.  This
-command will build the linux image and kernel headers packages.  You may also
-need the <package>linux-headers-<replaceable>version</replaceable>-common</package>
-binary package, which can be built using the commands:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
-<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>
-</screen>
-<para>
-The target in this command has the general form of
-<literal><replaceable>target</replaceable>_<replaceable>arch</replaceable>_<replaceable>featureset</replaceable>_<replaceable>real</replaceable></literal>
-</para>
-</section>
-
-</section>
-
-<section id="s-common-official-vcs"><title>Building a development version of the Debian kernel package</title>
-<para>
-To build a kernel image based on the kernel team's unreleased development
-version:
-</para>
-<variablelist>
-<varlistentry>
-<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync git</userinput></term>
-<term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
-<listitem>
-<para>
-The last two commands will install the build dependencies required by the
-kernel build process.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --single-branch https://salsa.debian.org/kernel-team/linux.git</userinput></term>
-<listitem>
-<para>
-This will check out the Debian packaging.  <replaceable>dist</replaceable> is
-normally the distribution codename such as <literal>wheezy</literal> or
-<literal>sid</literal> (unstable).  For the very latest version, usually based
-on an upstream release candidate, use <literal>master</literal>.  Note that
-this will download several hundred megabytes of data.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><prompt>$</prompt> <userinput>apt-get source -d linux</userinput></term>
-<listitem>
-<para>
-This will download the <package>linux</package> upstream source (and the last
-released Debian patches).  Depending on which version you are trying to build,
-you might need to override APT's version selection or download a tarball from
-<ulink url="https://people.debian.org">people.debian.org</ulink> instead.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><prompt>$</prompt> <userinput>cd linux</userinput></term>
-<term><prompt>$</prompt> <userinput>debian/rules orig</userinput></term>
-<listitem>
-<para>
-This unpacks the upstream source and merges it with the Debian packaging.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><prompt>$</prompt> <userinput>debian/rules debian/control</userinput></term>
-<listitem>
-<para>
-This generates a Debian package control file based on the current definitions
-of the various kernel flavours which can be built.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</replaceable></userinput></term>
-<listitem>
-<para>
-Finally, build binary packages as explained in <xref
-linkend="s-common-official"/>.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
-</section>
-
-<section id="s-gen-orig"><title>Generating orig tarball from newer upstream</title>
-<para>
-First you must add a changelog entry for the new upstream version.  If the new
-version is a release candidate, change the string <literal>-rc</literal> to
-<literal>~rc</literal>.  (In Debian package versions, a suffix beginning with
-<literal>~</literal> indicates a pre-release.)
-</para>
-<para>
-The 'orig' tarball is generated by the <command>genorig.py</command>
-script, which requires an upstream Git repository.  For Debian 12
-"bookworm" onward, this can be a remote repository; for older stable
-branches it must be local.  Run:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>debian/bin/genorig.py <replaceable>repository</replaceable></userinput>
-</screen>
-<para>
-This will generate a file such as
-<filename>../orig/linux_5.19~rc6.orig.tar.xz</filename>.  You can then combine
-this tarball with the Debian packaging by running:
-</para>
-<screen>
-<prompt>$</prompt> <userinput>debian/rules orig</userinput>
-</screen>
-</section>
-
 <section id="s-common-building"><title>Building a custom kernel from Debian kernel source</title>
 <para>
 This section describes the simplest possible procedure to build a custom kernel
@@ -544,6 +266,284 @@ page, under "MOK - Machine Owner Key"</ulink>.
 </para>
 </section>
 
+</section>
+
+<section id="s-common-official"><title>Rebuilding official Debian kernel packages</title>
+<para>
+You can build all or selected kernel packages by following these instructions.
+You may be asked to do this in order to test a potential bug fix.
+</para>
+<section><title>Preparation</title>
+<para>
+Run the following commands:
+</para>
+<variablelist>
+<varlistentry>
+<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot</userinput></term>
+<term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
+<listitem>
+<para>
+This will install the packages required by the kernel build process.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>apt-get source linux</userinput></term>
+<listitem>
+<para>
+This will download and unpack the <package>linux</package> source package,
+making the tree available in the
+<filename>linux-<replaceable>version</replaceable></filename> directory.  As always,
+the revision part of the version of this package (for example, 1 in 3.2.19-1)
+will determine its patchlevel with respect to the original upstream kernel
+source.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>cd linux-<replaceable>version</replaceable></userinput></term>
+<listitem>
+<para>
+Enter the source directory.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<section id="s-common-size"><title>Disk space requirements</title>
+<para>
+Building binary packages for a single kernel flavour requires up to
+15 GB space in the package directory and 300 MB in
+<filename>/tmp</filename> (or <envar>$TMPDIR</envar>).
+</para>
+<para>
+Building with debug info disabled requires about 2 GB and 25 MB respectively.
+You can disable debug info by changing the value of
+<literal>debug-info</literal> to <literal>false</literal> in
+<filename>debian/config/<replaceable>arch</replaceable>/defines</filename>,
+if it's set there, or in
+<filename>debian/config/defines</filename> otherwise.
+</para>
+<para>
+Building all binary packages for i386 or amd64 currently requires
+about 50 GB space in the package directory.  Other architectures with
+fewer drivers will require less space.
+</para>
+</section>
+
+</section>
+
+<section><title>Simple patching and building</title>
+<para>
+The source package includes a script to simplify the process of building with
+extra patches.  You can use this by running commands such as:
+</para>
+<screen>
+<prompt>#</prompt> <userinput>apt-get install devscripts</userinput>
+<prompt>$</prompt> <userinput>bash debian/bin/test-patches ../fix-bug123456.patch ../add-foo-driver.patch</userinput>
+</screen>
+<para>
+This script has options to control the flavour, featureset, etc.  For a summary
+of the options, run:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>bash debian/bin/test-patches</userinput>
+</screen>
+<para>
+However, if you need to change the configuration or make other changes, you
+should not use this script and should follow the instructions below.
+</para>
+</section>
+
+<section><title>Applying patches or configuration changes</title>
+<para>
+It is possible to apply extra patches to the source before starting the build.
+In the <package>linux</package> source package, the default (non-featureset)
+patches are automatically applied in the top level directory.
+</para>
+<para>
+The patched source appears in the following directories.
+</para>
+<variablelist>
+<varlistentry>
+<term>default source:</term>
+<listitem>
+<para>
+top level
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>source with featureset:</term>
+<listitem>
+<para>
+<filename>debian/build/source_<replaceable>featureset</replaceable></filename>
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para>
+You should apply the extra patches in the appropriate directory.  In the
+<package>linux</package> source package you can use the
+<command>quilt</command> utility to do this.
+</para>
+<para>
+To change the configuration before building, for example for the 686-pae
+flavour on i386, run the commands:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>
+<prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae nconfig</userinput>
+</screen>
+<para>
+If the patches or configuration changes alter type definitions for the kernel,
+you may need to change the ABI name; see <xref linkend="s-abi-name"/>.
+</para>
+</section>
+
+<section><title>Building many packages</title>
+<para>
+To build all possible packages for this architecture, run:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>fakeroot debian/rules binary</userinput>
+</screen>
+<para>
+To build all architecture-dependent packages, run:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>fakeroot debian/rules binary-arch</userinput>
+</screen>
+<para>
+To build all architecture-independent packages, run:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>fakeroot debian/rules binary-indep</userinput>
+</screen>
+</section>
+
+<section><title>Building packages for one flavour</title>
+<para>
+For example, to build only the binary packages for 686-pae flavour on i386
+architecture, use the following commands:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
+<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_686-pae</userinput>
+</screen>
+<para>
+The target in this command has the general form of
+<literal><replaceable>target</replaceable>_<replaceable>arch</replaceable>_<replaceable>featureset</replaceable>_<replaceable>flavour</replaceable></literal>.
+Replace the <literal><replaceable>featureset</replaceable></literal> with
+<literal>none</literal> if you do not want any of the extra featuresets.  This
+command will build the linux image and kernel headers packages.  You may also
+need the <package>linux-headers-<replaceable>version</replaceable>-common</package>
+binary package, which can be built using the commands:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>fakeroot debian/rules source</userinput>
+<prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen binary-arch_i386_none_real</userinput>
+</screen>
+<para>
+The target in this command has the general form of
+<literal><replaceable>target</replaceable>_<replaceable>arch</replaceable>_<replaceable>featureset</replaceable>_<replaceable>real</replaceable></literal>
+</para>
+</section>
+
+</section>
+
+<section id="s-common-official-vcs"><title>Building a development version of the Debian kernel package</title>
+<para>
+To build a kernel image based on the kernel team's unreleased development
+version:
+</para>
+<variablelist>
+<varlistentry>
+<term><prompt>#</prompt> <userinput>apt-get install build-essential fakeroot rsync git</userinput></term>
+<term><prompt>#</prompt> <userinput>apt-get build-dep linux</userinput></term>
+<listitem>
+<para>
+The last two commands will install the build dependencies required by the
+kernel build process.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>git clone -b <replaceable>dist</replaceable> --single-branch https://salsa.debian.org/kernel-team/linux.git</userinput></term>
+<listitem>
+<para>
+This will check out the Debian packaging.  <replaceable>dist</replaceable> is
+normally the distribution codename such as <literal>wheezy</literal> or
+<literal>sid</literal> (unstable).  For the very latest version, usually based
+on an upstream release candidate, use <literal>master</literal>.  Note that
+this will download several hundred megabytes of data.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>apt-get source -d linux</userinput></term>
+<listitem>
+<para>
+This will download the <package>linux</package> upstream source (and the last
+released Debian patches).  Depending on which version you are trying to build,
+you might need to override APT's version selection or download a tarball from
+<ulink url="https://people.debian.org">people.debian.org</ulink> instead.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>cd linux</userinput></term>
+<term><prompt>$</prompt> <userinput>debian/rules orig</userinput></term>
+<listitem>
+<para>
+This unpacks the upstream source and merges it with the Debian packaging.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>debian/rules debian/control</userinput></term>
+<listitem>
+<para>
+This generates a Debian package control file based on the current definitions
+of the various kernel flavours which can be built.
+</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>fakeroot debian/rules <replaceable>target</replaceable></userinput></term>
+<listitem>
+<para>
+Finally, build binary packages as explained in <xref
+linkend="s-common-official"/>.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+
+<section id="s-gen-orig"><title>Generating orig tarball from newer upstream</title>
+<para>
+First you must add a changelog entry for the new upstream version.  If the new
+version is a release candidate, change the string <literal>-rc</literal> to
+<literal>~rc</literal>.  (In Debian package versions, a suffix beginning with
+<literal>~</literal> indicates a pre-release.)
+</para>
+<para>
+The 'orig' tarball is generated by the <command>genorig.py</command>
+script, which requires an upstream Git repository.  For Debian 12
+"bookworm" onward, this can be a remote repository; for older stable
+branches it must be local.  Run:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>debian/bin/genorig.py <replaceable>repository</replaceable></userinput>
+</screen>
+<para>
+This will generate a file such as
+<filename>../orig/linux_5.19~rc6.orig.tar.xz</filename>.  You can then combine
+this tarball with the Debian packaging by running:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>debian/rules orig</userinput>
+</screen>
 </section>
 
 </chapter>

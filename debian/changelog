@@ -1,3 +1,11 @@
+kernel-handbook (1.0.21) UNRELEASED; urgency=medium
+
+  * Try to reduce pain points in rebuilding official kernel packages
+    (Closes: #1022061):
+    - Reorder sections in "Common kernel-related tasks" to reduce confusion
+
+ -- Ben Hutchings <benh@debian.org>  Mon, 01 May 2023 22:48:21 +0200
+
 kernel-handbook (1.0.20) unstable; urgency=medium
 
   [ Tomasz Warniełło ]
