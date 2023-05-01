@@ -5,8 +5,7 @@
 <title>Common kernel-related tasks</title>
 <section id="s-common-getting"><title>Obtaining the Debian kernel source</title>
 <para>
-To get the Debian kernel source at the current maximum patchlevel, it is
-sufficient to install the latest
+To get the Debian kernel source, it is sufficient to install the latest
 <package>linux-source-<replaceable>version</replaceable></package> package and unpack
 the source, for example:
 </para>
@@ -293,10 +292,7 @@ This will install the packages required by the kernel build process.
 <para>
 This will download and unpack the <package>linux</package> source package,
 making the tree available in the
-<filename>linux-<replaceable>version</replaceable></filename> directory.  As always,
-the revision part of the version of this package (for example, 1 in 3.2.19-1)
-will determine its patchlevel with respect to the original upstream kernel
-source.
+<filename>linux-<replaceable>version</replaceable></filename> directory.
 </para>
 </listitem>
 </varlistentry>

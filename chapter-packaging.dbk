@@ -22,11 +22,8 @@ of the binary packages built from these source packages.
 <term><package>linux-source-<replaceable>version</replaceable></package></term>
 <listitem>
 <para>
-This package contains the Debian kernel source tarball.  The patchlevel of the
-source is determined by the Debian revision of the package, for example the
-version 4.2.5-1 of the package <package>linux-source-4.2</package> contains
-the version 4.2.5 of the Debian kernel source patched to patchlevel 1.  Once
-the package is installed, the source tarball is available at
+This package contains the Debian kernel source tarball.  Once the
+package is installed, the source tarball is available at
 <filename>/usr/src/linux-source-<replaceable>version</replaceable>.tar.xz</filename>.
 </para>
 </listitem>
