@@ -5,6 +5,7 @@ kernel-handbook (1.0.21) UNRELEASED; urgency=medium
     - Reorder sections in "Common kernel-related tasks" to reduce confusion
   * Remove obsolete text referring to "patchlevels" in source packages
   * Remove redundant "bash" from debian/bin/test-patches command lines
+  * Update instructions for disabling debug info (Closes: #1023773)
 
  -- Ben Hutchings <benh@debian.org>  Mon, 01 May 2023 22:48:21 +0200
 

@@ -313,7 +313,14 @@ Building binary packages for a single kernel flavour requires up to
 </para>
 <para>
 Building with debug info disabled requires about 2 GB and 25 MB respectively.
-You can disable debug info by changing the value of
+In packages of kernel version 5.17 or later, you can disable building
+debug info through build profiles:
+</para>
+<screen>
+<prompt>$</prompt> <userinput>export DEB_BUILD_PROFILES='pkg.linux.nokerneldbg pkg.linux.nokerneldbginfo'</userinput>
+</screen>
+<para>
+In older package versions, you must change the value of
 <literal>debug-info</literal> to <literal>false</literal> in
 <filename>debian/config/<replaceable>arch</replaceable>/defines</filename>,
 if it's set there, or in
