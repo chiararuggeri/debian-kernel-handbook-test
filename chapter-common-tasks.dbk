@@ -420,6 +420,11 @@ You should apply the extra patches in the appropriate directory.  In the
 <command>quilt</command> utility to do this.
 </para>
 <para>
+You should also change the ABI name so that the resulting packages are
+co-installable with the current kernel packages; see <xref
+linkend="s-abi-name"/>.
+</para>
+<para>
 To change the configuration before building, for example for the 686-pae
 flavour on i386, run the commands:
 </para>
@@ -427,10 +432,6 @@ flavour on i386, run the commands:
 <prompt>$</prompt> <userinput>fakeroot make -f debian/rules.gen setup_i386_none_686-pae</userinput>
 <prompt>$</prompt> <userinput>make -C debian/build/build_i386_none_686-pae nconfig</userinput>
 </screen>
-<para>
-If the patches or configuration changes alter type definitions for the kernel,
-you may need to change the ABI name; see <xref linkend="s-abi-name"/>.
-</para>
 </section>
 
 <section><title>Building many packages</title>

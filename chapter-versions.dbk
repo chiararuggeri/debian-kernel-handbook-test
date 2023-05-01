@@ -67,7 +67,18 @@ In official kernel packages, we change the <replaceable>abiname</replaceable>
 part of the kernel version to mark ABI changes that aren't due to a new
 upstream version.  This part comes from the <literal>abiname</literal> setting
 in <filename>debian/config/defines</filename>.  We use either a number or 'trunk'
-(for experimental), but for a custom package it should be some other string.
+(for experimental).
+</para>
+<para>
+If you are rebuilding the package with local modifications, you should
+change the ABI name to some other string, for example
+<userinput>0.local</userinput>.  Then run the command
+</para>
+<screen>
+<prompt>$</prompt> <userinput>debian/rules debian/control-real</userinput>
+</screen>
+<para>
+to regenerate the package definitions for this ABI name.
 </para>
 </section>
 
