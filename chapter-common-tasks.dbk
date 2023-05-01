@@ -304,6 +304,14 @@ Enter the source directory.
 </para>
 </listitem>
 </varlistentry>
+<varlistentry>
+<term><prompt>$</prompt> <userinput>export MAKEFLAGS=-j$(nproc)</userinput></term>
+<listitem>
+<para>
+Enable parallel builds using one job per CPU by default.
+</para>
+</listitem>
+</varlistentry>
 </variablelist>
 <section id="s-common-size"><title>Disk space requirements</title>
 <para>
