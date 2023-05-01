@@ -3,6 +3,7 @@ kernel-handbook (1.0.21) UNRELEASED; urgency=medium
   * Try to reduce pain points in rebuilding official kernel packages
     (Closes: #1022061):
     - Reorder sections in "Common kernel-related tasks" to reduce confusion
+    - Deprecate older versions of test-patches
   * Remove obsolete text referring to "patchlevels" in source packages
   * Remove redundant "bash" from debian/bin/test-patches command lines
   * Update instructions for disabling debug info (Closes: #1023773)

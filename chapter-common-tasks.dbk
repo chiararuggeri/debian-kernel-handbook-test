@@ -355,6 +355,36 @@ of the options, run:
 However, if you need to change the configuration or make other changes, you
 should not use this script and should follow the instructions below.
 </para>
+<warning>
+<para>
+Older versions of the <command>test-patches</command> script (before
+package version 6.1.27-1), have some important bugs and limitations:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+The <package>linux-image</package> package it builds will usually
+replace or conflict with the currently installed kernel package.
+</para>
+</listitem>
+<listitem>
+<para>
+The <package>linux-headers</package> package it builds won't be
+installable.
+</para>
+</listitem>
+<listitem>
+<para>
+In package versions from 5.17 onward, it is not possible to disable
+building debug info.
+</para>
+</listitem>
+</itemizedlist>
+<para>
+To avoid these bugs in older versions of the source package, follow
+the instructions below.
+</para>
+</warning>
 </section>
 
 <section><title>Applying patches or configuration changes</title>
