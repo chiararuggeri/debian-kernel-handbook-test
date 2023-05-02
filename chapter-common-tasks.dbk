@@ -483,11 +483,11 @@ binary package, which can be built using the commands:
 </para>
 <screen>
 <prompt>$</prompt> <userinput>debian/rules source</userinput>
-<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-arch_i386_none_real</userinput>
+<prompt>$</prompt> <userinput>DEB_RULES_REQUIRES_ROOT=no make -f debian/rules.gen binary-indep_none_real</userinput>
 </screen>
 <para>
 The target in this command has the general form of
-<literal><replaceable>target</replaceable>_<replaceable>arch</replaceable>_<replaceable>featureset</replaceable>_<replaceable>real</replaceable></literal>
+<literal>binary-indep_<replaceable>featureset</replaceable>_real</literal>
 </para>
 </section>
 
