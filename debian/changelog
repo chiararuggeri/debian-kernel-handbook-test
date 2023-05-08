@@ -1,4 +1,4 @@
-kernel-handbook (1.0.21) UNRELEASED; urgency=medium
+kernel-handbook (1.0.21) unstable; urgency=medium
 
   * Try to reduce pain points in rebuilding official kernel packages
     (Closes: #1022061):
@@ -13,7 +13,7 @@ kernel-handbook (1.0.21) UNRELEASED; urgency=medium
   * Update instructions for building linux-headers-common package
   * Update copyright years
 
- -- Ben Hutchings <benh@debian.org>  Mon, 01 May 2023 22:48:21 +0200
+ -- Ben Hutchings <benh@debian.org>  Mon, 08 May 2023 23:17:30 +0200
 
 kernel-handbook (1.0.20) unstable; urgency=medium
 
