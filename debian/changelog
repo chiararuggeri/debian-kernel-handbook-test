@@ -11,6 +11,7 @@ kernel-handbook (1.0.21) UNRELEASED; urgency=medium
   * Remove redundant "bash" from debian/bin/test-patches command lines
   * Update instructions for disabling debug info (Closes: #1023773)
   * Update instructions for building linux-headers-common package
+  * Update copyright years
 
  -- Ben Hutchings <benh@debian.org>  Mon, 01 May 2023 22:48:21 +0200
 
