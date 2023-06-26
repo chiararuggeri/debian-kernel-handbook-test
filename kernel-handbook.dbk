@@ -25,7 +25,8 @@
 <legalnotice>
 <para>
 This handbook is free software; you may redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
+the terms of the <ulink url="https://www.gnu.org/copyleft/gpl.html">GNU General
+Public License</ulink> as published by the Free Software
 Foundation; either version 2, or (at your option) any later version.
 </para>
 <para>
@@ -33,14 +34,6 @@ This is distributed in the hope that it will be useful, but <emphasis>without
 any warranty</emphasis>; without even the implied warranty of merchantability
 or fitness for a particular purpose.  See the GNU General Public License for
 more details.
-</para>
-<para>
-A copy of the GNU General Public License is available as
-<filename>/usr/share/common-licenses/GPL</filename> in the Debian GNU/Linux
-distribution or on the World Wide Web at <ulink
-url="https://www.gnu.org/copyleft/gpl.html">the GNU General Public
-Licence</ulink>.  You can also obtain it by writing to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 </para>
 </legalnotice>
 

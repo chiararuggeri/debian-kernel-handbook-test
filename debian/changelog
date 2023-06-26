@@ -1,3 +1,9 @@
+kernel-handbook (1.0.22) UNRELEASED; urgency=medium
+
+  * Just link to the GNU GPL without mentioning a filename or mailing address
+
+ -- Ben Hutchings <benh@debian.org>  Mon, 26 Jun 2023 18:07:00 +0200
+
 kernel-handbook (1.0.21) unstable; urgency=medium
 
   * Try to reduce pain points in rebuilding official kernel packages
