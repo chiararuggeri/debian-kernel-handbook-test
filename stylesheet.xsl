@@ -13,4 +13,5 @@
 <!-- Put each <term> on a separate line, with no other separator -->
 <param name="variablelist.term.break.after">1</param>
 <param name="variablelist.term.separator"/>
+<param name="html.stylesheet">debian.css</param>
 </stylesheet>

@@ -17,7 +17,7 @@ LANG_EN := en
 LANGS := $(LANG_EN) $(LANG_PO)
 
 DOCBOOK_SOURCES := kernel-handbook.dbk $(wildcard chapter-*.dbk)
-SOURCES := $(DOCBOOK_SOURCES) stylesheet.xsl version.ent
+SOURCES := $(DOCBOOK_SOURCES) $(wildcard static/*.css static/Pics/*) stylesheet.xsl version.ent
 
 # Ensure xmlto uses UTF-8 and not numbered entities
 unexport LC_ALL
@@ -27,6 +27,7 @@ all: $(patsubst %,stamps/build-%,$(LANGS))
 
 stamps/build-en: $(SOURCES)
 	xmlto -o kernel-handbook.html -m stylesheet.xsl html kernel-handbook.dbk
+	cp -R static/* kernel-handbook.html/
 	mkdir -p $(@D)
 	touch $@
 
@@ -37,6 +38,7 @@ stamps/build-%: $(SOURCES) po4a/kernel-handbook.%.po
 		po4a-translate -f docbook -m "$$src" -p po4a/kernel-handbook.$*.po -k 0 -l kernel-handbook.$*.dbk/"$$src" || exit; \
 	done
 	xmlto -o kernel-handbook.$*.html -m stylesheet.xsl html kernel-handbook.$*.dbk/kernel-handbook.dbk
+	cp -R static/* kernel-handbook.$*.html/
 	mkdir -p $(@D)
 	touch $@
 
