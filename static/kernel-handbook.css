@@ -1,0 +1,15 @@
+@import url('debian.css');
+
+/* Duplicate the #content rule, because we use different ids */
+div.book, div.chapter {
+	margin: 0 10px 0 52px;
+}
+
+/* DocBook sets the "toc" class on both div and dl elements in a table
+ * of contents. Override the properties we don't want to duplicate on
+ * the dl. */
+div.toc dl.toc {
+	border-bottom: none;
+	margin: 0;
+	max-width: 100%;
+}

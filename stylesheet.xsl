@@ -13,5 +13,5 @@
 <!-- Put each <term> on a separate line, with no other separator -->
 <xsl:param name="variablelist.term.break.after">1</xsl:param>
 <xsl:param name="variablelist.term.separator"/>
-<xsl:param name="html.stylesheet">debian.css</xsl:param>
+<xsl:param name="html.stylesheet">kernel-handbook.css</xsl:param>
 </xsl:stylesheet>
