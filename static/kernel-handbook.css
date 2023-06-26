@@ -13,3 +13,20 @@ div.toc dl.toc {
 	margin: 0;
 	max-width: 100%;
 }
+
+/* Layout custom navigation footer */
+#footer-nav {
+	display: flex;
+	flex-flow: row wrap;
+}
+#prev-link {
+	flex: 1 1 auto;
+}
+#home-link {
+	flex: 1 1 auto;
+	text-align: center;
+}
+#next-link {
+	flex: 1 1 auto;
+	text-align: right;
+}

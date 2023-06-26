@@ -5,6 +5,8 @@ kernel-handbook (1.0.22) UNRELEASED; urgency=medium
   * stylesheet.xsl: Use namespaced tags to allow embedding un-namespaced HTML
   * Add/override some stylesheet rules to work better for DocBook-generated
     HTML
+  * Use Debian-style navigation header and footer instead of standard DocBook
+    ones
 
  -- Ben Hutchings <benh@debian.org>  Mon, 26 Jun 2023 18:07:00 +0200
 
