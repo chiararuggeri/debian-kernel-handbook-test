@@ -25,22 +25,35 @@
 <legalnotice>
 <para>
 This handbook is free software; you may redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
+the terms of the <ulink url="https://www.gnu.org/copyleft/gpl.html">GNU General
+Public License</ulink> as published by the Free Software
 Foundation; either version 2, or (at your option) any later version.
+</para>
+<para>
+The Debian stylesheet is © 2011 Kalle Söderman and is licensed under the
+<ulink url="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU
+General Public License</ulink> as published by the Free Software Foundation,
+version 2.
+</para>
+<para>
+The admonition icons are © 2011, Software in the Public Interest, Inc.,
+and others and are licensed under the <ulink
+url="https://www.debian.org/opl">Open Publication License</ulink>,
+Draft v1.0 or later.
+</para>
+<para>
+The Debian Open Use logos are © 1999 Software in the Public Interest,
+Inc. and are released under the terms of the <ulink
+url="https://www.gnu.org/licenses/lgpl.html">GNU Lesser General Public
+License</ulink>, version 3 or any later version, or, at your option,
+of the <ulink
+url="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+Attribution-ShareAlike 3.0 Unported License</ulink>.
 </para>
 <para>
 This is distributed in the hope that it will be useful, but <emphasis>without
 any warranty</emphasis>; without even the implied warranty of merchantability
-or fitness for a particular purpose.  See the GNU General Public License for
-more details.
-</para>
-<para>
-A copy of the GNU General Public License is available as
-<filename>/usr/share/common-licenses/GPL</filename> in the Debian GNU/Linux
-distribution or on the World Wide Web at <ulink
-url="https://www.gnu.org/copyleft/gpl.html">the GNU General Public
-Licence</ulink>.  You can also obtain it by writing to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+or fitness for a particular purpose.  See the license texts for more details.
 </para>
 </legalnotice>
 
