@@ -1,5 +1,6 @@
-kernel-handbook (1.0.22) UNRELEASED; urgency=medium
+kernel-handbook (1.0.22ubuntu1) jammy; urgency=medium
 
+  [ Ben Hutchings ]
   * Just link to the GNU GPL without mentioning a filename or mailing address
   * Add and apply Debian stylesheet to HTML output
   * stylesheet.xsl: Use namespaced tags to allow embedding un-namespaced HTML
@@ -8,7 +9,10 @@ kernel-handbook (1.0.22) UNRELEASED; urgency=medium
   * Use Debian-style navigation header and footer instead of standard DocBook
     ones
 
- -- Ben Hutchings <benh@debian.org>  Mon, 26 Jun 2023 18:07:00 +0200
+  [ Chiara Ruggeri ]
+  * Added testing script for test purpose
+
+ -- Chiara Ruggeri <chiara.2312@hotmail.it>  Sat, 20 Jan 2024 19:26:52 +0100
 
 kernel-handbook (1.0.21) unstable; urgency=medium
 
